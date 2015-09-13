@@ -1,7 +1,8 @@
-console.log("Test Jahahahh");
-
+// menu = require ('./menu');
 var fs = require('fs');
 var Vue = require('vue');
+
+
 
 new Vue({
   el: 'body',
@@ -10,5 +11,10 @@ new Vue({
   },
   components: {
     home : require('./components/home')
+  },
+
+  ready: function(){
+    console.log("Ready");
   }
+
 });

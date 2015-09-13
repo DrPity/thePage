@@ -4,7 +4,8 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "modernizr": "~2.8.1",
-    "foundation": "*"
+    "foundation": "*",
+    "p5js": "0.4.9"
   },
   "devDependencies": {
     "chai": "~3.2.0",
