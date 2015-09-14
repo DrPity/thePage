@@ -22,6 +22,7 @@ gulp.task('serve', ['clean', 'jshint', 'browserify', 'html' ,'img', 'watch', 'fo
       './app/src/components/**/*.js',
       './app/src/components/**/*.html',
       './app/scripts/**/*.js',
+      './app/src/**/*.js',
       './app/images/**/*',
       '.tmp/fonts/**/*'
     ]).on('change', reload);

@@ -1,8 +1,6 @@
 // menu = require ('./menu');
-var fs = require('fs');
+// var fs = require('fs');
 var Vue = require('vue');
-
-
 
 new Vue({
   el: 'body',
@@ -14,7 +12,8 @@ new Vue({
   },
 
   ready: function(){
-    console.log("Ready");
+    // var p5Init = require('./menu.js');
+    // p5Init.init();
   }
 
 });
