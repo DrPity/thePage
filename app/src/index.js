@@ -14,6 +14,7 @@ new Vue({
   ready: function(){
     // var p5Init = require('./menu.js');
     // p5Init.init();
+    console.log("Vue Init");
   }
 
 });

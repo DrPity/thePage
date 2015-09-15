@@ -13,6 +13,8 @@ body {
   position:fixed;
   text-align: center;
   z-index:-1;
+  background: url(../images/home.jpg) no-repeat;
+  display: none;
   //x-Achses right: transform: matrix3d(0.99068874576641, 0, 0.136146277994579, 0, -0.00949319195941821, 0.997566048996531, 0.0690786305298062, 0, -0.135814904624635, -0.0697278845903978, 0.988277457899526, 0, 0, 0, 0, 1);
   // x-Achses left: transform: matrix3d(0.99026806874157, 0, -0.139173100960065, 0, 0.00918692989706564, 0.997818907533004, 0.0653684028312472, 0, 0.138869551557953, -0.0660108155504975, 0.988108202516532, 0, 0, 0, 0, 1);
   //y-Achses down: matrix3d(0.99999675742061, 0, 0.00254659542652713, 0, -0.000212657169813963, 0.996507235845708, 0.0835061894956019, 0, -0.00253770076930587, -0.083506460271929, 0.996504004591882, 0, 0, 0, 0, 1);
@@ -25,3 +27,67 @@ body {
   height:100%;
   position:fixed;
 }
+
+
+#state {
+  color: rgb(200,200,200);
+  font-family: Monaco;
+  font-size: 12px;
+  line-height: 1em;
+  padding: 20px;
+  text-align: center;
+}
+
+#progress {
+  font-size: 50px;
+  left: 50%;
+  letter-spacing: 0.1em;
+  margin: -25px 0 0 -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 200px;
+}
+
+#progressbar {
+  left: 10%;
+  position: absolute;
+  text-align: center;
+  top: 55%;
+  right: 10%;
+
+  .bar {
+    background-color: cyan;
+    height: 1px;
+    display: inline-block;
+    width: 0%;
+  }
+
+  .bar.complete {
+
+  }
+
+}
+
+// .preloader {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     z-index: 200;
+//     background: #000;
+// }
+//
+// .stripe-wrapper {
+//     position: absolute;
+//     width: 74%;
+//     height: 170px;
+//     left: 13%;
+//     top: 50%;
+//     margin-top: -85px;
+//     overflow: hidden;
+// }
+//
+//
+// .stripe-wrapper .white {
+//     background: #fff;
+// }

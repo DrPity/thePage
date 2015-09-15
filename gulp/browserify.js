@@ -22,7 +22,7 @@ gulp.task('browserify', function()
 {
     var b = browserify([
       './app/src/index.js',
-      './app/src/menu.js'
+      './app/src/preloader.js'
     ],
     {
         cache: {},
