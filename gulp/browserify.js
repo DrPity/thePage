@@ -20,10 +20,10 @@ var env = argv.env != "production";
 
 gulp.task('browserify', function()
 {
-    var b = browserify([
-      './app/src/index.js',
-      './app/src/preloader.js'
-    ],
+  var b = browserify([
+    './app/src/index.js',
+    './app/src/preloader.js'
+  ],
     {
         cache: {},
         packageCache: {},
@@ -38,11 +38,11 @@ gulp.task('browserify', function()
     var bundler = global.isWatching ? watchify(b) : b;
     // var bundler = watchify(b);
 
-    bundler.plugin(remapify, ['src', 'styles'].map(function(folder) {
+    bundler.plugin(remapify, ['components', 'scripts', 'src', 'styles'].map(function(folder) {
         return {
             src: './**/*.js',
             expose: folder,
-            cwd: process.cwd() + '/app/' + folder
+            cwd: process.cwd() + '/src/' + folder
         };
     }));
 

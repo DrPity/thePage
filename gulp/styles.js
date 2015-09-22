@@ -15,7 +15,7 @@ const reload = browserSync.reload;
 var env = argv.env != "production";
 
 gulp.task('styles', function() {
-    gulp.src('app/styles/*.scss')
+    gulp.src('app/styles/**/*.scss')
     .pipe(plumber())
     .pipe($.sourcemaps.init())
     .pipe(sass({

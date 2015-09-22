@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+#wrapper .bg{
+  background: url(../images/home.jpg) no-repeat;
+  width:100%;
+  height:100%;
+  position:fixed;
+  display: none;
+  // display: none;
+  //x-Achses right: transform: matrix3d(0.99068874576641, 0, 0.136146277994579, 0, -0.00949319195941821, 0.997566048996531, 0.0690786305298062, 0, -0.135814904624635, -0.0697278845903978, 0.988277457899526, 0, 0, 0, 0, 1);
+  // x-Achses left: transform: matrix3d(0.99026806874157, 0, -0.139173100960065, 0, 0.00918692989706564, 0.997818907533004, 0.0653684028312472, 0, 0.138869551557953, -0.0660108155504975, 0.988108202516532, 0, 0, 0, 0, 1);
+  //y-Achses down: matrix3d(0.99999675742061, 0, 0.00254659542652713, 0, -0.000212657169813963, 0.996507235845708, 0.0835061894956019, 0, -0.00253770076930587, -0.083506460271929, 0.996504004591882, 0, 0, 0, 0, 1);
+  //y-Achses up: transform: matrix3d(0.999075593897759, 0, -0.0429878782663356, 0, -0.00253026974684945, 0.998266242817557, -0.0588056645734666, 0, 0.0429133477236333, 0.0588600751861471, 0.997343439411034, 0, 0, 0, 0, 1);
+}
+
+#wrapper{
+
+  width:100%;
+  height:100%;
+  position:fixed;
+}
+
+
+
+#progress {
+  @include use-normal-font('Source Sans Pro', 400, #fff);
+  font-size: 20px;
+  left: 50%;
+  letter-spacing: 0.1em;
+  margin: -25px 0 0 -100px;
+  position: absolute;
+  text-align: center;
+  top: 48%;
+  width: 200px;
+}
+
+#progressbar {
+  left: 10%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  right: 10%;
+
+  .bar {
+    background-color: white;
+    height: 5rem;
+    width: 0%;
+  }
+
+  .bar.complete {
+
+  }
+
+  .msg {
+    text-align: center;
+    overflow: hidden;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+  }
+
+}
+
+
+.expand-transition {
+  transition: all 4s ease;
+  overflow: hidden;
+  width:100%;
+  height:100%;
+  position:fixed;
+  text-align: center;
+  z-index:-1;
+  background: url(../images/home.jpg) no-repeat;
+  opacity: 1;
+}
+.expand-enter, .expand-leave {
+  height: 0;
+  padding: 0 10px;
+  opacity: 0;
+}

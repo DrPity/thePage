@@ -1,55 +1,69 @@
-var queue        = new createjs.LoadQueue(),
-    $state       = $('#state'),
-    $progress    = $('#progress'),
-    $progressbar = $('#progressbar .bar');
+preloader = {};
 
+preloader.init = function() {
+  message = "LOOAOADDDDDDDDDIIIIIIIIIIINGNGNGNNGNGNG YEEHAHHHHH";
+  currentIndex = 0;
+  formerIndex = 0;
 
-queue.on('complete',     onComplete);
-queue.on('error',        onError);
-queue.on('fileload',     onFileLoad);
-queue.on('fileprogress', onFileProgress);
-queue.on('progress',     onProgress);
+  queue        = new createjs.LoadQueue();
+  $progress    = $('#progress');
+  $progressbar = $('#progressbar .bar');
 
+  queue.on('complete',     this.onComplete);
+  queue.on('error',        this.onError);
+  queue.on('fileload',     this.onFileLoad);
+  queue.on('fileprogress', this.onFileProgress);
+  queue.on('progress',     this.onProgress);
 
-queue.loadManifest([
-  {
-    id:   '1',
-    src:  './images/home.jpg'
-  }
-  // {
-  //   id: '2',
-  //   src: './images/home2.jpg'
-  // }
-]);
+  queue.loadManifest([
+    {
+      id:   '1',
+      src:  './images/home.jpg'
+    }
+    // {
+    //   id: '2',
+    //   src: './images/home2.jpg'
+    // }
+  ]);
+};
 
-
-
-function onComplete(event) {
+preloader.onComplete = function(event) {
   console.log('Complete', event);
-  $state.text( $state.text() + '[All loaded]' );
-  $progressbar.addClass('complete');
-}
+  $("#wrapper").delay( 800, function(){
+    $( "#loader" ).fadeOut( 2000, function() {
+      // Animation complete
+    });
+    $( ".bg" ).fadeIn( 2000, function() {
+      // Animation complete
+    });
+  });
+};
 
-function onError(event) {
-  console.log('Error', event);
-  $state.text( $state.text() + '[' + event.item.id + ' errored] ');
-}
+preloader.onError = function (event) {
+  // console.log('Error', event);
+};
 
-function onFileLoad(event) {
-  console.log('File loaded', event);
-  $(".bg").show("slow");
-}
+preloader.onFileLoad = function (event) {
 
-function onFileProgress(event) {
-  console.log('File progress', event);
-}
+};
 
-function onProgress(event) {
+preloader.onFileProgress = function (event) {
+};
+
+preloader.onProgress = function (event) {
   var progress = Math.round(event.loaded * 100);
-
-  console.log('General progress', Math.round(event.loaded) * 100, event);
-  $progress.text(progress + '%');
+  app.setVariable(app.mainView, 'text', progress + '%');
   $progressbar.css({
     'width': progress + '%'
   });
-}
+  currentIndex = Math.ceil(progress/2);
+  if (currentIndex < message.length) {
+      for ( var idx = formerIndex; idx < currentIndex; idx++){
+        $('.msg').append(message[idx]);
+        // console.log(idx);
+      }
+  }
+  formerIndex = currentIndex;
+};
+
+module.exports = preloader;
