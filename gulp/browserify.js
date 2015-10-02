@@ -1,11 +1,10 @@
 // Uncomment to debug browserify + shim
-// process.env.BROWSERIFYSHIM_DIAGNOSTICS = 1;
+// process.uglifyIt.BROWSERIFYSHIM_DIAGNOSTICS = 1;
 
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
     notify = require("gulp-notify"),
-    argv = require('yargs').argv,
     browserify = require('browserify'),
     watchify = require('watchify'),
     remapify = require('remapify'),
@@ -16,20 +15,19 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     stringify = require('stringify');
 
-var env = argv.env != "production";
+var uglifyIt = false;
 
 gulp.task('browserify', function()
 {
   var b = browserify([
-    './app/src/index.js',
-    './app/src/preloader.js'
+    './app/src/index.js'
   ],
     {
         cache: {},
         packageCache: {},
-        debug: env,
+        debug: uglifyIt,
         fullPaths: true,
-        transform: stringify ({extensions: ['.html'], minify: true
+        transform: stringify ({extensions: ['.html'], minify: false
       })
     }),
     file = 'main.js',
@@ -52,10 +50,16 @@ gulp.task('browserify', function()
         return bundler.bundle()
         .on('error', handleErrors)
         .pipe(source(file))
-        .pipe(argv.env != "production" ? gutil.noop() : gStreamify(uglify()))
+        .pipe(uglifyIt === false ? gutil.noop() : gStreamify(uglify()))
         .pipe(gulp.dest(folder))
         .on('end', bundleLogger.end);
     };
+
+
+
+        gulp.src('./app/scripts/main.js')
+        .pipe(gulp.dest('dist/scripts'));
+
 
     if(global.isWatching) bundler.on('update', bundle);
 

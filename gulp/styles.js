@@ -15,7 +15,7 @@ const reload = browserSync.reload;
 var env = argv.env != "production";
 
 gulp.task('styles', function() {
-    gulp.src('app/styles/**/*.scss')
+    gulp.src('app/styles/*.scss')
     .pipe(plumber())
     .pipe($.sourcemaps.init())
     .pipe(sass({
@@ -27,6 +27,7 @@ gulp.task('styles', function() {
     .pipe(autoprefixer())
     .pipe(env ? gutil.noop() : minifyCSS())
     .pipe(gulp.dest('.tmp/styles/'))
+    .pipe(gulp.dest('dist/styles/'))
     .pipe(reload({stream: true}));
 });
 

@@ -1,7 +1,9 @@
 @charset "utf-8";
 
+$black: 'SourceSansPro-Black';
+
 #wrapper .bg{
-  background: url(../images/home.jpg) no-repeat;
+  // background: url(../images/home_large.jpg) no-repeat;
   width:100%;
   height:100%;
   position:fixed;
@@ -18,12 +20,17 @@
   width:100%;
   height:100%;
   position:fixed;
+
+  #nav{
+      text-align: center;
+      color: rgb(255, 255, 255) !important;
+      @include use-normal-font($black, 400, 6rem, 2px, rgb(255, 255, 255));
+  }
 }
 
 
 
 #progress {
-  @include use-normal-font('Source Sans Pro', 400, #fff);
   font-size: 20px;
   left: 50%;
   letter-spacing: 0.1em;

@@ -1,0 +1,23 @@
+{
+  "preload": "---",
+  "links":{
+    "link":[
+      {
+        "linkName": "Home",
+        "linkPath": "/home"
+      },
+      {
+        "linkName": "Projects",
+        "linkPath": "/work"
+      },
+      {
+        "linkName": "Photography",
+        "linkPath": "/photography"
+      },
+      {
+        "linkName": "About",
+        "linkPath": "/me"
+      }
+    ]
+  }
+}

@@ -1,4 +1,10 @@
 
 <div class="bg">
-  <p>This it the home screen</p>
+  <ul id="nav">
+    <template v-if='links'>
+    <li v-repeat='links.link' class="{{linkName}}">
+      <a href="#{{linkPath}}">{{linkName | uppercase}}</a>
+    </li>
+    </template>
+  </ul>
 </div>

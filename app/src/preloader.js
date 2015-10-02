@@ -18,25 +18,23 @@ preloader.init = function() {
   queue.loadManifest([
     {
       id:   '1',
-      src:  './images/home.jpg'
+      src:  './images/home_small.jpg'
+    },
+    {
+      id: '2',
+      src: './images/home_large.jpg'
     }
-    // {
-    //   id: '2',
-    //   src: './images/home2.jpg'
-    // }
   ]);
 };
 
 preloader.onComplete = function(event) {
   console.log('Complete', event);
-  $("#wrapper").delay( 800, function(){
     $( "#loader" ).fadeOut( 2000, function() {
       // Animation complete
     });
     $( ".bg" ).fadeIn( 2000, function() {
       // Animation complete
     });
-  });
 };
 
 preloader.onError = function (event) {
@@ -52,7 +50,7 @@ preloader.onFileProgress = function (event) {
 
 preloader.onProgress = function (event) {
   var progress = Math.round(event.loaded * 100);
-  app.setVariable(app.mainView, 'text', progress + '%');
+  app.setVariable(app.mainView, 'preload', progress + '%');
   $progressbar.css({
     'width': progress + '%'
   });
@@ -60,7 +58,6 @@ preloader.onProgress = function (event) {
   if (currentIndex < message.length) {
       for ( var idx = formerIndex; idx < currentIndex; idx++){
         $('.msg').append(message[idx]);
-        // console.log(idx);
       }
   }
   formerIndex = currentIndex;

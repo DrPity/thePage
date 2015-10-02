@@ -41,9 +41,10 @@
     "yargs": "*"
   },
 
-  "Dependencies": {
+  "dependencies": {
     "underscore": "1.8.3",
-    "vue": "*"
+    "vue": "*",
+    "three": "*"
   },
 
   "eslintConfig": {

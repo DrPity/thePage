@@ -1,7 +1,10 @@
 var gulp = require('gulp'),
-    del = require('del');
+    del = require('del'),
+    argv = require('yargs')
+      .default({path : 'tmp'})
+      .argv;
 
 gulp.task('clean', function (cb) {
-    del.sync(process.cwd() + '/dist/');
+    del.sync(['dist/**/*', 'tmp/**/*', '!/app/']);
     cb();
 });
