@@ -2,10 +2,7 @@
   "name": "TheProduct",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1",
-    "modernizr": "~2.8.1",
     "foundation": "*",
-    "p5js": "0.4.9",
     "PreloadJS": "*"
   },
   "devDependencies": {

@@ -3,19 +3,23 @@
   "links":{
     "link":[
       {
-        "linkName": "Home",
+        "id": "0",
+        "linkName": "THE START",
         "linkPath": "/home"
       },
       {
-        "linkName": "Projects",
+        "id": "1",
+        "linkName": "THE WORK",
         "linkPath": "/work"
       },
       {
-        "linkName": "Photography",
+        "id": "2",
+        "linkName": "THE PICTURES",
         "linkPath": "/photography"
       },
       {
-        "linkName": "About",
+        "id": "3",
+        "linkName": "THE PERSON",
         "linkPath": "/me"
       }
     ]

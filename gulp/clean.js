@@ -5,6 +5,6 @@ var gulp = require('gulp'),
       .argv;
 
 gulp.task('clean', function (cb) {
-    del.sync(['dist/**/*', 'tmp/**/*', '!/app/']);
+    del.sync(['dist/**', '!dist', '!dist/rst/**','!dist/res/**', 'tmp/**/*', '!/app/']);
     cb();
 });

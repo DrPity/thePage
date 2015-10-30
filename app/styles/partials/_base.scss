@@ -25,7 +25,14 @@ $font_dir: '../fonts/';
     color: $color;
 }
 
+
 @include register-font('SourceSansPro-Regular');
 @include register-font('SourceSansPro-Light');
 @include register-font('SourceSansPro-Bold');
 @include register-font('SourceSansPro-Black');
+@include register-font('SourceSansPro-BlackItalic');
+@include register-font('SourceSansPro-Semibold');
+@include register-font('SourceSansPro-SemiboldItalic');
+@include register-font('SourceSansPro-LightItalic');
+@include register-font('SourceSansPro-ExtraLightItalic');
+@include register-font('SourceSansPro-Italic');

@@ -9,6 +9,7 @@
     "browser-sync": "^2.2.1",
     "browserify": "^11.0.1",
     "browserify-shim": "^3.8.10",
+    "bower-resolve": "*",
     "del": "^1.1.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
@@ -30,6 +31,7 @@
     "gulp-useref": "^1.1.1",
     "gulp-util": "*",
     "jshint-stylish": "*",
+    "lodash": "*",
     "main-bower-files": "^2.5.0",
     "opn": "^1.0.1",
     "pretty-hrtime": "*",
@@ -42,9 +44,11 @@
   },
 
   "dependencies": {
-    "underscore": "1.8.3",
+    "jquery": "~2.1.1",
     "vue": "*",
-    "three": "*"
+    "three": "*",
+    "gsap": "*",
+    "scrollmagic": "~2.0.5"
   },
 
   "eslintConfig": {

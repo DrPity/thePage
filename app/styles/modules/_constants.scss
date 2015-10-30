@@ -24,18 +24,23 @@ ul, li {
 }
 
 a {
-
+  -webkit-transition: all 0.2s; -moz-transition: all 0.2s; -ms-transition: all 0.2s; -o-transition: all 0.2s; transition: all 0.2s;
   color: rgb(255, 255, 255);
   img {
     border:0px;
   }
 }
+
+a:hover{
+  color: #FFF;
+}
+
 p {
 	text-align: justify;
 	-webkit-hyphens: auto;
-  	-moz-hyphens: auto;
-  	-ms-hyphens: auto;
-  	hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
 }
 
 hr {

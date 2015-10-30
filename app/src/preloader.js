@@ -1,3 +1,7 @@
+var Scramble = require('./scramble');
+var $ = require('jquery');
+require('./descramble.js');
+
 preloader = {};
 
 preloader.init = function() {
@@ -22,7 +26,7 @@ preloader.init = function() {
     },
     {
       id: '2',
-      src: './images/home_large.jpg'
+      src: './images/bgTest.jpg'
     }
   ]);
 };
@@ -32,8 +36,17 @@ preloader.onComplete = function(event) {
     $( "#loader" ).fadeOut( 2000, function() {
       // Animation complete
     });
-    $( ".bg" ).fadeIn( 2000, function() {
-      // Animation complete
+    $( ".bg" ).fadeIn( 1000, function() {
+      var scrambleItems = ["0", "1", "2", "3"];
+      for (var item = 0; item < scrambleItems.length; item++) {
+        console.log("In for loop");
+        var path = 'links.link[' + item + '].linkName';
+  			var orig = app.getVariable(app.mainView, path);
+        $("#" + item).decrypt_effect({
+          speed: preloader.getRandomIntInclusive(100,700),
+          decrypted_text: orig,
+        });
+      }
     });
 };
 
@@ -61,6 +74,10 @@ preloader.onProgress = function (event) {
       }
   }
   formerIndex = currentIndex;
+};
+
+preloader.getRandomIntInclusive = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 module.exports = preloader;

@@ -21,12 +21,12 @@ gulp.task('styles', function() {
     .pipe(sass({
         style: 'expanded',
         precision: 10,
-        includePaths: ['.'],
-        sourceComments: 'nope'
+        sourceComments: 'nope',
+        includePaths: ['bower_components/foundation/scss'],
     })).on('error', handleErrors)
     .pipe(autoprefixer())
     .pipe(env ? gutil.noop() : minifyCSS())
-    .pipe(gulp.dest('.tmp/styles/'))
+    // .pipe(gulp.dest('.tmp/styles/'))
     .pipe(gulp.dest('dist/styles/'))
     .pipe(reload({stream: true}));
 });

@@ -1,13 +1,15 @@
 @charset "utf-8";
 
-$black: 'SourceSansPro-Black';
+$light: 'SourceSansPro-Light';
 
 #wrapper .bg{
-  // background: url(../images/home_large.jpg) no-repeat;
+  background: url(../images/test.jpg) no-repeat;
   width:100%;
   height:100%;
   position:fixed;
   display: none;
+  background-position:50% 50%;  /* Sets reference point to scale from */
+  background-size:cover;
   // display: none;
   //x-Achses right: transform: matrix3d(0.99068874576641, 0, 0.136146277994579, 0, -0.00949319195941821, 0.997566048996531, 0.0690786305298062, 0, -0.135814904624635, -0.0697278845903978, 0.988277457899526, 0, 0, 0, 0, 1);
   // x-Achses left: transform: matrix3d(0.99026806874157, 0, -0.139173100960065, 0, 0.00918692989706564, 0.997818907533004, 0.0653684028312472, 0, 0.138869551557953, -0.0660108155504975, 0.988108202516532, 0, 0, 0, 0, 1);
@@ -24,7 +26,12 @@ $black: 'SourceSansPro-Black';
   #nav{
       text-align: center;
       color: rgb(255, 255, 255) !important;
-      @include use-normal-font($black, 400, 6rem, 2px, rgb(255, 255, 255));
+      @include use-normal-font($light, 400, 2rem, 2px, rgb(255, 255, 255));
+      position: inherit;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      list-style-type: none;
   }
 }
 
@@ -68,20 +75,36 @@ $black: 'SourceSansPro-Black';
 
 }
 
+// transform-origin: left center 0px;
+// transform: matrix(0, 0, 0, 1, 0, 0);
+// transform: matrix(1, 0, 0, 1, 0, 0);
 
-.expand-transition {
-  transition: all 4s ease;
-  overflow: hidden;
-  width:100%;
-  height:100%;
-  position:fixed;
-  text-align: center;
-  z-index:-1;
-  background: url(../images/home.jpg) no-repeat;
-  opacity: 1;
+.project-gui .u-line {
+height: 2px;
+margin-top: -1px;
+top: 50%;
+bottom: auto;
+background-color: #989898;
+-webkit-transform: scaleX(0);
+-ms-transform: scaleX(0);
+transform: scaleX(0);
 }
-.expand-enter, .expand-leave {
-  height: 0;
-  padding: 0 10px;
-  opacity: 0;
+.u-line {
+width: 100%;
+height: 1px;
+background-color: #fff;
+position: absolute;
+left: 0;
+bottom: 0;
+}
+
+.project-gui .close-button, .project-gui .project-link {
+    position: relative;
+    padding: 0 4px;
+}
+.project-gui .close-button {
+    float: right;
+    color: #989898;
+    font-size: 13px;
+    margin-right: 62px;
 }

@@ -4,7 +4,7 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
-    notify = require("gulp-notify"),
+    notify = require('gulp-notify'),
     browserify = require('browserify'),
     watchify = require('watchify'),
     remapify = require('remapify'),
@@ -13,25 +13,36 @@ var gulp = require('gulp'),
     bundleLogger = require('./utils/bundleLogger'),
     handleErrors = require('./utils/handleErrors'),
     source = require('vinyl-source-stream'),
-    stringify = require('stringify');
+    stringify = require('stringify'),
+    _ = require('lodash'),
+    bowerResolve = require('bower-resolve');
 
 var uglifyIt = false;
 
 gulp.task('browserify', function()
 {
   var b = browserify([
-    './app/src/index.js'
+    './app/src/index.js',
   ],
     {
-        cache: {},
-        packageCache: {},
-        debug: uglifyIt,
-        fullPaths: true,
-        transform: stringify ({extensions: ['.html'], minify: false
+      cache: {},
+      packageCache: {},
+      debug: uglifyIt,
+      fullPaths: true,
+      transform: stringify ({extensions: ['.html'], minify: false
       })
     }),
     file = 'main.js',
-    folder = './app/scripts/';
+    folder = './dist/scripts/';
+
+    getBowerPackageIds().forEach(function (id) {
+      var resolvedPath = bowerResolve.fastReadSync(id);
+      console.log(resolvedPath);
+      console.log(id);
+      b.require(resolvedPath, {
+        expose: id
+      });
+    });
 
     var bundler = global.isWatching ? watchify(b) : b;
     // var bundler = watchify(b);
@@ -57,11 +68,23 @@ gulp.task('browserify', function()
 
 
 
-        gulp.src('./app/scripts/main.js')
-        .pipe(gulp.dest('dist/scripts'));
+        // gulp.src('./app/scripts/main.js')
+        // .pipe(gulp.dest('dist/scripts'));
 
 
     if(global.isWatching) bundler.on('update', bundle);
 
     return bundle();
 });
+
+function getBowerPackageIds() {
+  // read bower.json and get dependencies' package ids
+  var bowerManifest = {};
+  try {
+    bowerManifest = require('../bower.json');
+  } catch (e) {
+    console.log("no bower json");
+  }
+  return _.keys(bowerManifest.dependencies) || [];
+
+}
