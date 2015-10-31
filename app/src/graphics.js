@@ -21,8 +21,6 @@ Graphics.prototype.attachelements = function () {
       _this.tFont.kill();
       _this.tFont.clear();
       _this.tFont.to(this, 0, {'font-family':'SourceSansPro-Light'});
-      _this.tFont.kill();
-      _this.tFont.clear();
   });
 };
 

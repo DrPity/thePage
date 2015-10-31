@@ -1,8 +1,14 @@
 // bower:scss
 // endbower
 // Partials
-@import "partials/base";
+@import "partials/variables";
+@import "partials/colors";
+@import "partials/fonts";
+//Partials with font dependency
+@import "partials/constants";
+//vendor
 @import "foundation";
+@import "bourbon";
 // Modules and Variables
-@import "modules/constants";
 @import "modules/all";
+@import "modules/loader";

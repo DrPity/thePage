@@ -1,11 +1,8 @@
 @charset "utf-8";
 
-$light: 'SourceSansPro-Light';
-
 #wrapper .bg{
   background: url(../images/test.jpg) no-repeat;
-  width:100%;
-  height:100%;
+  @extend %full-size;
   position:fixed;
   display: none;
   background-position:50% 50%;  /* Sets reference point to scale from */
@@ -18,62 +15,21 @@ $light: 'SourceSansPro-Light';
 }
 
 #wrapper{
-
   width:100%;
   height:100%;
   position:fixed;
 
   #nav{
-      text-align: center;
-      color: rgb(255, 255, 255) !important;
-      @include use-normal-font($light, 400, 2rem, 2px, rgb(255, 255, 255));
-      position: inherit;
-      top: 40%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      list-style-type: none;
-  }
-}
-
-
-
-#progress {
-  font-size: 20px;
-  left: 50%;
-  letter-spacing: 0.1em;
-  margin: -25px 0 0 -100px;
-  position: absolute;
-  text-align: center;
-  top: 48%;
-  width: 200px;
-}
-
-#progressbar {
-  left: 10%;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  right: 10%;
-
-  .bar {
-    background-color: white;
-    height: 5rem;
-    width: 0%;
-  }
-
-  .bar.complete {
-
-  }
-
-  .msg {
     text-align: center;
-    overflow: hidden;
-    font-size: 2rem;
-    font-weight: 800;
-    color: #fff;
+    color: $white;
+    @include use-normal-font($light, 400, modular-scale(2), modular-scale(1), rgb(255, 255, 255));
+    position: inherit;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
-
 }
+
 
 // transform-origin: left center 0px;
 // transform: matrix(0, 0, 0, 1, 0, 0);

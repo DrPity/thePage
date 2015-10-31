@@ -3,7 +3,6 @@
   "engines": {
     "node": ">=0.12.0"
   },
-
   "devDependencies": {
     "babel-core": "^5.5.6",
     "browser-sync": "^2.2.1",
@@ -42,15 +41,14 @@
     "watchify": "*",
     "yargs": "*"
   },
-
   "dependencies": {
-    "jquery": "~2.1.1",
-    "vue": "*",
-    "three": "*",
+    "bourbon": "^4.2.6",
     "gsap": "*",
-    "scrollmagic": "~2.0.5"
+    "jquery": "~2.1.1",
+    "scrollmagic": "~2.0.5",
+    "three": "*",
+    "vue": "*"
   },
-
   "eslintConfig": {
     "env": {
       "node": true,
