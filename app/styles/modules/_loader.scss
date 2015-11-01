@@ -1,5 +1,12 @@
 
-
+#loader{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $black;
+  opacity: 1;
+}
 #progress {
   font-size: 20px;
   left: 50%;

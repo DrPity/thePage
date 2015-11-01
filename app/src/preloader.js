@@ -1,5 +1,6 @@
 var Scramble = require('./scramble');
 var $ = require('jquery');
+require('gsap');
 require('./descramble.js');
 
 preloader = {};
@@ -34,10 +35,10 @@ preloader.init = function() {
 preloader.onComplete = function(event) {
   console.log('Complete', event);
     $( "#loader" ).fadeOut( 2000, function() {
-      // Animation complete
+      app.mainView.currentView = "home";
     });
     $( ".bg" ).fadeIn( 1000, function() {
-      var scrambleItems = ["0", "1", "2", "3"];
+      var scrambleItems = ["0", "1", "2"];
       for (var item = 0; item < scrambleItems.length; item++) {
         console.log("In for loop");
         var path = 'links.link[' + item + '].linkName';

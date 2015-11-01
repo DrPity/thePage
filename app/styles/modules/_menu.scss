@@ -1,0 +1,28 @@
+#nav{
+  text-align: center;
+  // color: $white;
+  @include use-normal-font($light, 400, modular-scale(1.5), 0.1rem, $white);
+  position: inherit;
+  // top: 40%;
+  // left: 50%;
+  // transform: translateX(-50%) translateY(-50%);
+  @extend %clearfix;
+
+  @media #{$medium-up} {
+    @include use-normal-font($light, 400, modular-scale(3), 0.1rem, $white);
+  }
+
+  li{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .line {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  }
+}

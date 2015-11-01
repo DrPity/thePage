@@ -2,9 +2,9 @@ var Vue = require('vue');
 var Preloader = require('./preloader');
 var Graphics = require('./graphics');
 var Scramble = require('./scramble');
+var ScrollTriggers = require('./scrollTrigger');
 var $ = require('jquery');
 var scr = new Scramble();
-var graphics = new Graphics();
 
 app = {};
 
@@ -14,8 +14,10 @@ app.init = function (url){
     console.log(data);
     var component = app.createComponent();
     app.mainView = app.newVue('#wrapper', data, component);
-
-    var scrambleItems = ["0", "1", "2", "3"];
+    console.log("vue: ", app.mainView);
+    var graphics = new Graphics();
+    // var scroll = new ScrollTriggers();
+    var scrambleItems = ["0", "1", "2"];
     scr.scramble(scrambleItems);
     Preloader.init();
   });
@@ -51,8 +53,8 @@ app.readJson = function (url){
 
 app.createComponent = function(){
   return  {
-          loader :require('./components/loadScreen/loader'),
-          home : require('./components/homeScreen/home'),
+          loader: require('./components/loadScreen/loader'),
+          home: require('./components/homeScreen/home'),
           };
 };
 

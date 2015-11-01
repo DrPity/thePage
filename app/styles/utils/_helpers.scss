@@ -24,3 +24,20 @@ $ease-expo-in: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 $ease-expo-in-out: cubic-bezier(1, 0, 0, 1);
 // cubic
 $ease-cubic-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+
+//helpers classes:
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
+
+.absoluteCentering {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

@@ -1,15 +1,19 @@
 
 <div class="bg">
-  <ul id="nav">
-    <template v-if='links'>
-      <li v-repeat='links.link'>
-        <a href="#{{linkPath}}" id="{{id}}">{{linkName | uppercase}}</a>
-      </li>
-    </template>
-  </ul>
+  <div class="row fullWidth absoluteCentering">
+    <div class="large-12 columns">
+      <ul id="nav">
+        <template v-if='links'>
+          <li v-repeat='links.link'>
+            <a href="#{{linkPath}}" id="{{id}}">{{linkName | uppercase}}</a>
+            <div class="line" style="transform-origin: left center 0px; transform: matrix(0, 0, 0, 1, 0, 0);"></div>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<div class="project-gui">
-<a class="close-button" href="/works" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">(x) close<div class="u-line" style="transform-origin: left center 0px; transform: matrix(0, 0, 0, 1, 0, 0);"></div></a>
-</div>
+
+<div class="pin">
 </div>

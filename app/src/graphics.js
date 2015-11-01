@@ -1,4 +1,4 @@
-var tween = require('gsap');
+require('gsap');
 var $ = require('jquery');
 var _ = require('./helpers');
 
@@ -11,16 +11,22 @@ function Graphics() {
 
 Graphics.prototype.attachelements = function () {
   var _this = this;
-  $("#wrapper").on("mouseenter", "li", function() {
+  $("#wrapper").on("mouseenter", "li a", function() {
     var animation = _this.tweenFontWeight(this);
     console.log("Animation: ", animation);
     animation.play();
   });
 
-  $("#wrapper").on("mouseleave", "li", function() {
+  $("#wrapper").on("mouseleave", "li a", function() {
       _this.tFont.kill();
       _this.tFont.clear();
       _this.tFont.to(this, 0, {'font-family':'SourceSansPro-Light'});
+  });
+
+
+  $("#wrapper").on("click", "li a", function() {
+    var wipeAnimation = new TimelineMax()
+        .fromTo(".pin", 1, {x: "-100%"}, {x: "0%", ease: Expo.easeOut}); // in from top
   });
 };
 

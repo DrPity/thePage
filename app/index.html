@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>thePage</title>
 
     <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
@@ -27,10 +27,11 @@
     <![endif]-->
 
     <div id="wrapper" class"noJS">
-      <component is="loader">
+      <component is="{{currentView}}" keep-alive>
+        <!-- inactive components will be cached! -->
       </component>
-      <component is="home">
-      </component>
+      <!-- <component is="home">
+      </component> -->
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

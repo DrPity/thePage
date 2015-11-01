@@ -1,26 +1,22 @@
 {
   "preload": "---",
+  "currentView": "loader",
   "links":{
     "link":[
       {
         "id": "0",
-        "linkName": "THE START",
-        "linkPath": "/home"
-      },
-      {
-        "id": "1",
-        "linkName": "THE WORK",
+        "linkName": "The Work",
         "linkPath": "/work"
       },
       {
-        "id": "2",
-        "linkName": "THE PICTURES",
-        "linkPath": "/photography"
+        "id": "1",
+        "linkName": "The Person",
+        "linkPath": "/me"
       },
       {
-        "id": "3",
-        "linkName": "THE PERSON",
-        "linkPath": "/me"
+        "id": "2",
+        "linkName": "The Pictures",
+        "linkPath": "/photography"
       }
     ]
   }
