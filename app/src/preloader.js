@@ -35,7 +35,7 @@ preloader.init = function() {
 preloader.onComplete = function(event) {
   console.log('Complete', event);
     $( "#loader" ).fadeOut( 2000, function() {
-      app.mainView.currentView = "home";
+      startApp.mainView.currentView = "home";
     });
     $( ".bg" ).fadeIn( 1000, function() {
       var scrambleItems = ["0", "1", "2"];
@@ -64,7 +64,7 @@ preloader.onFileProgress = function (event) {
 
 preloader.onProgress = function (event) {
   var progress = Math.round(event.loaded * 100);
-  app.setVariable(app.mainView, 'preload', progress + '%');
+  startApp.mainView.$children[0].$set('preload', progress + '%');
   $progressbar.css({
     'width': progress + '%'
   });

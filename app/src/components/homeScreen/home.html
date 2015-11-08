@@ -1,14 +1,21 @@
 
+<!-- <div class="bg">
+  <li v-for="item in link">
+    {{ item.id }}
+  </li>
+</div> -->
 <div class="bg">
+  <h1 v-if="links">Yes</h1>
   <div class="row fullWidth absoluteCentering">
     <div class="large-12 columns">
       <ul id="nav">
-        <template v-if='links'>
-          <li v-repeat='links.link'>
-            <a href="#{{linkPath}}" id="{{id}}">{{linkName | uppercase}}</a>
-            <div class="line" style="transform-origin: left center 0px; transform: matrix(0, 0, 0, 1, 0, 0);"></div>
-          </li>
-        </template>
+        <li v-for="item in link">
+          <p>
+            {{item.linkName}}{{$index}}
+          </p>
+          <a href="#{{item.linkPath}}" id="{{item.id}}">{{linkName | uppercase}}</a>
+          <div class="line" style="transform-origin: left center 0px; transform: matrix(0, 0, 0, 1, 0, 0);"></div>
+        </li>
       </ul>
     </div>
   </div>

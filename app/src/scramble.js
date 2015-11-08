@@ -1,15 +1,18 @@
-// random letter effect
+'use strict';
 var $ = require('jquery');
+var app = require('./index.js');
+console.log("Scramble app: ", app);
+
 function Scr() {
-		this.intervalID = -1;
-		this.countDown = 6.00;
-		this.fillCharInterval = 0.08;
-		this.beat = 0.00;
-		this.step = 0.00;
-		this.div = null;
+		// this.intervalID = -1;
+		// this.countDown = 6.00;
+		// this.fillCharInterval = 0.08;
+		// this.beat = 0.00;
+		// this.step = 0.00;
+		// this.div = null;
 		this.orig = []; // char array
-		this.origTemp = null;
-		this.doneCallback = null;
+		// this.origTemp = null;
+		// this.doneCallback = null;
 		console.log("SCR Init");
 }
 
@@ -26,7 +29,8 @@ Scr.prototype.scramble = function(__id) {
 	for (var items = 0; items < __id.length; items++) {
 		id[items] = '#' + __id[items];
 		path[items] = 'links.link[' + __id[items] + '].linkName';
-		this.orig[items] = app.getVariable(app.mainView, path[items]);
+		console.log("apptest: ", app);
+		this.orig[items] = app.getModel(path[items]);
 		$(id[items]).empty();
 
 		for (var i = 0; i < this.orig[items].length; i++) {

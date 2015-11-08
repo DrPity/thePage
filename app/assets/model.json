@@ -1,23 +1,21 @@
 {
   "preload": "---",
   "currentView": "loader",
-  "links":{
-    "link":[
-      {
-        "id": "0",
-        "linkName": "The Work",
-        "linkPath": "/work"
-      },
-      {
-        "id": "1",
-        "linkName": "The Person",
-        "linkPath": "/me"
-      },
-      {
-        "id": "2",
-        "linkName": "The Pictures",
-        "linkPath": "/photography"
-      }
-    ]
-  }
+  "link": [
+    {
+      "id": "0",
+      "linkName": "The Work",
+      "linkPath": "/work"
+    },
+    {
+      "id": "1",
+      "linkName": "The Person",
+      "linkPath": "/me"
+    },
+    {
+      "id": "2",
+      "linkName": "The Pictures",
+      "linkPath": "/photography"
+    }
+  ]
 }
