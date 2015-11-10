@@ -9,6 +9,19 @@ module.exports = {
     $('.' + toRemoveClass).removeClass(toRemoveClass);
   },
 
+  //------Array filter--------
+
+  arrayFilter: function(array, id, property) {
+    property = property || 'id';
+    console.log("all: ", array, id, property);
+    console.log("Preloader: ", preloader);
+    console.log("Array[0]: ", array[0]);
+    console.log("Array[0][property]: ", array[0][property]);
+    for(var i = 0; i < array.length; i++) {
+        if(array[i][property] === id) return array[i];
+    }
+  },
+
   //------Returns a simple tweened value----------------------------------------
 
   tween: function(beginPos,endPos,istart,istop,ostart,ostop){

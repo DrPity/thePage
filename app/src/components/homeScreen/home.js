@@ -4,12 +4,13 @@ module.exports = {
 
   inherit: true,
   replace: true,
+  name: "Home",
   template: require('./home.html'),
 
   data: function() {
-    console.log("Home: ", app.getModel().link);
     return {
-      link: app.getModel().link
+      id: app.getModel().home.id,
+      links:   app.getModel().home.links
     };
 
   },

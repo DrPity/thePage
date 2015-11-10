@@ -14,7 +14,6 @@ module.exports = {
   },
 
   getVariable: function (variable) {
-    console.log("Main View variable: ", startApp.mainView.$get(variable));
     return startApp.mainView.$get(variable);
   }
 };
@@ -39,10 +38,7 @@ App.prototype.init = function (url) {
     console.log(data);
     _this.model = data;
     var component = _this.createComponent();
-    console.log('component', component);
-    _this.mainView = _this.newVue('#wrapper', data, component);
-    console.log("vue: ", _this.mainView);
-    console.log("loader: ", _this.mainView.preload);
+    _this.mainView = _this.newVue('#wrapper', data.currentView, component);
     var graphics = new _this.Graphics();
     // var scroll = new ScrollTriggers();
     var scrambleItems = ["0", "1", "2"];
@@ -119,7 +115,7 @@ App.prototype.readJson = function (url) {
 App.prototype.createComponent = function () {
   return  {
           'loader': require('./components/loadScreen/loader'),
-          'home': require('./components/homeScreen/home'),
+          'home': require('./components/homeScreen/home')
           };
 };
 
@@ -133,7 +129,7 @@ App.prototype.createComponent = function () {
 App.prototype.newVue = function (element, dataAtrributes, component) {
   return new Vue({
     el: element,
-    data: dataAtrributes,
+    data: {currentView: dataAtrributes},
     components: component
   });
 };

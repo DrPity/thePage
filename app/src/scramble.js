@@ -22,14 +22,13 @@ Scr.prototype.randomLetter = function() {
 };
 
 Scr.prototype.scramble = function(__id) {
-  console.log("In Scramble");
-	console.log(__id.length);
+  // console.log("In Scramble");
+	// console.log(__id.length);
 	var id = [];
 	var path = [];
 	for (var items = 0; items < __id.length; items++) {
 		id[items] = '#' + __id[items];
 		path[items] = 'links.link[' + __id[items] + '].linkName';
-		console.log("apptest: ", app);
 		this.orig[items] = app.getModel(path[items]);
 		$(id[items]).empty();
 

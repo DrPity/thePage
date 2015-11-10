@@ -1,5 +1,6 @@
 var Scramble = require('./scramble');
 var $ = require('jquery');
+var _ = require('./helpers');
 require('gsap');
 require('./descramble.js');
 
@@ -33,14 +34,12 @@ preloader.init = function() {
 };
 
 preloader.onComplete = function(event) {
-  console.log('Complete', event);
     $( "#loader" ).fadeOut( 2000, function() {
       startApp.mainView.currentView = "home";
     });
     $( ".bg" ).fadeIn( 1000, function() {
       var scrambleItems = ["0", "1", "2"];
       for (var item = 0; item < scrambleItems.length; item++) {
-        console.log("In for loop");
         var path = 'links.link[' + item + '].linkName';
   			var orig = app.getVariable(app.mainView, path);
         $("#" + item).decrypt_effect({
@@ -52,7 +51,6 @@ preloader.onComplete = function(event) {
 };
 
 preloader.onError = function (event) {
-  // console.log('Error', event);
 };
 
 preloader.onFileLoad = function (event) {
@@ -64,7 +62,8 @@ preloader.onFileProgress = function (event) {
 
 preloader.onProgress = function (event) {
   var progress = Math.round(event.loaded * 100);
-  startApp.mainView.$children[0].$set('preload', progress + '%');
+  var preloader = _.arrayFilter(startApp.mainView.$children, 'preloader', 'id');
+  preloader.preloadBar = progress + '%';
   $progressbar.css({
     'width': progress + '%'
   });

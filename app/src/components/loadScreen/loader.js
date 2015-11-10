@@ -5,14 +5,13 @@ module.exports = {
 
   inherit: true,
   replace: true,
-  name: "loader",
+  name: "preloader",
   template: require('./loader.html'),
 
   data: function() {
-
-    console.log("Preload: ", app.getModel().preload);
     return {
-      preload: app.getModel().preload
+      id: app.getModel().preloader.id,
+      preloadBar: app.getModel().preloader.preloadBar
     };
 
   },
