@@ -13,10 +13,6 @@ module.exports = {
 
   arrayFilter: function(array, id, property) {
     property = property || 'id';
-    console.log("all: ", array, id, property);
-    console.log("Preloader: ", preloader);
-    console.log("Array[0]: ", array[0]);
-    console.log("Array[0][property]: ", array[0][property]);
     for(var i = 0; i < array.length; i++) {
         if(array[i][property] === id) return array[i];
     }

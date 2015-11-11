@@ -1,18 +1,10 @@
 'use strict';
 var $ = require('jquery');
 var app = require('./index.js');
-console.log("Scramble app: ", app);
+var _ = require('./helpers');
 
 function Scr() {
-		// this.intervalID = -1;
-		// this.countDown = 6.00;
-		// this.fillCharInterval = 0.08;
-		// this.beat = 0.00;
-		// this.step = 0.00;
-		// this.div = null;
-		this.orig = []; // char array
-		// this.origTemp = null;
-		// this.doneCallback = null;
+		this.orig = [];
 		console.log("SCR Init");
 }
 
@@ -22,14 +14,14 @@ Scr.prototype.randomLetter = function() {
 };
 
 Scr.prototype.scramble = function(__id) {
-  // console.log("In Scramble");
-	// console.log(__id.length);
 	var id = [];
-	var path = [];
+	var path = _.arrayFilter(app.getMainView().$children, 'home', 'id');
+	console.log("path", path);
 	for (var items = 0; items < __id.length; items++) {
 		id[items] = '#' + __id[items];
-		path[items] = 'links.link[' + __id[items] + '].linkName';
-		this.orig[items] = app.getModel(path[items]);
+		// path[items] = 'home.links[' + __id[items] + '].linkName';
+		this.orig[items] = path.links[__id[items]].linkName;
+		console.log("items:",this.orig[items]);
 		$(id[items]).empty();
 
 		for (var i = 0; i < this.orig[items].length; i++) {

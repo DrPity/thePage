@@ -1,6 +1,7 @@
 var Scramble = require('./scramble');
 var $ = require('jquery');
 var _ = require('./helpers');
+var app = require('./index.js');
 require('gsap');
 require('./descramble.js');
 
@@ -35,13 +36,14 @@ preloader.init = function() {
 
 preloader.onComplete = function(event) {
     $( "#loader" ).fadeOut( 2000, function() {
-      startApp.mainView.currentView = "home";
+      app.getMainView().currentView = "home";
     });
     $( ".bg" ).fadeIn( 1000, function() {
       var scrambleItems = ["0", "1", "2"];
       for (var item = 0; item < scrambleItems.length; item++) {
-        var path = 'links.link[' + item + '].linkName';
-  			var orig = app.getVariable(app.mainView, path);
+        var linkArray = _.arrayFilter(app.getMainView().$children, 'home', 'id');
+  			var orig = linkArray.links[item].linkName;
+        console.log("orig:", orig.length);
         $("#" + item).decrypt_effect({
           speed: preloader.getRandomIntInclusive(100,700),
           decrypted_text: orig,
@@ -62,7 +64,7 @@ preloader.onFileProgress = function (event) {
 
 preloader.onProgress = function (event) {
   var progress = Math.round(event.loaded * 100);
-  var preloader = _.arrayFilter(startApp.mainView.$children, 'preloader', 'id');
+  var preloader = _.arrayFilter(app.getMainView().$children, 'preloader', 'id');
   preloader.preloadBar = progress + '%';
   $progressbar.css({
     'width': progress + '%'
