@@ -14,6 +14,7 @@ Graphics.prototype.attachelements = function () {
   $("#wrapper").on("mouseenter", "li a", function() {
     var animation = _this.tweenFontWeight(this);
     console.log("Animation: ", animation);
+    _.addClass("bg", "greyscale");
     animation.play();
   });
 

@@ -11,6 +11,7 @@ preloader.init = function() {
   message = "LOOAOADDDDDDDDDIIIIIIIIIIINGNGNGNNGNGNG YEEHAHHHHH";
   currentIndex = 0;
   formerIndex = 0;
+  console.log("test view", app.getMainView());
 
   queue        = new createjs.LoadQueue();
   $progress    = $('#progress');
@@ -35,21 +36,8 @@ preloader.init = function() {
 };
 
 preloader.onComplete = function(event) {
-    $( "#loader" ).fadeOut( 2000, function() {
-      app.getMainView().currentView = "home";
-    });
-    $( ".bg" ).fadeIn( 1000, function() {
-      var scrambleItems = ["0", "1", "2"];
-      for (var item = 0; item < scrambleItems.length; item++) {
-        var linkArray = _.arrayFilter(app.getMainView().$children, 'home', 'id');
-  			var orig = linkArray.links[item].linkName;
-        console.log("orig:", orig.length);
-        $("#" + item).decrypt_effect({
-          speed: preloader.getRandomIntInclusive(100,700),
-          decrypted_text: orig,
-        });
-      }
-    });
+    //app.getMainView().currentView = "home";
+    _.addClass("fade-transition", "fade-enter");
 };
 
 preloader.onError = function (event) {
@@ -76,10 +64,6 @@ preloader.onProgress = function (event) {
       }
   }
   formerIndex = currentIndex;
-};
-
-preloader.getRandomIntInclusive = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 module.exports = preloader;

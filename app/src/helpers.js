@@ -2,10 +2,18 @@ var $ = require('jquery');
 
 module.exports = {
 
-  //------Add or remove class with jquery---------------------------------------
+  //------Add or remove class with jquery (should be fixed)---------------------------------------
 
-  addClass: function(toRemoveClass, toAddClass){
+  addRemoveClass: function(toRemoveClass, toAddClass){
     $('.' + toRemoveClass).addClass(toAddClass);
+    $('.' + toRemoveClass).removeClass(toRemoveClass);
+  },
+
+  addClass: function(toAppendClass, toAddClass){
+    $('.' + toAppendClass).addClass(toAddClass);
+  },
+
+  removeClass:function(toRemoveClass){
     $('.' + toRemoveClass).removeClass(toRemoveClass);
   },
 

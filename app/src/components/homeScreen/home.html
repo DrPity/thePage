@@ -1,17 +1,9 @@
 
-<!-- <div class="bg">
-  <li v-for="item in link">
-    {{ item.id }}
-  </li>
-</div> -->
-<div class="bg">
+<div class="bg" class="fade-transition">
   <div class="row fullWidth absoluteCentering">
     <div class="large-12 columns">
       <ul id="nav">
         <li v-for="item in links">
-          <!-- <p>
-            {{item.linkName}}{{$index}}
-          </p> -->
           <a href="#{{item.linkPath}}" id="{{item.id}}">{{item.linkName | uppercase}}</a>
           <div class="line" style="transform-origin: left center 0px; transform: matrix(0, 0, 0, 1, 0, 0);"></div>
         </li>

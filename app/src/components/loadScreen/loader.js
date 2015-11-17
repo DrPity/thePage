@@ -1,6 +1,7 @@
 'use strict';
 var app = require('../../index.js');
 
+
 module.exports = {
 
   inherit: true,
@@ -16,7 +17,9 @@ module.exports = {
 
   },
 
+
   ready: function() {
+    console.log("test", this);
   },
 
   beforeDestroy: function() {

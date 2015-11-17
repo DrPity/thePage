@@ -3,6 +3,10 @@
   @return ($pxval / $base) * 1em;
 }
 
+.greyscale{
+  filter: grayscale(1);
+}
+
 //extend:
 %full-size {
     width: 100%;

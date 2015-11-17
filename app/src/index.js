@@ -11,6 +11,7 @@ module.exports = {
 var $ = require('jquery');
 var Vue = require('vue');
 var Preloader = require('./preloader');
+var _ = require('./helpers');
 
 function App(url){
   this.Graphics = require('./graphics');
@@ -29,6 +30,7 @@ App.prototype.init = function (url) {
     _this.model = data;
     var component = _this.createComponent();
     _this.mainView = _this.newVue('#wrapper', data.currentView, component);
+    console.log("Main Vue: ", startApp.mainView);
     var graphics = new _this.Graphics();
     // var scroll = new ScrollTriggers();
     var scrambleItems = ["0", "1", "2"];
@@ -53,17 +55,20 @@ App.prototype.readJson = function (url) {
 
 App.prototype.createComponent = function () {
   return  {
-          'loader': require('./components/loadScreen/loader'),
+          'preloader': require('./components/loadScreen/loader'),
           'home': require('./components/homeScreen/home')
           };
 };
 
 
 App.prototype.newVue = function (element, dataAtrributes, component) {
+  Vue.config.debug = true;
   return new Vue({
     el: element,
-    data: {currentView: dataAtrributes},
-    components: component
+    data: {
+      currentView: dataAtrributes
+    },
+    components: component,
   });
 };
 
