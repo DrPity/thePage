@@ -11,7 +11,6 @@ preloader.init = function() {
   message = "LOOAOADDDDDDDDDIIIIIIIIIIINGNGNGNNGNGNG YEEHAHHHHH";
   currentIndex = 0;
   formerIndex = 0;
-  console.log("test view", app.getMainView());
 
   queue        = new createjs.LoadQueue();
   $progress    = $('#progress');
@@ -37,7 +36,9 @@ preloader.init = function() {
 
 preloader.onComplete = function(event) {
     //app.getMainView().currentView = "home";
-    _.addClass("fade-transition", "fade-enter");
+    var preloader = _.arrayFilter(app.getMainView().$children, 'preloader', 'id');
+    preloader.show = false;
+    // _.addClass("fade-transition", "fade-enter");
 };
 
 preloader.onError = function (event) {

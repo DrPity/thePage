@@ -18,6 +18,8 @@ function App(url){
   this.mainView = null;
   this.Scramble = require('./scramble');
   this.ScrollTriggers = require('./scrollTrigger');
+  this.Transitions = require('./transitions');
+  this.trans = new this.Transitions();
   this.scr = new this.Scramble();
   this.model = {};
   this.init(url);

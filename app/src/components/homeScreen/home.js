@@ -17,6 +17,16 @@ module.exports = {
 
   },
 
+  transition: {
+      afterLeave: function(){
+        console.log("after Leave");
+        // console.log("Children", app.getMainView().$children);
+        // app.getMainView().$children[0].$remove(function(){
+        //   console.log("Bla");
+        // },this);
+      },
+  },
+
 
   ready: function() {
     // var scrambleItems = ["0", "1", "2"];
@@ -35,11 +45,26 @@ module.exports = {
 
 
     //use this to remove a element
-    // app.getMainView().$children[0].$remove(function(){console.log("Bla")},this);
+    // console.log("Children", app.getMainView().$children);
+    // app.getMainView().$children[0].$remove(function(){
+    //   console.log("Bla");
+    // },this);
   },
 
-  enter: function(){
-    console.log("Transition enter");
+  afterLeave: function(){
+    console.log("after Leave");
+    // console.log("Children", app.getMainView().$children);
+    // app.getMainView().$children[0].$remove(function(){
+    //   console.log("Bla");
+    // },this);
+  },
+
+  enter: function (el) {
+    console.log("enter");
+  },
+
+  leave: function (el) {
+    console.log("leave");
   },
 
   beforeDestroy: function() {

@@ -1,7 +1,6 @@
 'use strict';
 var app = require('../../index.js');
 
-
 module.exports = {
 
   inherit: true,
@@ -12,14 +11,13 @@ module.exports = {
   data: function() {
     return {
       id: app.getModel().preloader.id,
-      preloadBar: app.getModel().preloader.preloadBar
+      preloadBar: app.getModel().preloader.preloadBar,
+      show: true
     };
 
   },
-
-
   ready: function() {
-    console.log("test", this);
+    // console.log("test", this);
   },
 
   beforeDestroy: function() {
