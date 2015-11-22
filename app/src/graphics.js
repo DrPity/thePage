@@ -9,6 +9,23 @@ function Graphics() {
   this.tFont.to($("#0"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
   this.tFont.to($("#1"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
   this.tFont.to($("#2"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
+
+
+  var mouse = {x:0.0, y:0.0};
+  var mouseStart = function(){
+      var element = document.getElementById("wrapper");
+      console.log("wrapper set");
+      element.addEventListener('mousemove', mouseMove, false);
+  };
+
+  var mouseMove = function(event){
+      // window.screen.width/height
+      mouse.x = ((event.clientX / window.screen.width) - 0.5) * 2;
+      mouse.y = ((event.clientY / window.screen.height) - 0.5) * 2;
+      console.log("x: ", mouse.x, "y: ", mouse.y);
+  };
+
+  mouseStart();
 }
 
 
