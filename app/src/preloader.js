@@ -30,7 +30,7 @@ preloader.init = function() {
     {
       id: '2',
       src: './images/bgTest.jpg'
-    }
+    },
   ]);
 };
 
@@ -38,7 +38,18 @@ preloader.onComplete = function(event) {
     //app.getMainView().currentView = "home";
     var preloader = _.arrayFilter(app.getMainView().$children, 'preloader', 'id');
     preloader.show = false;
-    // _.addClass("fade-transition", "fade-enter");
+
+    var scrambleItems = ["0", "1", "2"];
+    for (var item = 0; item < scrambleItems.length; item++) {
+      var linkArray = _.arrayFilter(app.getMainView().$children, 'home', 'id');
+      var orig = linkArray.links[item].linkName;
+      console.log("orig:", orig.length);
+      $("#" + item).decrypt_effect({
+        speed: _.randomInt(100,700),
+        decrypted_text: orig,
+      });
+    }
+
 };
 
 preloader.onError = function (event) {

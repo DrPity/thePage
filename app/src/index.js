@@ -33,7 +33,7 @@ App.prototype.init = function (url) {
     var component = _this.createComponent();
     _this.mainView = _this.newVue('#wrapper', data.currentView, component);
     console.log("Main Vue: ", startApp.mainView);
-    var graphics = new _this.Graphics();
+    window.graphics = new _this.Graphics();
     // var scroll = new ScrollTriggers();
     var scrambleItems = ["0", "1", "2"];
     _this.scr.scramble(scrambleItems);

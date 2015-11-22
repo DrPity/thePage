@@ -6,6 +6,9 @@ var _ = require('./helpers');
 function Graphics() {
   this.attachelements();
   this.tFont = new TimelineLite();
+  this.tFont.to($("#0"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
+  this.tFont.to($("#1"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
+  this.tFont.to($("#2"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
 }
 
 
@@ -14,34 +17,35 @@ Graphics.prototype.attachelements = function () {
   $("#wrapper").on("mouseenter", "li a", function() {
     var animation = _this.tweenFontWeight(this);
     console.log("Animation: ", animation);
-    _.addClass("bg", "greyscale");
+    // _.addClass("bg", "greyscale");
     animation.play();
   });
 
   $("#wrapper").on("mouseleave", "li a", function() {
       _this.tFont.kill();
       _this.tFont.clear();
-      _this.tFont.to(this, 0, {'font-family':'SourceSansPro-Light'});
+      _this.tFont.to(this, 0, {'font-family':'"SourceSansPro-Light",  sans-serif'});
   });
 
 
   $("#wrapper").on("click", "li a", function() {
     var wipeAnimation = new TimelineMax()
-        .fromTo(".pin", 1, {x: "-100%"}, {x: "0%", ease: Expo.easeOut}); // in from top
+        .fromTo(".pin", 1, {y: "-100%"}, {y: "0%", ease: Expo.easeOut}); // in from top
   });
 };
 
 Graphics.prototype.tweenFontWeight = function (element) {
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-ExtraLight'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-Bold'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-ExtraLightItalic'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-Semibold'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-BlackItalic'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-Italic'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-Regular'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-SemiboldItalic'});
-    this.tFont.to(element, 0.1, {'font-family':'SourceSansPro-BlackItalic'});
-    this.tFont.restart(true, false);
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Light", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-ExtraLight", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Bold", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-ExtraLightItalic", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Semibold", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-BlackItalic", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Italic", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Regular", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-SemiboldItalic", sans-serif'});
+    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-BlackItalic", sans-serif'});
+    // this.tFont.restart(true, false);
     return this.tFont;
 };
 

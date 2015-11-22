@@ -17,7 +17,8 @@ module.exports = {
 
   },
   ready: function() {
-    // console.log("test", this);
+    console.log("Thiiis", this);
+    // this.$remove();
   },
 
   beforeDestroy: function() {
@@ -25,6 +26,11 @@ module.exports = {
   },
 
   methods: {
+
+    remove: function(){
+      console.log("Remove this element: ", this);
+      this.$remove(0,false);
+    }
 
   },
   // setValue: setValue

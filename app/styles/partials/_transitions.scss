@@ -1,10 +1,11 @@
 .fade-transition {
   transition: opacity .3s ease;
 }
-.fade-enter {
+.fade-enter,
+.fade-leave  {
   opacity: 1;
 }
-
-.fade-leave {
-  opacity: 0;
-}
+//
+// .fade-leave {
+//   opacity: 0;
+// }

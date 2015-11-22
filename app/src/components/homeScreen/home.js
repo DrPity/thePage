@@ -17,16 +17,6 @@ module.exports = {
 
   },
 
-  transition: {
-      afterLeave: function(){
-        console.log("after Leave");
-        // console.log("Children", app.getMainView().$children);
-        // app.getMainView().$children[0].$remove(function(){
-        //   console.log("Bla");
-        // },this);
-      },
-  },
-
 
   ready: function() {
     // var scrambleItems = ["0", "1", "2"];
