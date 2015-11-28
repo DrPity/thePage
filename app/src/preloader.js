@@ -36,19 +36,21 @@ preloader.init = function() {
 
 preloader.onComplete = function(event) {
     //app.getMainView().currentView = "home";
-    var preloader = _.arrayFilter(app.getMainView().$children, 'preloader', 'id');
-    preloader.show = false;
+    // var preloader = _.arrayFilter(app.getRouter()._children, 'preloader', 'id');
+    // preloader.show = false;
+    console.log("Leaving activated");
+    var router = app.getRouter().go('/home');
 
-    var scrambleItems = ["0", "1", "2"];
-    for (var item = 0; item < scrambleItems.length; item++) {
-      var linkArray = _.arrayFilter(app.getMainView().$children, 'home', 'id');
-      var orig = linkArray.links[item].linkName;
-      console.log("orig:", orig.length);
-      $("#" + item).decrypt_effect({
-        speed: _.randomInt(100,700),
-        decrypted_text: orig,
-      });
-    }
+    // var scrambleItems = ["0", "1", "2"];
+    // for (var item = 0; item < scrambleItems.length; item++) {
+    //   var linkArray = _.arrayFilter(app.getMainView().$children, 'home', 'id');
+    //   var orig = linkArray.links[item].linkName;
+    //   console.log("orig:", orig.length);
+    //   $("#" + item).decrypt_effect({
+    //     speed: _.randomInt(100,700),
+    //     decrypted_text: orig,
+    //   });
+    // }
 
 };
 
@@ -64,7 +66,7 @@ preloader.onFileProgress = function (event) {
 
 preloader.onProgress = function (event) {
   var progress = Math.round(event.loaded * 100);
-  var preloader = _.arrayFilter(app.getMainView().$children, 'preloader', 'id');
+  var preloader = _.arrayFilter(app.getRouter()._children, 'preloader', 'id');
   preloader.preloadBar = progress + '%';
   $progressbar.css({
     'width': progress + '%'

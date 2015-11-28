@@ -47,7 +47,8 @@
     "jquery": "~2.1.1",
     "scrollmagic": "~2.0.5",
     "three": "*",
-    "vue": "~1.0.4"
+    "vue": "~1.0.10",
+    "vue-router": "*"
   },
   "eslintConfig": {
     "env": {

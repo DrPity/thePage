@@ -15,7 +15,7 @@ Scr.prototype.randomLetter = function() {
 
 Scr.prototype.scramble = function(__id) {
 	var id = [];
-	var path = _.arrayFilter(app.getMainView().$children, 'home', 'id');
+	var path = _.arrayFilter(app.getRouter()._children, 'home', 'id');
 	console.log("path", path);
 	for (var items = 0; items < __id.length; items++) {
 		id[items] = '#' + __id[items];

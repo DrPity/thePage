@@ -9,6 +9,19 @@ module.exports = {
   name: "Home",
   template: require('./home.html'),
 
+
+
+  route: {
+    activate: function () {
+      console.log('hook-example activated!');
+    },
+    canDeactivate: function (transition) {
+      console.log('You are not allowed to leave.');
+      transition.to('/');
+    }
+  },
+
+
   data: function() {
     return {
       id: app.getModel().home.id,

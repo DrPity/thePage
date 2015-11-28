@@ -1,5 +1,6 @@
 'use strict';
 var app = require('../../index.js');
+var Preloader = require('../../preloader.js');
 
 module.exports = {
 
@@ -16,8 +17,22 @@ module.exports = {
     };
 
   },
+  route: {
+    activate: function () {
+      console.log('hook-example activated!');
+    },
+    canDeactivate: function (transition) {
+      console.log('You are not allowed to leave.');
+      console.log(transition);
+      // transition.to('/home');
+      // transition.from('/');
+      transition.next();
+    }
+  },
+
   ready: function() {
     console.log("Thiiis", this);
+    Preloader.init();
     // this.$remove();
   },
 

@@ -21,17 +21,14 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <!-- endbuild -->
   </head>
-  <body>
+  <body >
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div id="wrapper" class"noJS">
-      <component is="preloader">
-      </component>
-      <component is="home">
-      </component>
+    <div id="wrapper">
+      <router-view></router-view>
     </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

@@ -1,3 +1,5 @@
+
+
 module.exports = {
   getModel: function () {
     return startApp.model;
@@ -5,13 +7,23 @@ module.exports = {
 
   getMainView: function () {
     return startApp.mainView;
+  },
+
+  getRouter: function(){
+    return startApp.router;
   }
 };
 
 var $ = require('jquery');
 var Vue = require('vue');
-var Preloader = require('./preloader');
 var _ = require('./helpers');
+var Router = require('vue-router');
+Vue.use(Router);
+
+var RoutedApp = Vue.extend({
+  component: require('./components/wrapper/wrapper'),
+});
+
 
 function App(url){
   this.Graphics = require('./graphics');
@@ -21,6 +33,7 @@ function App(url){
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
   this.scr = new this.Scramble();
+  this.router = new Router();
   this.model = {};
   this.init(url);
 }
@@ -30,14 +43,15 @@ App.prototype.init = function (url) {
   $.when(_this.readJson(url)).then(function(data) {
     console.log(data);
     _this.model = data;
-    var component = _this.createComponent();
-    _this.mainView = _this.newVue('#wrapper', data.currentView, component);
-    console.log("Main Vue: ", startApp.mainView);
+    // var component = _this.createComponent();
+    // _this.mainView = _this.newVue('#wrapper', data.currentView);
+    _this.createRouterMap();
+    _this.router.start(RoutedApp, '#wrapper');
     window.graphics = new _this.Graphics();
     // var scroll = new ScrollTriggers();
-    var scrambleItems = ["0", "1", "2"];
-    _this.scr.scramble(scrambleItems);
-    Preloader.init();
+    // var scrambleItems = ["0", "1", "2"];
+    // _this.scr.scramble(scrambleItems);
+    // Preloader.init();
   });
 };
 
@@ -58,19 +72,40 @@ App.prototype.readJson = function (url) {
 App.prototype.createComponent = function () {
   return  {
           'preloader': require('./components/loadScreen/loader'),
-          'home': require('./components/homeScreen/home')
+          'home': require('./components/homeScreen/home'),
           };
 };
 
+App.prototype.createRouterMap = function () {
+    this.router.map({
+    '/':{
+      component: require('./components/loadScreen/loader'),
+      },
+    '/home': {
+      component: require('./components/homeScreen/home'),
+      // add a subRoutes map under /foo
+      // subRoutes: {
+      //   '/work': {
+      //     // This component will be rendered into Foo's <router-view>
+      //     // when /foo is matched. Using an inline component definition
+      //     // here for convenience.
+      //     component: require('./components/work/work'),
+      //   },
+      // }
+    }
+  });
 
-App.prototype.newVue = function (element, dataAtrributes, component) {
+};
+
+
+App.prototype.newVue = function (element, dataAtrributes) {
   Vue.config.debug = true;
   return new Vue({
     el: element,
     data: {
       currentView: dataAtrributes
     },
-    components: component,
+    // components: component,
   });
 };
 
