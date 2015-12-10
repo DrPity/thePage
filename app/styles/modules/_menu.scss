@@ -1,15 +1,17 @@
 #nav{
   text-align: center;
+  position: absolute;
   // color: $white;
-  @include use-normal-font($light, 400, modular-scale(1.5), 0.1rem, $white);
+  line-height: 2.1rem;
+  @include use-normal-font($regularPo, 400, modular-scale(1.5), 0.1rem, $white);
   position: inherit;
-  // top: 40%;
-  // left: 50%;
-  // transform: translateX(-50%) translateY(-50%);
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   @extend %clearfix;
 
   @media #{$medium-up} {
-    @include use-normal-font($light, 400, modular-scale(3), 0.1rem, $white);
+    @include use-normal-font($regularPo, 400, modular-scale(3), 0.1rem, $white);
   }
 
   li{

@@ -14,13 +14,13 @@
       },
       {
         "id": "1",
-        "linkName": "The Person",
-        "linkPath": "/me"
+        "linkName": "The Pictures",
+        "linkPath": "/photography"
       },
       {
         "id": "2",
-        "linkName": "The Pictures",
-        "linkPath": "/photography"
+        "linkName": "The Person",
+        "linkPath": "/me"
       }
     ]
   }

@@ -5,10 +5,6 @@ module.exports = {
     return startApp.model;
   },
 
-  getMainView: function () {
-    return startApp.mainView;
-  },
-
   getRouter: function(){
     return startApp.router;
   }
@@ -18,10 +14,13 @@ var $ = require('jquery');
 var Vue = require('vue');
 var _ = require('./helpers');
 var Router = require('vue-router');
+window.p5 = require('p5');
+require ('./tiles.js');
 Vue.use(Router);
 
+//start component and root data
 var RoutedApp = Vue.extend({
-  component: require('./components/wrapper/wrapper'),
+  // component: require('./components/wrapper/wrapper'),
 });
 
 
@@ -33,7 +32,12 @@ function App(url){
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
   this.scr = new this.Scramble();
-  this.router = new Router();
+  this.router = new Router({
+    history: false,
+    transitionOnLoad: true,
+    saveScrollPosition: true,
+    // root: '/',
+  });
   this.model = {};
   this.init(url);
 }
@@ -83,16 +87,24 @@ App.prototype.createRouterMap = function () {
       },
     '/home': {
       component: require('./components/homeScreen/home'),
-      // add a subRoutes map under /foo
-      // subRoutes: {
-      //   '/work': {
-      //     // This component will be rendered into Foo's <router-view>
-      //     // when /foo is matched. Using an inline component definition
-      //     // here for convenience.
-      //     component: require('./components/work/work'),
-      //   },
-      // }
-    }
+        subRoutes: {
+        '/': {
+          // This component will be rendered into Foo's <router-view>
+          // when /foo is matched. Using an inline component definition
+          // here for convenience.
+          component: {
+            // template: '<div class="pin"></div>'
+          }
+        },
+        '/bar': {
+          // Bar will be rendered inside Foo's <router-view>
+          // when /foo/bar is matched
+          component: {
+            template: '<p>Default sub view for Foo</p>'
+          }
+        },
+      }
+    },
   });
 
 };

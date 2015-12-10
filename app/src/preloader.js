@@ -5,6 +5,7 @@ var app = require('./index.js');
 require('gsap');
 require('./descramble.js');
 
+
 preloader = {};
 
 preloader.init = function() {
@@ -25,12 +26,12 @@ preloader.init = function() {
   queue.loadManifest([
     {
       id:   '1',
-      src:  './images/home_small.jpg'
+      src:  './images/waves.jpg'
     },
-    {
-      id: '2',
-      src: './images/bgTest.jpg'
-    },
+    // {
+    //   id: '2',
+    //   src: './images/*'
+    // },
   ]);
 };
 

@@ -1,15 +1,17 @@
 
 <div class="bg" transition="fade">
-  <div class="row fullWidth absoluteCentering">
+  <div class="row fullWidth">
     <div class="large-12 columns">
       <ul id="nav">
         <li v-for="item in links">
-          <a id="{{item.id}}" class="font">{{item.linkName | uppercase}}</a>
+          <a id="{{item.id}}" class="font">{{item.linkName}}</a>
           <div class="line" style="transform-origin: left center 0px; transform: matrix(0, 0, 0, 1, 0, 0);"></div>
         </li>
       </ul>
     </div>
+    <div id='myContainer'></div>
   </div>
+  <router-view></router-view>
 </div>
 
 

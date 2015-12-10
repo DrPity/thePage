@@ -4,23 +4,21 @@ var _ = require('../../helpers');
 
 module.exports = {
 
-  inherit: true,
+  // inherit: true,
   replace: true,
   name: "wrapper",
   template: require('./wrapper.html'),
 
   data: function() {
     return {
-
-      mainData: "Test",
-      // links: app.getModel().home.links
+      Bla: "Bla",
     };
 
   },
 
 
   ready: function() {
-
+    console.log("Router init: ", this );
   },
 
   afterLeave: function(){

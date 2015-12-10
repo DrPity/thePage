@@ -13,7 +13,7 @@ module.exports = {
 
   route: {
     activate: function () {
-      console.log('hook-example activated!');
+      console.log('activated');
     },
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
