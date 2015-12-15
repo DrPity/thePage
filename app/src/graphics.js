@@ -4,9 +4,14 @@ var _ = require('./helpers');
 
 
 function Graphics() {
-  this.attachelements();
+  // this.attachelements();
   this.transform($("#wrapper"));
-  this.tFont = new TimelineLite();
+  this.tFont = new TimelineMax({repeat:-1});
+
+  var animation = this.tweenFontWeight(".welcomeTxt");
+  // console.log("Animation: ", animation);
+  // _.addClass("bg", "greyscale");
+  animation.play();
   // this.tFont.to($("#0"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
   // this.tFont.to($("#1"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
   // this.tFont.to($("#2"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
@@ -31,39 +36,35 @@ function Graphics() {
 
 
 Graphics.prototype.attachelements = function () {
-  var _this = this;
-  $("#wrapper").on("mouseenter", "li a", function() {
-    var animation = _this.tweenFontWeight(this);
-    console.log("Animation: ", animation);
-    // _.addClass("bg", "greyscale");
-    animation.play();
-  });
-
-  $("#wrapper").on("mouseleave", "li a", function() {
-      _this.tFont.kill();
-      _this.tFont.clear();
-      _this.tFont.to(this, 0, {'font-family':'"SourceSansPro-Light",  sans-serif'});
-  });
-
-
-  $("#wrapper").on("click", "li a", function() {
-    var wipeAnimation = new TimelineMax()
-        .fromTo(".pin", 1, {y: "-100%"}, {y: "0%", ease: Expo.easeOut}); // in from top
-  });
+  // var _this = this;
+  // $("#wrapper").on("mouseenter", ".bold", function() {
+  //   _this.tweenFontWeight(this).play();
+  // });
+  //
+  // $("#wrapper").on("mouseleave", ".bold", function() {
+  //     _this.tFont.kill();
+  //     _this.tFont.clear();
+  //     _this.tFont.to(this, 0, {'font-family':'"OpenSans-ExtraBold",  sans-serif'});
+  // });
+  //
+  //
+  // $("#wrapper").on("click", "li a", function() {
+  //   var wipeAnimation = new TimelineMax()
+  //       .fromTo(".pin", 1, {y: "-100%"}, {y: "0%", ease: Expo.easeOut}); // in from top
+  // });
 };
 
 Graphics.prototype.tweenFontWeight = function (element) {
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Light", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-ExtraLight", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Bold", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-ExtraLightItalic", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Semibold", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-BlackItalic", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Italic", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-Regular", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-SemiboldItalic", sans-serif'});
-    this.tFont.to(element, 0.1, {'font-family':'"SourceSansPro-BlackItalic", sans-serif'});
-    // this.tFont.restart(true, false);
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-Regular", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-Bold", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-BoldItalic", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-ExtraBold", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-ExtraBoldItalic", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-Italic", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-LightItalic", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-Light", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-Semibold", sans-serif'});
+    this.tFont.to(element, 0.2, {'font-family':'"OpenSans-SemiboldItalic", sans-serif'});
     return this.tFont;
 };
 
@@ -129,18 +130,15 @@ Graphics.prototype.transform = function (element){
     });
 
     element.on("mousemove", ".bg", function(event){
+      // console.log("outer: ", op.isAnimating);
       if (!op.isAnimating){
-        var offsetX = (element.outerWidth() - element.innerWidth()) /2;
         var offsetY = (window.outerHeight - window.innerHeight) /6;
 
-        console.log("outer: ", offsetY);
-
-
-        var x = _.floor((event.clientX / window.innerWidth) * op.strength),
-            y = _.floor((event.clientY / window.innerHeight) * op.strength - offsetY);
+        var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
+            y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
 
         // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
-        console.log("x: ", x, "Y: ", y);
+        // console.log("x: ", x, "Y: ", y);
         element.find("> .bg").css({
             "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
             "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
@@ -150,33 +148,6 @@ Graphics.prototype.transform = function (element){
       }
 
     });
-
-
-
-
-
-    // mousemove(function(e) {
-    //     if (!i.hasClass("ibg-entering") && !i.hasClass("exiting")) {
-    //         var t = e.pageX || e.clientX,
-    //             n = e.pageY || e.clientY
-    //             t = t - i.offset().left - o / 2,
-    //             n = n - i.offset().top - s / 2,
-    //             f = a * t * -1,
-    //             l = u * n * -1;
-    //         i.find("> .ibg-bg").css({
-    //             "-webkit-transform": "matrix(" + r.scale + ",0,0," + r.scale + "," + f + "," + l + ")",
-    //             "-moz-transform": "matrix(" + r.scale + ",0,0," + r.scale + "," + f + "," + l + ")",
-    //             "-o-transform": "matrix(" + r.scale + ",0,0," + r.scale + "," + f + "," + l + ")",
-    //             transform: "matrix(" + r.scale + ",0,0," + r.scale + "," + f + "," + l + ")",
-    //             "-webkit-transition": "none",
-    //             "-moz-transition": "none",
-    //             "-o-transition": "none",
-    //             transition: "none"
-    //         })
-    //     }
-    // })
-
-
 
 };
 

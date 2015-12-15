@@ -25,7 +25,8 @@ module.exports = {
   data: function() {
     return {
       id: app.getModel().home.id,
-      links: app.getModel().home.links
+      links: app.getModel().home.links,
+      introText: require("../text/intro.html")
     };
 
   },

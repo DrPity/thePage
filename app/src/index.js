@@ -36,7 +36,6 @@ function App(url){
     history: false,
     transitionOnLoad: true,
     saveScrollPosition: true,
-    // root: '/',
   });
   this.model = {};
   this.init(url);
@@ -82,31 +81,25 @@ App.prototype.createComponent = function () {
 
 App.prototype.createRouterMap = function () {
     this.router.map({
-    '/':{
+    '*':{
+      component: require('./components/loadScreen/loader'),
+    },
+    '/': {
       component: require('./components/loadScreen/loader'),
       },
     '/home': {
       component: require('./components/homeScreen/home'),
-        subRoutes: {
-        '/': {
-          // This component will be rendered into Foo's <router-view>
-          // when /foo is matched. Using an inline component definition
-          // here for convenience.
-          component: {
-            // template: '<div class="pin"></div>'
-          }
-        },
-        '/bar': {
-          // Bar will be rendered inside Foo's <router-view>
-          // when /foo/bar is matched
-          component: {
-            template: '<p>Default sub view for Foo</p>'
-          }
-        },
-      }
     },
+    '/bar': {
+      component: require('./components/homeScreen/home')
+    }
   });
 
+};
+
+
+var test = function () {
+  console.log("This is a test");
 };
 
 

@@ -3,7 +3,7 @@
   position: absolute;
   // color: $white;
   line-height: 2.1rem;
-  @include use-normal-font($regularPo, 400, modular-scale(1.5), 0.1rem, $white);
+  @include use-normal-font($regular, 400, modular-scale(1.5), 0.1rem, $white);
   position: inherit;
   top: 40%;
   left: 50%;
@@ -11,7 +11,7 @@
   @extend %clearfix;
 
   @media #{$medium-up} {
-    @include use-normal-font($regularPo, 400, modular-scale(3), 0.1rem, $white);
+    @include use-normal-font($regular, 400, modular-scale(3), 0.1rem, $white);
   }
 
   li{

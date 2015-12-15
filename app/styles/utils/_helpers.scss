@@ -21,6 +21,13 @@
     }
 }
 
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+}
+
+
 // easing:
 // exponential
 $ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1);

@@ -36,4 +36,16 @@ $font_dir: '../fonts/';
 @include register-font('SourceSansPro-LightItalic');
 @include register-font('SourceSansPro-ExtraLightItalic');
 @include register-font('SourceSansPro-Italic');
+
 @include register-font('PoiretOne-Regular');
+
+@include register-font('OpenSans-Regular');
+@include register-font('OpenSans-Bold');
+@include register-font('OpenSans-BoldItalic');
+@include register-font('OpenSans-ExtraBold');
+@include register-font('OpenSans-ExtraBoldItalic');
+@include register-font('OpenSans-Italic');
+@include register-font('OpenSans-Light');
+@include register-font('OpenSans-LightItalic');
+@include register-font('OpenSans-Semibold');
+@include register-font('OpenSans-SemiboldItalic');

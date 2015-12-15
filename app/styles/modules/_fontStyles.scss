@@ -1,0 +1,8 @@
+.welcomeTxt {
+    background-color: #000;
+    color: #fff;
+    text-align: justify;
+    float: left;
+    margin-left: 1rem;
+    @include use-normal-font($light, 400, modular-scale(4), 0.1rem, $white);
+}
