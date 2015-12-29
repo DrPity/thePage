@@ -22,7 +22,7 @@ gulp.task('styles', function() {
         style: 'expanded',
         precision: 10,
         sourceComments: 'nope',
-        includePaths: ['bower_components/foundation/scss', 'node_modules/bourbon/app/assets/stylesheets/'],
+        includePaths: ['bower_components/foundation-sites/scss', 'node_modules/bourbon/app/assets/stylesheets/'],
     })).on('error', handleErrors)
     .pipe(autoprefixer())
     .pipe(env ? gutil.noop() : minifyCSS())

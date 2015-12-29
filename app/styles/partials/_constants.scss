@@ -6,14 +6,17 @@ html body {
 }
 
 body{
+  width: 100%;
   color: white;
   background: black;
-  position: relative;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 html{
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 html, body, p{

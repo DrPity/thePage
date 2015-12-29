@@ -2,6 +2,8 @@
 var app = require('../../index.js');
 var _ = require('../../helpers');
 var $ = require('jquery');
+var scale = require('../../perfectScale.js');
+
 module.exports = {
 
   inherit: true,
@@ -14,6 +16,7 @@ module.exports = {
   route: {
     activate: function () {
       console.log('activated');
+      var rescale = new scale();
     },
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
@@ -26,7 +29,8 @@ module.exports = {
     return {
       id: app.getModel().home.id,
       links: app.getModel().home.links,
-      introText: require("../text/intro.html")
+      introText: require("../text/intro.html"),
+      work: require("../work/work.html")
     };
 
   },

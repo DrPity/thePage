@@ -9,7 +9,7 @@ require('./descramble.js');
 preloader = {};
 
 preloader.init = function() {
-  message = "LOOAOADDDDDDDDDIIIIIIIIIIINGNGNGNNGNGNG YEEHAHHHHH";
+  message = "LOADING";
   currentIndex = 0;
   formerIndex = 0;
 
@@ -26,12 +26,12 @@ preloader.init = function() {
   queue.loadManifest([
     {
       id:   '1',
-      src:  './images/waves.jpg'
+      src:  './images/logo.png'
     },
-    // {
-    //   id: '2',
-    //   src: './images/*'
-    // },
+    {
+      id: '2',
+      src: './images/waves.jpg'
+    },
   ]);
 };
 
@@ -41,6 +41,7 @@ preloader.onComplete = function(event) {
     // preloader.show = false;
     console.log("Leaving activated");
     var router = app.getRouter().go('/home');
+
 
     // var scrambleItems = ["0", "1", "2"];
     // for (var item = 0; item < scrambleItems.length; item++) {
@@ -72,13 +73,13 @@ preloader.onProgress = function (event) {
   $progressbar.css({
     'width': progress + '%'
   });
-  currentIndex = Math.ceil(progress/2);
-  if (currentIndex < message.length) {
-      for ( var idx = formerIndex; idx < currentIndex; idx++){
-        $('.msg').append(message[idx]);
-      }
-  }
-  formerIndex = currentIndex;
+  // currentIndex = Math.ceil(progress/2);
+  // if (currentIndex < message.length) {
+  //     for ( var idx = formerIndex; idx < currentIndex; idx++){
+  //       $('.msg').append(message[idx]);
+  //     }
+  // }
+  // formerIndex = currentIndex;
 };
 
 module.exports = preloader;

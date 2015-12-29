@@ -1,11 +1,8 @@
+// Global fade transition
 .fade-transition {
-  transition: opacity .3s ease;
+  transition: 2.0s ease;
 }
-.fade-enter,
-.fade-leave  {
-  opacity: 1;
+
+.fade-enter, .fade-leave {
+  opacity: 0;
 }
-//
-// .fade-leave {
-//   opacity: 0;
-// }

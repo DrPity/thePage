@@ -139,7 +139,7 @@ Graphics.prototype.transform = function (element){
 
         // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
         // console.log("x: ", x, "Y: ", y);
-        element.find("> .bg").css({
+        element.find(".bg").css({
             "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
             "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
             "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",

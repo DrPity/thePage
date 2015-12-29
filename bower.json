@@ -2,7 +2,7 @@
   "name": "TheProduct",
   "private": true,
   "dependencies": {
-    "foundation": "*",
+    "foundation-sites": "*",
     "PreloadJS": "*"
   },
   "devDependencies": {
