@@ -1,5 +1,6 @@
 var Vue = require('vue');
 var app = require('./index.js');
+var $ = require('jquery');
 
 function Transitions() {
 		console.log("Transitions Init");
@@ -8,13 +9,17 @@ function Transitions() {
 
 Transitions.prototype.init = function () {
   Vue.transition('fade', {
-    enter: function () {
+    enter: function (el, done) {
 		},
-    leave: function () {console.log("Leaving current element with transition");},
-    afterLeave: function(el){
-			if (el.id == 'loader' && this.show === false){
-				this.remove();
+    leave: function (el, done) {
+			if (el.id == 'loader'){
+				setInterval(function () {
+					done();
+				}, 300);
 			}
+		},
+    afterLeave: function(el){
+
     }
   });
 };

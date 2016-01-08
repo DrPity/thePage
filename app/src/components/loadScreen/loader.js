@@ -24,9 +24,8 @@ module.exports = {
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
       console.log(transition);
-      // transition.to('/home');
-      // transition.from('/');
-      transition.next();
+       setTimeout(transition.next, 5000);
+      // transition.next();
     }
   },
 

@@ -4,7 +4,6 @@ var _ = require('./helpers');
 
 
 function Graphics() {
-  // this.attachelements();
   this.transform($("#wrapper"));
   this.tFont = new TimelineMax({repeat:-1});
 
@@ -91,63 +90,66 @@ Graphics.prototype.shakeAnimation = function (element){
 Graphics.prototype.transform = function (element){
   console.log("In transform");
     var op = {
-        scale: 1.05,
+        scale: 1.04,
         strength: 25,
         animationSpeed: "100ms",
         isAnimating: false
     };
-
-    element.on("mouseenter", ".bg", function() {
-      op.isAnimating = true;
-      element.find("> .bg").css({
-          "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-          "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-          "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-          transform: "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-          "-webkit-transition": "-webkit-transform " + op.animationSpeed + " linear",
-          "-moz-transition": "-moz-transform " + op.animationSpeed + " linear",
-          "-o-transition": "-o-transform " + op.animationSpeed + " linear",
-          transition: "transform " + op.animationSpeed + " linear"
-      }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-          op.isAnimating = false;
-      });
-    });
-
-    element.on("mouseleave", ".bg", function() {
-      op.isAnimating = true;
-      element.find("> .bg").css({
-          "-webkit-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-          "-moz-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-          "-o-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-          transform: "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-          "-webkit-transition": "-webkit-transform " + op.animationSpeed + " linear",
-          "-moz-transition": "-moz-transform " + op.animationSpeed + " linear",
-          "-o-transition": "-o-transform " + op.animationSpeed + " linear",
-          transition: "transform " + op.animationSpeed + " linear"
-      }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-          op.isAnimating = false;
-      });
-    });
-
-    element.on("mousemove", ".bg", function(event){
-      // console.log("outer: ", op.isAnimating);
-      if (!op.isAnimating){
-        var offsetY = (window.outerHeight - window.innerHeight) /6;
-
-        var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
-            y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
-
-        // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
-        // console.log("x: ", x, "Y: ", y);
-        element.find(".bg").css({
-            "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-            "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-            "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-            transform: "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+    if (screen.width <= 699) {
+        console.log("Touch Device");
+    }else{
+      element.on("mouseenter", ".bg", function() {
+        op.isAnimating = true;
+        element.find("> .bg").css({
+            "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+            "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+            "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+            transform: "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+            "-webkit-transition": "-webkit-transform " + op.animationSpeed + " linear",
+            "-moz-transition": "-moz-transform " + op.animationSpeed + " linear",
+            "-o-transition": "-o-transform " + op.animationSpeed + " linear",
+            transition: "transform " + op.animationSpeed + " linear"
+        }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+            op.isAnimating = false;
         });
-      }
+      });
 
-    });
+      element.on("mouseleave", ".bg", function() {
+        op.isAnimating = true;
+        element.find("> .bg").css({
+            "-webkit-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+            "-moz-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+            "-o-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+            transform: "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+            "-webkit-transition": "-webkit-transform " + op.animationSpeed + " linear",
+            "-moz-transition": "-moz-transform " + op.animationSpeed + " linear",
+            "-o-transition": "-o-transform " + op.animationSpeed + " linear",
+            transition: "transform " + op.animationSpeed + " linear"
+        }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+            op.isAnimating = false;
+        });
+      });
+
+      element.on("mousemove", ".bg", function(event){
+        // console.log("outer: ", op.isAnimating);
+        if (!op.isAnimating){
+          var offsetY = (window.outerHeight - window.innerHeight) /6;
+
+          var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
+              y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
+
+          // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
+          // console.log("x: ", x, "Y: ", y);
+          element.find(".bg").css({
+              "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+              "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+              "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+              transform: "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+          });
+        }
+
+      });
+    }
 
 };
 

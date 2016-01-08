@@ -30,8 +30,12 @@ preloader.init = function() {
     },
     {
       id: '2',
-      src: './images/waves.jpg'
+      src: './images/berlin.jpg'
     },
+    // {
+    //   id: '3',
+    //   src: './images/berlin.jpg'
+    // },
   ]);
 };
 
