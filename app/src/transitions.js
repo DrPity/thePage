@@ -13,14 +13,10 @@ Transitions.prototype.init = function () {
 		},
     leave: function (el, done) {
 			if (el.id == 'loader'){
-				setInterval(function () {
-					done();
-				}, 300);
+				// setTimeout(done, 4000);
+				// done();
 			}
 		},
-    afterLeave: function(el){
-
-    }
   });
 };
 

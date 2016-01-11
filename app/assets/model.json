@@ -6,6 +6,11 @@
   },
   "home": {
     "id": "home",
+    "description": {
+      "name": "Michael Schade",
+      "one": "Interaction",
+      "two": "Design"
+    },
     "links": [
       {
         "id": "0",

@@ -1,3 +1,5 @@
+<div class="root" transition="fade">
+
 <!-- <div class="overlay">
   <div class="row fullWidth">
     <div class="large-10 columns">
@@ -6,24 +8,25 @@
   </div>
 </div> -->
 
-
-<section class="bg" transition="fade">
+<section class="bg">
   <div class="tag">
-    <p id="0" class="name">MICHAEL SCHADE</p>
-    <p id="1" class="description_one">INTERACTION</p>
-    <p id="2" class="description_two">DESIGN</p>
+    <p id="0" class="name">{{description.name | uppercase}}</p>
+    <p id="1" class="description_one">{{description.one | uppercase}}</p>
+    <p id="2" class="description_two">{{description.two | uppercase}}</p>
   </div>
 </section>
 
+<!-- Menu -->
+<!-- <div class="transformTest">
+</div> -->
 
-
+<!-- Projects  -->
 <section class="work">
  {{{work}}}
 </section>
 
-
+<!-- Contact  -->
 <section class="contact">
-
 </section>
 
 <!-- <router-view "keep-alive"></router-view> -->
@@ -38,3 +41,4 @@
     </li>
   </ul>
 </div> -->
+</div>

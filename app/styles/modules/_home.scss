@@ -14,13 +14,13 @@
 #wrapper{
   // @extend %full-size;
   position:relative;
-  height: auto !important;
+  height: 100% !important;
   border-color: $white;
   border-style: solid;
   border-bottom: 0;
   border-width: 0.5rem;
   background-color: #e1e1e1;
-  overflow-y: hidden;
+  // overflow-y: hidden;
 
   @media #{$medium-up} {
     border-width: 1rem;

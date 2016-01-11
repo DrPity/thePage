@@ -29,6 +29,7 @@ module.exports = {
     return {
       id: app.getModel().home.id,
       links: app.getModel().home.links,
+      description: app.getModel().home.description,
       introText: require("../text/intro.html"),
       work: require("../work/work.html")
     };
@@ -39,13 +40,14 @@ module.exports = {
   ready: function() {
     // var scrambleItems = ["0", "1", "2"];
     // for (var item = 0; item < scrambleItems.length; item++) {
-    //   var linkArray = _.arrayFilter(app.getMainView().$children, 'home', 'id');
-    //   var orig = linkArray.links[item].linkName;
-    //   console.log("orig:", orig.length);
-    //   $("#" + item).decrypt_effect({
-    //     speed: _.randomInt(100,700),
-    //     decrypted_text: orig,
-    //   });
+    //   var wordList = this.description;
+    //   console.log("wordList: ", wordList);
+      // var orig = linkArray.links[item].linkName;
+      // console.log("orig:", orig.length);
+      // $("#" + item).decrypt_effect({
+      //   speed: _.randomInt(100,700),
+      //   decrypted_text: orig,
+      // });
     // }
     // $( ".bg" ).fadeIn( 1000, function() {
     //

@@ -13,7 +13,6 @@ module.exports = {
     return {
       id: app.getModel().preloader.id,
       preloadBar: app.getModel().preloader.preloadBar,
-      show: true
     };
 
   },
@@ -24,7 +23,9 @@ module.exports = {
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
       console.log(transition);
-       setTimeout(transition.next, 5000);
+      setTimeout(transition.next, 4000);
+      // transition.from('*');
+      // transition.to('/home');
       // transition.next();
     }
   },

@@ -47,7 +47,7 @@ Graphics.prototype.attachelements = function () {
   // });
   //
   //
-  // $("#wrapper").on("click", "li a", function() {
+  // $("#wrapper").on("click", ".bg", function() {
   //   var wipeAnimation = new TimelineMax()
   //       .fromTo(".pin", 1, {y: "-100%"}, {y: "0%", ease: Expo.easeOut}); // in from top
   // });
@@ -98,7 +98,7 @@ Graphics.prototype.transform = function (element){
     if (screen.width <= 699) {
         console.log("Touch Device");
     }else{
-      element.on("mouseenter", ".bg", function() {
+      element.on("mouseenter", ".root", function() {
         op.isAnimating = true;
         element.find("> .bg").css({
             "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
@@ -114,7 +114,7 @@ Graphics.prototype.transform = function (element){
         });
       });
 
-      element.on("mouseleave", ".bg", function() {
+      element.on("mouseleave", ".root", function() {
         op.isAnimating = true;
         element.find("> .bg").css({
             "-webkit-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
@@ -130,7 +130,7 @@ Graphics.prototype.transform = function (element){
         });
       });
 
-      element.on("mousemove", ".bg", function(event){
+      element.on("mousemove", ".root", function(event){
         // console.log("outer: ", op.isAnimating);
         if (!op.isAnimating){
           var offsetY = (window.outerHeight - window.innerHeight) /6;
