@@ -1,11 +1,13 @@
 var gulp = require('gulp'),
+    gzip = require('gulp-gzip'),
     argv = require('yargs')
       .default({path : 'tmp'})
       .argv;
 
-console.log(argv.path);
 gulp.task('deploy', ['build'], function() {
     console.log("In deploy");
-    return gulp.src('dist/**/*')
-     .pipe(gulp.dest(argv.path));
+    console.log("The path", argv.path);
+    // return gulp.src('dist/**/*.{html,xml,json,css,js}')
+    //   .pipe(gzip({ append: false }))
+    //   .pipe(gulp.dest(argv.path));
 });

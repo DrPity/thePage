@@ -2,6 +2,12 @@ var Scramble = require('./scramble');
 var $ = require('jquery');
 var _ = require('./helpers');
 var app = require('./index.js');
+window.createjs = this.createjs || {};
+require('PreloadJS');
+
+
+console.log("Preloader: ", createjs);
+
 require('gsap');
 require('./descramble.js');
 
@@ -12,7 +18,7 @@ preloader.init = function() {
   message = "LOADING";
   currentIndex = 0;
   formerIndex = 0;
-
+  console.log("In preload");
   queue        = new createjs.LoadQueue();
   $progress    = $('#progress');
   $progressbar = $('#progressbar .bar');
@@ -28,10 +34,10 @@ preloader.init = function() {
       id:   '1',
       src:  './images/logo.png'
     },
-    {
-      id: '2',
-      src: './images/berlin.jpg'
-    },
+    // {
+    //   id: '2',
+    //   src: './images/berlin.jpg'
+    // },
     // {
     //   id: '3',
     //   src: './images/berlin.jpg'

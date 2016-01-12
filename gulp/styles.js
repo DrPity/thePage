@@ -8,6 +8,8 @@ var gulp = require('gulp'),
     argv = require('yargs').argv;
     browserSync = require('browser-sync');
     gulpLoadPlugins = require('gulp-load-plugins');
+    uncss = require('gulp-uncss');
+    minifyCss = require('gulp-minify-css');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -24,8 +26,13 @@ gulp.task('styles', function() {
         sourceComments: 'nope',
         includePaths: ['bower_components/foundation-sites/scss', 'node_modules/bourbon/app/assets/stylesheets/'],
     })).on('error', handleErrors)
-    .pipe(autoprefixer())
     .pipe(env ? gutil.noop() : minifyCSS())
+    .pipe(autoprefixer())
+    // .pipe(uncss({
+    //     html: ['app/**/*.html'],
+    //     ignore: []
+    // }))
+    .pipe(minifyCss({keepBreaks: false}))
     // .pipe(gulp.dest('.tmp/styles/'))
     .pipe(gulp.dest('dist/styles/'))
     .pipe(reload({stream: true}));

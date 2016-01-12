@@ -31,9 +31,7 @@ module.exports = {
   },
 
   ready: function() {
-    console.log("Thiiis", this);
     Preloader.init();
-    // this.$remove();
   },
 
   beforeDestroy: function() {

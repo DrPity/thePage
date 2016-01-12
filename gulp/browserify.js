@@ -17,7 +17,7 @@ var gulp = require('gulp'),
     _ = require('lodash'),
     bowerResolve = require('bower-resolve');
 
-var uglifyIt = false;
+var uglifyIt = true;
 
 gulp.task('browserify', function()
 {
@@ -29,7 +29,7 @@ gulp.task('browserify', function()
       packageCache: {},
       debug: uglifyIt,
       fullPaths: true,
-      transform: stringify ({extensions: ['.html'], minify: false
+      transform: stringify ({extensions: ['.html'], minify: true
       })
     }),
     file = 'main.js',
