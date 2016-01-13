@@ -17,7 +17,7 @@ var gulp = require('gulp'),
     _ = require('lodash'),
     bowerResolve = require('bower-resolve');
 
-var uglifyIt = true;
+var uglifyIt = false;
 
 gulp.task('browserify', function()
 {

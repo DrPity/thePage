@@ -5,9 +5,6 @@ var app = require('./index.js');
 window.createjs = this.createjs || {};
 require('PreloadJS');
 
-
-console.log("Preloader: ", createjs);
-
 require('gsap');
 require('./descramble.js');
 

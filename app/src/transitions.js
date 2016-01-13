@@ -13,8 +13,9 @@ Transitions.prototype.init = function () {
 		},
     leave: function (el, done) {
 			if (el.id == 'loader'){
-				// setTimeout(done, 4000);
-				// done();
+				var element = document.querySelectorAll('body');
+	      console.log(el[0]);
+	      element[0].style.overflowY = 'scroll';
 			}
 		},
   });
