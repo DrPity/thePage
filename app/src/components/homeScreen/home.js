@@ -24,20 +24,23 @@ module.exports = {
     }
   },
 
-
   data: function() {
     return {
       id: app.getModel().home.id,
       links: app.getModel().home.links,
       description: app.getModel().home.description,
       introText: require("../text/intro.html"),
-      work: require("../work/work.html")
+      work: require("../work/work.html"),
+      redirect: app.getModel().redirect
     };
 
   },
 
 
   ready: function() {
+    console.log("Before data: ", app.getModel().redirect);
+    this.redirect = "new";
+    console.log("Before data: ", app.getModel().redirect);
     // var scrambleItems = ["0", "1", "2"];
     // for (var item = 0; item < scrambleItems.length; item++) {
     //   var wordList = this.description;

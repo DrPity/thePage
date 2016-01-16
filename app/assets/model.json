@@ -1,5 +1,5 @@
 {
-  "currentView": "home",
+  "redirect": "home",
   "preloader": {
     "id": "preloader",
     "preloadBar": "---"

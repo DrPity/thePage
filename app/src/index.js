@@ -18,10 +18,14 @@ window.p5 = require('p5');
 require ('./tiles.js');
 Vue.use(Router);
 
-//start component and root data
-var RoutedApp = Vue.extend({
-  // component: require('./components/wrapper/wrapper'),
-});
+// //start component and root data
+// var RoutedApp = Vue.extend({
+//   data: function() {
+//     return {
+//
+//     };
+//   }
+// });
 
 
 function App(url){
@@ -46,9 +50,17 @@ App.prototype.init = function (url) {
   $.when(_this.readJson(url)).then(function(data) {
     console.log(data);
     _this.model = data;
-    // var component = _this.createComponent();
+
+    //start component and root data
+    var RoutedApp = Vue.extend({
+      data: function() {
+        return data;
+      }
+    });
+    
     // _this.mainView = _this.newVue('#wrapper', data.currentView);
     _this.createRouterMap();
+    _this.redirectionMap();
     _this.router.start(RoutedApp, '#wrapper');
     window.graphics = new _this.Graphics();
     // var scroll = new ScrollTriggers();
@@ -90,9 +102,18 @@ App.prototype.createRouterMap = function () {
     '/home': {
       component: require('./components/homeScreen/home'),
     },
-    '/bar': {
-      component: require('./components/homeScreen/home')
-    }
+  });
+
+};
+
+
+App.prototype.redirectionMap = function () {
+
+  this.router.redirect({
+
+    // '/home': '/',
+
+    '*': '/'
   });
 
 };
@@ -108,7 +129,7 @@ App.prototype.newVue = function (element, dataAtrributes) {
   return new Vue({
     el: element,
     data: {
-      currentView: dataAtrributes
+      redirect: dataAtrributes
     },
     // components: component,
   });

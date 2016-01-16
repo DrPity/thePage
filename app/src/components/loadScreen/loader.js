@@ -34,8 +34,8 @@ module.exports = {
     Preloader.init();
   },
 
-  beforeDestroy: function() {
-
+  beforeDestroy: function(e) {
+    console.log("Redirect test", this);
   },
 
   methods: {
