@@ -23,7 +23,7 @@ module.exports = {
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
       console.log(transition);
-      setTimeout(transition.next, 4000);
+      setTimeout(transition.next, 1000);
       // transition.from('*');
       // transition.to('/home');
       // transition.next();
@@ -32,6 +32,8 @@ module.exports = {
 
   ready: function() {
     Preloader.init();
+    app.getRouter().app.$data.redirect = false;
+    // document.cookie="cached";
   },
 
   beforeDestroy: function(e) {

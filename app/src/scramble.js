@@ -13,23 +13,23 @@ Scr.prototype.randomLetter = function() {
 	return String.fromCharCode(Math.floor(((Math.random() * 1000) % 73) + 49));
 };
 
-Scr.prototype.scramble = function(__id) {
-	var id = [];
-	var path = _.arrayFilter(app.getRouter()._children, 'home', 'id');
-	console.log("path", path);
-	for (var items = 0; items < __id.length; items++) {
-		id[items] = '#' + __id[items];
-		// path[items] = 'home.links[' + __id[items] + '].linkName';
-		this.orig[items] = path.links[__id[items]].linkName;
-		console.log("items:",this.orig[items]);
-		$(id[items]).empty();
-
-		for (var i = 0; i < this.orig[items].length; i++) {
-			if (this.orig[i] != ' ') {
-				$(id[items]).append('<span>' + this.randomLetter() + '</span>').fadeIn("slow");
-			} else {
-				$(id[items]).append('<span> </span>');
+Scr.prototype.scramble = function(elements, currentRouterObject) {
+	console.log('ScrambleElements', elements);
+	console.log("router in scramble: ", currentRouterObject);
+	var index = 0;
+	for (var key in currentRouterObject.description) {
+		if (currentRouterObject.description.hasOwnProperty(key)) {
+			var orig = currentRouterObject.description[key];
+			$('#' + index).empty();
+			console.log("orig index", orig[index].length);
+			for (var i = 0; i < orig.length; i++) {
+				if (orig[i] != ' ') {
+					$('#' + index).append('<span>' + this.randomLetter() + '</span>').fadeIn("slow");
+				} else {
+					$('#' + index).append('<span> </span>');
+				}
 			}
+			index++;
 		}
 	}
 };

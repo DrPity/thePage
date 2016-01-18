@@ -31,11 +31,9 @@ Vue.use(Router);
 function App(url){
   this.Graphics = require('./graphics');
   this.mainView = null;
-  this.Scramble = require('./scramble');
   this.ScrollTriggers = require('./scrollTrigger');
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
-  this.scr = new this.Scramble();
   this.router = new Router({
     history: false,
     transitionOnLoad: true,
@@ -57,7 +55,7 @@ App.prototype.init = function (url) {
         return data;
       }
     });
-    
+
     // _this.mainView = _this.newVue('#wrapper', data.currentView);
     _this.createRouterMap();
     _this.redirectionMap();

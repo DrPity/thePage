@@ -1,5 +1,5 @@
 {
-  "redirect": "home",
+  "redirect": true,
   "preloader": {
     "id": "preloader",
     "preloadBar": "---"

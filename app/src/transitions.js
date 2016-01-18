@@ -18,6 +18,9 @@ Transitions.prototype.init = function () {
 	      element[0].style.overflowY = 'scroll';
 			}
 		},
+		afterLeave: function(){
+
+		}
   });
 };
 

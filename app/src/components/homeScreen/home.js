@@ -3,6 +3,8 @@ var app = require('../../index.js');
 var _ = require('../../helpers');
 var $ = require('jquery');
 var scale = require('../../perfectScale.js');
+var scramble = require('../../scramble');
+var scr = new scramble();
 
 module.exports = {
 
@@ -16,11 +18,16 @@ module.exports = {
   route: {
     activate: function () {
       console.log('activated');
-      var rescale = new scale();
+      // var rescale = new scale();
+      if (app.getRouter().app.$data.redirect === true){
+        app.getRouter().go('/');
+        console.log(true);
+      }
     },
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
-      transition.to('/');
+      transition.next();
+      this.$remove(0,false);
     }
   },
 
@@ -31,20 +38,28 @@ module.exports = {
       description: app.getModel().home.description,
       introText: require("../text/intro.html"),
       work: require("../work/work.html"),
-      redirect: app.getModel().redirect
     };
 
   },
 
 
   ready: function() {
-    console.log("Before data: ", app.getModel().redirect);
-    this.redirect = "new";
-    console.log("Before data: ", app.getModel().redirect);
-    // var scrambleItems = ["0", "1", "2"];
+    var index = 0;
+    var scrambleItems = ["0", "1", "2"];
+    scr.scramble(scrambleItems, this);
+    for (var key in this.description) {
+      if (this.description.hasOwnProperty(key)) {
+        var orig = this.description[key];
+        $("#" + index).decrypt_effect({
+          speed: _.randomInt(100,700),
+          decrypted_text: orig,
+        });
+        index++;
+      }
+    }
     // for (var item = 0; item < scrambleItems.length; item++) {
     //   var wordList = this.description;
-    //   console.log("wordList: ", wordList);
+    //   console.log("wordList: ", wordList[0]);
       // var orig = linkArray.links[item].linkName;
       // console.log("orig:", orig.length);
       // $("#" + item).decrypt_effect({
@@ -73,7 +88,10 @@ module.exports = {
   },
 
   enter: function (el) {
-    console.log("enter");
+    // console.log("Enter Home");
+    // if (app.getRouter().app.$data.redirect === true){
+    //   app.getRouter().go('/');
+    // }
   },
 
   leave: function (el) {
