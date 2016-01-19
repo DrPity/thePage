@@ -11,15 +11,15 @@ Transitions.prototype.init = function () {
   Vue.transition('fade', {
     enter: function (el, done) {
 		},
-    leave: function (el, done) {
+    leave: function (el) {
 			if (el.id == 'loader'){
 				var element = document.querySelectorAll('body');
 	      console.log(el[0]);
 	      element[0].style.overflowY = 'scroll';
 			}
 		},
-		afterLeave: function(){
-
+		afterLeave: function(el){
+			console.log("After leave:",  el);
 		}
   });
 };

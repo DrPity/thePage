@@ -4,17 +4,15 @@ var _ = require('./helpers');
 
 
 function Graphics() {
+  this.booleanEnum = {
+    isNavToggled: false,
+  };
+
   this.transform($("#wrapper"));
   this.tFont = new TimelineMax({repeat:-1});
-
-  var animation = this.tweenFontWeight(".welcomeTxt");
-  // console.log("Animation: ", animation);
-  // _.addClass("bg", "greyscale");
-  animation.play();
-  // this.tFont.to($("#0"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
-  // this.tFont.to($("#1"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
-  // this.tFont.to($("#2"), 0, {'font-family':'"SourceSansPro-Light", sans-serif'});
-
+  // var animation = this.tweenFontWeight(".welcomeTxt");
+  // animation.play();
+  this.attachelements();
 
   // var mouse = {x:0.0, y:0.0};
   // var mouseStart = function(){
@@ -35,7 +33,7 @@ function Graphics() {
 
 
 Graphics.prototype.attachelements = function () {
-  // var _this = this;
+  var _this = this;
   // $("#wrapper").on("mouseenter", ".bold", function() {
   //   _this.tweenFontWeight(this).play();
   // });
@@ -47,10 +45,15 @@ Graphics.prototype.attachelements = function () {
   // });
   //
   //
-  // $("#wrapper").on("click", ".bg", function() {
-  //   var wipeAnimation = new TimelineMax()
-  //       .fromTo(".pin", 1, {y: "-100%"}, {y: "0%", ease: Expo.easeOut}); // in from top
-  // });
+  $("#wrapper").on("click", "#box", function() {
+    var wipeAnimation = new TimelineMax();
+    if(_this.booleanEnum.isNavToggled === false){
+      wipeAnimation.fromTo(".transformTest", 0.3, {y: "-120%"}, {y: "0%", ease: Expo.easeOut}); // in from top
+    }else{
+      wipeAnimation.fromTo(".transformTest", 0.3, {y: "0%"}, {y: "-120%", ease: Expo.easeOut}); // in from top
+    }
+    _this.booleanEnum.isNavToggled = !_this.booleanEnum.isNavToggled;
+  });
 };
 
 Graphics.prototype.tweenFontWeight = function (element) {

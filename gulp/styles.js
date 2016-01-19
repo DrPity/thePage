@@ -24,15 +24,15 @@ gulp.task('styles', function() {
         style: 'expanded',
         precision: 10,
         sourceComments: 'nope',
-        includePaths: ['bower_components/foundation-sites/scss', 'node_modules/bourbon/app/assets/stylesheets/'],
+        includePaths: ['bower_components/foundation-sites/scss/', 'node_modules/bourbon/app/assets/stylesheets/'],
     })).on('error', handleErrors)
-    .pipe(env ? gutil.noop() : minifyCSS())
     .pipe(autoprefixer())
+    // .pipe(env ? gutil.noop() : minifyCSS())
     // .pipe(uncss({
     //     html: ['app/**/*.html'],
     //     ignore: []
     // }))
-    .pipe(minifyCss({keepBreaks: false}))
+    // .pipe(minifyCss({keepBreaks: false}))
     // .pipe(gulp.dest('.tmp/styles/'))
     .pipe(gulp.dest('dist/styles/'))
     .pipe(reload({stream: true}));

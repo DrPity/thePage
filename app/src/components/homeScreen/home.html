@@ -1,37 +1,29 @@
-<div class="root" transition="fade">
+<div class="root" transition="hfade">
 
+  <!-- Menu Toggle -->
+  <navigation></navigation>
 
-<section class="bg">
-  <div class="tag">
-    <p id="0" class="name">{{description.name | uppercase}}</p>
-    <p id="1" class="description_one">{{description.one | uppercase}}</p>
-    <p id="2" class="description_two">{{description.two | uppercase}}</p>
-  </div>
-</section>
+  <!-- First section and Background Image -->
+  <section class="bg">
+    <div class="tag">
+      <p id="0" class="name">{{description.name | uppercase}}</p>
+      <p id="1" class="description_one">{{description.one | uppercase}}</p>
+      <p id="2" class="description_two">{{description.two | uppercase}}</p>
+    </div>
+  </section>
 
-<!-- Menu -->
-<!-- <div class="transformTest">
-</div> -->
+  <!-- Projects  -->
+  <section class="work">
+    <div class="row">
+      <div class="small-6 columns">
+      </div>
+      <div class="small-6 columns">
+      </div>
+   </div>
+  </section>
 
-<!-- Projects  -->
-<section class="work">
- {{{work}}}
-</section>
+  <!-- Contact  -->
+  <section class="contact">
+  </section>
 
-<!-- Contact  -->
-<section class="contact">
-</section>
-
-<!-- <router-view "keep-alive"></router-view> -->
-
-
-<!-- v-link="{ path: 'item.linkPath'}" -->
-<!-- <div class="large-12 columns">
-  <ul id="nav">
-    <li v-for="item in links">
-      <a id="{{item.id}}" class="font">{{item.linkName}}</a>
-      <div class="line" style="transform-origin: left center 0px; transform: matrix(0, 0, 0, 1, 0, 0);"></div>
-    </li>
-  </ul>
-</div> -->
 </div>

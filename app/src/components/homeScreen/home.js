@@ -5,6 +5,7 @@ var $ = require('jquery');
 var scale = require('../../perfectScale.js');
 var scramble = require('../../scramble');
 var scr = new scramble();
+// var Masonry = require ('masonry-layout');
 
 module.exports = {
 
@@ -17,17 +18,13 @@ module.exports = {
 
   route: {
     activate: function () {
-      console.log('activated');
-      // var rescale = new scale();
       if (app.getRouter().app.$data.redirect === true){
         app.getRouter().go('/');
-        console.log(true);
       }
     },
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
       transition.next();
-      this.$remove(0,false);
     }
   },
 
@@ -40,6 +37,10 @@ module.exports = {
       work: require("../work/work.html"),
     };
 
+  },
+
+  components: {
+    'navigation': require('../navigation/navigation'),
   },
 
 
@@ -57,45 +58,38 @@ module.exports = {
         index++;
       }
     }
-    // for (var item = 0; item < scrambleItems.length; item++) {
-    //   var wordList = this.description;
-    //   console.log("wordList: ", wordList[0]);
-      // var orig = linkArray.links[item].linkName;
-      // console.log("orig:", orig.length);
-      // $("#" + item).decrypt_effect({
-      //   speed: _.randomInt(100,700),
-      //   decrypted_text: orig,
-      // });
-    // }
-    // $( ".bg" ).fadeIn( 1000, function() {
+
+    $('ul').on('click',function(){
+      $('ul').toggleClass('open');
+    });
     //
+    // var msnry = new Masonry( '.grid', {
+    //   itemSelector: '.grid-item',
+    //   // use element for option
+    //   columnWidth: '.grid-sizer',
+    //   percentPosition: true
+    // });
+    //
+    // msnry.imagesLoaded().progress( function() {
+    //   msnry.masonry();
     // });
 
-
-    //use this to remove a element
-    // console.log("Children", app.getMainView().$children);
-    // app.getMainView().$children[0].$remove(function(){
-    //   console.log("Bla");
-    // },this);
+    // $('.grid').masonry({
+    //   // set itemSelector so .grid-sizer is not used in layout
+    //   itemSelector: '.grid-item',
+    //   // use element for option
+    //   columnWidth: '.grid-sizer',
+    //   percentPosition: true
+    // });
   },
 
   afterLeave: function(){
-    console.log("after Leave");
-    // console.log("Children", app.getMainView().$children);
-    // app.getMainView().$children[0].$remove(function(){
-    //   console.log("Bla");
-    // },this);
   },
 
   enter: function (el) {
-    // console.log("Enter Home");
-    // if (app.getRouter().app.$data.redirect === true){
-    //   app.getRouter().go('/');
-    // }
   },
 
   leave: function (el) {
-    console.log("leave");
   },
 
   beforeDestroy: function() {

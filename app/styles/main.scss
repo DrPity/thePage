@@ -1,9 +1,9 @@
-// bower:scss
-// endbower
 
 //Vendor
 @import "foundation";
-@import "bourbon";
+@include foundation-global-styles; // Always include the global-styles
+@include foundation-flex-grid;
+
 //Utils
 @import "utils/helpers";
 // Partials
@@ -14,8 +14,8 @@
 //Partials with font dependency
 @import "partials/constants";
 // Modules and Variables
-
 @import "modules/home";
+@import "modules/grid";
 @import "modules/menu";
 @import "modules/loader";
 @import "modules/fontStyles";

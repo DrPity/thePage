@@ -52,12 +52,28 @@
     "bourbon": "^4.2.6",
     "gsap": "*",
     "jquery": "~2.1.1",
+    "masonry-layout": "*",
     "scrollmagic": "~2.0.5",
     "three": "*",
     "vue": "~1.0.10",
     "vue-router": "*",
     "p5": "*"
   },
+
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js",
+    "foundation": "./node_modules/foundation-sites/js/foundation.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "foundation": "foundation"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+
   "eslintConfig": {
     "env": {
       "node": true,

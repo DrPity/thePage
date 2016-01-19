@@ -14,8 +14,11 @@ var $ = require('jquery');
 var Vue = require('vue');
 var _ = require('./helpers');
 var Router = require('vue-router');
-window.p5 = require('p5');
-require ('./tiles.js');
+var foundation = require('foundation-sites');
+
+// var foundation = require('foundation-sites');
+
+// window.p5 = require('p5');
 Vue.use(Router);
 
 // //start component and root data
@@ -53,6 +56,9 @@ App.prototype.init = function (url) {
     var RoutedApp = Vue.extend({
       data: function() {
         return data;
+      },
+      created: function() {
+         $(document).foundation();
       }
     });
 
@@ -61,10 +67,14 @@ App.prototype.init = function (url) {
     _this.redirectionMap();
     _this.router.start(RoutedApp, '#wrapper');
     window.graphics = new _this.Graphics();
-    // var scroll = new ScrollTriggers();
-    // var scrambleItems = ["0", "1", "2"];
-    // _this.scr.scramble(scrambleItems);
-    // Preloader.init();
+    // $(document).foundation();
+
+    // try {
+    // Foundation.global.namespace = '';
+    // $(document).foundation();
+    // } catch(err) {
+    //   console.log(err);
+    // }
   });
 };
 
