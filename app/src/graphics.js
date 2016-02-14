@@ -12,7 +12,7 @@ function Graphics() {
   this.tFont = new TimelineMax({repeat:-1});
   // var animation = this.tweenFontWeight(".welcomeTxt");
   // animation.play();
-  this.attachelements();
+  // this.attachelements();
 
   // var mouse = {x:0.0, y:0.0};
   // var mouseStart = function(){
@@ -34,26 +34,6 @@ function Graphics() {
 
 Graphics.prototype.attachelements = function () {
   var _this = this;
-  // $("#wrapper").on("mouseenter", ".bold", function() {
-  //   _this.tweenFontWeight(this).play();
-  // });
-  //
-  // $("#wrapper").on("mouseleave", ".bold", function() {
-  //     _this.tFont.kill();
-  //     _this.tFont.clear();
-  //     _this.tFont.to(this, 0, {'font-family':'"OpenSans-ExtraBold",  sans-serif'});
-  // });
-  //
-  //
-  $("#wrapper").on("click", "#box", function() {
-    var wipeAnimation = new TimelineMax();
-    if(_this.booleanEnum.isNavToggled === false){
-      wipeAnimation.fromTo(".transformTest", 0.3, {y: "-120%"}, {y: "0%", ease: Expo.easeOut}); // in from top
-    }else{
-      wipeAnimation.fromTo(".transformTest", 0.3, {y: "0%"}, {y: "-120%", ease: Expo.easeOut}); // in from top
-    }
-    _this.booleanEnum.isNavToggled = !_this.booleanEnum.isNavToggled;
-  });
 };
 
 Graphics.prototype.tweenFontWeight = function (element) {

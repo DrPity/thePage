@@ -4,17 +4,16 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     handleErrors = require('./utils/handleErrors'),
     autoprefixer = require('gulp-autoprefixer'),
-    minifyCSS = require('gulp-minify-css'),
     argv = require('yargs').argv;
     browserSync = require('browser-sync');
     gulpLoadPlugins = require('gulp-load-plugins');
-    uncss = require('gulp-uncss');
-    minifyCss = require('gulp-minify-css');
+    // uncss = require('gulp-uncss');
+    minifyCss = require('gulp-cssnano');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-var env = argv.env != "production";
+var env = argv.env == "production";
 
 gulp.task('styles', function() {
     gulp.src('app/styles/*.scss')
@@ -24,32 +23,16 @@ gulp.task('styles', function() {
         style: 'expanded',
         precision: 10,
         sourceComments: 'nope',
-        includePaths: ['bower_components/foundation-sites/scss/', 'node_modules/bourbon/app/assets/stylesheets/'],
+        includePaths: ['bower_components/foundation-sites/scss/', 'node_modules/bourbon/app/assets/stylesheets/', 'bower_components/typeplate-starter-kit/scss/'],
     })).on('error', handleErrors)
     .pipe(autoprefixer())
-    // .pipe(env ? gutil.noop() : minifyCSS())
+    .pipe(env ? minifyCss({keepBreaks: false}) : gutil.noop())
+
+    //will not work when vue.js dynamically adds or removes classes/id's etc.
     // .pipe(uncss({
     //     html: ['app/**/*.html'],
     //     ignore: []
     // }))
-    // .pipe(minifyCss({keepBreaks: false}))
-    // .pipe(gulp.dest('.tmp/styles/'))
     .pipe(gulp.dest('dist/styles/'))
     .pipe(reload({stream: true}));
 });
-
-
-// gulp.task('styles', () => {
-//   return gulp.src('app/styles/*.scss')
-//     .pipe($.plumber())
-//     .pipe($.sourcemaps.init())
-//     .pipe($.sass.sync({
-//       outputStyle: 'expanded',
-//       precision: 10,
-//       includePaths: ['.']
-//     }).on('error', $.sass.logError))
-//     .pipe($.autoprefixer({browsers: ['last 1 version']}))
-//     .pipe($.sourcemaps.write())
-//     .pipe(gulp.dest('.tmp/styles'))
-//     .pipe(reload({stream: true}));
-// });

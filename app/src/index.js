@@ -1,13 +1,11 @@
-
-
 module.exports = {
   getModel: function () {
     return startApp.model;
   },
 
-  getRouter: function(){
+  getRouter: function () {
     return startApp.router;
-  }
+  },
 };
 
 var $ = require('jquery');
@@ -15,23 +13,15 @@ var Vue = require('vue');
 var _ = require('./helpers');
 var Router = require('vue-router');
 var foundation = require('foundation-sites');
+var loader = require('./components/loader.vue');
+var home = require('./components/home.vue');
 
 // var foundation = require('foundation-sites');
 
 // window.p5 = require('p5');
 Vue.use(Router);
 
-// //start component and root data
-// var RoutedApp = Vue.extend({
-//   data: function() {
-//     return {
-//
-//     };
-//   }
-// });
-
-
-function App(url){
+function App(url) {
   this.Graphics = require('./graphics');
   this.mainView = null;
   this.ScrollTriggers = require('./scrollTrigger');
@@ -43,23 +33,25 @@ function App(url){
     saveScrollPosition: true,
   });
   this.model = {};
+
   this.init(url);
 }
 
 App.prototype.init = function (url) {
   var _this = this;
-  $.when(_this.readJson(url)).then(function(data) {
+  $.when(_this.readJson(url)).then(function (data) {
     console.log(data);
     _this.model = data;
 
     //start component and root data
     var RoutedApp = Vue.extend({
-      data: function() {
+      data: function () {
         return data;
       },
-      created: function() {
-         $(document).foundation();
-      }
+
+      created: function () {
+        $(document).foundation();
+      },
     });
 
     // _this.mainView = _this.newVue('#wrapper', data.currentView);
@@ -67,84 +59,50 @@ App.prototype.init = function (url) {
     _this.redirectionMap();
     _this.router.start(RoutedApp, '#wrapper');
     window.graphics = new _this.Graphics();
-    // $(document).foundation();
-
-    // try {
-    // Foundation.global.namespace = '';
-    // $(document).foundation();
-    // } catch(err) {
-    //   console.log(err);
-    // }
   });
 };
 
-
-App.prototype.getView = function () {
-  return this.mainView.currentView;
-};
-
 App.prototype.readJson = function (url) {
-  console.log("In read Json");
-  return $.getJSON(url).then(function(data){
-      console.log(JSON.stringify(data, null, 2));
+  console.log('In read Json');
+  return $.getJSON(url).then(function (data) {
+    console.log(JSON.stringify(data, null, 2));
     return data;
   });
 };
 
-
-App.prototype.createComponent = function () {
-  return  {
-          'preloader': require('./components/loadScreen/loader'),
-          'home': require('./components/homeScreen/home'),
-          };
-};
-
 App.prototype.createRouterMap = function () {
-    this.router.map({
+  this.router.map({
     '*':{
-      component: require('./components/loadScreen/loader'),
+      component: loader,
     },
     '/': {
-      component: require('./components/loadScreen/loader'),
-      },
+      component: loader,
+    },
     '/home': {
-      component: require('./components/homeScreen/home'),
+      component: home,
     },
   });
-
 };
-
 
 App.prototype.redirectionMap = function () {
 
   this.router.redirect({
-
-    // '/home': '/',
-
-    '*': '/'
+    '*': '/',
   });
 
 };
-
-
-var test = function () {
-  console.log("This is a test");
-};
-
 
 App.prototype.newVue = function (element, dataAtrributes) {
   Vue.config.debug = true;
   return new Vue({
     el: element,
     data: {
-      redirect: dataAtrributes
+      redirect: dataAtrributes,
     },
-    // components: component,
   });
 };
 
-
-console.log("LoadingModel");
+console.log('Loading Model');
 
 //remove global Variable after finsihed debugging
 window.startApp = new App('./assets/model.json');

@@ -1,6 +1,6 @@
 var $ = jQuery = require('jquery');
 
-(function($){
+(function ($) {
 	function shuffleArray(array) {
 	    for (var i = array.length - 1; i > 0; i--) {
 	        var random_i = Math.floor(Math.random() * i);

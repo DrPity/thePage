@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "foundation-sites": "*",
-    "PreloadJS": "*"
+    "PreloadJS": "*",
+    "typeplate-starter-kit": "*"
   },
   "devDependencies": {
     "chai": "~3.2.0",

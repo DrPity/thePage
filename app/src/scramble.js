@@ -17,9 +17,9 @@ Scr.prototype.scramble = function(elements, currentRouterObject) {
 	console.log('ScrambleElements', elements);
 	console.log("router in scramble: ", currentRouterObject);
 	var index = 0;
-	for (var key in currentRouterObject.description) {
-		if (currentRouterObject.description.hasOwnProperty(key)) {
-			var orig = currentRouterObject.description[key];
+	for (var key in currentRouterObject.home.description) {
+		if (currentRouterObject.home.description.hasOwnProperty(key)) {
+			var orig = currentRouterObject.home.description[key];
 			$('#' + index).empty();
 			console.log("orig index", orig[index].length);
 			for (var i = 0; i < orig.length; i++) {

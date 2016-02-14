@@ -3,7 +3,7 @@
 @import "foundation";
 @include foundation-global-styles; // Always include the global-styles
 @include foundation-flex-grid;
-
+@import "typeplate";
 //Utils
 @import "utils/helpers";
 // Partials

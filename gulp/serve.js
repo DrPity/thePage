@@ -17,14 +17,13 @@ gulp.task('serve', ['build', 'watch'], function() {
     },
   });
 
-  // gulp.watch(['./static/build/**/*.*'], reload);
-
   gulp.watch([
     'dist/**/*',
   ]).on('change', reload);
 
-  gulp.watch('./app/src/components/**/*.html', ['browserify']);
+  gulp.watch('./app/src/components/**/*.vue', ['browserify']);
   gulp.watch('./app/*.html', ['html']);
+  gulp.watch('./app/assets/**/*', ['extras']);
   gulp.watch('./app/images/**/*', ['images']);
   gulp.watch('./app/src/**/*.js', ['browserify']);
   gulp.watch('./redist/kogni/src/**/*', ['browserify']);

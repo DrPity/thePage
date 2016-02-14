@@ -11,6 +11,10 @@
       "one": "INTERACTION",
       "two": "DESIGN"
     },
+    "background": {
+      "logo": "url(images/logo.png)",
+      "nlogo": "url(images/logoNegative.png)"
+    },
     "links": [
       {
         "id": "0",

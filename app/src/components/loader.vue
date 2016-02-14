@@ -1,13 +1,23 @@
+<template>
+  <div id="loader" transition="fade">
+    <div class="loaderBg"></div>
+    <div id="progress">{{preloadBar}}</div>
+    <div id="progressbar">
+      <div class="msg"></div>
+    </div>
+  </div>
+</template>
+
+<script>
 'use strict';
-var app = require('../../index.js');
-var Preloader = require('../../preloader.js');
+var app = require('../index.js');
+var Preloader = require('../preloader.js');
 
 module.exports = {
 
   inherit: true,
   replace: true,
   name: "preloader",
-  template: require('./loader.html'),
 
   data: function() {
     return {
@@ -50,3 +60,4 @@ module.exports = {
   },
   // setValue: setValue
 };
+</script>

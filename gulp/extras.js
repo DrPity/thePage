@@ -1,4 +1,4 @@
-var gulp = require('gulp')
+var gulp = require('gulp');
 
 gulp.task('extras', function(){
   return gulp.src([
