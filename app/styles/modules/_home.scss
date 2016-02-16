@@ -9,7 +9,6 @@
   background-position:50% 50%;
   background-size: cover;
   transition: all 500ms ease;
-
 }
 
 #wrapper{
@@ -65,7 +64,7 @@
 
 .tag{
   // transform: matrix(1, 0, 0, 1, 668, 42); transition: transform 100ms linear;
-
+  user-select: none;
   position: absolute;
   top: 70%;
   left: 50%;
@@ -101,16 +100,3 @@
     text-align: right;
   }
 }
-
-
-// .logo{
-//
-// }
-//
-// .nlogo{
-//
-// }
-
-// transform-origin: left center 0px;
-// transform: matrix(0, 0, 0, 1, 0, 0);
-// transform: matrix(1, 0, 0, 1, 0, 0);

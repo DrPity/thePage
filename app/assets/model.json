@@ -6,6 +6,7 @@
   },
   "home": {
     "id": "home",
+    "negative": false,
     "description": {
       "name": "MICHAEL SCHADE",
       "one": "INTERACTION",

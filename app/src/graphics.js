@@ -69,7 +69,6 @@ Graphics.prototype.shakeAnimation = function (element){
   });
 };
 
-
 Graphics.prototype.transform = function (element){
   console.log("In transform");
     var op = {
@@ -81,9 +80,9 @@ Graphics.prototype.transform = function (element){
     if (screen.width <= 699) {
         console.log("Touch Device");
     }else{
-      element.on("mouseenter", ".root", function() {
+      element.on("mouseenter", ".bg", function() {
         op.isAnimating = true;
-        element.find("> .bg").css({
+        $(this).css({
             "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
             "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
             "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
@@ -97,9 +96,9 @@ Graphics.prototype.transform = function (element){
         });
       });
 
-      element.on("mouseleave", ".root", function() {
+      element.on("mouseleave", ".bg", function() {
         op.isAnimating = true;
-        element.find("> .bg").css({
+        $(this).css({
             "-webkit-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
             "-moz-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
             "-o-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
@@ -113,7 +112,7 @@ Graphics.prototype.transform = function (element){
         });
       });
 
-      element.on("mousemove", ".root", function(event){
+      element.on("mousemove", ".bg", function(event){
         // console.log("outer: ", op.isAnimating);
         if (!op.isAnimating){
           var offsetY = (window.outerHeight - window.innerHeight) /6;
@@ -123,7 +122,7 @@ Graphics.prototype.transform = function (element){
 
           // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
           // console.log("x: ", x, "Y: ", y);
-          element.find(".bg").css({
+          $(this).css({
               "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
               "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
               "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",

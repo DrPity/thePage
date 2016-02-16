@@ -14,8 +14,6 @@ Scr.prototype.randomLetter = function() {
 };
 
 Scr.prototype.scramble = function(elements, currentRouterObject) {
-	console.log('ScrambleElements', elements);
-	console.log("router in scramble: ", currentRouterObject);
 	var index = 0;
 	for (var key in currentRouterObject.home.description) {
 		if (currentRouterObject.home.description.hasOwnProperty(key)) {

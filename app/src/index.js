@@ -16,8 +16,6 @@ var foundation = require('foundation-sites');
 var loader = require('./components/loader.vue');
 var home = require('./components/home.vue');
 
-// var foundation = require('foundation-sites');
-
 // window.p5 = require('p5');
 Vue.use(Router);
 

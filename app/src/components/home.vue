@@ -5,11 +5,11 @@
     <navigation></navigation>
 
     <!-- First section and Background Image -->
-    <section class="bg" v-on:click="negative = !negative" :style="[negative ? {backgroundImage: home.background.nlogo, backgroundColor: '#000' } : '']">
+    <section class="bg" v-on:click="home.negative = !home.negative" :style="[home.negative ? {backgroundImage: home.background.nlogo} : '']">
       <div class="tag">
-        <h6 id="0" class="name" :style="[negative ? { color: '#FFF' } : '']">{{home.description.name | uppercase}}</h6>
-        <h6 id="1" class="description_one" :style="[negative ? { color: '#656565' } : '']">{{home.description.one | uppercase}}</h6>
-        <h6 id="2" class="description_two" :style="[negative ? { color: '#656565' } : '']">{{home.description.two | uppercase}}</h6>
+        <h6 id="0" class="name" :style="[home.negative ? { color: '#FFF' } : '']">{{home.description.name | uppercase}}</h6>
+        <h6 id="1" class="description_one" :style="[home.negative ? { color: '#656565' } : '']">{{home.description.one | uppercase}}</h6>
+        <h6 id="2" class="description_two" :style="[home.negative ? { color: '#656565' } : '']">{{home.description.two | uppercase}}</h6>
       </div>
     </section>
     <!-- Projects  -->
@@ -58,7 +58,6 @@ module.exports = {
       }
     },
     canDeactivate: function (transition) {
-      console.log('You are not allowed to leave.');
       transition.next();
     }
   },
@@ -83,7 +82,7 @@ module.exports = {
       if (this.home.description.hasOwnProperty(key)) {
         var orig = this.home.description[key];
         $("#" + index).decrypt_effect({
-          speed: _.randomInt(100,700),
+          speed: _.randomInt(500,700),
           decrypted_text: orig,
         });
         index++;

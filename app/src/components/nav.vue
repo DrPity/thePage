@@ -2,18 +2,18 @@
   <!-- Menu Nav-->
   <div data-magellan-expedition="fixed">
   <div class="slide">
-    <ul>
-      <li>THE WORK</li>
-      <li>THE PERSON</li>
-      <li>THE IDEA</li>
+    <ul class="absoluteCentering">
+      <li><h3>THE WORK</h3></li>
+      <li><h3>THE PERSON</h3></li>
+      <li><h3>THE IDEA</h3></li>
     </ul>
   </div>
 
   <div id="box" v-on:click="animate()">
      <ul>
-       <li :style="[$parent.negative ? { background: '#FFF' } : '']"></li>
-       <li :style="[$parent.negative ? { background: '#FFF' } : '']"></li>
-       <li :style="[$parent.negative ? { background: '#FFF' } : '']"></li>
+       <li :style="[$parent.home.negative ? { background: '#FFF' } : '']"></li>
+       <li :style="[$parent.home.negative ? { background: '#FFF' } : '']"></li>
+       <li :style="[$parent.home.negative ? { background: '#FFF' } : '']"></li>
      </ul>
    </div>
   </div>
