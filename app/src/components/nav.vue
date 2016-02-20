@@ -2,11 +2,11 @@
   <!-- Menu Nav-->
   <div data-magellan-expedition="fixed">
   <div class="slide">
-    <ul class="absoluteCentering">
-      <li><h3>THE WORK</h3></li>
-      <li><h3>THE PERSON</h3></li>
-      <li><h3>THE IDEA</h3></li>
-    </ul>
+    <div class="absoluteCentering nav">
+      <a v-on:mouseenter="mouseenter('work')" v-on:mouseleave="mouseleave('work')"><h3>THE WORK</h3><div class="line" v-bind:class="work"></div></li>
+      <a v-on:mouseenter="mouseenter('person')" v-on:mouseleave="mouseleave('person')"><h3>THE PERSON</h3><div class="line" v-bind:class="person"></div></li>
+      <a v-on:mouseenter="mouseenter('idea')" v-on:mouseleave="mouseleave('idea')"><h3>THE IDEA</h3><div class="line" v-bind:class="idea"></div></li>
+    </div>
   </div>
 
   <div id="box" v-on:click="animate()">
@@ -37,6 +37,18 @@ module.exports = {
   data: function() {
     return {
       animated: false,
+      work: {
+        'lleave': true,
+        'lenter': false
+      },
+      person: {
+        'lleave': true,
+        'lenter': false
+      },
+      idea: {
+        'lleave': true,
+        'lenter': false
+      }
     };
 
   },
@@ -66,6 +78,14 @@ module.exports = {
     animate: function(){
       $('.slide').toggleClass('trans');
       $('#box ul').toggleClass('open');
+    },
+    mouseenter: function(item){
+      this.item.lenter = true;
+      this.item.lleave = false;
+    },
+    mouseleave: function(item){
+      this.item.lenter = false;
+      this.item.lleave = true;
     }
   },
 
