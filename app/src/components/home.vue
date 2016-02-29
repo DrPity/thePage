@@ -2,7 +2,7 @@
   <div class="root" transition="hfade">
 
     <!-- Menu Toggle -->
-    <navigation></navigation>
+    <!-- <navigation></navigation> -->
 
     <!-- First section and Background Image -->
     <section class="bg" v-on:click="home.negative = !home.negative" :style="[home.negative ? {backgroundImage: home.background.nlogo} : '']">
@@ -13,17 +13,11 @@
       </div>
     </section>
     <!-- Projects  -->
-    <section class="work">
-      <div class="row">
-        <div class="small-6 columns">
-        </div>
-        <div class="small-6 columns">
-        </div>
-      </div>
+    <section class="work" id="first">
     </section>
 
     <!-- Contact  -->
-    <section class="contact">
+    <section class="contact" id="second">
     </section>
 
   </div>
@@ -37,7 +31,7 @@ var $ = require('jquery');
 var scale = require('../perfectScale.js');
 var scramble = require('../scramble');
 var scr = new scramble();
-// var Masonry = require ('masonry-layout');
+// var masonry = require ('masonry-layout');
 
 module.exports = {
 
@@ -89,6 +83,12 @@ module.exports = {
       }
     }
 
+    // $('.grid').masonry({
+    //   itemSelector: '.grid-item',
+    //   // use element for option
+    //   columnWidth: '.grid-sizer',
+    //   percentPosition: true
+    // });
     // $('ul').on('click',function(){
     //   $('ul').toggleClass('open');
     // });
@@ -103,7 +103,7 @@ module.exports = {
     // msnry.imagesLoaded().progress( function() {
     //   msnry.masonry();
     // });
-
+    //
     // $('.grid').masonry({
     //   // set itemSelector so .grid-sizer is not used in layout
     //   itemSelector: '.grid-item',

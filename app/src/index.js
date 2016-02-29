@@ -15,6 +15,7 @@ var Router = require('vue-router');
 var foundation = require('foundation-sites');
 var loader = require('./components/loader.vue');
 var home = require('./components/home.vue');
+var attachFastClick = require('fastclick');
 
 // window.p5 = require('p5');
 Vue.use(Router);
@@ -103,4 +104,5 @@ App.prototype.newVue = function (element, dataAtrributes) {
 console.log('Loading Model');
 
 //remove global Variable after finsihed debugging
+attachFastClick(document.body);
 window.startApp = new App('./assets/model.json');
