@@ -27,6 +27,7 @@ function App(url) {
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
   this.router = new Router({
+    hashbang: true,
     history: false,
     transitionOnLoad: true,
     saveScrollPosition: true,
@@ -78,6 +79,9 @@ App.prototype.createRouterMap = function () {
       component: loader,
     },
     '/home': {
+      component: home,
+    },
+    '/home#first': {
       component: home,
     },
   });

@@ -2,8 +2,7 @@
   <div class="root" transition="hfade">
 
     <!-- Menu Toggle -->
-    <!-- <navigation></navigation> -->
-
+    <navigation></navigation>
     <!-- First section and Background Image -->
     <section class="bg" v-on:click="home.negative = !home.negative" :style="[home.negative ? {backgroundImage: home.background.nlogo} : '']">
       <div class="tag">
@@ -11,9 +10,51 @@
         <h6 id="1" class="description_one" :style="[home.negative ? { color: '#656565' } : '']">{{home.description.one | uppercase}}</h6>
         <h6 id="2" class="description_two" :style="[home.negative ? { color: '#656565' } : '']">{{home.description.two | uppercase}}</h6>
       </div>
+      <div class="scroll_hint">
+        <h6 id="3" class="scroll" :style="[home.negative ? { color: '#FFF' } : '']">{{home.description.scroll | uppercase}}</h6>
+        <div class="circle">
+          <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
+          </svg>
+        </div>
+      </div>
     </section>
     <!-- Projects  -->
     <section class="work" id="first">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="grid">
+            <div class="grid-sizer"></div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" />
+            </div>
+            <div class="grid-item">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact  -->
@@ -31,7 +72,9 @@ var $ = require('jquery');
 var scale = require('../perfectScale.js');
 var scramble = require('../scramble');
 var scr = new scramble();
-// var masonry = require ('masonry-layout');
+var smoothScroll = require('smooth-scroll');
+var Masonry = require ('masonry-layout');
+// var test = new Masonry( '.grid');
 
 module.exports = {
 
@@ -70,7 +113,7 @@ module.exports = {
 
   ready: function() {
     var index = 0;
-    var scrambleItems = ["0", "1", "2"];
+    var scrambleItems = ["0", "1", "2", "3"];
     scr.scramble(scrambleItems, this);
     for (var key in this.home.description) {
       if (this.home.description.hasOwnProperty(key)) {
@@ -83,34 +126,13 @@ module.exports = {
       }
     }
 
-    // $('.grid').masonry({
-    //   itemSelector: '.grid-item',
-    //   // use element for option
-    //   columnWidth: '.grid-sizer',
-    //   percentPosition: true
-    // });
-    // $('ul').on('click',function(){
-    //   $('ul').toggleClass('open');
-    // });
-    //
-    // var msnry = new Masonry( '.grid', {
-    //   itemSelector: '.grid-item',
-    //   // use element for option
-    //   columnWidth: '.grid-sizer',
-    //   percentPosition: true
-    // });
-    //
-    // msnry.imagesLoaded().progress( function() {
-    //   msnry.masonry();
-    // });
-    //
-    // $('.grid').masonry({
-    //   // set itemSelector so .grid-sizer is not used in layout
-    //   itemSelector: '.grid-item',
-    //   // use element for option
-    //   columnWidth: '.grid-sizer',
-    //   percentPosition: true
-    // });
+    var grid = document.querySelector('.grid');
+    var msnry = new Masonry( grid, {
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        columnWidth: '.grid-sizer',
+        // gutter: 10
+    });
   },
 
   afterLeave: function(){
@@ -127,13 +149,15 @@ module.exports = {
   },
 
   methods: {
+    click: function(){
+
+    },
     background: function(url){
       console.log(url);
       return "background-image:" + "url(" + url +  ");";
     }
   },
 
-  // setValue: setValue
 };
 
 </script>

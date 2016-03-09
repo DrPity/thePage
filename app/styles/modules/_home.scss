@@ -34,7 +34,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: rgb(45, 179, 32);
+  background-color: #DADADA;
   box-sizing: border-box;
 
   .columns{
@@ -60,6 +60,45 @@
   width: 100%;
   height: 100vh;
   background-color: $white;
+}
+
+.scroll{
+  bottom: 10%;
+  color: #000;
+  font-size: 0.4rem;
+}
+
+.scroll_hint{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.circle{
+  // margin-top: 60rem;
+  position: relative;
+  width: rem(12);
+  height: rem(12);
+  margin: 0 auto;
+  margin-top: rem(6);
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+
+  svg{
+    width: rem(6);
+    height: rem(7);
+    fill: #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    // background-image: url("/images/down_arrow.svg");
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+    margin-left: rem(-3);
+    margin-top: rem(-3);
+  }
 }
 
 .tag{

@@ -10,7 +10,8 @@
     "description": {
       "name": "MICHAEL SCHADE",
       "one": "INTERACTION",
-      "two": "DESIGN"
+      "two": "DESIGN",
+      "scroll": "SCROLL"
     },
     "background": {
       "logo": "url(images/logo.png)",

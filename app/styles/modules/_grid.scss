@@ -2,7 +2,7 @@
 /* ---- grid ---- */
 
 .grid {
-  background: #DDD;
+  background: #DADADA;
 }
 
 /* clear fix */
@@ -17,7 +17,25 @@
 .grid-sizer,
 .grid-item {
   width: 33.333%;
+
+  // @include breakpoint(medium down) {
+  //   width: 50%;
+  //   // transform: translateX(-35%) translateY(-45%);
+  // }
+  // margin-bottom: rem(10);
 }
+
+.grid-item_large {
+  width: 66.6666%;
+
+  // @include breakpoint(medium down) {
+  //   width: 50%;
+  //   // transform: translateX(-35%) translateY(-45%);
+  // }
+  margin-bottom: rem(10);
+}
+
+
 
 .grid-item {
   float: left;

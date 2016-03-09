@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('optimizeImages', function () {
-    return gulp.src(['app/images/*.jpg', 'app/images/*.jpeg', 'app/images/*.gif', 'app/images/*.png'])
+    return gulp.src(['app/images/*.jpg', 'app/images/*.jpeg', 'app/images/*.gif', 'app/images/*.png', 'app/images/*.svg'])
         .pipe(imagemin({
             progressive: false,
             svgoPlugins: [{removeViewBox: false}],
