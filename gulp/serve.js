@@ -22,9 +22,9 @@ gulp.task('serve', ['build', 'watch'], function() {
   ]).on('change', reload);
 
   gulp.watch('./app/src/components/**/*.vue', ['browserify']);
-  gulp.watch('./app/*.html', ['html']);
+  gulp.watch('./app/*.html', ['optimizeHtml']);
   gulp.watch('./app/assets/**/*', ['extras']);
-  gulp.watch('./app/images/**/*', ['images']);
+  gulp.watch('./app/images/**/*', ['optimizeImages']);
   gulp.watch('./app/src/**/*.js', ['browserify']);
   gulp.watch('./redist/kogni/src/**/*', ['browserify']);
   gulp.watch('./app/styles/**/*.scss', ['styles']);

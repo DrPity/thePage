@@ -33,7 +33,7 @@
 .work{
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #DADADA;
   box-sizing: border-box;
 
@@ -45,13 +45,31 @@
   .columns:last-child:not(:first-child){
     float: right;
   }
+
   .row{
-    background: #f9f9f9;
+    // background: #f9f9f9;
     font-size: 11px;
     margin-bottom: 10px;
     line-height: 2rem;
-    border: solid 1px #c6c6c6;
+    // border: solid 1px #c6c6c6;
     margin-bottom: 1.5rem;
+  }
+
+  .title{
+    // display: block;
+    @include use-normal-font($semiBold, 400, 6.25rem, 0, rgb(255, 255, 255));
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-decoration: underline;
+    text-transform: lowercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    z-index: 19;
   }
 }
 
