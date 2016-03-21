@@ -25,7 +25,6 @@
     <!-- Contact  -->
     <section class="contact" id="second">
     </section>
-
   </div>
 </template>
 

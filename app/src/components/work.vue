@@ -1,12 +1,15 @@
 <template>
   <section class="work" id="first">
+    <div class="left"></div>
+    <div class="angle"></div>
+    <div class="right"></div>
     <div class="row">
       <div class="grid-wrapper">
         <div class="grid">
           <div class="grid-sizer"></div>
           <template v-for="item in work.grid_items_bg">
             <div class="grid-item">
-              <a href="#" v-on:mouseenter="mouseenter($index)" v-on:mouseleave="mouseleave($index)"  v-bind:style="{ backgroundImage: item}">
+              <a href="{{link($index)}}" v-on:mouseenter="mouseenter($index)" v-on:mouseleave="mouseleave($index)"  v-bind:style="{ backgroundImage: item }">
                 <div class="grid-overlay">
                 </div>
               </a>
@@ -77,10 +80,10 @@ module.exports = {
       // console.log("mouseleave: ", this.showTitle)
       this.title = "";
     },
-    // background: function(index){
-    //   console.log("setBG: ", this.work.grid_items_bg[index+1]);
-    //   return "background-image:" + this.work.grid_items_bg[index+1];
-    // }
+    link: function(index){
+      console.log("link: ", this.work.links[index]);
+      return this.work.links[index+1];
+    }
   },
 
   // setValue: setValue

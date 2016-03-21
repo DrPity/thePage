@@ -2,7 +2,9 @@
 /* ---- grid ---- */
 
 .grid {
-  background: #DADADA;
+  background: #E6E6E6;
+  width: 90%;
+  left: 5%;
 }
 
 /* clear fix */
@@ -17,8 +19,12 @@
 .grid-sizer,
 .grid-item {
   width:  calc( ( 100% - 24px ) / 3 );
-  margin-bottom: rem(12)
+  margin-bottom: rem(12);
+  @include breakpoint(medium down) {
+    width: 100%;
+  }
 }
+
 
 .grid-item_large {
   width: 66.6666%;
@@ -38,7 +44,7 @@
 
 
 .grid-item {
-  float: left;
+  // float: left;
 }
 
 .grid-item a {
@@ -58,7 +64,7 @@
 
 .grid-item a:hover{
   filter: grayscale(0%);
-  transition: all 20s cubic-bezier(.19,1,.22,1);
+  transition: all 12s cubic-bezier(.19,1,.22,1);
 }
 
 .grid-wrapper{

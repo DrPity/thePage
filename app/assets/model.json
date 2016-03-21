@@ -65,6 +65,18 @@
       "7": "Cucumbis",
       "8": "Goldmann",
       "9": "The Pictures"
+    },
+    "links":
+    {
+      "1": "/musicalcubes",
+      "2": "/codedreality",
+      "3": "/thewall",
+      "4": "/mu:brace",
+      "5": "/humanandmachine",
+      "6": "/lightminers",
+      "7": "/cucumbis",
+      "8": "/goldmann",
+      "9": "/thepictures"
     }
   }
 }
