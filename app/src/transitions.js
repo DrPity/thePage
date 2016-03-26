@@ -22,6 +22,16 @@ Transitions.prototype.init = function () {
 			console.log("After leave:",  el);
 		}
   });
+	Vue.transition('hfade', {
+    enter: function (el, done) {
+		},
+    leave: function (el) {
+			console.log("In hfade: ", el);
+		},
+		afterLeave: function(el){
+			console.log("After leave:",  el);
+		}
+  });
 };
 
 module.exports = Transitions;

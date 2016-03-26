@@ -20,7 +20,6 @@
       </div>
     </section>
     <!-- Projects  -->
-    <!-- For loop needed -->
     <work :work="work"></work>
     <!-- Contact  -->
     <section class="contact" id="second">
@@ -36,9 +35,7 @@ var $ = require('jquery');
 var scale = require('../perfectScale.js');
 var scramble = require('../scramble');
 var scr = new scramble();
-var smoothScroll = require('smooth-scroll');
 var Masonry = require ('masonry-layout');
-// var test = new Masonry( '.grid');
 
 module.exports = {
 
@@ -128,5 +125,6 @@ module.exports = {
   },
 
 };
+
 
 </script>

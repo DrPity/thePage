@@ -15,6 +15,7 @@ var Router = require('vue-router');
 var foundation = require('foundation-sites');
 var loader = require('./components/loader.vue');
 var home = require('./components/home.vue');
+var coded = require('./components/codedreality.vue');
 var attachFastClick = require('fastclick');
 
 // window.p5 = require('p5');
@@ -79,10 +80,12 @@ App.prototype.createRouterMap = function () {
       component: loader,
     },
     '/home': {
+      name: 'home',
       component: home,
     },
-    '/home#first': {
-      component: home,
+    '/codedreality': {
+      name: 'coded',
+      component: coded,
     },
   });
 };

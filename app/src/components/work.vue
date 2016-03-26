@@ -1,15 +1,12 @@
 <template>
   <section class="work" id="first">
-    <div class="left"></div>
-    <div class="angle"></div>
-    <div class="right"></div>
     <div class="row">
       <div class="grid-wrapper">
         <div class="grid">
           <div class="grid-sizer"></div>
           <template v-for="item in work.grid_items_bg">
             <div class="grid-item">
-              <a href="{{link($index)}}" v-on:mouseenter="mouseenter($index)" v-on:mouseleave="mouseleave($index)"  v-bind:style="{ backgroundImage: item }">
+              <a v-link="{name: 'coded'}" v-on:mouseenter="mouseenter($index)" v-on:mouseleave="mouseleave($index)"  v-bind:style="{ backgroundImage: item }">
                 <div class="grid-overlay">
                 </div>
               </a>
@@ -18,6 +15,9 @@
         </div>
       </div>
     </div>
+    <div class="left"></div>
+    <!-- <div class="angle"></div> -->
+    <div class="right"></div>
     <span class="title" v-show="show" v-text="title"></span>
   </section>
 </template>
@@ -50,7 +50,10 @@ module.exports = {
 
 
   ready: function() {
-    // console.log("work: ", this.work.grid_items_bg)
+    setTimeout(function(){ $('.work').addClass('transform'); }, 500);
+    // var el = document.querySelectorAll('.work:'),':before';
+    // console.log("The element: ", str);
+    // el.style.transform = 'rotate(-4deg)';
   },
 
   afterLeave: function(){

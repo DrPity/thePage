@@ -16,6 +16,9 @@
   .about{
     position:fixed;
     margin-top: 1rem;
+    @include use-normal-font($extraBold, 400, 1.0rem, 0, rgb(0, 0, 0));
+    text-decoration: underline;
+    color: #000;
   }
 
 
