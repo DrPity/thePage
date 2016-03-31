@@ -8,9 +8,9 @@ function Graphics() {
     isNavToggled: false,
   };
 
-  this.transform($("#wrapper"));
+  // this.transform($("#wrapper"));
   this.tFont = new TimelineMax({repeat:-1});
-  // var animation = this.tweenFontWeight(".welcomeTxt");
+  // var animation = this.tweenFontWeight(".theproject");
   // animation.play();
   // this.attachelements();
 
@@ -113,27 +113,32 @@ Graphics.prototype.transform = function (element){
       });
 
       element.on("mousemove", ".bg", function(event){
-        // console.log("outer: ", op.isAnimating);
-        if (!op.isAnimating){
-          var offsetY = (window.outerHeight - window.innerHeight) /6;
+          var _this = this;
+          if (!op.isAnimating){
+            window.requestAnimationFrame(function() {
+              var offsetY = (window.outerHeight - window.innerHeight) /6;
 
-          var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
-              y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
+              var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
+                  y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
 
-          // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
-          // console.log("x: ", x, "Y: ", y);
-          $(this).css({
-              "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-              "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-              "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-              transform: "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-          });
-        }
-
+              // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
+              // console.log("x: ", x, "Y: ", y);
+              $(_this).css({
+                  "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+                  "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+                  "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+                  transform: "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
+              });
+            });
+          }
       });
     }
-
+    console.log("after transform");
 };
 
+
+function panim(el){
+
+}
 
 module.exports = Graphics;

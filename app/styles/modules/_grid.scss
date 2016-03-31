@@ -2,9 +2,9 @@
 /* ---- grid ---- */
 
 .grid {
-  background: #E6E6E6;
+  background: $secondary;
   width: 90%;
-  left: 5%;
+  left: calc(5% + 12px);
 }
 
 /* clear fix */
@@ -20,7 +20,10 @@
 .grid-item {
   width:  calc( ( 100% - 24px ) / 3 );
   margin-bottom: rem(12);
-  @include breakpoint(medium down) {
+  // @include breakpoint(medium down) {
+  //   width: calc( ( 100% - 24px ) / 2 );
+  // }
+  @include breakpoint(small down) {
     width: 100%;
   }
 }
@@ -70,6 +73,8 @@
 .grid-wrapper{
   position: relative;
   width: 100%;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
 }
 
 
@@ -88,7 +93,6 @@
     opacity: 1;
     z-index: 5;
     filter: grayscale(0%);
-
 }
 
 .grid-overlay:hover {

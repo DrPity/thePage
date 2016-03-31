@@ -26,6 +26,33 @@
 }
 
 
+
+.slide-transition {
+  transition: all 300ms ease;
+  transform: translate3d(0, 0%, 0);
+}
+
+.slide-enter{
+  transform: translate3d(0, -100%, 0);
+}
+
+.slide-leave{
+  transform: translate3d(0, 0%, 0);
+}
+
+
+.trans{
+  transform: translate3d(0, 0%, 0);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);;
+  z-index: 33;
+  transition: all 300ms ease;
+}
+
+
 @keyframes slideInDown {
   from {
     transform: translate3d(0, -100%, 0);

@@ -1,5 +1,5 @@
 <template>
-  <div class="root" transition="hfade">
+  <div class="root" transition="hfade" >
 
     <!-- Menu Toggle -->
     <navigation></navigation>
@@ -20,9 +20,10 @@
       </div>
     </section>
     <!-- Projects  -->
-    <work :work="work"></work>
+    <!-- <work :work="work"></work> -->
     <!-- Contact  -->
-    <section class="contact" id="second">
+    <section class="contact">
+
     </section>
   </div>
 </template>
@@ -36,6 +37,8 @@ var scale = require('../perfectScale.js');
 var scramble = require('../scramble');
 var scr = new scramble();
 var Masonry = require ('masonry-layout');
+// import Smooth from 'smooth-scrolling'
+
 
 module.exports = {
 
@@ -78,30 +81,51 @@ module.exports = {
 
 
   ready: function() {
-    var index = 0;
-    var scrambleItems = ["0", "1", "2", "3"];
-    scr.scramble(scrambleItems, this);
-    for (var key in this.home.description) {
-      if (this.home.description.hasOwnProperty(key)) {
-        var orig = this.home.description[key];
-        $("#" + index).decrypt_effect({
-          speed: _.randomInt(500,700),
-          decrypted_text: orig,
-        });
-        index++;
-      }
-    }
+    if (app.getRouter().app.$data.redirect === false){
 
-    var grid = document.querySelector('.grid');
-    var msnry = new Masonry( grid, {
-        itemSelector: '.grid-item',
-        percentPosition: true,
-        columnWidth: '.grid-sizer',
-        gutter: 12
-    });
+      //scrambling
+      var index = 0;
+      var scrambleItems = ["0", "1", "2", "3"];
+      scr.scramble(scrambleItems, this);
+      for (var key in this.home.description) {
+        if (this.home.description.hasOwnProperty(key)) {
+          var orig = this.home.description[key];
+          $("#" + index).decrypt_effect({
+            speed: _.randomInt(500,700),
+            decrypted_text: orig,
+          });
+          index++;
+        }
+      }
+
+      //mansory grid
+      var grid = document.querySelector('.grid');
+      var msnry = new Masonry( grid, {
+          itemSelector: '.grid-item',
+          percentPosition: true,
+          columnWidth: '.grid-sizer',
+          gutter: 12
+      });
+
+      window.onscroll = function (e) {
+          console.log("window.pageYOffset: ", window.pageYOffset);
+      };
+
+      // console.log("SMOOTH: ", Smooth);
+      // const section = document.querySelector('.vs-section');
+      // const smooth = new Smooth({
+      //   native: true,
+      //   section: section,
+      //   listener: document.getElementById('wrapper'),
+      //   ease: 0.4
+      // });
+      // smooth.on();
+      // smooth.init();
+    }
   },
 
   afterLeave: function(){
+    // smooth.destroy();
   },
 
   enter: function (el) {
@@ -121,6 +145,9 @@ module.exports = {
     background: function(url){
       console.log(url);
       return "background-image:" + "url(" + url +  ");";
+    },
+    scroll: function(){
+      if(window.pageYOffset>100)alert('User has scrolled at least 400 px!');
     }
   },
 

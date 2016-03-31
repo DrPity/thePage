@@ -8,9 +8,10 @@ var gulp = require('gulp'),
 gulp.task('optimizeImages', function () {
     return gulp.src(['app/images/*.jpg', 'app/images/*.jpeg', 'app/images/*.gif', 'app/images/*.png', 'app/images/*.svg'])
         .pipe(imagemin({
-            progressive: false,
+            progressive: true,
             svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant(), jpegtran(), gifsicle()]
+            use: [jpegtran(), gifsicle()]
+            // use: [pngquant(), jpegtran(), gifsicle()]
         }))
         .pipe(gulp.dest('dist/images/'));
 });

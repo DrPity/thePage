@@ -1,14 +1,13 @@
-<template>
+<template transition="fade">
   <!-- Menu Nav-->
-  <div id="mag" data-magellan-expedition="fixed" data-magellan>
-    <div class="slide">
-    </div>
-    <div id="box" v-on:click="animate()">
-      <div class="about">
-        <a href="#" >about</a>
-      </div>
-     </div>
+
+  <div class="slide">
   </div>
+  <div id="box" v-on:click="animate()">
+    <div class="about">
+      <a href="#" >about</a>
+    </div>
+   </div>
 </template>
 
 <script>

@@ -41,7 +41,8 @@ function App(url) {
 App.prototype.init = function (url) {
   var _this = this;
   $.when(_this.readJson(url)).then(function (data) {
-    console.log(data);
+    // console.log(data);
+
     _this.model = data;
 
     //start component and root data
@@ -59,7 +60,9 @@ App.prototype.init = function (url) {
     _this.createRouterMap();
     _this.redirectionMap();
     _this.router.start(RoutedApp, '#wrapper');
-    window.graphics = new _this.Graphics();
+    console.log("yeah router");
+    _this.graphics = new _this.Graphics();
+    console.log("finished app init");
   });
 };
 

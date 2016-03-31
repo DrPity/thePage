@@ -1,6 +1,8 @@
 <template>
   <section class="work" id="first">
+    <div class="right"></div>
     <div class="row">
+      <div class="hwork"><h4 class="theproject">The Project</h4><hr></div>
       <div class="grid-wrapper">
         <div class="grid">
           <div class="grid-sizer"></div>
@@ -15,9 +17,6 @@
         </div>
       </div>
     </div>
-    <div class="left"></div>
-    <!-- <div class="angle"></div> -->
-    <div class="right"></div>
     <span class="title" v-show="show" v-text="title"></span>
   </section>
 </template>
@@ -44,7 +43,7 @@ module.exports = {
   data: function() {
     return {
       show: false,
-      title: 'bla'
+      title: 'some title'
     };
   },
 

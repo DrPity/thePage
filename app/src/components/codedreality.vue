@@ -1,5 +1,5 @@
 <template>
-<div class="">
+<div class="project" transition="slide">
   BLalalalala
 </div>
 </template>

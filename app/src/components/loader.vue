@@ -28,7 +28,7 @@ module.exports = {
   },
   route: {
     activate: function () {
-      console.log('hook-example activated!');
+      // console.log('hook-example activated!');
     },
     canDeactivate: function (transition) {
       console.log('You are not allowed to leave.');
@@ -41,6 +41,7 @@ module.exports = {
   },
 
   ready: function() {
+    console.log("preloader init");
     Preloader.init();
     app.getRouter().app.$data.redirect = false;
     // document.cookie="cached";
