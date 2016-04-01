@@ -1,6 +1,6 @@
 // Global fade transition
 .fade-transition {
-  transition: 2.0s ease;
+  transition: 1.0s ease;
 }
 
 .fade-enter {
@@ -14,7 +14,7 @@
 
 
 .hfade-transition {
-  transition: 2.0s ease;
+  transition: 1.0s ease;
 }
 
 .hfade-enter {
@@ -28,7 +28,7 @@
 
 
 .slide-transition {
-  transition: all 300ms ease;
+  transition: transform 1.4s cubic-bezier(.77,0,.175,1).1s;
   transform: translate3d(0, 0%, 0);
 }
 
@@ -37,7 +37,7 @@
 }
 
 .slide-leave{
-  transform: translate3d(0, 0%, 0);
+  transform: translate3d(0, -100%, 0);
 }
 
 

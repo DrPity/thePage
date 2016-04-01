@@ -1,5 +1,5 @@
 <template>
-<div class="project" transition="slide">
+<div class="project" transition="slide" transition-mode="out-in">
   BLalalalala
 </div>
 </template>
@@ -26,6 +26,15 @@ module.exports = {
   data: function() {
     return {
     };
+  },
+
+  route: {
+    activate: function () {
+
+    },
+    canDeactivate: function (transition) {
+      transition.next();
+    }
   },
 
 

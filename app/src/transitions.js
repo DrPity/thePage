@@ -9,7 +9,8 @@ function Transitions() {
 
 Transitions.prototype.init = function () {
   Vue.transition('fade', {
-    enter: function (el, done) {
+		type: 'transition',
+    enter: function (el) {
 		},
     leave: function (el) {
 			if (el.id == 'loader'){
@@ -22,8 +23,10 @@ Transitions.prototype.init = function () {
 			console.log("After leave:",  el);
 		}
   });
+
 	Vue.transition('hfade', {
-    enter: function (el, done) {
+		type: 'transition',
+    enter: function (el) {
 		},
     leave: function (el) {
 			console.log("In hfade: ", el);
@@ -32,6 +35,19 @@ Transitions.prototype.init = function () {
 			console.log("After leave:",  el);
 		}
   });
+
+	Vue.transition('slide', {
+		type: 'transition',
+		enter: function (el) {
+			console.log("In enter slide-transition: ", el);
+		},
+		leave: function (el) {
+			console.log("In leave slide-transition: ", el);
+		},
+		afterLeave: function(el){
+			console.log("After slide-transition leave:",  el);
+		}
+	});
 };
 
 module.exports = Transitions;

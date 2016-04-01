@@ -1,5 +1,5 @@
 <template>
-  <div class="root" transition="hfade" >
+  <div class="root" transition="hfade" keep-alive>
 
     <!-- Menu Toggle -->
     <navigation></navigation>
@@ -20,7 +20,7 @@
       </div>
     </section>
     <!-- Projects  -->
-    <!-- <work :work="work"></work> -->
+    <work :work="work"></work>
     <!-- Contact  -->
     <section class="contact">
 
@@ -106,7 +106,8 @@ module.exports = {
           columnWidth: '.grid-sizer',
           gutter: 12
       });
-
+      var el = document.querySelector('body');
+      console.log("el ", el);
       window.onscroll = function (e) {
           console.log("window.pageYOffset: ", window.pageYOffset);
       };

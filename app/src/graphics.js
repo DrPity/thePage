@@ -8,7 +8,7 @@ function Graphics() {
     isNavToggled: false,
   };
 
-  // this.transform($("#wrapper"));
+  this.transform($("#wrapper"));
   this.tFont = new TimelineMax({repeat:-1});
   // var animation = this.tweenFontWeight(".theproject");
   // animation.play();
@@ -82,33 +82,31 @@ Graphics.prototype.transform = function (element){
     }else{
       element.on("mouseenter", ".bg", function() {
         op.isAnimating = true;
-        $(this).css({
-            "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-            "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-            "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-            transform: "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-            "-webkit-transition": "-webkit-transform " + op.animationSpeed + " linear",
-            "-moz-transition": "-moz-transform " + op.animationSpeed + " linear",
-            "-o-transition": "-o-transform " + op.animationSpeed + " linear",
-            transition: "transform " + op.animationSpeed + " linear"
-        }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-            op.isAnimating = false;
+        var _this = this;
+        window.requestAnimationFrame(function() {
+          $(_this).css({
+              "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+              "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+              "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+              transform: "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
+          }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+              op.isAnimating = false;
+          });
         });
       });
 
       element.on("mouseleave", ".bg", function() {
         op.isAnimating = true;
-        $(this).css({
-            "-webkit-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-            "-moz-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-            "-o-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-            transform: "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-            "-webkit-transition": "-webkit-transform " + op.animationSpeed + " linear",
-            "-moz-transition": "-moz-transform " + op.animationSpeed + " linear",
-            "-o-transition": "-o-transform " + op.animationSpeed + " linear",
-            transition: "transform " + op.animationSpeed + " linear"
-        }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-            op.isAnimating = false;
+        var _this = this;
+        window.requestAnimationFrame(function() {
+          $(_this).css({
+              "-webkit-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+              "-moz-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+              "-o-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+              transform: "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
+          }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+              op.isAnimating = false;
+          });
         });
       });
 
