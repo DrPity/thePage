@@ -39,14 +39,13 @@
   }
 
   .right{
-    position: relative;
+    position: absolute;
     width: 1rem;
-    height: 9rem;
-    background: #FFFFFF;
-    left: 1rem;
-    top: -8.5rem;
+    height: 120%;
+    background: #FFF;
+    right: -1rem;
+    top: -10rem;
     z-index: 10;
-    float: right;
   }
 }
 

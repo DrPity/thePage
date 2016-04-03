@@ -9,9 +9,6 @@ article{
   border: 0;
   outline: 0;
   font-size: 100%;
-  // vertical-align: baseline;
-  // z-index: 2;
-  margin-bottom: 1rem;
 }
 
 .title{
@@ -36,6 +33,10 @@ article{
 
 .cont-list-work {
     clear: both;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    position: relative;
+    z-index: 1;
 
     a{
       margin: 0;
@@ -47,13 +48,10 @@ article{
 
     .wrapper-link{
       width: auto;
-      max-width: 1440px;
       float: none;
       display: block;
       margin-right: auto;
       margin-left: auto;
-      padding-left: 60px;
-      padding-right: 60px;
     }
 
     .link-project {
@@ -65,7 +63,6 @@ article{
 
     .link-project {
         position: absolute;
-        left: -60px;
         z-index: 100;
         top: 0;
         height: 100%;
@@ -78,6 +75,12 @@ article{
         transition: all .3s cubic-bezier(.615,.19,.305,.91);
         -webkit-transition-timing-function: cubic-bezier(.615,.19,.305,.91);
         transition-timing-function: cubic-bezier(.615,.19,.305,.91);
+
+    }
+
+    .link-project.active{
+      width: 100%;
+      margin-left: 0;
     }
 
     a{
@@ -113,64 +116,49 @@ article{
     }
 
     .info-work {
-        position: relative;
-        border-bottom: 1px solid rgba(255,255,255,.2);
-        float: left;
-        clear: none;
-        width: 65.66667%;
-        margin-left: 34.33333%;
-        margin-right: 3%;
-        padding: 25px 0;
+      position: relative;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      float: left;
+      clear: none;
+      width: 50%;
+      margin-left: 45%;
+      margin-top: 1rem;
 
         .mono-title {
             position: absolute;
-            bottom: 35px;
-            left: -55px;
+            // bottom: 35px;
+            left: -3rem;
+            line-height: 1;
         }
     }
 
-    .link-detail {
+
+      .link-detail {
         float: left;
         clear: none;
-        width: 65.66667%;
-        margin-left: 34.33333%;
+        width: 100%;
+        margin-left: 80%;
         margin-right: 3%;
         position: absolute;
         height: 100%;
         top: 0;
         left: 0;
-        z-index: 20;
+        // z-index: 20;
+        line-height: 1;
 
-        .cont-link-detail {
-          margin-right: 0;
-          float: left;
-          clear: none;
-          width: 29.56359%;
-          margin-left: 70.43641%;
-          margin-right: 5.65461%;
+        .year {
+          display: block;
+          position: absolute;
+          // top: 50%;
+          transition: all .3s cubic-bezier(.615,.19,.305,.91);
+      }
+
+      .arrow-section {
+          width: 100%;
           position: relative;
-          height: 100%;
-
-          .year {
-            display: block;
-            position: absolute;
-            top: 50%;
-            -webkit-transition: all .3s cubic-bezier(.615,.19,.305,.91);
-            transition: all .3s cubic-bezier(.615,.19,.305,.91);
-            -webkit-transition-timing-function: cubic-bezier(.615,.19,.305,.91);
-            transition-timing-function: cubic-bezier(.615,.19,.305,.91);
-            -webkit-transform: translate(0,-50%);
-            -ms-transform: translate(0,-50%);
-            transform: translate(0,-50%);
-        }
-
-        .arrow-section {
-            width: 100%;
-            position: relative;
-            white-space: nowrap;
-            cursor: default;
-            padding-right: 40px;
-        }
+          white-space: nowrap;
+          cursor: default;
+          padding-right: 40px;
       }
     }
 
@@ -181,42 +169,23 @@ article{
         z-index: 10;
         height: 0;
         overflow: hidden;
-        -webkit-transition-timing-function: cubic-bezier(.615,.19,.305,.91);
-        transition-timing-function: cubic-bezier(.615,.19,.305,.91);
+        z-index: 21;
+        transition: all .3s cubic-bezier(.615,.19,.305,.91);
         .cont-info-work-detail {
             position: absolute;
             top: 0;
             width: 100%;
 
-            .thetitle {
-              float: left;
-              clear: none;
-              width: 31.33333%;
-              margin-left: 0;
-              margin-right: 3%;
-              -webkit-transition: all .3s cubic-bezier(.615,.19,.305,.91);
-              transition: all .3s cubic-bezier(.615,.19,.305,.91);
-              -webkit-transition-timing-function: cubic-bezier(.615,.19,.305,.91);
-              transition-timing-function: cubic-bezier(.615,.19,.305,.91);
-              -webkit-transform: translate(0,16px);
-              -ms-transform: translate(0,16px);
-              transform: translate(0,16px);
-              padding: 25px 0 10px;
-
-              h2 {
-                white-space: nowrap;
-                font-size: 3.8rem;
-                line-height: 1;
-                margin-bottom: 0;
-            }
-          }
 
           .info-detail {
+              position: absolute;
               float: left;
               clear: none;
-              width: 65.66667%;
+              width: 100%;
               margin-left: 0;
               margin-right: 3%;
+              margin-left: 45%;
+              color: black;
 
               .detail {
                   -webkit-transform: translate(0,16px);
@@ -228,7 +197,7 @@ article{
                   transition-timing-function: cubic-bezier(.615,.19,.305,.91);
                   float: left;
                   clear: none;
-                  width: 30.28765%;
+                  width: 100%;
                   margin-left: 0;
                   margin-right: 4.56853%;
 
@@ -256,8 +225,38 @@ article{
 }
 
 
+.info-work-detail.active{
+  height: 100%;
+  position: absolute;
+}
+
+.thetitle {
+  // @include use-normal-font($extraBold, 400, 6.25rem, 0, rgb(255, 255, 255));
+  // top:50%;
+  // left: 50%;
+  // transform: translateX(-50%) translateY(-50%);
+  // text-decoration: underline;
+  @include use-normal-font($extraBold, 400, 6.25rem, 0, rgb(255, 255, 255));
+  float: left;
+  clear: none;
+  width: 100%;
+  margin-left: 7%;
+  margin-right: 3%;
+  transition: all .3s cubic-bezier(.615,.19,.305,.91);
+  transform: translate(0, -125%);
+
+  h2 {
+    white-space: nowrap;
+    font-size: 3.8rem;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+}
 
 
+.thetitle.active{
+  transform: translate(0, 25%);
+}
 
 
 .wk {
@@ -281,8 +280,6 @@ article{
 
 .wk.active::before {
     content: '';
-    -ms-transform: scaleY(1);
-    -webkit-transform: scaleY(1);
     transform: scaleY(1);
 }
 

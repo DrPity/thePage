@@ -1,35 +1,31 @@
 <template>
   <section class="work" id="first">
+    <div class="right"></div>
     <div class="cont-list-work">
       <template v-for="item in work.grid_items_title">
         <article class="wk color-10" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" v-on:mouseleave="mouseleave($el, $index)">
           <div class="wrapper-link">
-            <a v-link="{ name: 'coded'}" class="link-project title" v-on:mouseenter="mouseenter($el, $index)"><h6 v-text="item | uppercase"></h6></a>
+            <a v-link="{ name: 'coded'}" class="link-project" v-on:mouseenter="mouseenter($el, $index)"></a>
             <div class="wrapper-work">
               <div class="info-work">
-                <span class="mono-title">.08</span>
-                <h6>RSP Magazine</h6>
-              </div>
-              <div class="link-detail">
-                <div class="cont-link-detail">
-                  <span class="year mono-title">Y–2014</span>
+                <span class="mono-title">.0{{$index+1}}</span>
+                <h6 v-text="item"></h6>
+                <div class="link-detail">
+                  <span class="year">Year–2014</span>
                   <span class="mono-title arrow-section" href="#">
-                    <span class="label">View Project</span>
-                    <span class="arrow">
-                      <span>Go to link</span>
-                    </span>
+
                   </span>
                 </div>
               </div>
-              <div class="info-work-detail" style="height: 0px;">
+              <div class="info-work-detail">
                 <div class="cont-info-work-detail">
                   <div class="thetitle">
-                    <h4>RSP Magazine</h4>
+                    <h2 v-text="item | uppercase"></h2>
                   </div>
                   <div class="info-detail">
                     <div class="detail">
-                      <span class="mono-title">Category</span>
-                      <span class="name">Website</span>
+                      <span class="mono-title">Description</span>
+                      <span class="name" v-text="work.description[$index+1] | uppercase"></span>
                     </div>
                   </div>
                 </div>
@@ -94,30 +90,29 @@ module.exports = {
 
   methods: {
     mouseenter: function(item, index){
-      var el = item.getElementsByClassName('wk');
-      var el_2 = item.getElementsByClassName('info-work-detail');
+      var el = item.getElementsByClassName('wk'),
+          el_2 = item.getElementsByClassName('info-work-detail'),
+          el_3 = item.getElementsByClassName('link-project'),
+          el_4 = item.getElementsByClassName('thetitle');
       // console.log("mouseenter: ", el, "index: ", index);
       window.requestAnimationFrame(function() {
-        // el[index].style.height = '100%';
         el[index].classList.add('active');
-        el[index].addEventListener("transitionend", outHandler(el, index));
-      });
-      window.requestAnimationFrame(function() {
-        el_2[index].style.height = '100%';
-        el_2[index].addEventListener("transitionend", outHandler(el_2));
+        el_2[index].classList.add('active');
+        el_3[index].classList.add('active');
+        el_4[index].classList.add('active');
       });
 
     },
     mouseleave: function(item, index){
-      var el = item.getElementsByClassName('wk');
-      var el_2 = item.getElementsByClassName('info-work-detail');
+      var el = item.getElementsByClassName('wk'),
+          el_2 = item.getElementsByClassName('info-work-detail'),
+          el_3 = item.getElementsByClassName('link-project'),
+          el_4 = item.getElementsByClassName('thetitle');
       window.requestAnimationFrame(function() {
         el[index].classList.remove('active');
-        el[index].addEventListener("transitionend", outHandler(el));
-      });
-      window.requestAnimationFrame(function() {
-        el_2[index].style.height = '0%';
-        el_2[index].addEventListener("transitionend", outHandler(el_2));
+        el_2[index].classList.remove('active');
+        el_3[index].classList.remove('active');
+        el_4[index].classList.remove('active');
       });
 
     },
@@ -135,6 +130,6 @@ function inHandler(el,index){
 };
 
 function outHandler(el,index){
-  // el[index].removeEventListener("transitionend", outHandler);
+  el[index].removeEventListener("transitionend", outHandler);
 };
 </script>
