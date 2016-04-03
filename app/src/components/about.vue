@@ -1,6 +1,8 @@
 <template>
-<div class="link-layout" transition="slide" transition-mode="out-in">
-  BLalalalala
+<div class="about" transition="slide" transition-mode="out-in">
+  <div class="row fullWidth">
+    <div class="small-12 columns aboutPic"></div>
+  </div>
 </div>
 </template>
 
@@ -14,7 +16,7 @@ module.exports = {
 
   // inherit: true,
   replace: true,
-  name: "coded",
+  name: "about",
 
   props: {
     work:{

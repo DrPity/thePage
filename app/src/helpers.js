@@ -40,6 +40,15 @@ module.exports = {
     return value > 0 ? 1 : value < 0 ? -1 : 0;
   },
 
+  getOffset: function (el) {
+    var box = el.getBoundingClientRect();
+
+    return {
+      top: box.top + window.pageYOffset - document.documentElement.clientTop,
+      left: box.left + window.pageXOffset - document.documentElement.clientLeft
+    };
+  },
+
   //------Returns a random and floored integer----------------------------------
 
   randomInt: function(min,max){

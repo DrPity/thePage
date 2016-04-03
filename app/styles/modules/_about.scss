@@ -1,0 +1,20 @@
+.about{
+  position: relative;;
+  width: 100%;
+  height: calc(100vh - 0.5rem);
+  overflow-y: hidden;
+  background-color: $black;
+  color: $white;
+  @include use-normal-font($semiBold, 400, 0, 0, rgb(0, 0, 0));
+  font-size: modular-scale(3, 2em, 1.234)!important;
+}
+
+.aboutPic{
+  position:relative;
+  background-image: url(../images/test3.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-position:50% 50%;
+  background-size: cover;
+}

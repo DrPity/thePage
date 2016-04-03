@@ -63,6 +63,7 @@
     "three": "*",
     "vue": "*",
     "vue-router": "*",
+    "vue-touch": "*",
     "p5": "*"
   },
   "browser": {

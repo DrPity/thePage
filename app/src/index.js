@@ -16,9 +16,13 @@ var foundation = require('foundation-sites');
 var loader = require('./components/loader.vue');
 var home = require('./components/home.vue');
 var coded = require('./components/codedreality.vue');
+var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
+var VueTouch = require('vue-touch');
+
 
 // window.p5 = require('p5');
+Vue.use(VueTouch);
 Vue.use(Router);
 
 function App(url) {
@@ -30,6 +34,7 @@ function App(url) {
   this.router = new Router({
     hashbang: true,
     history: false,
+    abstract: false,
     transitionOnLoad: true,
     saveScrollPosition: true,
   });
@@ -89,6 +94,10 @@ App.prototype.createRouterMap = function () {
     '/codedreality': {
       name: 'coded',
       component: coded,
+    },
+    '/about': {
+      name: 'about',
+      component: about,
     },
   });
 };

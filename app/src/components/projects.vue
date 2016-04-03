@@ -13,14 +13,13 @@
                 <div class="link-detail">
                   <span class="year">Year–2014</span>
                   <span class="mono-title arrow-section" href="#">
-
                   </span>
                 </div>
               </div>
               <div class="info-work-detail">
                 <div class="cont-info-work-detail">
                   <div class="thetitle">
-                    <h2 v-text="item | uppercase"></h2>
+                    <span v-text="item | uppercase"></span>
                   </div>
                   <div class="info-detail">
                     <div class="detail">
@@ -43,6 +42,8 @@
 var app = require('../index.js');
 var _ = require('../helpers');
 var $ = require('jquery');
+var active = [false,false,false,false,false,false,false,false,false];
+var oldpos = -1;
 
 module.exports = {
 
@@ -66,10 +67,39 @@ module.exports = {
 
 
   ready: function() {
-    setTimeout(function(){ $('.work').addClass('transform'); }, 500);
-    // var el = document.querySelectorAll('.work:'),':before';
-    // console.log("The element: ", str);
-    // el.style.transform = 'rotate(-4deg)';
+    if (app.getRouter().app.$data.redirect === false){
+      setTimeout(function(){ $('.work').addClass('transform'); }, 500);
+      var el = this.$el.getElementsByClassName('cont-list-work');
+      var _this = this;
+      var eloffset = _.getOffset(el[0]).top;
+      console.log("Native dist: ", eloffset);
+      if(_.checkForMobile() && screen.width <= 699){
+        window.onscroll = function (e) {
+          var offset = window.pageYOffset,
+          startValue = Math.floor(eloffset * 0.8),
+          endValue = startValue + 850;//startValue + 900;
+
+          console.log("offset: ", offset);
+
+          if(offset >= startValue && offset <= endValue)
+          {
+            var pos = Math.floor(_.map(offset, startValue,endValue,0,9));
+            if(pos != oldpos){
+              console.log("the scroll values: ", pos, " - ", oldpos);
+              if(oldpos != -1){
+                mouseLeaveHandler(_this.$el, oldpos);
+              }
+
+              mouseEnterHandler(_this.$el, pos);
+              oldpos = pos;
+            }
+          }else if(offset < startValue && oldpos != -1){
+            mouseLeaveHandler(_this.$el, oldpos);
+            oldpos = -1;
+          }
+        };
+      }
+    }
   },
 
   afterLeave: function(){
@@ -90,35 +120,18 @@ module.exports = {
 
   methods: {
     mouseenter: function(item, index){
-      var el = item.getElementsByClassName('wk'),
-          el_2 = item.getElementsByClassName('info-work-detail'),
-          el_3 = item.getElementsByClassName('link-project'),
-          el_4 = item.getElementsByClassName('thetitle');
-      // console.log("mouseenter: ", el, "index: ", index);
-      window.requestAnimationFrame(function() {
-        el[index].classList.add('active');
-        el_2[index].classList.add('active');
-        el_3[index].classList.add('active');
-        el_4[index].classList.add('active');
-      });
-
+      mouseEnterHandler(item,index);
     },
     mouseleave: function(item, index){
-      var el = item.getElementsByClassName('wk'),
-          el_2 = item.getElementsByClassName('info-work-detail'),
-          el_3 = item.getElementsByClassName('link-project'),
-          el_4 = item.getElementsByClassName('thetitle');
-      window.requestAnimationFrame(function() {
-        el[index].classList.remove('active');
-        el_2[index].classList.remove('active');
-        el_3[index].classList.remove('active');
-        el_4[index].classList.remove('active');
-      });
-
+      mouseLeaveHandler(item,index);
     },
     link: function(index){
       console.log("link: ", this.work.links[index]);
       return this.work.links[index+1];
+    },
+
+    test: function(el, index){
+      console.log("test: ", el, index);
     }
   },
   // setValue: setValue
@@ -132,4 +145,42 @@ function inHandler(el,index){
 function outHandler(el,index){
   el[index].removeEventListener("transitionend", outHandler);
 };
+
+function mouseEnterHandler(item, index){
+  // if(!active[index]){
+    var el = item.getElementsByClassName('wk'),
+        el_2 = item.getElementsByClassName('info-work-detail'),
+        el_3 = item.getElementsByClassName('link-project'),
+        el_4 = item.getElementsByClassName('thetitle');
+    // console.log("mouseenter: ", el, "index: ", index);
+    window.requestAnimationFrame(function() {
+      el[index].classList.add('active');
+      el_2[index].classList.add('active');
+      el_3[index].classList.add('active');
+      el_4[index].classList.add('active');
+      active[index] = true;
+    });
+  // }
+};
+
+function mouseLeaveHandler(item, index){
+  // if(active[index]){
+    var el = item.getElementsByClassName('wk'),
+        el_2 = item.getElementsByClassName('info-work-detail'),
+        el_3 = item.getElementsByClassName('link-project'),
+        el_4 = item.getElementsByClassName('thetitle');
+    window.requestAnimationFrame(function() {
+      el[index].classList.remove('active');
+      el_2[index].classList.remove('active');
+      el_3[index].classList.remove('active');
+      el_4[index].classList.remove('active');
+      active[index] = false;
+    });
+  // }
+};
+
+function touch(){
+  var d = document.getElementById("div1");
+  var topPos = d.offsetTop;
+}
 </script>

@@ -2,7 +2,11 @@
   <div class="root" transition="hfade" keep-alive >
 
     <!-- Menu Toggle -->
-    <navigation></navigation>
+    <div id="box">
+      <div class="about-link">
+        <a v-link="{ name: 'about'}">about</a>
+      </div>
+     </div>
     <!-- First section and Background Image -->
     <section class="bg" v-on:click="home.negative = !home.negative" :style="[home.negative ? {backgroundImage: home.background.nlogo} : '']"
     v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
@@ -90,6 +94,7 @@ module.exports = {
   ready: function() {
     if (app.getRouter().app.$data.redirect === false){
 
+      document.getElementById('wrapper').style.height = 'auto';
       //scrambling
       var index = 0;
       var scrambleItems = ["0", "1", "2", "3"];
@@ -113,11 +118,6 @@ module.exports = {
       //     columnWidth: '.grid-sizer',
       //     gutter: 12
       // });
-      var el = document.querySelector('body');
-
-      window.onscroll = function (e) {
-          // console.log("window.pageYOffset: ", window.pageYOffset);
-      };
 
 
       // const section = document.querySelector('.root');
@@ -154,30 +154,36 @@ module.exports = {
       return "background-image:" + "url(" + url +  ");";
     },
     mouseenter: function(item){
-      op.isAnimating = true;
-      var el = item.getElementsByClassName('bg');
-      window.requestAnimationFrame(function() {
-        el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
-        el[0].addEventListener("transitionend", inHandler(el));
-      });
+      if(!_.checkForMobile() && screen.width >= 699){
+        op.isAnimating = true;
+        var el = item.getElementsByClassName('bg');
+        window.requestAnimationFrame(function() {
+          el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
+          el[0].addEventListener("transitionend", inHandler(el));
+        });
+      }
     },
     mouseleave: function(item){
-      op.isAnimating = true;
-      var el = item.getElementsByClassName('bg');
-      window.requestAnimationFrame(function() {
-        el[0].style.transform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
-        el[0].addEventListener("transitionend", outHandler(el));
-      });
+      if(!_.checkForMobile() && screen.width >= 699){
+        op.isAnimating = true;
+        var el = item.getElementsByClassName('bg');
+        window.requestAnimationFrame(function() {
+          el[0].style.transform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
+          el[0].addEventListener("transitionend", outHandler(el));
+        });
+      }
     },
     mousemove: function(item,event){
-      if (!op.isAnimating){
-        window.requestAnimationFrame(function() {
-          var el = item.getElementsByClassName('bg');
-          var offsetY = (window.outerHeight - window.innerHeight) /6;
-          var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
-              y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
-          el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
-        });
+      if(!_.checkForMobile() && screen.width >= 699){
+        if (!op.isAnimating){
+          window.requestAnimationFrame(function() {
+            var el = item.getElementsByClassName('bg');
+            var offsetY = (window.outerHeight - window.innerHeight) /6;
+            var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
+                y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
+            el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
+          });
+        }
       }
     }
   },

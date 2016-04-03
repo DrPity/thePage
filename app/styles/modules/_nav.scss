@@ -13,7 +13,7 @@
     transition: all 500ms ease;
   }
 
-  .about{
+  .about-link{
     position:fixed;
     margin-top: 1rem;
     @include use-normal-font($extraBold, 400, 1.0rem, 0, rgb(0, 0, 0));
