@@ -8,7 +8,7 @@ function Graphics() {
     isNavToggled: false,
   };
 
-  this.transform($("#wrapper"));
+  // this.transform($("#wrapper"));
   this.tFont = new TimelineMax({repeat:-1});
   // var animation = this.tweenFontWeight(".theproject");
   // animation.play();

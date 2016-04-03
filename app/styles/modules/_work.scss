@@ -27,23 +27,6 @@
     // margin-top: -1.5rem;
   }
 
-  .title{
-    // display: block;
-    @include use-normal-font($extraBold, 400, 6.25rem, 0, rgb(255, 255, 255));
-    position: fixed;
-    top:50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    text-decoration: underline;
-    text-transform: lowercase;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    z-index: 19;
-  }
-
   .left{
     position: relative;
     width: 1rem;
@@ -83,7 +66,7 @@
 //
 .work::after{
   content: "";
-  background-color: #E6E6E6;
+  background-color: $secondary;
   position: absolute;
   z-index: 1;
   width: 101%;

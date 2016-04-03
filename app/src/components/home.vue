@@ -1,10 +1,11 @@
 <template>
-  <div class="root" transition="hfade" keep-alive>
+  <div class="root" transition="hfade" keep-alive >
 
     <!-- Menu Toggle -->
     <navigation></navigation>
     <!-- First section and Background Image -->
-    <section class="bg" v-on:click="home.negative = !home.negative" :style="[home.negative ? {backgroundImage: home.background.nlogo} : '']">
+    <section class="bg" v-on:click="home.negative = !home.negative" :style="[home.negative ? {backgroundImage: home.background.nlogo} : '']"
+    v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
       <div class="tag">
         <h6 id="0" class="name" :style="[home.negative ? { color: '#FFF' } : '']">{{home.description.name | uppercase}}</h6>
         <h6 id="1" class="description_one" :style="[home.negative ? { color: '#656565' } : '']">{{home.description.one | uppercase}}</h6>
@@ -20,6 +21,7 @@
       </div>
     </section>
     <!-- Projects  -->
+    <!-- <work :work="work"></work> -->
     <work :work="work"></work>
     <!-- Contact  -->
     <section class="contact">
@@ -38,7 +40,12 @@ var scramble = require('../scramble');
 var scr = new scramble();
 var Masonry = require ('masonry-layout');
 // import Smooth from 'smooth-scrolling'
-
+var op = {
+    scale: 1.04,
+    strength: 25,
+    animationSpeed: "100ms",
+    isAnimating: false
+};
 
 module.exports = {
 
@@ -75,7 +82,7 @@ module.exports = {
   },
 
   components: {
-    'work': require('./work.vue'),
+    'work': require('./projects.vue'),
     'navigation': require('./nav.vue'),
   },
 
@@ -99,28 +106,27 @@ module.exports = {
       }
 
       //mansory grid
-      var grid = document.querySelector('.grid');
-      var msnry = new Masonry( grid, {
-          itemSelector: '.grid-item',
-          percentPosition: true,
-          columnWidth: '.grid-sizer',
-          gutter: 12
-      });
+      // var grid = document.querySelector('.grid');
+      // var msnry = new Masonry( grid, {
+      //     itemSelector: '.grid-item',
+      //     percentPosition: true,
+      //     columnWidth: '.grid-sizer',
+      //     gutter: 12
+      // });
       var el = document.querySelector('body');
-      console.log("el ", el);
+
       window.onscroll = function (e) {
-          console.log("window.pageYOffset: ", window.pageYOffset);
+          // console.log("window.pageYOffset: ", window.pageYOffset);
       };
 
-      // console.log("SMOOTH: ", Smooth);
-      // const section = document.querySelector('.vs-section');
+
+      // const section = document.querySelector('.root');
       // const smooth = new Smooth({
-      //   native: true,
+      //   native: false,
       //   section: section,
-      //   listener: document.getElementById('wrapper'),
-      //   ease: 0.4
+      //   ease: 0.1
       // });
-      // smooth.on();
+      // smooth.off();
       // smooth.init();
     }
   },
@@ -144,14 +150,49 @@ module.exports = {
 
     },
     background: function(url){
-      console.log(url);
+
       return "background-image:" + "url(" + url +  ");";
     },
-    scroll: function(){
-      if(window.pageYOffset>100)alert('User has scrolled at least 400 px!');
+    mouseenter: function(item){
+      op.isAnimating = true;
+      var el = item.getElementsByClassName('bg');
+      window.requestAnimationFrame(function() {
+        el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
+        el[0].addEventListener("transitionend", inHandler(el));
+      });
+    },
+    mouseleave: function(item){
+      op.isAnimating = true;
+      var el = item.getElementsByClassName('bg');
+      window.requestAnimationFrame(function() {
+        el[0].style.transform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
+        el[0].addEventListener("transitionend", outHandler(el));
+      });
+    },
+    mousemove: function(item,event){
+      if (!op.isAnimating){
+        window.requestAnimationFrame(function() {
+          var el = item.getElementsByClassName('bg');
+          var offsetY = (window.outerHeight - window.innerHeight) /6;
+          var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
+              y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
+          el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
+        });
+      }
     }
   },
 
+};
+
+
+function inHandler(el){
+  op.isAnimating = false;
+  el[0].removeEventListener("transitionend", inHandler);
+};
+
+function outHandler(el){
+  op.isAnimating = false;
+  el[0].removeEventListener("transitionend", outHandler);
 };
 
 

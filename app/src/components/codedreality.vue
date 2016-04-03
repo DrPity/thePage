@@ -1,5 +1,5 @@
 <template>
-<div class="project" transition="slide" transition-mode="out-in">
+<div class="link-layout" transition="slide" transition-mode="out-in">
   BLalalalala
 </div>
 </template>
