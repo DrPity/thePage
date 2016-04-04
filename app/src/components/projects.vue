@@ -67,29 +67,25 @@ module.exports = {
 
 
   ready: function() {
+    //TODO: Need to have a fix concerning the treshold on endvalue
     if (app.getRouter().app.$data.redirect === false){
       setTimeout(function(){ $('.work').addClass('transform'); }, 500);
       var el = this.$el.getElementsByClassName('cont-list-work');
       var _this = this;
       var eloffset = _.getOffset(el[0]).top;
       console.log("Native dist: ", eloffset);
-      if(_.checkForMobile() && screen.width <= 699){
+      if(_.checkForMobile()){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
           startValue = Math.floor(eloffset * 0.8),
-          endValue = startValue + 850;//startValue + 900;
-
-          console.log("offset: ", offset);
-
+          endValue = startValue + 650;//startValue + 850;
           if(offset >= startValue && offset <= endValue)
           {
             var pos = Math.floor(_.map(offset, startValue,endValue,0,9));
             if(pos != oldpos){
-              console.log("the scroll values: ", pos, " - ", oldpos);
               if(oldpos != -1){
                 mouseLeaveHandler(_this.$el, oldpos);
               }
-
               mouseEnterHandler(_this.$el, pos);
               oldpos = pos;
             }

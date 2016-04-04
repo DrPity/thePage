@@ -7,14 +7,22 @@
   color: $white;
   @include use-normal-font($semiBold, 400, 0, 0, rgb(0, 0, 0));
   font-size: modular-scale(3, 2em, 1.234)!important;
+
 }
 
 .aboutPic{
-  position:relative;
-  background-image: url(../images/test3.jpg);
-  background-repeat: no-repeat;
+  // position:absolute;
+  // background-image: url(../images/memyselfnI.jpg);
+  // background-repeat: no-repeat;
+  // width: 100%;
+  // height: 50vh;
+  // background-position:50% 50%;
+  // background-size: contain;
   width: 100%;
-  height: 100vh;
-  background-position:50% 50%;
-  background-size: cover;
+  height: 100px;
+  background-color: rgb(162, 0, 137);
+  // border-color: $white;
+  // border-style: solid;
+  // border-bottom: 0;
+  // border-width: 0.5rem;
 }

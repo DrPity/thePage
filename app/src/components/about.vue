@@ -1,7 +1,16 @@
 <template>
 <div class="about" transition="slide" transition-mode="out-in">
-  <div class="row fullWidth">
-    <div class="small-12 columns aboutPic"></div>
+  <div class="row expanded align-center">
+    <div class="small-12 medium-6 columns">
+      <div class="aboutPic">
+        <span>BALALALALLALALALALAALLAALLALALAL</span>
+      </div>
+    </div>
+    <div class="small-12 medium-6 columns">
+      <div class="aboutPic">
+        <span>BALALALALLALALALALAALLAALLALALAL</span>
+      </div>
+    </div>
   </div>
 </div>
 </template>

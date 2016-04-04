@@ -183,7 +183,7 @@ article{
                   margin-left: 0;
                   margin-right: 4.56853%;
 
-                  @include breakpoint(small only) {
+                  @include breakpoint(medium down) {
                     display: none;
                   }
 
@@ -225,7 +225,7 @@ article{
   margin-left: 45%;
   margin-top: 1rem;
 
-  @include breakpoint(small only) {
+  @include breakpoint(medium down) {
     margin-left: 25%;
   }
 
@@ -255,7 +255,7 @@ article{
   transform: translate(0, -125%);
   line-height: 1;
 
-  @include breakpoint(small only) {
+  @include breakpoint(medium down) {
     margin-left: 0;
     text-align: center;
     font-size: modular-scale(0, 2em, 1.234)!important;
