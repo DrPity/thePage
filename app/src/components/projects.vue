@@ -1,9 +1,12 @@
 <template>
   <section class="work" id="first">
     <div class="right"></div>
+    <div class="headline">
+      <h3>The Projects</h3>
+    </div>
     <div class="cont-list-work">
       <template v-for="item in work.grid_items_title">
-        <article class="wk color-10" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" v-on:mouseleave="mouseleave($el, $index)">
+        <article class="wk color-10" v-on:mouseleave="mouseleave($el, $index)">
           <div class="wrapper-link">
             <a v-link="{ name: 'coded'}" class="link-project" v-on:mouseenter="mouseenter($el, $index)"></a>
             <div class="wrapper-work">
@@ -11,7 +14,7 @@
                 <span class="mono-title">.0{{$index+1}}</span>
                 <h6 v-text="item"></h6>
                 <div class="link-detail">
-                  <span class="year">Year–2014</span>
+                  <span class="year">Year–{{work.year[$index+1]}}</span>
                   <span class="mono-title arrow-section" href="#">
                   </span>
                 </div>

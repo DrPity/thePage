@@ -58,10 +58,10 @@
     {
       "1": "Musical Cubes",
       "2": "Coded Reality",
-      "3": "The Wall",
-      "4": "Mu:Brace",
-      "5": "Human&Machine",
-      "6": "Light Miners",
+      "3": "Human&Machine",
+      "4": "The Wall",
+      "5": "Light Miners",
+      "6": "Mu:Brace",
       "7": "Cucumbis",
       "8": "Goldmann",
       "9": "The Pictures"
@@ -89,6 +89,39 @@
       "7": "/cucumbis",
       "8": "/goldmann",
       "9": "/thepictures"
+    },
+    "year":
+    {
+      "1": "2015",
+      "2": "2014/16",
+      "3": "2014",
+      "4": "2014",
+      "5": "2014",
+      "6": "2013",
+      "7": "2013",
+      "8": "2011",
+      "9": "2010"
+    }
+  },
+  "about":
+  {
+    "burn":
+    {
+      "1": "Art",
+      "2": "Design",
+      "3": "Creative Thinking"
+    },
+    "like":
+    {
+      "1": "Stuff",
+      "2": "Design",
+      "3": "Creative Thinking"
+    },
+    "offer":
+    {
+      "1": "More Stuff",
+      "2": "Design",
+      "3": "Creative Thinking"
     }
   }
 }

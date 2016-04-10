@@ -70,68 +70,45 @@ Graphics.prototype.shakeAnimation = function (element){
 };
 
 Graphics.prototype.transform = function (element){
-  console.log("In transform");
-    var op = {
-        scale: 1.04,
-        strength: 25,
-        animationSpeed: "100ms",
-        isAnimating: false
-    };
-    if (screen.width <= 699) {
-        console.log("Touch Device");
-    }else{
-      element.on("mouseenter", ".bg", function() {
-        op.isAnimating = true;
-        var _this = this;
-        window.requestAnimationFrame(function() {
-          $(_this).css({
-              "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-              "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-              "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-              transform: "matrix(" + op.scale + ",0,0," + op.scale + ",0,0)",
-          }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-              op.isAnimating = false;
-          });
-        });
-      });
+  // You can use either `new PIXI.WebGLRenderer`, `new PIXI.CanvasRenderer`, or `PIXI.autoDetectRenderer`
+  // which will try to choose the best renderer for the environment you are in.
+  var renderer = new PIXI.WebGLRenderer(800, 600);
+   
+  // The renderer will create a canvas element for you that you can then insert into the DOM.
+  document.body.appendChild(renderer.view);
 
-      element.on("mouseleave", ".bg", function() {
-        op.isAnimating = true;
-        var _this = this;
-        window.requestAnimationFrame(function() {
-          $(_this).css({
-              "-webkit-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-              "-moz-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-              "-o-transform": "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-              transform: "matrix(" + 1 + ",0,0," + 1 + ",0,0)",
-          }).on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-              op.isAnimating = false;
-          });
-        });
-      });
+  // You need to create a root container that will hold the scene you want to draw.
+  var stage = new PIXI.Container();
 
-      element.on("mousemove", ".bg", function(event){
-          var _this = this;
-          if (!op.isAnimating){
-            window.requestAnimationFrame(function() {
-              var offsetY = (window.outerHeight - window.innerHeight) /6;
+  // load the texture we need
+  PIXI.loader.add('bunny', 'bunny.png').load(function (loader, resources) {
+      // This creates a texture from a 'bunny.png' image.
+      var bunny = new PIXI.Sprite(resources.bunny.texture);
 
-              var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
-                  y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
+      // Setup the position and scale of the bunny
+      bunny.position.x = 400;
+      bunny.position.y = 300;
 
-              // console.log("oW: ", element.outerWidth() - element.innerWidth(), "oH: ", element.outerHeight() - element.innerHeight());
-              // console.log("x: ", x, "Y: ", y);
-              $(_this).css({
-                  "-webkit-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-                  "-moz-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-                  "-o-transform": "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-                  transform: "matrix(" + op.scale + ",0,0," + op.scale + "," + x + "," + y + ")",
-              });
-            });
-          }
-      });
-    }
-    console.log("after transform");
+      bunny.scale.x = 2;
+      bunny.scale.y = 2;
+
+      // Add the bunny to the scene we are building.
+      stage.addChild(bunny);
+
+      // kick off the animation loop (defined below)
+      animate();
+  });
+
+  function animate() {
+      // start the timer for the next animation loop
+      requestAnimationFrame(animate);
+
+      // each frame we spin the bunny around a bit
+      bunny.rotation += 0.01;
+
+      // this is the main render call that makes pixi draw your container and its children.
+      renderer.render(stage);
+  }
 };
 
 

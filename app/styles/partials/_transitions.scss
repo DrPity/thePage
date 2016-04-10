@@ -14,7 +14,7 @@
 
 
 .hfade-transition {
-  transition: .4s cubic-bezier(.77,0,.175,1).1s;
+  transition: 1.0s cubic-bezier(.77,0,.175,1).1s;
 }
 
 .hfade-enter {
@@ -25,6 +25,14 @@
   opacity: 0;
 }
 
+.wfade-transition {
+    transition: all .5s ease;
+    opacity: 1;
+}
+.wfade-enter, .wfade-leave {
+    opacity: 0;
+}
+
 
 
 .slide-transition {
@@ -33,11 +41,11 @@
 }
 
 .slide-enter{
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -110%, 0);
 }
 
 .slide-leave{
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -110%, 0);
 }
 
 

@@ -2,7 +2,7 @@
   "name": "TheProduct",
   "private": true,
   "dependencies": {
-    "foundation-sites": "*",
+    "foundation-sites": "^6.2.1",
     "PreloadJS": "*",
     "typeplate-starter-kit": "*"
   },

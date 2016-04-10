@@ -1,28 +1,76 @@
 .about{
   position: relative;;
   width: 100%;
-  height: calc(100vh - 0.5rem);
-  overflow-y: hidden;
-  background-color: $black;
+  height: calc(100vh - 1rem);
+  overflow: hidden;
+  background-color: $white;
   color: $white;
-  @include use-normal-font($semiBold, 400, 0, 0, rgb(0, 0, 0));
-  font-size: modular-scale(3, 2em, 1.234)!important;
+  @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
+  font-size: modular-scale(4, 0.5em, 1.234)!important;
 
 }
 
 .aboutPic{
-  // position:absolute;
-  // background-image: url(../images/memyselfnI.jpg);
-  // background-repeat: no-repeat;
-  // width: 100%;
-  // height: 50vh;
-  // background-position:50% 50%;
-  // background-size: contain;
+  margin-top: calc(15% + 1rem);
+  position:relative;
+  background-image: url(../images/test2.jpg);
+  background-repeat: no-repeat;
   width: 100%;
-  height: 100px;
-  background-color: rgb(162, 0, 137);
-  // border-color: $white;
-  // border-style: solid;
-  // border-bottom: 0;
-  // border-width: 0.5rem;
+  height: 50vh;
+  background-size: contain;
+  background-position:center
+}
+
+.aboutTxt{
+  // //  padding-left: calc(100vh - 1rem);
+  padding-left: 10%;
+  padding-right: 5%;
+  padding-top: 15%;
+}
+
+
+.burn{
+  position: relative;
+  width: 10rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+  display: inline-block;
+}
+
+
+.like{
+  position: relative;
+  width: 10rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  text-align: center;
+}
+
+
+
+.offer{
+  position: relative;
+  width: 10rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  text-align: center;
+}
+
+.list{
+  text-align: center;
+  @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
+  font-size: modular-scale(1, 0.5em, 1.234)!important;
+}
+
+
+
+.words{
+  position: relative;
+  display: inherit;
+}
+
+.words-one.active{
+  position: relative;;
+  display: inherit;;
+  transform: translate(0,0);
 }
