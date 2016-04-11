@@ -8,19 +8,20 @@
       </div>
      </div>
     <!-- First section and Background Image -->
-    <section class="bg" v-on:click="home.negative = !home.negative" :style="[home.negative ? {backgroundImage: home.background.nlogo} : '']"
-    v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
-      <div class="tag">
-        <h6 id="0" class="name" :style="[home.negative ? { color: '#FFF' } : '']">{{home.description.name | uppercase}}</h6>
-        <h6 id="1" class="description_one" :style="[home.negative ? { color: '#656565' } : '']">{{home.description.one | uppercase}}</h6>
-        <h6 id="2" class="description_two" :style="[home.negative ? { color: '#656565' } : '']">{{home.description.two | uppercase}}</h6>
-      </div>
-      <div class="scroll_hint">
-        <h6 id="3" class="scroll" :style="[home.negative ? { color: '#FFF' } : '']">{{home.description.scroll | uppercase}}</h6>
-        <div class="circle">
-          <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
-          </svg>
+    <section class="row noMargin color_1" v-on:click="home.negative = !home.negative" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
+      <div class="bg">
+        <div class="tag">
+          <h6 id="0" class="name">{{home.description.name | uppercase}}</h6>
+          <h6 id="1" class="description_one">{{home.description.one | uppercase}}</h6>
+          <h6 id="2" class="description_two">{{home.description.two | uppercase}}</h6>
+        </div>
+        <div class="scroll_hint">
+          <h6 id="3" class="scroll">{{home.description.scroll | uppercase}}</h6>
+          <div class="circle">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
+            </svg>
+          </div>
         </div>
       </div>
     </section>
@@ -201,5 +202,5 @@ function outHandler(el){
   el[0].removeEventListener("transitionend", outHandler);
 };
 
-
+//:style="[home.negative ? {backgroundImage: home.background.nlogo} : '']"
 </script>

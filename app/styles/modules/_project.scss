@@ -81,6 +81,7 @@ article{
     .link-project.active{
       width: 100%;
       margin-left: 0;
+      transform: translate(0%,-20%);
     }
 
     a{
@@ -213,6 +214,7 @@ article{
 .info-work-detail.active{
   height: 100%;
   position: absolute;
+  transform: translate(0%,-12.5%);
 }
 
 .info-work {
@@ -270,7 +272,7 @@ article{
 
 
 .thetitle.active{
-  transform: translate(0, 25%);
+  transform: translate(0, 12.5%);
 }
 
 
@@ -298,6 +300,7 @@ article{
 .wk.active::before {
     content: '';
     transform: scaleY(1);
+    transform: translate(0%,-20%);
 }
 
 .wk.color-10:before {

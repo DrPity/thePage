@@ -28,13 +28,14 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- htmlmin:ignore -->
-    <div id="wrapper" class="expanded row small-collapse" :style="[home.negative ? {backgroundColor: '#000' } : '']">
-      <div class="small-12 columns">
+    <div id="wrapper" class="row fullWidth small-collapse" :style="[home.negative ? {backgroundColor: '#000' } : '']">
+      <div class="columns align-justify">
       <!-- htmlmin:ignore -->
         <router-view
         :home="home"
         :work="work"
         :about="about"
+        :coded="coded"
         transition-mode="out-in"
         ></router-view>
       </div>

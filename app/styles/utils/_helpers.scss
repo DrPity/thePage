@@ -45,6 +45,10 @@ $ease-cubic-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
    max-width: initial;
 }
 
+.noMargin{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 
 .absoluteCentering {
     position: absolute;
@@ -54,4 +58,8 @@ $ease-cubic-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .root{
+}
+
+.color_1{
+ background-color: $color_1;
 }

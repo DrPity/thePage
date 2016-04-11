@@ -116,7 +116,8 @@ Graphics.prototype.setUpScene = function (context){
       autoResize: true,
     };
 
-    scene.elem = context.$el;
+    scene.elem = context.$el.querySelectorAll('.project-layout')[0];
+    console.log("Context ", scene.elem);
 
     // Renderer
     scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height, rendererOptions);

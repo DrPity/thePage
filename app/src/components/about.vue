@@ -1,7 +1,7 @@
 <template>
 <div class="about" transition="slide" transition-mode="out-in">
   <div class="row expanded align-middle">
-    <div class="small-12 medium-5 column align-self-middle small-order-2 medium-order-1">
+    <div class="small-12 medium-5 columns align-self-middle small-order-2 medium-order-1">
       <div class="aboutTxt">
         <div>
           <span>Hi my name is Michael Schade, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.

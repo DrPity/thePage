@@ -123,5 +123,14 @@
       "2": "Design",
       "3": "Creative Thinking"
     }
+  },
+
+  "coded":
+  {
+    "pictures": [
+      "../images/01.jpg",
+      "../images/02.jpg",
+      "../images/05.jpg"
+    ]
   }
 }

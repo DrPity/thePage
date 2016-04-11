@@ -6,13 +6,13 @@
 @include foundation-flex-grid;
 @import "bourbon";
 @import "typeplate";
-//Utils
-@import "utils/helpers";
 // Partials
 @import "partials/transitions";
 @import "partials/variables";
 @import "partials/colors";
 @import "partials/fonts";
+//Utils
+@import "utils/helpers";
 //Partials with font dependency
 @import "partials/constants";
 // Modules and Variables

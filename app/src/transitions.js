@@ -48,6 +48,19 @@ Transitions.prototype.init = function () {
 			console.log("After slide-transition leave:",  el);
 		}
 	});
+
+	Vue.transition('slideUp', {
+		type: 'transition',
+		enter: function (el) {
+			console.log("In enter slideUp-transition: ", el);
+		},
+		leave: function (el) {
+			console.log("In leave slideUp-transition: ", el);
+		},
+		afterLeave: function(el){
+			console.log("After slideUp-transition leave:",  el);
+		}
+	});
 };
 
 module.exports = Transitions;
