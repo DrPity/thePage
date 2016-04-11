@@ -1,18 +1,56 @@
 require('gsap');
-var $ = require('jquery');
 var _ = require('./helpers');
+var PIXI = require('pixi.js');
+var scene = {
+    elem: null,
+    width: 1920,
+    height: 720,
+    renderer: null,
+    container: null,
+    displacementFilter: null
+};
+
+var handler = {
+
+  animate: function (){
+
+    var offset = 0.1 * window.scrollY;
+
+    // console.log("this.scene: ", _this.scene);
+    scene.displacementFilter.scale.x = 2 * offset;
+    scene.displacementFilter.scale.y = 1 * offset;
 
 
-function Graphics() {
-  this.booleanEnum = {
-    isNavToggled: false,
-  };
+    scene.renderer.render(scene.container);
+    requestAnimationFrame(handler.animate);
+  },
 
-  // this.transform($("#wrapper"));
-  this.tFont = new TimelineMax({repeat:-1});
-  // var animation = this.tweenFontWeight(".theproject");
-  // animation.play();
-  // this.attachelements();
+  resize: function(){
+    // Determine which screen dimension is most constrained
+    var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height);
+    // Scale the view appropriately to fill that dimension
+    scene.container.scale.x = scene.container.scale.y = ratio;
+
+    // Update the renderer dimensions
+    scene.renderer.resize(Math.ceil(scene.width * ratio), Math.ceil(scene.height * ratio));
+
+    // console.log("Resize\n" +
+    //             "  Window inner " + window.innerWidth + "," +
+    //             window.innerHeight +
+    //             " pixel ratio " + window.devicePixelRatio + "\n" +
+    //             "  Renderer " + renderer.width + "," +
+    //             renderer.height + " res " + renderer.resolution + "\n" +
+    //             "  Scale " + container.scale.x + "," + container.scale.y + "\n" +
+    //             "  Element " + ELEM.getBoundingClientRect().width + "," + ELEM.getBoundingClientRect().height + "\n");
+  },
+
+};
+
+function Graphics(context) {
+
+  this.text = "Can you read this";
+  this.setUpScene(context);
+  // this.tFont = new TimelineMax({repeat:-1});
 
   // var mouse = {x:0.0, y:0.0};
   // var mouseStart = function(){
@@ -69,51 +107,43 @@ Graphics.prototype.shakeAnimation = function (element){
   });
 };
 
-Graphics.prototype.transform = function (element){
-  // You can use either `new PIXI.WebGLRenderer`, `new PIXI.CanvasRenderer`, or `PIXI.autoDetectRenderer`
-  // which will try to choose the best renderer for the environment you are in.
-  var renderer = new PIXI.WebGLRenderer(800, 600);
-   
-  // The renderer will create a canvas element for you that you can then insert into the DOM.
-  document.body.appendChild(renderer.view);
+Graphics.prototype.setUpScene = function (context){
 
-  // You need to create a root container that will hold the scene you want to draw.
-  var stage = new PIXI.Container();
+    var rendererOptions = {
+      antialiasing: false,
+      transparent: false,
+      resolution: window.devicePixelRatio,
+      autoResize: true,
+    };
 
-  // load the texture we need
-  PIXI.loader.add('bunny', 'bunny.png').load(function (loader, resources) {
-      // This creates a texture from a 'bunny.png' image.
-      var bunny = new PIXI.Sprite(resources.bunny.texture);
+    scene.elem = context.$el;
 
-      // Setup the position and scale of the bunny
-      bunny.position.x = 400;
-      bunny.position.y = 300;
+    // Renderer
+    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height, rendererOptions);
+    scene.elem.appendChild(scene.renderer.view);
 
-      bunny.scale.x = 2;
-      bunny.scale.y = 2;
+    // Container
+    scene.container = new PIXI.Container();
 
-      // Add the bunny to the scene we are building.
-      stage.addChild(bunny);
+    // Background
+    var bg = PIXI.Sprite.fromImage("../images/home_large.jpg");
+    scene.container.addChild(bg);
 
-      // kick off the animation loop (defined below)
-      animate();
-  });
+    // Filter
+    var displacementTexture = PIXI.Sprite.fromImage("../images/displacement2.jpg");
+    scene.displacementFilter = new PIXI.filters.DisplacementFilter(displacementTexture);
 
-  function animate() {
-      // start the timer for the next animation loop
-      requestAnimationFrame(animate);
+    // Apply it
+    scene.container.filters = [scene.displacementFilter];
+    // Animate
+    handler.resize();
+    window.addEventListener("resize", handler.resize);
+    requestAnimationFrame(handler.animate);
 
-      // each frame we spin the bunny around a bit
-      bunny.rotation += 0.01;
-
-      // this is the main render call that makes pixi draw your container and its children.
-      renderer.render(stage);
-  }
 };
 
-
-function panim(el){
-
-}
+Graphics.prototype.deactivate = function (){
+  window.removeEventListener("resize", handler.resize);
+};
 
 module.exports = Graphics;

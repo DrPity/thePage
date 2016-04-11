@@ -26,7 +26,6 @@ Vue.use(VueTouch);
 Vue.use(Router);
 
 function App(url) {
-  this.Graphics = require('./graphics');
   this.mainView = null;
   this.ScrollTriggers = require('./scrollTrigger');
   this.Transitions = require('./transitions');
@@ -65,8 +64,6 @@ App.prototype.init = function (url) {
     _this.createRouterMap();
     _this.redirectionMap();
     _this.router.start(RoutedApp, '#wrapper');
-    console.log("yeah router");
-    _this.graphics = new _this.Graphics();
     console.log("finished app init");
   });
 };
