@@ -75,6 +75,7 @@ module.exports = {
       }
     },
     canDeactivate: function (transition) {
+      window.onscroll = null;
       transition.next();
     }
   },
@@ -95,7 +96,7 @@ module.exports = {
   ready: function() {
     if (app.getRouter().app.$data.redirect === false){
 
-      document.getElementById('wrapper').style.height = 'auto';
+      // document.getElementById('wrapper').style.height = 'auto';
       //scrambling
       var index = 0;
       var scrambleItems = ["0", "1", "2", "3"];
@@ -139,7 +140,8 @@ module.exports = {
   enter: function (el) {
   },
 
-  leave: function (el) {
+  beforeLeave: function (el) {
+
   },
 
   beforeDestroy: function() {

@@ -1,16 +1,86 @@
 require('gsap');
 var _ = require('./helpers');
-var PIXI = require('pixi.js');
+window.PIXI = require('pixi.js');
 var scene = {
     elem: null,
     width: 1920,
-    height: 720,
+    height: 600,//Math.ceil(screen.height*0.8),
     renderer: null,
     container: null,
-    displacementFilter: null
+    displacementFilter: null,
+    context: null
 };
 
 var handler = {
+
+  preload: function(){
+
+    handler.createrenderer(); // Create renderer to test which kind in loading,
+                      // do preloader animations (not implemented)
+
+    var loader = PIXI.loader;
+
+
+    if (window.devicePixelRatio >= 2 &&
+        scene.renderer instanceof PIXI.WebGLRenderer) {
+      loader.add("background", "../images/home_large.jpg");
+    } else {
+      loader.add("background", "../images/home_large.jpg");
+    }
+
+    loader.once('complete', handler.init);
+    loader.load();
+
+  },
+
+  createrenderer: function(){
+    console.log("Create Renderer");
+
+    var rendererOptions = {
+      antialiasing: false,
+      transparent: false,
+      // resolution: window.devicePixelRatio,
+      autoResize: true,
+    };
+
+    scene.elem = scene.context.$el.querySelector('.project-layout');
+    // scene.width = scene.elem.getBoundingClientRect().width;
+    console.log("scene elem: ", scene.elem);
+    // Renderer
+    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height, rendererOptions);
+    console.log("Context ", scene.renderer);
+    // The stage is essentially a display list of all game objects
+    // for Pixi to render; it's used in resize(), so it must exist
+    scene.container = new PIXI.Container();
+
+    // Actually place the renderer onto the page for display
+    scene.elem.appendChild(scene.renderer.view);
+    handler.resize();
+
+    // Listen for and adapt to changes to the screen size, e.g.,
+    // user changing the window or rotating their device
+  },
+
+  init: function(){
+
+    var bg = PIXI.Sprite.fromImage(PIXI.loader.resources.background.url,1,1);
+    // var bg = PIXI.Sprite.fromImage("../images/home_large.jpg");
+    // bg.x = -1920+screen.width;
+    console.log("BG " + bg.width + "," + bg.height +
+                   " res " , bg);
+
+    scene.container.addChild(bg);
+
+    // Filter
+    var displacementTexture = PIXI.Sprite.fromImage("../images/displacement2.jpg");
+    scene.displacementFilter = new PIXI.filters.DisplacementFilter(displacementTexture);
+
+    // Apply it
+    scene.container.filters = [scene.displacementFilter];
+    // Animate
+    window.addEventListener("resize", handler.resize);
+    requestAnimationFrame(handler.animate);
+  },
 
   animate: function (){
 
@@ -26,22 +96,30 @@ var handler = {
   },
 
   resize: function(){
+
+
+
     // Determine which screen dimension is most constrained
     var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height);
     // Scale the view appropriately to fill that dimension
     scene.container.scale.x = scene.container.scale.y = ratio;
+    // var w = screen.width;
+    // var h = scene.height;
+    // scene.renderer.view.style.width = scene.elem.getBoundingClientRect().width + "px";
+    // scene.renderer.view.style.height = Math.ceil(scene.height * ratio) + "px";
 
+    // console.log("Style: ", scene.elem.getBoundingClientRect());
     // Update the renderer dimensions
     scene.renderer.resize(Math.ceil(scene.width * ratio), Math.ceil(scene.height * ratio));
 
-    // console.log("Resize\n" +
-    //             "  Window inner " + window.innerWidth + "," +
-    //             window.innerHeight +
-    //             " pixel ratio " + window.devicePixelRatio + "\n" +
-    //             "  Renderer " + renderer.width + "," +
-    //             renderer.height + " res " + renderer.resolution + "\n" +
-    //             "  Scale " + container.scale.x + "," + container.scale.y + "\n" +
-    //             "  Element " + ELEM.getBoundingClientRect().width + "," + ELEM.getBoundingClientRect().height + "\n");
+    console.log("Resize\n" +
+                "  Window inner " + window.innerWidth + "," +
+                window.innerHeight +
+                " ratio " + ratio + "\n" +
+                "  Renderer " + scene.renderer.width + "," +
+                scene.renderer.height + " res " + scene.renderer.resolution + "\n" +
+                "  Scale " + scene.container.scale.x + "," + scene.container.scale.y + "\n" +
+                "  Element " + scene.context.$el.getBoundingClientRect().width + "," + scene.context.$el.getBoundingClientRect().height + "\n");
   },
 
 };
@@ -49,7 +127,9 @@ var handler = {
 function Graphics(context) {
 
   this.text = "Can you read this";
-  this.setUpScene(context);
+  scene.context = context;
+  // this.setUpScene(context);
+  handler.preload();
   // this.tFont = new TimelineMax({repeat:-1});
 
   // var mouse = {x:0.0, y:0.0};
@@ -108,12 +188,12 @@ Graphics.prototype.shakeAnimation = function (element){
 };
 
 Graphics.prototype.setUpScene = function (context){
-
+    // handler.preload();
     var rendererOptions = {
       antialiasing: false,
       transparent: false,
-      resolution: window.devicePixelRatio,
-      autoResize: true,
+      // resolution: window.devicePixelRatio,
+      autoResize: false,
     };
 
     scene.elem = context.$el.querySelectorAll('.project-layout')[0];
@@ -128,6 +208,9 @@ Graphics.prototype.setUpScene = function (context){
 
     // Background
     var bg = PIXI.Sprite.fromImage("../images/home_large.jpg");
+    // bg.x = -1920+screen.width;
+    console.log("BG " + bg.width + "," + bg.height +
+                   " res " + bg);
     scene.container.addChild(bg);
 
     // Filter
@@ -145,6 +228,7 @@ Graphics.prototype.setUpScene = function (context){
 
 Graphics.prototype.deactivate = function (){
   window.removeEventListener("resize", handler.resize);
+  PIXI.loader.reset();
 };
 
 module.exports = Graphics;

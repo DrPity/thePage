@@ -43,24 +43,9 @@ preloader.init = function() {
 };
 
 preloader.onComplete = function(event) {
-    //app.getMainView().currentView = "home";
-    // var preloader = _.arrayFilter(app.getRouter()._children, 'preloader', 'id');
-    // preloader.show = false;
-    console.log("Leaving activated");
-    var router = app.getRouter().go('/home');
-
-
-    // var scrambleItems = ["0", "1", "2"];
-    // for (var item = 0; item < scrambleItems.length; item++) {
-    //   var linkArray = _.arrayFilter(app.getMainView().$children, 'home', 'id');
-    //   var orig = linkArray.links[item].linkName;
-    //   console.log("orig:", orig.length);
-    //   $("#" + item).decrypt_effect({
-    //     speed: _.randomInt(100,700),
-    //     decrypted_text: orig,
-    //   });
-    // }
-
+    var nextRoute = app.getRouter().app.$data.nextRoute;
+    console.log("NextRoute", nextRoute);
+    var router = app.getRouter().go(nextRoute);
 };
 
 preloader.onError = function (event) {

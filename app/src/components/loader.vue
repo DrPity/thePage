@@ -28,16 +28,21 @@ module.exports = {
   },
   route: {
     activate: function () {
-      // console.log('hook-example activated!');
+
     },
     canDeactivate: function (transition) {
-      console.log('You are not allowed to leave.');
-      console.log(transition);
       setTimeout(transition.next, 1000);
       // transition.from('*');
       // transition.to('/home');
       // transition.next();
+    },
+    data: function (){
+
     }
+  },
+
+  beforeEnter: function() {
+    // document.getElementById('wrapper').style.height = 'auto';
   },
 
   ready: function() {

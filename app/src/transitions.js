@@ -10,17 +10,19 @@ function Transitions() {
 Transitions.prototype.init = function () {
   Vue.transition('fade', {
 		type: 'transition',
-    enter: function (el) {
+    beforeEnter: function (el) {
+			// if(app.getRouter().app.$data.redirect === false){
+			// 	app.getRouter().go('/home');
+			// }
 		},
     leave: function (el) {
 			if (el.id == 'loader'){
 				var element = document.querySelectorAll('body');
-	      console.log(el[0]);
 	      element[0].style.overflowY = 'scroll';
 			}
 		},
 		afterLeave: function(el){
-			console.log("After leave:",  el);
+			// console.log("After leave:",  el);
 		}
   });
 

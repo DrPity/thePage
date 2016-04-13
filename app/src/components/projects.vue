@@ -64,7 +64,7 @@ module.exports = {
   data: function() {
     return {
       show: false,
-      title: 'some title'
+      transition: false
     };
   },
 
@@ -77,7 +77,7 @@ module.exports = {
       var _this = this;
       var eloffset = _.getOffset(el[0]).top;
       console.log("Native dist: ", eloffset);
-      if(_.checkForMobile()){
+      if(_.checkForMobile() && !this.transition){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
           startValue = Math.floor(eloffset * 0.8),
@@ -109,7 +109,7 @@ module.exports = {
 
   },
 
-  leave: function (el) {
+  beforeLeave: function (el) {
 
   },
 

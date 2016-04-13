@@ -19,12 +19,12 @@ var coded = require('./components/codedreality.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
 var VueTouch = require('vue-touch');
-var lazyload = require('vue-lazyload');
 
-Vue.use(lazyload, {
-  error: 'images/error.png',
-  loading: 'images/load.gif',
-  try: 3 // default 2
+
+Vue.use(require('vue-image-loader'),{
+  loadInfo: 'Loading',
+  loadError:'Ops..something went wrong',
+  timeout:20
 });
 
 // window.p5 = require('p5');
@@ -41,7 +41,7 @@ function App(url) {
     history: false,
     abstract: false,
     transitionOnLoad: true,
-    saveScrollPosition: true,
+    // saveScrollPosition: true,
   });
   this.model = {};
 
@@ -67,7 +67,7 @@ App.prototype.init = function (url) {
     });
 
     // _this.mainView = _this.newVue('#wrapper', data.currentView);
-    _this.registerDirectives();
+    // _this.registerDirectives();
     _this.createRouterMap();
     _this.redirectionMap();
     _this.router.start(RoutedApp, '#wrapper');
@@ -89,6 +89,7 @@ App.prototype.createRouterMap = function () {
       component: loader,
     },
     '/': {
+      name: 'loader',
       component: loader,
     },
     '/home': {

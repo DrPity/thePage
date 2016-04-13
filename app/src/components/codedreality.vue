@@ -1,27 +1,23 @@
 <template>
-<div transition="fade" transition-mode="out-in">
+<div class="root" transition="fade" transition-mode="out-in">
   <div class="project-layout">
-    <div class="project-overlay" v-if="show" transition="slideUp" transition-mode="out-in"></div>
+    <div class="project-overlay" v-if="show" transition="slideUp"></div>
+    <span></span>
   </div>
-  <div class="row align-center noMargin project-description" v-if="!show">
+  <div class="row align-center noMargin project-description" transition="fade">
     <div class="small-6 columns">
-      <template v-for="picture in coded.pictures">
+      <template v-for="img in coded.pictures">
         <div class="row align-middle">
           <div class="small-6 columns">
-            <img src="http://www.arabianbusiness.com/skins/ab.main/gfx/loading_spinner.gif" v-img="picture">
+            <image-loader
+                v-bind:src="img"
+                alt="Awesome!">
+            </image-loader>
           </div>
         </div>
       </template>
     </div>
   </div>
-    <!--  transition="slide" transition-mode="out-in" -->
-    <!-- <template v-for="picture in coded.pictures">
-      <div class="row align-middle">
-        <div class="small-6 columns">
-          <img src="http://www.arabianbusiness.com/skins/ab.main/gfx/loading_spinner.gif" v-img="picture">
-        </div>
-      </div>
-    </template> -->
 </div>
 </template>
 
@@ -57,24 +53,31 @@ module.exports = {
 
   route: {
     activate: function () {
-
+      if (app.getRouter().app.$data.redirect === true){
+        app.getRouter().app.$data.nextRoute = "codedreality";
+        app.getRouter().go({ name: 'loader' })
+      }
     },
     canDeactivate: function (transition) {
       // window.scrollTo(0,0);
-      this.show = true;
-      setTimeout(transition.next, 1000);
+      // this.show = true;
+      console.log("-- In deactivate -- ", transition)
+      transition.next();
+      // setTimeout(transition.next, 1000);
       graphics.deactivate();
-    }
+    },
   },
 
 
   ready: function() {
     // document.getElementById('wrapper').style.height = 'auto';
     document.body.style.overflowY = 'scroll';
-    window.scrollTo(0,0);
+    // window.scrollTo(0,0);
     var _this = this;
     graphics = new Graphics(_this);
-    this.show = false;
+    setTimeout(function () {
+      _this.show = false;
+    }, 1000);
   },
 
   afterLeave: function(){
@@ -94,8 +97,8 @@ module.exports = {
   },
 
   methods: {
-    mouseenter: function(index){
-
+    check: function(){
+      console.log("check");
     },
     mouseleave: function(index){
 
