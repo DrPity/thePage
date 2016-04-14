@@ -6,7 +6,7 @@
     </div>
     <div class="cont-list-work">
       <template v-for="item in work.grid_items_title">
-        <article class="wk color-10" v-on:mouseleave="mouseleave($el, $index)">
+        <article class="wk color_{{$index+1}}" v-on:mouseleave="mouseleave($el, $index)">
           <div class="wrapper-link">
             <a v-link="{ name: 'coded'}" class="link-project" v-on:mouseenter="mouseenter($el, $index)"></a>
             <div class="wrapper-work">
@@ -173,7 +173,7 @@ function mouseLeaveHandler(item, index){
       el_2[index].classList.remove('active');
       el_3[index].classList.remove('active');
       el_4[index].classList.remove('active');
-      active[index] = false;
+      // active[index] = false;
     });
   // }
 };

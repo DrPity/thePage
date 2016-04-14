@@ -25,7 +25,7 @@
   padding-top: 0.5rem;
   padding-right: 0.5rem;
   padding-bottom: 0.5rem;
-  background-color: #DADADA;
+  background-color: $primary;
 
   @media #{$medium-up} {
     padding-left: 1rem;

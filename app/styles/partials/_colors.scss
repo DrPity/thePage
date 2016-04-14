@@ -1,8 +1,22 @@
 $black: #000;
 $white: #fff;
 
-$primary: #DADADA;
+$primary: #ECEFF1;
 // $secondary: #E6E6E6;
-$secondary: rgb(208, 208, 208);
+$secondary: #607D8B;
 
-$color_1: rgb(162, 162, 162);
+$color_0: #CFD8DC;
+
+$color_1: #E0F2F1;
+$color_2: #B2DFDB;
+$color_3: #80CBC4;
+$color_4: #4DB6AC;
+$color_5: #26A69A;
+$color_6: #009688;
+$color_7: #00897B;
+$color_8: #00796B;
+$color_9: #00695C;
+
+.color_0{
+ background-color: $color_0; 
+}

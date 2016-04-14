@@ -8,7 +8,7 @@
       </div>
      </div>
     <!-- First section and Background Image -->
-    <section class="row noMargin color_1" v-on:click="home.negative = !home.negative" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
+    <section class="row noMargin color_0" v-on:click="home.negative = !home.negative" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
       <div class="bg">
         <div class="tag">
           <h6 id="0" class="name">{{home.description.name | uppercase}}</h6>
@@ -96,7 +96,7 @@ module.exports = {
   ready: function() {
     if (app.getRouter().app.$data.redirect === false){
 
-      // document.getElementById('wrapper').style.height = 'auto';
+      document.getElementById('wrapper').style.height = 'auto';
       //scrambling
       var index = 0;
       var scrambleItems = ["0", "1", "2", "3"];
