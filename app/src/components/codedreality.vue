@@ -1,18 +1,28 @@
 <template>
 <div class="root" transition="fade" transition-mode="out-in">
+  <div class="absoluteCentering header">
+    CODED REALITY
+  </div>
   <div class="project-layout">
     <div class="project-overlay" v-if="show" transition="slideUp"></div>
-    <span></span>
   </div>
   <div class="row align-center noMargin project-description" transition="fade">
-    <div class="small-6 columns">
+    <div class="small-8 columns">
+      <div class="circle">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
+        </svg>
+      </div>
       <template v-for="img in coded.pictures">
         <div class="row align-middle">
-          <div class="small-6 columns">
+          <div class="small-12 columns">
             <image-loader
                 v-bind:src="img"
                 alt="Awesome!">
             </image-loader>
+          </div>
+          <div class="small-12 columns">
+
           </div>
         </div>
       </template>
@@ -59,25 +69,28 @@ module.exports = {
       }
     },
     canDeactivate: function (transition) {
-      // window.scrollTo(0,0);
-      // this.show = true;
-      console.log("-- In deactivate -- ", transition)
+      console.log("Redirect: ", app.getRouter().app.$data.redirect);
+      if (app.getRouter().app.$data.redirect === false){
+        graphics.deactivate();
+      }
       transition.next();
       // setTimeout(transition.next, 1000);
-      graphics.deactivate();
     },
   },
 
 
   ready: function() {
     // document.getElementById('wrapper').style.height = 'auto';
-    document.body.style.overflowY = 'scroll';
-    // window.scrollTo(0,0);
-    var _this = this;
-    graphics = new Graphics(_this);
-    setTimeout(function () {
-      _this.show = false;
-    }, 1000);
+    if (app.getRouter().app.$data.redirect === false){
+      document.body.style.overflowY = 'scroll';
+      window.scrollTo(0,0);
+      var _this = this;
+      graphics = new Graphics(_this, "../images/home_large.jpg");
+      console.log("Graphics Init: ");
+      setTimeout(function () {
+        _this.show = false;
+      }, 500);
+    }
   },
 
   afterLeave: function(){

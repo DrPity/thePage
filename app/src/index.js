@@ -41,7 +41,7 @@ function App(url) {
     history: false,
     abstract: false,
     transitionOnLoad: true,
-    // saveScrollPosition: true,
+    saveScrollPosition: false,
   });
   this.model = {};
 

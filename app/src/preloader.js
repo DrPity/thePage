@@ -29,12 +29,12 @@ preloader.init = function() {
   queue.loadManifest([
     {
       id:   '1',
-      src:  './images/logo.png'
+      src:  './images/home_large.jpg'
     },
-    // {
-    //   id: '2',
-    //   src: './images/berlin.jpg'
-    // },
+    {
+      id: '2',
+      src: './images/home_large.jpg'
+    },
     // {
     //   id: '3',
     //   src: './images/berlin.jpg'

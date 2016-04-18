@@ -3,17 +3,20 @@ var _ = require('./helpers');
 window.PIXI = require('pixi.js');
 var scene = {
     elem: null,
-    width: 1920,
-    height: 600,//Math.ceil(screen.height*0.8),
+    width: screen.width,
+    height: Math.floor((screen.width/1.7777777)),
     renderer: null,
     container: null,
     displacementFilter: null,
-    context: null
+    context: null,
+    bg: null
 };
+
+// console.log("The screen height: ", (screen.height));
 
 var handler = {
 
-  preload: function(){
+  preload: function(image){
 
     handler.createrenderer(); // Create renderer to test which kind in loading,
                       // do preloader animations (not implemented)
@@ -23,9 +26,9 @@ var handler = {
 
     if (window.devicePixelRatio >= 2 &&
         scene.renderer instanceof PIXI.WebGLRenderer) {
-      loader.add("background", "../images/home_large.jpg");
+      loader.add("background", image);
     } else {
-      loader.add("background", "../images/home_large.jpg");
+      loader.add("background", image);
     }
 
     loader.once('complete', handler.init);
@@ -39,7 +42,7 @@ var handler = {
     var rendererOptions = {
       antialiasing: false,
       transparent: false,
-      // resolution: window.devicePixelRatio,
+      resolution: window.devicePixelRatio,
       autoResize: true,
     };
 
@@ -63,13 +66,12 @@ var handler = {
 
   init: function(){
 
-    var bg = PIXI.Sprite.fromImage(PIXI.loader.resources.background.url,1,1);
+    scene.bg = PIXI.Sprite.fromImage(PIXI.loader.resources.background.url,1,1);
     // var bg = PIXI.Sprite.fromImage("../images/home_large.jpg");
     // bg.x = -1920+screen.width;
-    console.log("BG " + bg.width + "," + bg.height +
-                   " res " , bg);
-
-    scene.container.addChild(bg);
+    console.log("BG " + scene.bg.width + "," + scene.bg.height +
+                   " res " , scene.bg);
+    scene.container.addChild(scene.bg);
 
     // Filter
     var displacementTexture = PIXI.Sprite.fromImage("../images/displacement2.jpg");
@@ -103,14 +105,37 @@ var handler = {
     var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height);
     // Scale the view appropriately to fill that dimension
     scene.container.scale.x = scene.container.scale.y = ratio;
+
+    var w = Math.ceil(scene.width * ratio),
+        h = Math.ceil(scene.height * ratio),
+        i = scene.height,
+        t = scene.width;
+
+    // if (h < i) {
+    //     var n = scene.elem.getBoundingClientRect().width * (i / scene.elem.getBoundingClientRect().height);
+    //     scene.renderer.view.style.width = n + "px";
+    //     scene.renderer.view.style.height = i + "px";
+    // } else if (w < scene.width) {
+    //     var o = scene.elem.getBoundingClientRect().height * (t / scene.elem.getBoundingClientRect().width);
+    //     scene.renderer.view.style.width = t + "px";
+    //     scene.renderer.view.style.height = o + "px";
+    // } else {
+    //   scene.renderer.view.style.width = w;
+    //   scene.renderer.view.style.height = h;
+    // }
+    // if(scene.bg !== null){
+    //     scene.bg.scale.x = scene.bg.scale.y = ratio;
+    // }
     // var w = screen.width;
     // var h = scene.height;
     // scene.renderer.view.style.width = scene.elem.getBoundingClientRect().width + "px";
     // scene.renderer.view.style.height = Math.ceil(scene.height * ratio) + "px";
 
+
+
     // console.log("Style: ", scene.elem.getBoundingClientRect());
     // Update the renderer dimensions
-    scene.renderer.resize(Math.ceil(scene.width * ratio), Math.ceil(scene.height * ratio));
+    scene.renderer.resize(w,h);
 
     console.log("Resize\n" +
                 "  Window inner " + window.innerWidth + "," +
@@ -124,12 +149,12 @@ var handler = {
 
 };
 
-function Graphics(context) {
+function Graphics(context, image) {
 
   this.text = "Can you read this";
   scene.context = context;
   // this.setUpScene(context);
-  handler.preload();
+  handler.preload(image);
   // this.tFont = new TimelineMax({repeat:-1});
 
   // var mouse = {x:0.0, y:0.0};
