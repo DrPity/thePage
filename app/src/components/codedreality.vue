@@ -1,12 +1,13 @@
 <template>
 <div class="root" transition="fade" transition-mode="out-in">
-  <div class="absoluteCentering header">
-    CODED REALITY
-  </div>
   <div class="project-layout">
-    <div class="project-overlay" v-if="show" transition="slideUp"></div>
+    <div class="absoluteCentering header">
+      CODED REALITY
+    </div>
+    <!-- <div class="project-overlay" v-if="show" transition="slideUp"></div> -->
+    <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div>
   </div>
-  <div class="row align-center noMargin project-description" transition="fade">
+  <div class="row align-center noMargin project-description" v-if="!show" transition="fade">
     <div class="small-8 columns">
       <div class="circle">
         <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

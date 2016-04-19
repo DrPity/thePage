@@ -121,6 +121,13 @@ module.exports = {
     }
   },
 
+  preloadImage: function(url)
+  {
+    console.log("laod image: ", url);
+    var img=new Image();
+    img.src=url;
+  },
+
   //set Cookies
   setCookie: function (cname, cvalue, exdays){
     var d = new Date();

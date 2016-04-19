@@ -49,6 +49,7 @@ function App(url) {
 }
 
 App.prototype.init = function (url) {
+  // _.preloadImage("../images/logoNegative.png");
   var _this = this;
   $.when(_this.readJson(url)).then(function (data) {
     // console.log(data);

@@ -16,7 +16,7 @@ preloader.init = function() {
   currentIndex = 0;
   formerIndex = 0;
   console.log("In preload");
-  queue        = new createjs.LoadQueue();
+  queue        = new createjs.LoadQueue(false);
   $progress    = $('#progress');
   $progressbar = $('#progressbar .bar');
 
@@ -29,11 +29,11 @@ preloader.init = function() {
   queue.loadManifest([
     {
       id:   '1',
-      src:  './images/home_large.jpg'
+      src:  '../images/home_large.jpg'
     },
     {
       id: '2',
-      src: './images/home_large.jpg'
+      src: '../images/logo.png'
     },
     // {
     //   id: '3',

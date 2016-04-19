@@ -4,7 +4,13 @@ window.PIXI = require('pixi.js');
 var scene = {
     elem: null,
     width: screen.width,
-    height: Math.floor((screen.width/1.7777777)),
+    height: function(){
+      if(screen.width <= 699){
+        return Math.floor((screen.width/1.7777777)*2);
+      }else{
+        return Math.floor((screen.width/1.7777777)/1.3);
+      }
+    },
     renderer: null,
     container: null,
     displacementFilter: null,
@@ -50,7 +56,7 @@ var handler = {
     // scene.width = scene.elem.getBoundingClientRect().width;
     console.log("scene elem: ", scene.elem);
     // Renderer
-    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height, rendererOptions);
+    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height(), rendererOptions);
     console.log("Context ", scene.renderer);
     // The stage is essentially a display list of all game objects
     // for Pixi to render; it's used in resize(), so it must exist
@@ -102,13 +108,13 @@ var handler = {
 
 
     // Determine which screen dimension is most constrained
-    var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height);
+    var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height());
     // Scale the view appropriately to fill that dimension
     scene.container.scale.x = scene.container.scale.y = ratio;
 
     var w = Math.ceil(scene.width * ratio),
-        h = Math.ceil(scene.height * ratio),
-        i = scene.height,
+        h = Math.ceil(scene.height() * ratio),
+        i = scene.height(),
         t = scene.width;
 
     // if (h < i) {
@@ -127,9 +133,9 @@ var handler = {
     //     scene.bg.scale.x = scene.bg.scale.y = ratio;
     // }
     // var w = screen.width;
-    // var h = scene.height;
+    // var h = scene.height();
     // scene.renderer.view.style.width = scene.elem.getBoundingClientRect().width + "px";
-    // scene.renderer.view.style.height = Math.ceil(scene.height * ratio) + "px";
+    // scene.renderer.view.style.height = Math.ceil(scene.height() * ratio) + "px";
 
 
 
@@ -153,7 +159,7 @@ function Graphics(context, image) {
 
   this.text = "Can you read this";
   scene.context = context;
-  // this.setUpScene(context);
+  // this.setUpScene(context)
   handler.preload(image);
   // this.tFont = new TimelineMax({repeat:-1});
 
@@ -225,7 +231,7 @@ Graphics.prototype.setUpScene = function (context){
     console.log("Context ", scene.elem);
 
     // Renderer
-    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height, rendererOptions);
+    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height(), rendererOptions);
     scene.elem.appendChild(scene.renderer.view);
 
     // Container
