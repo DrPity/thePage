@@ -4,10 +4,11 @@
     <div class="absoluteCentering header">
       CODED REALITY
     </div>
-    <!-- <div class="project-overlay" v-if="show" transition="slideUp"></div> -->
-    <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div>
+    <div class="project-overlay" v-if="show" transition="slideUp"></div>
+    <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
   </div>
-  <div class="row align-center noMargin project-description" v-if="!show" transition="fade">
+  <div class="row align-center noMargin project-description">
+    <div class="project-overlay" style="height: 30rem; position: relative;"></div>
     <div class="small-8 columns">
       <div class="circle">
         <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -15,7 +16,7 @@
         </svg>
       </div>
       <template v-for="img in coded.pictures">
-        <div class="row align-middle">
+        <div class="row align-middle" v-if="!show" transition="fade">
           <div class="small-12 columns">
             <image-loader
                 v-bind:src="img"
