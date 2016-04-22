@@ -8,16 +8,15 @@
     <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
   </div>
   <div class="row align-center noMargin project-description">
-    <!-- <div class="project-overlay" style="height: calc((100vw/1.777777)*0.1); position: relative;">
+    <div class="project-overlay" style="height: 30rem; position: relative;"></div>
+    <div class="small-8 columns">
       <div class="circle">
         <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
         </svg>
       </div>
-    </div> -->
-    <div class="small-8 columns">
-      <template v-for="img in coded.pictures">
-        <div class="row align-middle" v-if="!show" transition="fade">
+      <template v-for="img in coded.pictures" v-if="!show">
+        <div class="row align-middle" transition="fade">
           <div class="small-12 columns">
             <image-loader
                 v-bind:src="img"
@@ -25,6 +24,7 @@
             </image-loader>
           </div>
           <div class="small-12 columns">
+
           </div>
         </div>
       </template>
@@ -75,6 +75,7 @@ module.exports = {
       if (app.getRouter().app.$data.redirect === false){
         graphics.deactivate();
       }
+      this.show = true;
       transition.next();
       // setTimeout(transition.next, 1000);
     },
@@ -84,14 +85,14 @@ module.exports = {
   ready: function() {
     // document.getElementById('wrapper').style.height = 'auto';
     if (app.getRouter().app.$data.redirect === false){
+      console.log("Graphics Init: ");
       document.body.style.overflowY = 'scroll';
       window.scrollTo(0,0);
       var _this = this;
       graphics = new Graphics(_this, "../images/home_large.jpg");
-      console.log("Graphics Init: ");
       setTimeout(function () {
         _this.show = false;
-      }, 300);
+      }, 500);
     }
   },
 

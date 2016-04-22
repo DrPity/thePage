@@ -3,14 +3,8 @@ var _ = require('./helpers');
 window.PIXI = require('pixi.js');
 var scene = {
     elem: null,
-    width: screen.width,
-    height: function(){
-      if(screen.width <= 699){
-        return Math.floor((screen.width/1.7777777)*2);
-      }else{
-        return Math.floor((screen.width/1.7777777)/1.3);
-      }
-    },
+    width: 0,
+    height: 0,
     renderer: null,
     container: null,
     displacementFilter: null,
@@ -53,10 +47,15 @@ var handler = {
     };
 
     scene.elem = scene.context.$el.querySelector('.project-layout');
-    // scene.width = scene.elem.getBoundingClientRect().width;
-    console.log("scene elem: ", scene.elem);
+    scene.width = scene.elem.getBoundingClientRect().width;
+    // if(screen.width <= 699){
+    //   scene.height = Math.floor((scene.elem.getBoundingClientRect().width/1.7777777)*2);
+    // }else{
+      scene.height = Math.floor((scene.elem.getBoundingClientRect().width/1.7777777)/1.3);
+    // }
+    console.log("scene scale: ", scene.width + "|" + scene.height);
     // Renderer
-    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height(), rendererOptions);
+    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height, rendererOptions);
     console.log("Context ", scene.renderer);
     // The stage is essentially a display list of all game objects
     // for Pixi to render; it's used in resize(), so it must exist
@@ -74,7 +73,7 @@ var handler = {
 
     scene.bg = PIXI.Sprite.fromImage(PIXI.loader.resources.background.url,1,1);
     // var bg = PIXI.Sprite.fromImage("../images/home_large.jpg");
-    // bg.x = -1920+screen.width;
+    // bg.x =  - scene.width ;
     console.log("BG " + scene.bg.width + "," + scene.bg.height +
                    " res " , scene.bg);
     scene.container.addChild(scene.bg);
@@ -108,13 +107,13 @@ var handler = {
 
 
     // Determine which screen dimension is most constrained
-    var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height());
+    var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height);
     // Scale the view appropriately to fill that dimension
     scene.container.scale.x = scene.container.scale.y = ratio;
 
     var w = Math.ceil(scene.width * ratio),
-        h = Math.ceil(scene.height() * ratio),
-        i = scene.height(),
+        h = Math.ceil(scene.height * ratio),
+        i = scene.height,
         t = scene.width;
 
     // if (h < i) {
