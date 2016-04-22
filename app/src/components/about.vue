@@ -5,19 +5,19 @@
       <div class="aboutTxt">
         <div>
           <span>Hi my name is Michael Schade, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
-          Currently I'm a researcher and interaction designer at the CITEC institute in Bielfeld - Germany</span>
+          Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</span>
           <br><br>
           <span>I burn for</span>
           <div class="burn">
-            <div class="words"><strong transition="wfade" v-if="show[0]"> {{word[0]}} </strong></div>
+            <div class="words" id="one" ><strong transition="wfade" v-if="show[0]">{{word[0]}}</strong></div>
           </div>
           <span>, I like everthing related to</span>
           <div class="like">
-            <div class="words"><strong transition="wfade" v-if="show[1]"> {{word[1]}} </strong></div>
+            <div class="words" id="two" ><strong transition="wfade" v-if="show[1]">{{word[1]}}</strong></div>
           </div>
           <span>I can offere skillz in</span>
-          <div class="offer">
-            <div class="words"><strong transition="wfade" v-if="show[2]"> {{word[2]}} </strong></div>
+          <div class="offer" id="three" >
+            <div class="words"><strong transition="wfade" v-if="show[2]">{{word[2]}}</strong></div>
           </div>
           <br><br>
           <strong class="list">
@@ -51,6 +51,8 @@
 var app = require('../index.js');
 var _ = require('../helpers');
 var $ = require('jquery');
+var scramble = require('../scramble');
+var scr = new scramble();
 
 var  secOne, secTwo, secThree;
 
@@ -69,7 +71,7 @@ module.exports = {
 
   data: function() {
     return {
-      word: ['Art', 'Other Stuff', 'More'],
+      word: ['Creative Thinking', 'Creative Thinking', 'Creative Thinking'],
       show: [false,false,false]
     };
   },
@@ -85,7 +87,20 @@ module.exports = {
 
 
   ready: function() {
-    document.getElementById('wrapper').style.height = 'auto';
+    // document.getElementById('wrapper').style.height = 'auto';
+    var index = 0;
+    // var scrambleItems = ["0", "1", "2", "3"];
+    // scr.scramble(scrambleItems, this);
+    // for (var key in this.home.description) {
+    //   if (this.home.description.hasOwnProperty(key)) {
+    //     var orig = this.home.description[key];
+    //     $("#" + index).decrypt_effect({
+    //       speed: _.randomInt(500,700),
+    //       decrypted_text: orig,
+    //     });
+    //     index++;
+    //   }
+    // }
 
     var _this = this;
     secOne = switchWords(_this, 'show[0]', 'word[0]', _this.about.burn)
@@ -94,11 +109,11 @@ module.exports = {
     }, 600);
     setTimeout(function () {
       secThree = switchWords(_this, 'show[2]', 'word[2]', _this.about.offer)
-    }, 1200);
+    }, 200);
 
     _this.$set('show[0]',true);
     _this.$set('show[1]',true);
-    _this.$set('show[3]',true);
+    _this.$set('show[2]',true);
   },
 
   afterLeave: function(){
@@ -134,6 +149,19 @@ module.exports = {
 
 
 function switchWords(_this, show, word, list){
+  // var counter = 0;
+  // console.log(list[counter]);
+  // setInterval(function(){
+  //   if(counter%2 == 0){
+  //     counter=0;
+  //   }
+  //   $("#" + index).decrypt_effect({
+  //     speed: 200,
+  //     decrypted_text: list[counter],
+  //   });
+  //   counter++;
+  // }, 5000);
+
   var counter = 0;
   var lenght = Object.keys(list).length;
   setInterval(function(){
@@ -149,6 +177,6 @@ function switchWords(_this, show, word, list){
         // console.log(_this.word[0]);
         counter++;
       }, 1000);
-  }, 4000);
+  }, 3000);
 }
 </script>

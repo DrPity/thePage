@@ -8,13 +8,14 @@
     <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
   </div>
   <div class="row align-center noMargin project-description">
-    <div class="project-overlay" style="height: 30rem; position: relative;"></div>
-    <div class="small-8 columns">
+    <!-- <div class="project-overlay" style="height: calc((100vw/1.777777)*0.1); position: relative;">
       <div class="circle">
         <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
         </svg>
       </div>
+    </div> -->
+    <div class="small-8 columns">
       <template v-for="img in coded.pictures">
         <div class="row align-middle" v-if="!show" transition="fade">
           <div class="small-12 columns">
@@ -24,7 +25,6 @@
             </image-loader>
           </div>
           <div class="small-12 columns">
-
           </div>
         </div>
       </template>
@@ -91,7 +91,7 @@ module.exports = {
       console.log("Graphics Init: ");
       setTimeout(function () {
         _this.show = false;
-      }, 500);
+      }, 300);
     }
   },
 

@@ -100,7 +100,7 @@ module.exports = {
       //scrambling
       var index = 0;
       var scrambleItems = ["0", "1", "2", "3"];
-      scr.scramble(scrambleItems, this);
+      scr.scramble(scrambleItems, this.home.description);
       for (var key in this.home.description) {
         if (this.home.description.hasOwnProperty(key)) {
           var orig = this.home.description[key];

@@ -107,23 +107,23 @@
   "about":
   {
     "burn":
-    {
-      "1": "Art",
-      "2": "Design",
-      "3": "Creative Thinking"
-    },
+    [
+      "       Art       ",
+      "Creative Thinking",
+      "      Music      "
+    ],
     "like":
-    {
-      "1": "Stuff",
-      "2": "Design",
-      "3": "Creative Thinking"
-    },
+    [
+      "       Art       ",
+      "Creative Thinking",
+      "      Music      "
+    ],
     "offer":
-    {
-      "1": "More Stuff",
-      "2": "Design",
-      "3": "Creative Thinking"
-    }
+    [
+      "       Art       ",
+      "Creative Thinking",
+      "      Music      "
+    ]
   },
 
   "coded":

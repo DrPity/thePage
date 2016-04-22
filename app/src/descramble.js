@@ -25,7 +25,9 @@ var $ = jQuery = require('jquery');
 		var node = $(this);
 		var starting_text = node.text();
 		var decrypted_text = options.decrypted_text;
+		// console.log("start_text: ", starting_text, "decrypted_text: ", decrypted_text.length);
 		if (starting_text.length != decrypted_text.length) {
+			// if(starting_text.length !=)
 			throw "Decrypted text length doesn't match fake text length!";
 		}
 		var indexes = [];
