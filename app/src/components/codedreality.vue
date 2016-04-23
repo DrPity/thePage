@@ -2,26 +2,24 @@
 <div class="root" transition="fade" transition-mode="out-in">
   <div class="coverScreen">
     <div class="project-layout">
-      <div class="absoluteCentering header">
+      <div class="absoluteCentering header" style="top: 40%">
         CODED REALITY
       </div>
       <div class="project-overlay" v-if="show" transition="slideUp"></div>
       <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
     </div>
     <div class="project-coverup" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-            <div class="device-content">
-
-            </div>
-    </div>
-  </div>
-  <!-- <div class="row align-center noMargin project-description">
-    <div class="project-overlay" style="height: 30rem; position: relative;"></div>
-    <div class="small-8 columns">
       <div class="circle">
         <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
         </svg>
       </div>
+    </div>
+  </div>
+  <div class="project-header">
+  </div>
+  <div class="row align-center noMargin project-description">
+    <div class="small-8 columns">
       <template v-for="img in coded.pictures" v-if="!show">
         <div class="row align-middle" transition="fade">
           <div class="small-12 columns">
@@ -36,7 +34,7 @@
         </div>
       </template>
     </div>
-  </div> -->
+  </div>
 </div>
 </template>
 

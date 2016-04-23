@@ -14,7 +14,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: #121212;
+  background: #242424;
   text-align: right;
   padding: 5rem;
   z-index: 2;
@@ -33,6 +33,21 @@ canvas{
   top: 0;
 }
 
+.project-header{
+  display: block;
+  height: 15rem;
+  position: relative;;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #121212;
+  text-align: right;
+  padding: 5rem;
+  z-index: 2;
+  background-color: $white;
+}
+
+
 .project-overlay{
   // position: absolute;
   display: block;
@@ -42,13 +57,13 @@ canvas{
   bottom: 0;
   left: 0;
   margin: auto;
-  background: #000;
+  background: #242424;
   z-index: 2;
 }
 
 .project-description{
   position: relative;
-  background-color: $color_0;
+  background-color: $white;
   color: $white;
   height: 100%;
   z-index: 10;
