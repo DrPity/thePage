@@ -9,14 +9,33 @@
       <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
     </div>
     <div class="project-coverup" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-      <div class="circle">
-        <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
-        </svg>
+      <div class="absoluteCentering">
+        <div class="circle">
+          <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
   <div class="project-header">
+    <div class="row align-center noMargin">
+      <div class="small-12 large-1 columns">
+      </div>
+      <div class="small-12 large-2 columns">
+        <span><h3>CODED REALITY</h3></span>
+        <span></span>
+      </div>
+      <div class="small-12 large-9 columns">
+      </div>
+      <div class="small-12 large-1 columns">
+      </div>
+      <div class="small-12 large-5 columns">
+        <span><p>Some test text of whatever I think should stand here </p></span>
+      </div>
+      <div class="small-12 large-6 columns">
+      </div>
+    </div>
   </div>
   <div class="row align-center noMargin project-description">
     <div class="small-8 columns">

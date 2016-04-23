@@ -16,7 +16,6 @@
   left: 0;
   background: #242424;
   text-align: right;
-  padding: 5rem;
   z-index: 2;
 }
 
@@ -34,6 +33,7 @@ canvas{
 }
 
 .project-header{
+  padding-top: 5rem;
   display: block;
   height: 15rem;
   position: relative;;
@@ -41,10 +41,14 @@ canvas{
   right: 0;
   left: 0;
   background: #121212;
-  text-align: right;
-  padding: 5rem;
   z-index: 2;
   background-color: $white;
+  text-align: left;
+  font-size: 1rem;
+
+  h3{
+    @include use-normal-font($extraBold, 400, 2rem, 0, #797979);
+  }
 }
 
 
@@ -72,6 +76,8 @@ canvas{
     width: 100%;
     height: auto;
     min-width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .circle{
@@ -84,11 +90,17 @@ canvas{
 
 .header{
   position: absolute;
-  // background-color: $color_6;
+  margin-left: 1rem;
   width: 100%;
   // margin: 1rem,1rem,1rem,1rem;
   @include use-normal-font($extraBold, 400, 10.25rem, 0, rgb(255, 255, 255));
+  font-size: modular-scale(3, 2em, 1.234)!important;
   text-align: center;
   letter-spacing: 20px;
   z-index: 100;
+
+  @include breakpoint(medium down) {
+    font-size: modular-scale(1, 2em, 1.234)!important;
+    margin-left: 0.5rem;
+  }
 }
