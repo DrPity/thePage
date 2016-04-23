@@ -1,13 +1,20 @@
 <template>
 <div class="root" transition="fade" transition-mode="out-in">
-  <div class="project-layout">
-    <div class="absoluteCentering header">
-      CODED REALITY
+  <div class="coverScreen">
+    <div class="project-layout">
+      <div class="absoluteCentering header">
+        CODED REALITY
+      </div>
+      <div class="project-overlay" v-if="show" transition="slideUp"></div>
+      <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
     </div>
-    <div class="project-overlay" v-if="show" transition="slideUp"></div>
-    <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
+    <div class="project-coverup" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+            <div class="device-content">
+
+            </div>
+    </div>
   </div>
-  <div class="row align-center noMargin project-description">
+  <!-- <div class="row align-center noMargin project-description">
     <div class="project-overlay" style="height: 30rem; position: relative;"></div>
     <div class="small-8 columns">
       <div class="circle">
@@ -29,7 +36,7 @@
         </div>
       </template>
     </div>
-  </div>
+  </div> -->
 </div>
 </template>
 

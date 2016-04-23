@@ -1,24 +1,48 @@
 .project-layout{
   position: relative;
   width: 100%;
-  height: calc((100vw/1.777777)/1.3;
-  // @include breakpoint(medium down) {
-  //   height: calc((100vw/1.777777)*2);
-  // }
+  height: calc((100%-180px));
+  overflow: hidden;
   background-color: $color_2;
   z-index: 1;
 }
 
-.project-overlay{
-  // position: absolute;
-  width: 100%;
-  height: 100%;
+.project-coverup{
   display: block;
+  height: 180px;
   position: absolute;
+  bottom: 0;
   right: 0;
   left: 0;
+  background: #121212;
+  text-align: right;
+  padding: 5rem;
+  z-index: 2;
+}
+
+.coverScreen{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: contain;
+}
+
+canvas{
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+.project-overlay{
+  // position: absolute;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   margin: auto;
-  background: $color_2;
+  background: #000;
   z-index: 2;
 }
 

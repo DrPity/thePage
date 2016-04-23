@@ -1,7 +1,7 @@
 require('gsap');
 var _ = require('./helpers');
 window.PIXI = require('pixi.js');
-var scene = {
+window.scene = {
     elem: null,
     width: 0,
     height: 0,
@@ -9,12 +9,13 @@ var scene = {
     container: null,
     displacementFilter: null,
     context: null,
-    bg: null
+    bg: null,
+    init: true
 };
 
 // console.log("The screen height: ", (screen.height));
 
-var handler = {
+window.handler = {
 
   preload: function(image){
 
@@ -48,12 +49,14 @@ var handler = {
 
     scene.elem = scene.context.$el.querySelector('.project-layout');
     scene.width = scene.elem.getBoundingClientRect().width;
+    // scene.width = screen.width;
     // if(screen.width <= 699){
     //   scene.height = Math.floor((scene.elem.getBoundingClientRect().width/1.7777777)*2);
     // }else{
-      scene.height = Math.floor((scene.elem.getBoundingClientRect().width/1.7777777)/1.3);
+    // scene.height = screen.height/1.777777777;
+    scene.height = Math.floor(scene.elem.getBoundingClientRect().height);
     // }
-    console.log("scene scale: ", scene.width + "|" + scene.height);
+    console.log("scene scale ", scene.width + " | " + scene.height);
     // Renderer
     scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height, rendererOptions);
     console.log("Context ", scene.renderer);
@@ -71,10 +74,15 @@ var handler = {
 
   init: function(){
 
-    scene.bg = PIXI.Sprite.fromImage(PIXI.loader.resources.background.url,1,1);
+    scene.bg = PIXI.Sprite.fromImage(PIXI.loader.resources.background.url);
+    scene.init = false;
+    scene.bg.position.x = 0;
+    scene.bg.position.y = 0;
     // var bg = PIXI.Sprite.fromImage("../images/home_large.jpg");
-    // bg.x =  - scene.width ;
-    console.log("BG " + scene.bg.width + "," + scene.bg.height +
+    // if(scene.bg.width > scene.width){
+    //   scene.bg.x = (scene.width - scene.bg.width)/1.5;
+    // }
+    console.log("BG " + scene.bg.scale + "," + scene.bg.scale +
                    " res " , scene.bg);
     scene.container.addChild(scene.bg);
 
@@ -85,6 +93,7 @@ var handler = {
     // Apply it
     scene.container.filters = [scene.displacementFilter];
     // Animate
+    handler.resize();
     window.addEventListener("resize", handler.resize);
     requestAnimationFrame(handler.animate);
   },
@@ -102,35 +111,84 @@ var handler = {
     requestAnimationFrame(handler.animate);
   },
 
-  resize: function(){
+  ratio: function(ew, w, eh, h) {
+      var r = Math.min(ew / w, eh / h);
+      return {
+          width: w * r,
+          height: h * r
+      };
+  },
 
+  resize: function(){
 
 
     // Determine which screen dimension is most constrained
     var ratio = Math.min(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height);
+    // console.log("Ratio: ", ratio);
+    // ratio = handler.ratio(scene.elem.getBoundingClientRect().width, scene.width, scene.elem.getBoundingClientRect().height, scene.height);
+    // console.log("Ratio: ", ratio);
+
     // Scale the view appropriately to fill that dimension
-    scene.container.scale.x = scene.container.scale.y = ratio;
+    var w = scene.elem.getBoundingClientRect().width,//Math.ceil(scene.width * ratio),
+        h = scene.elem.getBoundingClientRect().height;//Math.ceil(scene.height * ratio);
 
-    var w = Math.ceil(scene.width * ratio),
-        h = Math.ceil(scene.height * ratio),
-        i = scene.height,
-        t = scene.width;
+    // scene.container.position.x = (w - scene.container.width) / 2;
+    //Do stuff here for responsive
+    // scene.container.scale.x = scene.container.scale.y = ratio;
 
-    // if (h < i) {
-    //     var n = scene.elem.getBoundingClientRect().width * (i / scene.elem.getBoundingClientRect().height);
-    //     scene.renderer.view.style.width = n + "px";
-    //     scene.renderer.view.style.height = i + "px";
-    // } else if (w < scene.width) {
-    //     var o = scene.elem.getBoundingClientRect().height * (t / scene.elem.getBoundingClientRect().width);
-    //     scene.renderer.view.style.width = t + "px";
-    //     scene.renderer.view.style.height = o + "px";
-    // } else {
-    //   scene.renderer.view.style.width = w;
-    //   scene.renderer.view.style.height = h;
-    // }
-    // if(scene.bg !== null){
+
+    //   // if (scene.bg.width < w) {
     //     scene.bg.scale.x = scene.bg.scale.y = ratio;
+    //   // }
     // }
+
+    if (!scene.init) {
+      var r = 0;
+
+      console.log("Render bg stytle: ", scene.renderer.view.style.width);
+      if(scene.renderer.view.style.width > 1920 + "px"){
+        console.log("In > then 1920");
+        r = Math.max(scene.elem.getBoundingClientRect().width/1920, scene.elem.getBoundingClientRect().height/1080);
+        console.log("The r: ", r);
+        scene.bg.scale.x = scene.bg.scale.y = r;
+        scene.bg.position.x = 0;
+      }else if (scene.renderer.view.style.width < 1920 + "px"){
+        console.log("In < then 1920");
+        scene.bg.position.x = - ((1920 - scene.elem.getBoundingClientRect().width));
+      }
+
+      if(scene.renderer.view.style.height > 1080 + "px"){
+        console.log("In > then 1080");
+        r = Math.max(scene.elem.getBoundingClientRect().width/1920, scene.elem.getBoundingClientRect().height/1080);
+        scene.bg.scale.x = scene.bg.scale.y = r;
+        scene.bg.position.y = 0;
+      }else if (scene.renderer.view.style.height < 1080 + "px"){
+        console.log("In < then 1080");
+        scene.bg.position.y = - ((1080 - scene.elem.getBoundingClientRect().height));
+      }
+      // scene.bg.scale.x = scene.bg.scale.y = ratio;
+      // if (scene.renderer.view.style.width = scene.width + "px", scene.renderer.view.style.height = scene.height + "px", scene.elem) {
+      //   console.log("Mysteriouse scene.elem: ", scene.elem);
+      //     var intermediate = scene.height - 180;
+      //     if (h < intermediate) {
+      //         var n = w * (i / h);
+      //         w = n;
+      //         h = i;
+      //     } else if (w < scene.width) {
+      //         var o = h * (scene.width / w);
+      //         w = scene.width;
+      //         h = o;
+      //     } else {
+      //       w = w;
+      //       scene.height = h;
+      //     }
+      //     scene.bg.position.x = (scene.width - w) / 2;
+      // }
+    }
+
+
+
+
     // var w = screen.width;
     // var h = scene.height();
     // scene.renderer.view.style.width = scene.elem.getBoundingClientRect().width + "px";
