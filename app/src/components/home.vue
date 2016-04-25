@@ -8,7 +8,7 @@
       </div>
      </div>
     <!-- First section and Background Image -->
-    <section class="row noMargin color_0" v-on:click="home.negative = !home.negative" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
+    <section class="row noMargin color_0" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
       <div class="bg">
         <div class="tag">
           <h6 id="0" class="name">{{home.description.name | uppercase}}</h6>

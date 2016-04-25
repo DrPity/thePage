@@ -4,6 +4,7 @@
 @include foundation-global-styles; // Always include the global-styles
 @include foundation-flex-classes;
 @include foundation-flex-grid;
+@include foundation-flex-video;
 @import "bourbon";
 @import "typeplate";
 // Partials

@@ -29,7 +29,7 @@ preloader.init = function() {
   queue.loadManifest([
     {
       id:   '1',
-      src:  '../images/home_large.jpg'
+      src:  '../images/load.gif'
     },
     {
       id: '2',

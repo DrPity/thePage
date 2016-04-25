@@ -18,7 +18,6 @@ window.scene = {
 window.handler = {
 
   preload: function(image){
-
     handler.createrenderer(); // Create renderer to test which kind in loading,
                       // do preloader animations (not implemented)
 
@@ -59,7 +58,6 @@ window.handler = {
     console.log("scene scale ", scene.width + " | " + scene.height);
     // Renderer
     scene.renderer = PIXI.autoDetectRenderer(scene.elem.getBoundingClientRect().width, scene.elem.getBoundingClientRect().height, rendererOptions);
-    console.log("Context ", scene.renderer);
     // The stage is essentially a display list of all game objects
     // for Pixi to render; it's used in resize(), so it must exist
     scene.container = new PIXI.Container();
@@ -74,7 +72,7 @@ window.handler = {
 
   init: function(){
 
-    scene.bg = PIXI.Sprite.fromImage(PIXI.loader.resources.background.url);
+    scene.bg = new PIXI.Sprite(PIXI.loader.resources.background.texture);
     scene.init = false;
     scene.bg.position.x = 0;
     scene.bg.position.y = 0;
@@ -82,9 +80,9 @@ window.handler = {
     // if(scene.bg.width > scene.width){
     //   scene.bg.x = (scene.width - scene.bg.width)/1.5;
     // }
-    console.log("BG " + scene.bg.scale + "," + scene.bg.scale +
-                   " res " , scene.bg);
+
     scene.container.addChild(scene.bg);
+    console.log("BG " , PIXI.loader.resources.background);
 
     // Filter
     var displacementTexture = PIXI.Sprite.fromImage("../images/displacement2.jpg");
@@ -102,7 +100,6 @@ window.handler = {
 
     var offset = 0.1 * window.scrollY;
 
-    // console.log("this.scene: ", _this.scene);
     scene.displacementFilter.scale.x = 2 * offset;
     scene.displacementFilter.scale.y = 1 * offset;
 
@@ -167,7 +164,7 @@ window.handler = {
       }
 
     }
-    
+
     // Update the renderer dimensions
     scene.renderer.resize(w,h);
 

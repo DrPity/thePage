@@ -23,8 +23,7 @@ var VueTouch = require('vue-touch');
 
 Vue.use(require('vue-image-loader'),{
   loadInfo: 'Loading',
-  loadError:'Ops..something went wrong',
-  timeout:20
+  timeout:100
 });
 
 // window.p5 = require('p5');

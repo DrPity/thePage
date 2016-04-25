@@ -108,3 +108,11 @@
   animation-duration: 3s;
   animation-name: slideOutUp;
 }
+
+
+.b-lazy {
+   opacity:0;
+}
+.b-loaded {
+   opacity:1;
+}

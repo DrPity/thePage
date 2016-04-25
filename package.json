@@ -58,14 +58,12 @@
     "bourbon": "^4.2.6",
     "gsap": "*",
     "jquery": "~2.1.1",
-    "masonry-layout": "*",
-    "scrollmagic": "~2.0.5",
-    "three": "*",
     "vue": "*",
     "vue-router": "*",
     "vue-touch": "*",
     "pixi.js": "3.0.11",
-    "vue-image-loader": "*"
+    "vue-image-loader": "*",
+    "blazy": "*"
   },
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.js",

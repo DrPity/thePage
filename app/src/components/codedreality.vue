@@ -6,7 +6,6 @@
         CODED REALITY
       </div>
       <div class="project-overlay" v-if="show" transition="slideUp"></div>
-      <!-- <div class="project-overlay" style="transform: translate(0%, 100%) matrix(1, 0, 0, 1, 0, 0);"></div> -->
     </div>
     <div class="project-coverup" style="transform: matrix(1, 0, 0, 1, 0, 0);">
       <div class="absoluteCentering">
@@ -24,32 +23,54 @@
       </div>
       <div class="small-12 large-2 columns">
         <span><h3>CODED REALITY</h3></span>
-        <span></span>
       </div>
       <div class="small-12 large-9 columns">
       </div>
       <div class="small-12 large-1 columns">
       </div>
       <div class="small-12 large-5 columns">
-        <span><p>Some test text of whatever I think should stand here </p></span>
+        <span><p>Some test text of whatever I think should stand here</p></span>
       </div>
       <div class="small-12 large-6 columns">
       </div>
     </div>
   </div>
   <div class="row align-center noMargin project-description">
-    <div class="small-8 columns">
-      <template v-for="img in coded.pictures" v-if="!show">
-        <div class="row align-middle" transition="fade">
-          <div class="small-12 columns">
-            <image-loader
-                v-bind:src="img"
-                alt="Awesome!">
-            </image-loader>
-          </div>
-          <div class="small-12 columns">
-
-          </div>
+    <div class="small-12 columns">
+      <template v-for="section in coded.sections">
+        <div class="project-section" transition="fade" :style="{'backgroundColor': section.sectionColor, 'backgroundImage': section.sectionBg}">
+          <template v-for="media in section.media">
+            <template v-if="media.type === 'VIDEO'">
+              <div class="row noMargin align-center small-collapse">
+                <div class="small-12 large-8 columns" style="margin-bottom: 2rem;">
+                  <div class="flex-video widescreen vimeo">
+                    <iframe class="b-lazy" data-src="{{media.src}}" width="640" height="320" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <template v-if="media.type === 'IMAGE'">
+              <div class="row noMargin align-center small-collapse">
+                <div class="small-12 large-8 columns small-centered" style="margin-bottom: 3rem;">
+                  <img class="b-lazy"
+                	 src="../images/load.gif"
+                	 data-src="{{media.src}}"
+                	 alt="Image description" />
+                </div>
+              </div>
+            </template>
+            <template v-if="media.type === 'TEXT'">
+              <div class="project-text row noMargin align-center small-collapse">
+                <div class="small-12 large-8 columns" style="margin-bottom: 1rem;">
+                  <div class="row noMargin align-center small-collapse">
+                    <div class="small-12 large-12 columns" style="margin-bottom: 3rem;">
+                      <strong>{{text[media.src]}}</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </template>
         </div>
       </template>
     </div>
@@ -57,12 +78,16 @@
 </div>
 </template>
 
+<!-- <iframe src="https://player.vimeo.com/video/157266155" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+
 <script>
 'use strict';
 var app = require('../index.js');
 var _ = require('../helpers');
+var Blazy = require('blazy');
 var Graphics = require('../graphics');
 var graphics = null;
+
 
 module.exports = {
 
@@ -84,6 +109,10 @@ module.exports = {
   data: function() {
     return {
       show: true,
+      text: [
+            "This is a text section A",
+            "This is a text section B",
+            ]
     };
   },
 
@@ -97,7 +126,7 @@ module.exports = {
     canDeactivate: function (transition) {
       console.log("Redirect: ", app.getRouter().app.$data.redirect);
       if (app.getRouter().app.$data.redirect === false){
-        graphics.deactivate();
+        // graphics.deactivate();
       }
       this.show = true;
       transition.next();
@@ -105,18 +134,34 @@ module.exports = {
     },
   },
 
-
   ready: function() {
     // document.getElementById('wrapper').style.height = 'auto';
     if (app.getRouter().app.$data.redirect === false){
-      console.log("Graphics Init: ");
+      console.log("Graphics Init: ", this);
       document.body.style.overflowY = 'scroll';
       window.scrollTo(0,0);
       var _this = this;
-      graphics = new Graphics(_this, "../images/home_large.jpg");
+      // graphics = new Graphics(_this, "../images/memyselfnI.jpg");
       setTimeout(function () {
         _this.show = false;
       }, 500);
+
+      var bLazy = new Blazy({
+                  breakpoints: [{
+                  width: 420 // Max-width
+                  , src: 'data-src-small'
+                }]
+        , success: function(element){
+          setTimeout(function(){
+          // We want to remove the loader gif now.
+          // First we find the parent container
+          // then we remove the "loading" class which holds the loader image
+            var parent = element.parentNode;
+            parent.className = parent.className.replace(/\bloading\b/,'');
+              }, 200);
+          }
+      });
+
     }
   },
 
