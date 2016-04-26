@@ -20,6 +20,20 @@
   z-index: 2;
 }
 
+.margin{
+  margin-bottom: 3rem;
+  @include breakpoint(medium down) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.margin-iframe{
+  margin-bottom: 2rem;
+  @include breakpoint(medium down) {
+    margin-bottom: 0.5rem;
+  }
+}
+
 .coverScreen{
   position: relative;
   width: 100%;
@@ -29,25 +43,6 @@
 .project-text{
   color: $black;
 
-}
-.image-loader {
-    // padding-top: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 12px;
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    min-height: calc(100%/1.7777777);
-    color: #797979;
-    // line-height: 400px;
-    background-color: #f8f8f8;
-    overflow: hidden;
-    text-align: center;
-}
-
-.image-loader-info {
-    // padding-top: 1rem;
 }
 
 canvas{
@@ -68,7 +63,18 @@ canvas{
   z-index: 2;
   background-color: $white;
   text-align: left;
-  font-size: 1rem;
+  font-size: modular-scale(2, 0.5rem, 1.234)!important;
+
+  @include breakpoint(medium down) {
+    padding-top: 2.5rem;
+    font-size: modular-scale(1, 0.5rem, 1.234)!important;
+    h3{
+      font-size: modular-scale(1, 1rem, 1.234)!important;
+    }
+    p{
+      font-size: modular-scale(1, 0.5rem, 1.234)!important;
+    }
+  }
 
   h3{
     @include use-normal-font($extraBold, 400, 2rem, 0, #797979);
@@ -96,12 +102,17 @@ canvas{
   height: 100%;
   z-index: 10;
 
-  .image{
-    width: 100%;
-    height: auto;
-    min-width: 100%;
-    opacity: 1;
-    transition: all 2s linear;
+  // .image{
+  //   width: 100%;
+  //   height: auto;
+  //   min-width: 100%;
+  //   opacity: 1;
+  //   transition: all 2s linear;
+  // }
+
+  img{
+    display: block;
+    margin: auto;
   }
 
   .circle{
@@ -125,13 +136,17 @@ canvas{
   width: 100%;
   // margin: 1rem,1rem,1rem,1rem;
   @include use-normal-font($extraBold, 400, 10.25rem, 0, rgb(255, 255, 255));
-  font-size: modular-scale(3, 2em, 1.234)!important;
+  font-size: modular-scale(4, 1em, 1.234)!important;
   text-align: center;
   letter-spacing: 20px;
   z-index: 100;
 
   @include breakpoint(medium down) {
-    font-size: modular-scale(1, 2em, 1.234)!important;
+    font-size: modular-scale(1, 1em, 1.234)!important;
     margin-left: 0.5rem;
+  }
+
+  @include breakpoint(xxlarge up) {
+    font-size: modular-scale(5, 1em, 1.234)!important;
   }
 }

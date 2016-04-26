@@ -54,6 +54,10 @@
   position: absolute;
   bottom: 9vh;
   left: 50%;
+  @include breakpoint(medium down) {
+    bottom: 4vh;
+    font-size: modular-scale(1, 0.2rem, 1.234)!important;
+  }
   transform: translateX(-50%) translateY(-50%);
 }
 
@@ -93,16 +97,49 @@
   left: 50%;
   transform: translateX(-50%) translateY(-80%);
 
-  @include breakpoint(xxlarge up) {
-    top: 45%;
-    left: 35vw;
-    // transform: translateX(-35%) translateY(-45%);
-  }
 
   @include breakpoint(medium down) {
     top: 80%;
-    // transform: translateX(-35%) translateY(-45%);
+    h6{
+      font-size: modular-scale(2, 0.5rem, 1.234)!important;
+    }
+
   }
+
+  @include breakpoint(large up) {
+    top: 45%;
+    left: 30%;
+    text-align: right;
+    h6{
+      font-size: modular-scale(2, 0.5rem, 1.234)!important;
+    }
+  }
+
+
+  @include breakpoint(xlarge up) {
+    left: 28%;
+    text-align: right;
+    h6{
+      font-size: modular-scale(3, 0.5rem, 1.234)!important;
+    }
+  }
+
+
+  @include breakpoint(xxlarge up) {
+    left: 35%;
+    text-align: right;
+    h6{
+      font-size: modular-scale(3, 0.5rem, 1.234)!important;
+    }
+  }
+
+  // @include breakpoint(xxxlarge up) {
+  //   left: 37%;
+  //   text-align: right;
+  //   h6{
+  //     font-size: modular-scale(5, 0.5rem, 1.234)!important;
+  //   }
+  // }
 
   .name{
     color: black;
@@ -119,7 +156,4 @@
   @include use-normal-font($semiBold, 400, 1rem, 2px, rgb(255, 255, 255));
   text-align: center;
 
-  @include breakpoint(xxlarge up) {
-    text-align: right;
-  }
 }

@@ -76,43 +76,10 @@
 }
 
 
-@keyframes slideInDown {
-  from {
-    transform: translate3d(0, -100%, 0);
-    // visibility: visible;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.slideInDown {
-  animation-name: slideInDown;
-}
-
-
-
-@keyframes slideOutUp {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    // visibility: hidden;
-    transform: translate3d(0, -100%, 0);
-  }
-}
-
-.slideOutUp {
-  animation-duration: 3s;
-  animation-name: slideOutUp;
-}
-
-
 .b-lazy {
    opacity:0;
 }
 .b-loaded {
+  transition: all 2.4s cubic-bezier(.77,0,.175,1).1s;
    opacity:1;
 }

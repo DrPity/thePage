@@ -2,7 +2,7 @@
 <div class="root" transition="fade" transition-mode="out-in">
   <div class="coverScreen">
     <div class="project-layout">
-      <div class="absoluteCentering header" style="top: 40%">
+      <div class="absoluteCentering header" style="top: 45%">
         CODED REALITY
       </div>
       <div class="project-overlay" v-if="show" transition="slideUp"></div>
@@ -42,7 +42,7 @@
           <template v-for="media in section.media">
             <template v-if="media.type === 'VIDEO'">
               <div class="row noMargin align-center small-collapse">
-                <div class="small-12 large-8 columns" style="margin-bottom: 2rem;">
+                <div class="small-12 large-8 columns margin-iframe">
                   <div class="flex-video widescreen vimeo">
                     <iframe class="b-lazy" data-src="{{media.src}}" width="640" height="320" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                   </div>
@@ -51,7 +51,7 @@
             </template>
             <template v-if="media.type === 'IMAGE'">
               <div class="row noMargin align-center small-collapse">
-                <div class="small-12 large-8 columns small-centered" style="margin-bottom: 3rem;">
+                <div class="small-12 large-8 columns small-centered margin">
                   <img class="b-lazy"
                 	 src="../images/load.gif"
                 	 data-src="{{media.src}}"
@@ -61,9 +61,9 @@
             </template>
             <template v-if="media.type === 'TEXT'">
               <div class="project-text row noMargin align-center small-collapse">
-                <div class="small-12 large-8 columns" style="margin-bottom: 1rem;">
+                <div class="small-12 large-8 columns margin">
                   <div class="row noMargin align-center small-collapse">
-                    <div class="small-12 large-12 columns" style="margin-bottom: 3rem;">
+                    <div class="small-12 large-12 columns margin">
                       <strong>{{text[media.src]}}</strong>
                     </div>
                   </div>
