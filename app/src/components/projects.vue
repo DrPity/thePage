@@ -1,6 +1,7 @@
 <template>
   <section class="work" id="first">
     <div class="right"></div>
+    <div class="left"></div>
     <div class="headline">
       <h3>The Projects</h3>
     </div>

@@ -156,6 +156,9 @@ article{
         .cont-info-work-detail {
             position: absolute;
             top: 25%;
+            @include breakpoint(medium down) {
+              top: 35%;
+            }
             width: 100%;
 
 
@@ -169,6 +172,16 @@ article{
               margin-left: 45%;
               color: black;
 
+              @include breakpoint(large down) {
+                margin-left: 0;
+                margin-right: 0;
+                text-align: center;
+
+                span:first-child {
+                    display: none;
+                  }
+              }
+
               .detail {
                   // transform: translate(0, 12.5%);
                   transition: all .3s cubic-bezier(.615,.19,.305,.91);
@@ -178,9 +191,16 @@ article{
                   margin-left: 0;
                   margin-right: 4.56853%;
 
-                  @include breakpoint(medium down) {
+                  @include breakpoint(small down) {
                     display: none;
                   }
+
+                  @include breakpoint(large down) {
+                    margin-top: 2rem;
+                    font-size: modular-scale(3, 0.5rem, 1.234)!important;
+                  }
+
+
 
                   .detail .mono-title {
                     padding-top: 23px;
@@ -241,7 +261,7 @@ article{
   // transform: translateX(-50%) translateY(-50%);
   // text-decoration: underline;
   @include use-normal-font($extraBold, 400, 6.25rem, 0, rgb(0, 0, 0));
-  font-size: modular-scale(3, 2em, 1.234)!important;
+  font-size: modular-scale(5, 1em, 1.234)!important;
   float: left;
   clear: none;
   width: 100%;
@@ -251,11 +271,24 @@ article{
   transform: translate(0, -130%);
   line-height: 1;
 
-  @include breakpoint(medium down) {
+  @include breakpoint(large down) {
     margin-left: 0;
     text-align: center;
-    font-size: modular-scale(0, 2em, 1.234)!important;
+    font-size: modular-scale(4, 1rem, 1.234)!important;
   }
+
+  // @include breakpoint(medium) {
+  //   margin-left: 0;
+  //   text-align: center;
+  //   font-size: modular-scale(5, 1rem, 1.234)!important;
+  // }
+
+  @include breakpoint(small down) {
+    margin-left: 0;
+    text-align: center;
+    font-size: modular-scale(2.5, 1rem, 1.234)!important;
+  }
+
 
   h2 {
     white-space: nowrap;
@@ -268,6 +301,10 @@ article{
 
 .thetitle.active{
   transform: translate(0, -5%);
+
+  @include breakpoint(large down) {
+    transform: translate(0, -35%);
+  }
 }
 
 
