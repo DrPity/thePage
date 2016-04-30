@@ -4,8 +4,12 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: $secondary;
+  // background-color: $secondary;
   box-sizing: border-box;
+  background-image: url(../images/bg6.png);
+  background-repeat: no-repeat;
+  background-position:50% 50%;
+  background-size: cover;
 
 
   .columns{
@@ -30,7 +34,7 @@
   .left{
     position: absolute;
     width: 1rem;
-    height: calc(100% + 8.5rem);
+    height: calc(100%);
     background: $secondary;
     z-index: 1;
     float: left;
@@ -39,7 +43,7 @@
   .right{
     position: absolute;
     width: 1rem;
-    top: -7.5rem;
+    top: -8.5rem;
     height: calc(100% + 8.5rem);
     background: $primary;
     right: -1rem;
@@ -49,37 +53,41 @@
 
 .work::before{
   content: "";
-  background-color: $secondary;
+  // background-color: $secondary;
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   width: 101%;
   height: 8.5rem;
   left: 0;
   transform-origin: left top;
   transform: rotate(0);
   transition: transform 1.4s cubic-bezier(.77,0,.175,1).1s;
+  background-image: url(../images/bg_small.png);
+  background-repeat: no-repeat;
+  background-position:57% 100%;
+  // background-size: cover;
 }
 
 
-.work::after{
-  content: "";
-  background-color: $secondary;
-  position: absolute;
-  z-index: 1;
-  width: 101%;
-  height: 8.5rem;
-  left: 0;
-  transform-origin: left top;
-  transform: rotate(0);
-  transition: transform 1.4s cubic-bezier(.77,0,.175,1).1s;
-}
+// .work::after{
+//   content: "";
+//   background-color: $secondary;
+//   position: absolute;
+//   z-index: 1;
+//   width: 101%;
+//   height: 8.5rem;
+//   left: 0;
+//   transform-origin: left top;
+//   transform: rotate(0);
+//   transition: transform 1.4s cubic-bezier(.77,0,.175,1).1s;
+// }
 
 .work.transform::before{
   content: "";
   transform: rotate(-3deg);
 }
 
-.work.transform::after{
-  content: "";
-  transform: rotate(-4deg);
-}
+// .work.transform::after{
+//   content: "";
+//   transform: rotate(-4deg);
+// }

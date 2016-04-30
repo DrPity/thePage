@@ -29,9 +29,11 @@
     <!-- <work :work="work"></work> -->
     <work :work="work"></work>
     <!-- Contact  -->
-    <section class="contact">
-
-    </section>
+    <!-- <section class="contact">
+      <div>
+        20-16
+      </div>
+    </section> -->
   </div>
 </template>
 

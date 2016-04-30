@@ -3,7 +3,7 @@
     <div class="loaderBg"></div>
     <div id="progress">{{preloadBar}}</div>
     <div id="progressbar">
-      <div class="msg"></div>
+      <div class="bar"></div>
     </div>
   </div>
 </template>

@@ -4,7 +4,7 @@
     <div class="small-12 medium-5 columns align-self-middle small-order-2 medium-order-1">
       <div class="aboutTxt">
         <div>
-          <span>Hi my name is Michael Schade, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
+          <span>Hi my name is <strong>Michael Schade</strong>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
           Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</span>
           <br><br>
           <span>I burn for</span>
@@ -20,21 +20,26 @@
             <div class="words"><strong transition="wfade" v-if="show[2]">{{word[2]}}</strong></div>
           </div>
           <br><br>
-          <strong class="list">
+          <br><br>
+          <div class="list">
             <ul>
-              <li>Seen at</li>
-              <li>C-awards - Norrköping /2016</li>
-              <li>Lindholm science park - Göteborg /2016</li>
-              <li>Glassell gallery - Baton Rouge /2015</li>
-              <li>Alibis for Interaction - Landskrona /2014</li>
-              <li>Agera Digital - Göteborg /2014</li>
-              <li>Inter arts center - Malmö /2014</li>
-              <li>Maker Fair - Stockholm /2014</li>
-              <li>Vetenskapfestivalen - Stockholm /2014</li>
-              <li>SIDeR - Stockholm /2014</li>
-              <li>Nordic larp talks - Göteborg /2014</li>
+              <li><strong>Seen at</strong> </li>
+              <li>C-awards - Norrköping Y-2016</li>
+              <li>Lindholm science park - Göteborg Y-2016</li>
+              <li>Glassell gallery - Baton Rouge Y-2015</li>
+              <li>Alibis for Interaction - Landskrona Y-2014</li>
+              <li>Agera Digital - Göteborg Y-2014</li>
+              <li>Inter arts center - Malmö Y-2014</li>
+              <li>Maker Fair - Stockholm Y-2014</li>
+              <li>Vetenskapfestivalen - Stockholm Y-2014</li>
+              <li>SIDeR - Stockholm Y-2014</li>
+              <li>Nordic larp talks - Göteborg Y-2014</li>
             </ul>
-          </strong>
+          </div>
+          <div class="about-footer">
+            <p>FEEL FREE TO DROP ME A LINE</p>
+            <p>Mail - Github - Vimeo - Behanced - LinkedIn</p>
+          </div>
         </div>
       </div>
     </div>
@@ -88,6 +93,7 @@ module.exports = {
 
   ready: function() {
     // document.getElementById('wrapper').style.height = 'auto';
+    // document.getElementById('wrapper').style.height = 'auto';
     var index = 0;
     // var scrambleItems = ["0", "1", "2", "3"];
     // scr.scramble(scrambleItems, this);
@@ -106,10 +112,10 @@ module.exports = {
     secOne = switchWords(_this, 'show[0]', 'word[0]', _this.about.burn)
     setTimeout(function () {
       secTwo = switchWords(_this, 'show[1]', 'word[1]', _this.about.like)
-    }, 600);
+    }, 2000);
     setTimeout(function () {
       secThree = switchWords(_this, 'show[2]', 'word[2]', _this.about.offer)
-    }, 200);
+    }, 1000);
 
     _this.$set('show[0]',true);
     _this.$set('show[1]',true);
@@ -177,6 +183,6 @@ function switchWords(_this, show, word, list){
         // console.log(_this.word[0]);
         counter++;
       }, 1000);
-  }, 3000);
+  }, 4000);
 }
 </script>

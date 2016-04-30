@@ -1,11 +1,11 @@
 <template>
   <section class="work" id="first">
     <div class="right"></div>
-    <div class="left"></div>
+    <!-- <div class="left"></div> -->
     <div class="headline">
       <h3>The Projects</h3>
     </div>
-    <div class="cont-list-work">
+    <div class="the-project-list">
       <template v-for="item in work.grid_items_title">
         <article class="wk color_{{$index+1}}" v-on:mouseleave="mouseleave($el, $index)">
           <div class="wrapper-link">
@@ -14,14 +14,10 @@
               <div class="info-work">
                 <span class="mono-title">.0{{$index+1}}</span>
                 <h6 v-text="item"></h6>
-                <div class="link-detail">
-                  <span class="year">Year–{{work.year[$index+1]}}</span>
-                  <span class="mono-title arrow-section" href="#">
-                  </span>
-                </div>
+                <span class="link-detail">Year–{{work.year[$index+1]}}</span>
               </div>
               <div class="info-work-detail">
-                <div class="cont-info-work-detail">
+                <div class="work-details">
                   <div class="thetitle">
                     <span v-text="item | uppercase"></span>
                   </div>
@@ -37,6 +33,9 @@
           </div>
         </article>
       </template>
+    </div>
+    <div class="footer">
+      <p>The footer - 2016</p>
     </div>
   </section>
 </template>
@@ -74,7 +73,7 @@ module.exports = {
     //TODO: Need to have a fix concerning the treshold on endvalue
     if (app.getRouter().app.$data.redirect === false){
       setTimeout(function(){ $('.work').addClass('transform'); }, 500);
-      var el = this.$el.getElementsByClassName('cont-list-work');
+      var el = this.$el.getElementsByClassName('the-project-list');
       var _this = this;
       var eloffset = _.getOffset(el[0]).top;
       console.log("Native dist: ", eloffset);
@@ -82,7 +81,7 @@ module.exports = {
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
           startValue = Math.floor(eloffset * 0.8),
-          endValue = startValue + 650;//startValue + 850;
+          endValue = startValue + 450;//startValue + 850;
           if(offset >= startValue && offset <= endValue)
           {
             var pos = Math.floor(_.map(offset, startValue,endValue,0,9));
@@ -179,8 +178,4 @@ function mouseLeaveHandler(item, index){
   // }
 };
 
-function touch(){
-  var d = document.getElementById("div1");
-  var topPos = d.offsetTop;
-}
 </script>
