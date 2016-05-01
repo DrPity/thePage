@@ -4,57 +4,85 @@
   :showhome="true"
   :showabout="false"
   ></navigation>
-  <div class="row expanded align-middle" style="margin-top: 5rem">
-    <div class="small-12 medium-5 columns align-self-middle small-order-2 medium-order-1">
+  <div class="row expanded align-middle">
+    <div class="small-12 columns" style="margin-top: 5rem;">
+      <div class="row align-center">
+        <div class="small-12 medium-6 columns">
+          <div class="aboutPic"></div>
+        </div>
+      </div>
+    </div>
+    <div class="small-12 columns align-self-middle">
       <div class="aboutTxt">
         <div>
-          <span>Hi my name is <strong>Michael Schade</strong>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
-          Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</span>
-          <br><br>
-          <span>I burn for [</span>
-          <div class="burn">
-            <span class="line-fix">.</span>
-            <div class="words" id="one"  transition="wfade" v-if="show[0]" keep-alive><strong>{{word[0]}}</strong></div>
-            <span class="line-fix">.</span>
-          </div>
-          <span>] , I like everthing related to [</span>
-          <div class="like">
-            <span class="line-fix">.</span>
-            <div class="words" id="two"  transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></div>
-            <span class="line-fix">.</span>
-          </div>
-          <span>] and I can offere greate skillz in [</span>
-          <div class="offer" id="three" >
-            <span class="line-fix">.</span>
-            <div class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></div>
-            <span class="line-fix">.</span>
-          </div> ]
-          <br><br>
-          <br><br>
-          <div class="list">
-            <ul>
-              <li><strong>SEEN AT</strong> </li>
-              <li>C-awards - Norrköping <span class="about-year">2016</span></li>
-              <li>Lindholm science park - Göteborg <span class="about-year">2016</span></li>
-              <li>Glassell gallery - Baton Rouge <span class="about-year">2015</span></li>
-              <li>Alibis for Interaction - Landskrona <span class="about-year">2014</span></li>
-              <li>Agera Digital - Göteborg <span class="about-year">2014</span></li>
-              <li>Inter arts center - Malmö <span class="about-year">2014</span></li>
-              <li>Maker Fair - Stockholm <span class="about-year">2014</span></li>
-              <li>Vetenskapfestivalen - Stockholm <span class="about-year">2014</span></li>
-              <li>SIDeR - Stockholm <span class="about-year">2014</span></li>
-              <li>Nordic larp talks - Göteborg <span class="about-year">2014</span></li>
-            </ul>
-          </div>
+          <h1 class="text-stuff">
+            <span>Hi my name is <strong>Michael Schade</strong>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
+            Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</span>
+            <br><br>
+            <div class="extra">
+              <span>I burn for </span>
+              <br>
+              <br>
+              <span>[</span>
+              <div class="spanner">
+                <span class="line-fix">.</span>
+                <div class="words" transition="wfade" v-if="show[0]" keep-alive><strong>{{word[0]}}</strong></div>
+                <span class="line-fix">.</span>
+              </div>
+              <span>]</span>
+              <br>
+              <br>
+              <span>, I like everthing related to</span>
+              <br>
+              <br>
+              <span>[</span>
+              <div class="spanner">
+                <span class="line-fix">.</span>
+                <div class="words" transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></div>
+                <span class="line-fix">.</span>
+              </div>
+              <span>]</span>
+              <br>
+              <br>
+              <span> and I can offere skillz in </span>
+              <br>
+              <br>
+              <span>[</span>
+              <div class="spanner"  >
+                <span class="line-fix">.</span>
+                <div class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></div>
+                <span class="line-fix">.</span>
+              </div>
+              <span>]</span>
+              <div class="list extra">
+                <ul>
+                  <li><strong>SEEN AT</strong> </li>
+                  <li>C-awards - Norrköping <span class="about-year">2016</span></li>
+                  <li>Lindholm science park - Göteborg <span class="about-year">2016</span></li>
+                  <li>Glassell gallery - Baton Rouge <span class="about-year">2015</span></li>
+                  <li>Alibis for Interaction - Landskrona <span class="about-year">2014</span></li>
+                  <li>Agera Digital - Göteborg <span class="about-year">2014</span></li>
+                  <li>Inter arts center - Malmö <span class="about-year">2014</span></li>
+                  <li>Maker Fair - Stockholm <span class="about-year">2014</span></li>
+                  <li>Vetenskapfestivalen - Stockholm <span class="about-year">2014</span></li>
+                  <li>SIDeR - Stockholm <span class="about-year">2014</span></li>
+                  <li>Nordic larp talks - Göteborg <span class="about-year">2014</span></li>
+                </ul>
+              </div>
+            </div>
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class="small-12 columns small-centered">
+      <div class="row align-center">
+        <div class="small-6 columns">
           <div class="about-footer">
             <div>FEEL FREE TO DROP ME A LINE</div>
             <p>Mail - Github - Vimeo - LinkedIn</p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="small-12 medium-7 columns small-order-1 medium-order-2 small-centered">
-        <div class="aboutPic"></div>
     </div>
   </div>
 </div>
@@ -105,30 +133,17 @@ module.exports = {
   },
 
   ready: function() {
-    // document.getElementById('wrapper').style.height = 'auto';
-    // document.getElementById('wrapper').style.height = 'auto';
-    var index = 0;
-    // var scrambleItems = ["0", "1", "2", "3"];
-    // scr.scramble(scrambleItems, this);
-    // for (var key in this.home.description) {
-    //   if (this.home.description.hasOwnProperty(key)) {
-    //     var orig = this.home.description[key];
-    //     $("#" + index).decrypt_effect({
-    //       speed: _.randomInt(500,700),
-    //       decrypted_text: orig,
-    //     });
-    //     index++;
-    //   }
-    // }
+    document.body.style.overflowY = 'scroll';
+    // style="transform: skewX(4.37785deg) skewY(0.125deg) rotateX(6.254deg) translate3d(0px, -7.2px, 0px);"
 
     var _this = this;
     secOne = switchWords(_this, 'show[0]', 'word[0]', _this.about.burn)
     setTimeout(function () {
       secTwo = switchWords(_this, 'show[1]', 'word[1]', _this.about.like)
-    }, 2000);
+    }, 1000);
     setTimeout(function () {
       secThree = switchWords(_this, 'show[2]', 'word[2]', _this.about.offer)
-    }, 1000);
+    }, 2000);
 
     _this.$set('show[0]',true);
     _this.$set('show[1]',true);
