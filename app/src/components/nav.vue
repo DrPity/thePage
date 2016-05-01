@@ -1,11 +1,14 @@
 <template transition="fade">
-  <!-- Menu Nav-->
-
-  <div class="slide">
-  </div>
-  <div id="box" v-on:click="animate()">
-    <div class="about">
-      <a href="#" >about</a>
+  <div id="nav-box">
+    <div class="nav-links">
+      <a v-link="{ name: 'home'}" v-if="showhome">
+        <span>home</span>
+        <div class="nav-line"></div>
+      </a>
+      <a v-link="{ name: 'about'}" v-if="showabout">
+        <span> about </span>
+        <div class="nav-line"></div>
+      </a>
     </div>
    </div>
 </template>
@@ -14,37 +17,37 @@
 'use strict';
 var app = require('../index.js');
 var _ = require('../helpers');
-var $ = require('jquery');
-var booleanEnum = {
-  isNavToggled: false,
-};
+
 
 module.exports = {
-
+  props: {
+    showhome:{
+      type: Boolean,
+      required: true
+    },
+    showabout:{
+      type: Boolean,
+      required: true
+    },
+  },
   // inherit: true,
   replace: true,
   name: "navigation",
 
   data: function() {
     return {
-      animated: false,
-      work: {
-        'lleave': false,
-        'lenter': true
-      },
-      person: {
-        'lleave': true,
-        'lenter': false
-      },
-      idea: {
-        'lleave': true,
-        'lenter': false
-      }
+
     };
 
   },
 
   ready: function() {
+    // if(this.$parent.$route.name === 'home'){
+    //   var el = this.$el.getElementsByClassName('the-project-list');
+    //   var _this = this;
+    //   var eloffset = _.getOffset(el[0]).top;
+    //   console.log(eloffset);
+    // }
   },
 
   afterLeave: function(){
@@ -64,23 +67,7 @@ module.exports = {
   },
 
   methods: {
-    animate: function(){
-      $('.slide').toggleClass('trans');
-      $('#box ul').toggleClass('open');
-    },
 
-    click: function(){
-      this.$parent.click();
-    },
-
-    mouseenter: function(item){
-      item.lenter = true;
-      item.lleave = false;
-    },
-    mouseleave: function(item){
-      item.lenter = false;
-      item.lleave = true;
-    }
   },
 
   // setValue: setValue

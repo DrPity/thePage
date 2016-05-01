@@ -47,6 +47,7 @@ var _ = require('../helpers');
 var $ = require('jquery');
 var active = [false,false,false,false,false,false,false,false,false];
 var oldpos = -1;
+var switchedColor = false;
 
 module.exports = {
 
@@ -74,14 +75,16 @@ module.exports = {
     if (app.getRouter().app.$data.redirect === false){
       setTimeout(function(){ $('.work').addClass('transform'); }, 500);
       var el = this.$el.getElementsByClassName('the-project-list');
+      var navEl = document.getElementsByClassName('nav-links');
       var _this = this;
       var eloffset = _.getOffset(el[0]).top;
       console.log("Native dist: ", eloffset);
       if(_.checkForMobile() && !this.transition){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
-          startValue = Math.floor(eloffset * 0.8),
-          endValue = startValue + 450;//startValue + 850;
+              startValue = Math.floor(eloffset * 0.8),
+              endValue = startValue + 450;//startValue + 850;
+          checkNav(startValue, offset, navEl);
           if(offset >= startValue && offset <= endValue)
           {
             var pos = Math.floor(_.map(offset, startValue,endValue,0,9));
@@ -97,6 +100,12 @@ module.exports = {
             oldpos = -1;
           }
         };
+      }else{
+        window.onscroll = function (e) {
+          var offset = window.pageYOffset,
+              switchvalue = Math.floor(eloffset * 0.8);
+          checkNav(switchvalue, offset, navEl);
+        }
       }
     }
   },
@@ -177,5 +186,15 @@ function mouseLeaveHandler(item, index){
     });
   // }
 };
+
+function checkNav(eloffset, offset, el){
+  if(eloffset >= offset && !switchedColor){
+    el[0].classList.remove('active');
+    switchedColor = true;
+  }else if(eloffset < offset && switchedColor){
+    el[0].classList.add('active');
+    switchedColor = false;
+  }
+}
 
 </script>

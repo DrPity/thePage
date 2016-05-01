@@ -1,14 +1,13 @@
 <template>
-  <div class="root" transition="hfade" keep-alive >
+  <div class="root" transition="hfade" keep-alive v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
 
     <!-- Menu Toggle -->
-    <div id="box">
-      <div class="about-link">
-        <a v-link="{ name: 'about'}">about</a>
-      </div>
-     </div>
+    <navigation
+    :showhome="false"
+    :showabout="true"
+    ></navigation>
     <!-- First section and Background Image -->
-    <section class="row noMargin color_0" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
+    <section class="row noMargin color_0">
       <div class="bg">
         <div class="tag">
           <h6 id="0" class="name">{{home.description.name | uppercase}}</h6>

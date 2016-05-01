@@ -1,5 +1,9 @@
 <template>
 <div class="root" transition="fade" transition-mode="out-in">
+  <navigation
+  :showhome="true"
+  :showabout="true"
+  ></navigation>
   <div class="coverScreen">
     <div class="project-layout">
       <div class="absoluteCentering header" style="top: 45%">
@@ -114,6 +118,10 @@ module.exports = {
             "This is a text section B",
             ]
     };
+  },
+
+  components: {
+    'navigation': require('./nav.vue'),
   },
 
   route: {
