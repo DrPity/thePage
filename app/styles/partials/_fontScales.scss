@@ -1,0 +1,32 @@
+.mediumFont{
+  @include breakpoint(small down) {
+      font-size: modular-scale(0, 0.5rem, 1.234)!important;
+  }
+
+  @include breakpoint(medium) {
+      font-size: modular-scale(2, 0.5rem, 1.234)!important;
+  }
+
+  @include breakpoint(large up) {
+      font-size: modular-scale(3, 0.5rem, 1.234)!important;
+  }
+}
+
+
+.mediumLargeFont{
+  @include breakpoint(small down) {
+      font-size: modular-scale(2, 0.5rem, 1.234)!important;
+  }
+
+  @include breakpoint(medium) {
+      font-size: modular-scale(3, 0.5rem, 1.234)!important;
+  }
+
+  @include breakpoint(large up) {
+      font-size: modular-scale(4, 0.5rem, 1.234)!important;
+  }
+
+  @include breakpoint(xlarge up) {
+      font-size: modular-scale(5, 0.5rem, 1.234)!important;
+  }
+}

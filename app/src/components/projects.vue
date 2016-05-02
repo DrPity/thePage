@@ -84,7 +84,7 @@ module.exports = {
           var offset = window.pageYOffset,
               startValue = Math.floor(eloffset * 0.8),
               endValue = startValue + 450;//startValue + 850;
-          checkNav(startValue, offset, navEl);
+              if(screen.width >= 769){checkNav(startValue, offset, navEl);}
           if(offset >= startValue && offset <= endValue)
           {
             var pos = Math.floor(_.map(offset, startValue,endValue,0,9));
@@ -100,7 +100,7 @@ module.exports = {
             oldpos = -1;
           }
         };
-      }else{
+      }else if(!_.checkForMobile()){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
               switchvalue = Math.floor(eloffset * 0.8);

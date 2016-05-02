@@ -1,9 +1,10 @@
 <template>
-<div class="about" transition="slide" transition-mode="out-in">
-  <navigation
-  :showhome="true"
-  :showabout="false"
-  ></navigation>
+<navigation
+:showhome="true"
+:showabout="false"
+transition="fade"
+></navigation>
+<div class="about" transition="slide">
   <div class="row expanded align-middle">
     <div class="small-12 columns" style="margin-top: 5rem;">
       <div class="row align-center">
@@ -19,7 +20,7 @@
             <span>Hi my name is <strong>Michael Schade</strong>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
             Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</span>
             <br><br>
-            <div class="extra">
+            <div class="extra mediumLargeFont">
               <span>I burn for </span>
               <br>
               <br>
@@ -54,19 +55,19 @@
                 <span class="line-fix">.</span>
               </div>
               <span>]</span>
-              <div class="list extra">
+              <div class="list extra mediumFont">
                 <ul>
-                  <li><strong>SEEN AT</strong> </li>
-                  <li>C-awards - Norrköping <span class="about-year">2016</span></li>
-                  <li>Lindholm science park - Göteborg <span class="about-year">2016</span></li>
-                  <li>Glassell gallery - Baton Rouge <span class="about-year">2015</span></li>
-                  <li>Alibis for Interaction - Landskrona <span class="about-year">2014</span></li>
-                  <li>Agera Digital - Göteborg <span class="about-year">2014</span></li>
-                  <li>Inter arts center - Malmö <span class="about-year">2014</span></li>
-                  <li>Maker Fair - Stockholm <span class="about-year">2014</span></li>
-                  <li>Vetenskapfestivalen - Stockholm <span class="about-year">2014</span></li>
-                  <li>SIDeR - Stockholm <span class="about-year">2014</span></li>
-                  <li>Nordic larp talks - Göteborg <span class="about-year">2014</span></li>
+                  <li><strong style="color: #000">SEEN AT</strong> </li>
+                  <li>C-AWARDS - Norrköping <span class="about-year">[2016]</span></li>
+                  <li>LINDHOLM SCIENCE PARK - Göteborg <span class="about-year">[2016]</span></li>
+                  <li>GLASSELL GALLERY - Baton Rouge <span class="about-year">[2015]</span></li>
+                  <li>ALIBIS FOR INTERACTION - Landskrona <span class="about-year">[2014]</span></li>
+                  <li>AGERA DIGITAL - Göteborg <span class="about-year">[2014]</span></li>
+                  <li>INTER ARTS CENTER - Malmö <span class="about-year">[2014]</span></li>
+                  <li>MAKER FAIR - Stockholm <span class="about-year">[2014]</span></li>
+                  <li>SCIENCE FESTIVAL - Göteborg <span class="about-year">[2014]</span></li>
+                  <li>SIDeR - Stockholm <span class="about-year">[2014]</span></li>
+                  <li>NORDIC LARP TALKS - Göteborg <span class="about-year">[2014]</span></li>
                 </ul>
               </div>
             </div>
@@ -76,10 +77,10 @@
     </div>
     <div class="small-12 columns small-centered">
       <div class="row align-center">
-        <div class="small-6 columns">
+        <div class="small-12 columns">
           <div class="about-footer">
-            <div>FEEL FREE TO DROP ME A LINE</div>
-            <p>Mail - Github - Vimeo - LinkedIn</p>
+            <div class="mediumFont">Feel free to drop me a line</div>
+            <p class="mediumFont">MAIL - GITHUB - VIMEO - LINKEDIN</p>
           </div>
         </div>
       </div>
@@ -134,6 +135,7 @@ module.exports = {
 
   ready: function() {
     document.body.style.overflowY = 'scroll';
+    window.scrollTo(0,0);
     // style="transform: skewX(4.37785deg) skewY(0.125deg) rotateX(6.254deg) translate3d(0px, -7.2px, 0px);"
 
     var _this = this;

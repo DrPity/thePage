@@ -58,11 +58,6 @@
 
 .aboutTxt{
   text-align: center;
-  // //  padding-left: calc(100vh - 1rem);
-  // padding-left: 2rem;
-  // padding-right: 2rem;
-  // padding-right: 5%;
-  // padding-top: 2rem;
 }
 
 .line-fix{
@@ -71,31 +66,39 @@
 
 .extra{
   margin-top: 4rem;
-  @include breakpoint(medium) {
-      font-size: modular-scale(3, 0.5rem, 1.234)!important;
-  }
 }
 
 
 .spanner{
   position: relative;
-  width: 17rem;
+  width: 18rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   text-align: center;
   color: #D2691E;
   display: inline-block;
-  @include breakpoint(medium down) {
-    width: 10rem;
-  };
+  @include breakpoint(small down) {
+      width: 10rem;
+  }
+
+  @include breakpoint(medium) {
+      width: 18rem;
+  }
+
+  @include breakpoint(large) {
+      width: 19rem;
+  }
+
+  @include breakpoint(xlarge up) {
+      width: 22rem;
+  }
 }
 
 .list{
   text-align: center;
   margin-top: 6rem;
-  letter-spacing: 0;
+  letter-spacing: 1px;
   line-height: 1.5;
 }
-
 
 
 .words{
@@ -112,31 +115,16 @@
 .about-footer {
   p{
     margin-top: 1rem;
+    margin-bottom: 2rem;
     text-align: center;
     color: #000;
-    font-size: 1rem !important;
     letter-spacing: 2px;
     padding-bottom: 1rem;
-    font-size: modular-scale(4, 0.5rem, 1.234)!important;
-    @include breakpoint(small down) {
-      font-size: modular-scale(2, 0.5rem, 1.234)!important;
-    }
-
-    @include breakpoint(medium) {
-      font-size: modular-scale(3, 0.5rem, 1.234)!important;
-    }
   }
 
   div{
     text-align: center;
     @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
-    font-size: modular-scale(3, 0.5rem, 1.234)!important;
-    @include breakpoint(small down) {
-      font-size: modular-scale(1, 0.5rem, 1.234)!important;
-    }
-
-    @include breakpoint(medium) {
-      font-size: modular-scale(0, 0.5rem, 1.234)!important;
-    }
+    text-decoration: underline;
   }
 }

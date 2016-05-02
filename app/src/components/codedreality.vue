@@ -1,5 +1,5 @@
 <template>
-<div class="root" transition="fade" transition-mode="out-in">
+<div class="root" transition="fade">
   <navigation
   :showhome="true"
   :showabout="true"
@@ -134,7 +134,7 @@ module.exports = {
     canDeactivate: function (transition) {
       console.log("Redirect: ", app.getRouter().app.$data.redirect);
       if (app.getRouter().app.$data.redirect === false){
-        // graphics.deactivate();
+        graphics.deactivate();
       }
       this.show = true;
       transition.next();
@@ -149,7 +149,7 @@ module.exports = {
       document.body.style.overflowY = 'scroll';
       window.scrollTo(0,0);
       var _this = this;
-      // graphics = new Graphics(_this, "../images/memyselfnI.jpg");
+      graphics = new Graphics(_this, "../images/berlin.jpg");
       setTimeout(function () {
         _this.show = false;
       }, 500);
