@@ -110,18 +110,34 @@ module.exports = {
       type: Object,
       required: true
     },
+    home:{
+      type: Object,
+      required: true
+    },
+    work:{
+      type: Object,
+      required: true
+    },
+    coded:{
+      type: Object,
+      required: true
+    },
   },
 
   data: function() {
     return {
       word: ['Creative Thinking', 'Creative Thinking', 'Creative Thinking'],
-      show: [false,false,false]
+      show: [false,false,false],
+      showNav: false
     };
   },
 
   route: {
     activate: function () {
-
+      if (app.getRouter().app.$data.redirect === true){
+        app.getRouter().app.$data.nextRoute = "about";
+        app.getRouter().go({ name: 'loader' })
+      }
     },
     canDeactivate: function (transition) {
       transition.next();
@@ -134,22 +150,24 @@ module.exports = {
   },
 
   ready: function() {
-    document.body.style.overflowY = 'scroll';
-    window.scrollTo(0,0);
-    // style="transform: skewX(4.37785deg) skewY(0.125deg) rotateX(6.254deg) translate3d(0px, -7.2px, 0px);"
+    if (app.getRouter().app.$data.redirect === false){
+      document.body.style.overflowY = 'scroll';
+      window.scrollTo(0,0);
+      // style="transform: skewX(4.37785deg) skewY(0.125deg) rotateX(6.254deg) translate3d(0px, -7.2px, 0px);"
 
-    var _this = this;
-    secOne = switchWords(_this, 'show[0]', 'word[0]', _this.about.burn)
-    setTimeout(function () {
-      secTwo = switchWords(_this, 'show[1]', 'word[1]', _this.about.like)
-    }, 1000);
-    setTimeout(function () {
-      secThree = switchWords(_this, 'show[2]', 'word[2]', _this.about.offer)
-    }, 2000);
+      var _this = this;
+      secOne = switchWords(_this, 'show[0]', 'word[0]', _this.about.burn)
+      setTimeout(function () {
+        secTwo = switchWords(_this, 'show[1]', 'word[1]', _this.about.like)
+      }, 1000);
+      setTimeout(function () {
+        secThree = switchWords(_this, 'show[2]', 'word[2]', _this.about.offer)
+      }, 2000);
 
-    _this.$set('show[0]',true);
-    _this.$set('show[1]',true);
-    _this.$set('show[2]',true);
+      _this.$set('show[0]',true);
+      _this.$set('show[1]',true);
+      _this.$set('show[2]',true);
+    }
   },
 
   afterLeave: function(){

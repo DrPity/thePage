@@ -1,7 +1,7 @@
 <template>
   <div id="loader" transition="fade">
     <div class="loaderBg"></div>
-    <div id="progress">{{preloadBar}}</div>
+    <!-- <div id="progress"><strong>{{preloadBar}}</strong></div> -->
     <div id="progressbar">
       <div class="bar"></div>
     </div>

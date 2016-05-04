@@ -9,10 +9,10 @@
       <template v-for="item in work.grid_items_title">
         <article class="wk color_{{$index+1}}" v-on:mouseleave="mouseleave($el, $index)">
           <div class="wrapper-link">
-            <a v-link="{ name: 'coded'}" class="link-project" v-on:mouseenter="mouseenter($el, $index)"></a>
+            <a v-link="work.links[$index+1]" class="link-project" v-on:mouseenter="mouseenter($el, $index)"></a>
             <div class="wrapper-work">
               <div class="info-work">
-                <span class="mono-title">.0{{$index+1}}</span>
+                <span class="mono-title">_0{{$index+1}}</span>
                 <h6 v-text="item"></h6>
                 <span class="link-detail">Year–{{work.year[$index+1]}}</span>
               </div>
@@ -78,13 +78,12 @@ module.exports = {
       var navEl = document.getElementsByClassName('nav-links');
       var _this = this;
       var eloffset = _.getOffset(el[0]).top;
-      console.log("Native dist: ", eloffset);
       if(_.checkForMobile() && !this.transition){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
               startValue = Math.floor(eloffset * 0.8),
               endValue = startValue + 450;//startValue + 850;
-              if(screen.width >= 769){checkNav(startValue, offset, navEl);}
+              if(window.innerWidth >= 769){checkNav(startValue, offset, navEl);}
           if(offset >= startValue && offset <= endValue)
           {
             var pos = Math.floor(_.map(offset, startValue,endValue,0,9));
@@ -103,8 +102,9 @@ module.exports = {
       }else if(!_.checkForMobile()){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
-              switchvalue = Math.floor(eloffset * 0.8);
-          checkNav(switchvalue, offset, navEl);
+              switchValue = Math.floor(eloffset * 0.8);
+
+          if(window.innerWidth >= 769){checkNav(switchValue, offset, navEl);}
         }
       }
     }

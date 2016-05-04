@@ -1,11 +1,12 @@
 <template>
-  <div class="root" transition="hfade" keep-alive v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)">
+  <div class="root" transition="hfade" keep-alive>
 
     <!-- Menu Toggle -->
     <navigation
     :showhome="false"
     :showabout="true"
     ></navigation>
+    <div class="bg-overlay" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)"></div>
     <!-- First section and Background Image -->
     <section class="row noMargin color_0">
       <div class="bg">

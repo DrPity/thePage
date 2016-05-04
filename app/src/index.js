@@ -15,7 +15,8 @@ var Router = require('vue-router');
 var foundation = require('foundation-sites');
 var loader = require('./components/loader.vue');
 var home = require('./components/home.vue');
-var coded = require('./components/codedreality.vue');
+var codedreality = require('./components/codedreality.vue');
+var musicalcubes = require('./components/musicalcubes.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
 var VueTouch = require('vue-touch');
@@ -97,8 +98,12 @@ App.prototype.createRouterMap = function () {
       component: home,
     },
     '/codedreality': {
-      name: 'coded',
-      component: coded,
+      name: 'codedreality',
+      component: codedreality,
+    },
+    '/musicalcubes': {
+      name: 'musicalcubes',
+      component: musicalcubes,
     },
     '/about': {
       name: 'about',

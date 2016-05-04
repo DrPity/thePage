@@ -70,6 +70,7 @@ article{
         clear: none;
         width: 50%;
         margin-left: 41%;
+        transform: translate(0%, 0%);
         // margin-right: 3%;
         -webkit-transition: all .3s cubic-bezier(.615,.19,.305,.91);
         transition: all .3s cubic-bezier(.615,.19,.305,.91);
@@ -140,13 +141,14 @@ article{
 
     .info-work-detail {
         position: absolute;
-        top: 0;
+        top: -25%;
         width: 100%;
-        z-index: 10;
+        // z-index: 10;
         height: 0;
         overflow: hidden;
         z-index: 21;
         transition: all .3s cubic-bezier(.615,.19,.305,.91);
+        // transform: translate(0, 0%);
         .work-details {
             position: absolute;
             top: 25%;
@@ -165,6 +167,7 @@ article{
               margin-right: 3%;
               margin-left: 45%;
               color: black;
+              transform: translate(0, 0%);
 
               @include breakpoint(large down) {
                 margin-left: 0;
@@ -184,7 +187,7 @@ article{
                   width: 100%;
                   margin-left: 0;
                   margin-right: 4.56853%;
-                  transition-delay: 1s;
+                  // transition-delay: 1s;
 
                   @include breakpoint(small down) {
                     display: none;
@@ -224,7 +227,7 @@ article{
 .info-work-detail.active{
   height: 100%;
   position: absolute;
-  transform: translate(0, -25%);
+  // transform: translate(0, -25%);
 }
 
 .info-work {
@@ -346,7 +349,7 @@ article{
 
 .wk.active::before {
     content: '';
-    transform: scaleY(1);
+    transform: scaleY(1);;
     // transform: translate(0%,-20%);
 }
 

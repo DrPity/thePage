@@ -16,10 +16,10 @@ preloader.init = function() {
   currentIndex = 0;
   formerIndex = 0;
   console.log("In preload");
-  queue        = new createjs.LoadQueue(false);
+  queue        = new createjs.LoadQueue("image");
   $progress    = $('#progress');
   $progressbar = $('#progressbar .bar');
-
+  // queue.loadFile({src:"../images/berlin.jpg", type:createjs.AbstractLoader.IMAGE});
   queue.on('complete',     this.onComplete);
   queue.on('error',        this.onError);
   queue.on('fileload',     this.onFileLoad);
@@ -35,10 +35,10 @@ preloader.init = function() {
       id: '2',
       src: '../images/logo.png'
     },
-    // {
-    //   id: '3',
-    //   src: './images/berlin.jpg'
-    // },
+    {
+      id: '3',
+      src: './images/berlin.jpg'
+    },
   ]);
 };
 
@@ -52,7 +52,15 @@ preloader.onError = function (event) {
 };
 
 preloader.onFileLoad = function (event) {
+  var item = event.item; // A reference to the item that was passed in to the LoadQueue
+  var type = item.type;
 
+  // Add any images to the page body.
+  if (type == createjs.LoadQueue.IMAGE) {
+      var img=new Image();
+      img.src=event.result.src;
+      console.log("IMAGE ITEM: ", event);
+  }
 };
 
 preloader.onFileProgress = function (event) {

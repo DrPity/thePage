@@ -126,7 +126,35 @@
     ]
   },
 
-  "coded":
+  "codedreality":
+  {
+    "title": "Coded Reality",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/157266155"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/berlin.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann_1.jpg"
+          },
+          {
+            "type": "TEXT",
+            "src": "0"
+          }
+        ]
+      }
+    ]
+  },
+  "musicalcubes":
   {
     "sections":[
       {

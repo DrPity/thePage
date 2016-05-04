@@ -7,7 +7,7 @@
   <div class="coverScreen">
     <div class="project-layout">
       <div class="absoluteCentering header" style="top: 45%">
-        {{codedreality.title | uppercase}}
+        {{musicalcubes.title | uppercase}}
       </div>
       <div class="project-overlay" v-if="show" transition="slideUp"></div>
     </div>
@@ -26,7 +26,7 @@
       <div class="small-12 large-1 columns">
       </div>
       <div class="small-12 large-2 columns">
-        <span><h3>{{codedreality.title | uppercase}}</h3></span>
+        <span><h3>{{musicalcubes.title | uppercase}}</h3></span>
       </div>
       <div class="small-12 large-9 columns">
       </div>
@@ -41,7 +41,7 @@
   </div>
   <div class="row align-center noMargin project-description">
     <div class="small-12 columns">
-      <template v-for="section in codedreality.sections">
+      <template v-for="section in musicalcubes.sections">
         <div class="project-section" transition="fade" :style="{'backgroundColor': section.sectionColor, 'backgroundImage': section.sectionBg}">
           <template v-for="media in section.media">
             <template v-if="media.type === 'VIDEO'">
@@ -96,14 +96,14 @@ module.exports = {
 
   // inherit: true,
   replace: true,
-  name: "codedreality",
+  name: "musicalcubes",
 
   props: {
     work:{
       type: Object,
       required: true
     },
-    codedreality:{
+    musicalcubes:{
       type: Object,
       required: true
     },
@@ -126,7 +126,7 @@ module.exports = {
   route: {
     activate: function () {
       if (app.getRouter().app.$data.redirect === true){
-        app.getRouter().app.$data.nextRoute = "codedreality";
+        app.getRouter().app.$data.nextRoute = "musical";
         app.getRouter().go({ name: 'loader' })
       }
     },
