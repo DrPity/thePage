@@ -5,12 +5,9 @@
     height: calc(100% - 1rem);
   };
   height: calc(100% - 2rem);
-  // overflow: hidden;
   background-color: $white;
   color: $white;
   @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
-  // font-size: modular-scale(2, 0.5em, 1.234)!important;
-  // text-transform: uppercase;
 
 }
 .text-stuff{

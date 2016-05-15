@@ -35,6 +35,14 @@
     padding-bottom: 1rem;
   }
 
+  .topbar{
+    top: 0%;
+    width: 100%;
+    height: 1rem;
+    background-color: $primary;
+    position: absolute;
+  }
+
 }
 
 .bg-overlay{

@@ -75,6 +75,7 @@
               </div>
             </template>
           </template>
+          <navfooter style="position: relative!important;"></navfooter>
         </div>
       </template>
     </div>
@@ -121,12 +122,13 @@ module.exports = {
 
   components: {
     'navigation': require('./nav.vue'),
+    'navfooter': require('./navFooter.vue'),
   },
 
   route: {
     activate: function () {
       if (app.getRouter().app.$data.redirect === true){
-        app.getRouter().app.$data.nextRoute = "musical";
+        app.getRouter().app.$data.nextRoute = "musicalcubes";
         app.getRouter().go({ name: 'loader' })
       }
     },
@@ -144,7 +146,7 @@ module.exports = {
       document.body.style.overflowY = 'scroll';
       window.scrollTo(0,0);
       var _this = this;
-      graphics = new Graphics(_this, "../images/waves.jpg");
+      graphics = new Graphics(_this, "../images/home_large.jpg");
       setTimeout(function () {
         _this.show = false;
       }, 500);
@@ -153,7 +155,7 @@ module.exports = {
                   breakpoints: [{
                   width: 420 // Max-width
                   , src: 'data-src-small'
-                }]
+                  }]
         , success: function(element){
           setTimeout(function(){
             var parent = element.parentNode;
@@ -162,7 +164,6 @@ module.exports = {
           }
       });
       var pixelRatio = window.devicePixelRatio;
-      console.log("PIXELRATIO: ", pixelRatio, window.innerWidth, 769*2);
       if(window.innerWidth >= 769*pixelRatio){
         var el = this.$el.getElementsByClassName('project-header');
         var navEl = document.getElementsByClassName('nav-links');

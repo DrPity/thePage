@@ -1,11 +1,11 @@
 <template>
   <div class="root" transition="hfade" keep-alive>
-
     <!-- Menu Toggle -->
     <navigation
     :showhome="false"
     :showabout="true"
     ></navigation>
+    <div class="topbar"></div>
     <div class="bg-overlay" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)"></div>
     <!-- First section and Background Image -->
     <section class="row noMargin color_0">
@@ -26,14 +26,7 @@
       </div>
     </section>
     <!-- Projects  -->
-    <!-- <work :work="work"></work> -->
     <work :work="work"></work>
-    <!-- Contact  -->
-    <!-- <section class="contact">
-      <div>
-        20-16
-      </div>
-    </section> -->
   </div>
 </template>
 
@@ -46,7 +39,6 @@ var scale = require('../perfectScale.js');
 var scramble = require('../scramble');
 var scr = new scramble();
 var Masonry = require ('masonry-layout');
-// import Smooth from 'smooth-scrolling'
 var op = {
     scale: 1.04,
     strength: 25,

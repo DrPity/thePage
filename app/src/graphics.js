@@ -10,7 +10,8 @@ window.scene = {
     displacementFilter: null,
     context: null,
     bg: null,
-    init: true
+    init: true,
+    shallAnimate: true
 };
 
 // console.log("The screen height: ", (screen.height));
@@ -93,6 +94,7 @@ window.handler = {
     // Animate
     handler.resize();
     window.addEventListener("resize", handler.resize);
+    scene.shallAnimate = true;
     requestAnimationFrame(handler.animate);
   },
 
@@ -105,7 +107,9 @@ window.handler = {
 
 
     scene.renderer.render(scene.container);
-    requestAnimationFrame(handler.animate);
+    if(scene.shallAnimate){
+      requestAnimationFrame(handler.animate);
+    }
   },
 
   ratio: function(ew, w, eh, h) {
@@ -243,47 +247,9 @@ Graphics.prototype.shakeAnimation = function (element){
   });
 };
 
-Graphics.prototype.setUpScene = function (context){
-    // handler.preload();
-    var rendererOptions = {
-      antialiasing: false,
-      transparent: false,
-      // resolution: window.devicePixelRatio,
-      autoResize: false,
-    };
-
-    scene.elem = context.$el.querySelectorAll('.project-layout')[0];
-    console.log("Context ", scene.elem);
-
-    // Renderer
-    scene.renderer = PIXI.autoDetectRenderer(scene.width, scene.height(), rendererOptions);
-    scene.elem.appendChild(scene.renderer.view);
-
-    // Container
-    scene.container = new PIXI.Container();
-
-    // Background
-    var bg = PIXI.Sprite.fromImage("../images/home_large.jpg");
-    // bg.x = -1920+screen.width;
-    console.log("BG " + bg.width + "," + bg.height +
-                   " res " + bg);
-    scene.container.addChild(bg);
-
-    // Filter
-    var displacementTexture = PIXI.Sprite.fromImage("../images/displacement2.jpg");
-    scene.displacementFilter = new PIXI.filters.DisplacementFilter(displacementTexture);
-
-    // Apply it
-    scene.container.filters = [scene.displacementFilter];
-    // Animate
-    handler.resize();
-    window.addEventListener("resize", handler.resize);
-    requestAnimationFrame(handler.animate);
-
-};
-
 Graphics.prototype.deactivate = function (){
   window.removeEventListener("resize", handler.resize);
+  scene.shallAnimate = false;
   PIXI.loader.reset();
 };
 
