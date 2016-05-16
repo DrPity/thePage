@@ -48,6 +48,7 @@ var $ = require('jquery');
 var active = [false,false,false,false,false,false,false,false,false];
 var oldpos = -1;
 var switchedColor = false;
+var listener;
 
 module.exports = {
 

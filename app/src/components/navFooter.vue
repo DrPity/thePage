@@ -1,8 +1,8 @@
 <template transition="fade">
   <div id="nav-box">
     <div class="nav-links-footer">
-      <a v-link="{ name: 'home'}">
-        <span>GO TO NEXT PROEJECT</span>
+      <a v-link="{ name: project}">
+        <span>Go to the next project</span>
         <div class="nav-line"></div>
       </a>
     </div>
@@ -17,7 +17,10 @@ var _ = require('../helpers');
 
 module.exports = {
   props: {
-
+    project:{
+      type: String,
+      required: true
+    },
   },
   // inherit: true,
   replace: true,

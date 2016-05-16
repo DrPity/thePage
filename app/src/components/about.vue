@@ -118,7 +118,11 @@ module.exports = {
       type: Object,
       required: true
     },
-    coded:{
+    codedreality:{
+      type: Object,
+      required: true
+    },
+    musicalcubes:{
       type: Object,
       required: true
     },
@@ -151,7 +155,8 @@ module.exports = {
 
   ready: function() {
     if (app.getRouter().app.$data.redirect === false){
-      document.body.style.overflowY = 'scroll';
+      document.getElementById('wrapper').style.height = 'auto';
+      // document.body.style.overflowY = 'scroll';
       window.scrollTo(0,0);
       // style="transform: skewX(4.37785deg) skewY(0.125deg) rotateX(6.254deg) translate3d(0px, -7.2px, 0px);"
 

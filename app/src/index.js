@@ -17,6 +17,9 @@ var loader = require('./components/loader.vue');
 var home = require('./components/home.vue');
 var codedreality = require('./components/codedreality.vue');
 var musicalcubes = require('./components/musicalcubes.vue');
+var humanandmachine = require('./components/humanandmachine.vue');
+var thewall = require('./components/thewall.vue');
+var lightminers = require('./components/lightminers.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
 var VueTouch = require('vue-touch');
@@ -67,12 +70,9 @@ App.prototype.init = function (url) {
       },
     });
 
-    // _this.mainView = _this.newVue('#wrapper', data.currentView);
-    // _this.registerDirectives();
     _this.createRouterMap();
     _this.redirectionMap();
     _this.router.start(RoutedApp, '#wrapper');
-    console.log("finished app init");
   });
 };
 
@@ -97,13 +97,25 @@ App.prototype.createRouterMap = function () {
       name: 'home',
       component: home,
     },
+    '/musicalcubes': {
+      name: 'musicalcubes',
+      component: musicalcubes,
+    },
     '/codedreality': {
       name: 'codedreality',
       component: codedreality,
     },
-    '/musicalcubes': {
-      name: 'musicalcubes',
-      component: musicalcubes,
+    '/humanandmachine': {
+      name: 'humanandmachine',
+      component: humanandmachine,
+    },
+    '/thewall': {
+      name: 'thewall',
+      component: thewall,
+    },
+    '/lightminers': {
+      name: 'lightminers',
+      component: lightminers,
     },
     '/about': {
       name: 'about',
@@ -130,26 +142,6 @@ App.prototype.newVue = function (element, dataAtrributes) {
   });
 };
 
-
-App.prototype.registerDirectives = function(){
-  Vue.directive('img', function(url) {
-    var img = new Image();
-    img.src = url;
-
-    img.onload = function () {
-      this.el.src = url;
-      $(this.el)
-        .css('opacity', 0)
-        .animate({ opacity: 1 }, 1000);
-    }.bind(this);
-
-    img.onerror = function () {
-      console.log('Could not load image at ' + url);
-    };
-  });
-};
-
-console.log('Loading Model');
 
 //remove global Variable after finsihed debugging
 attachFastClick(document.body);

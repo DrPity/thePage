@@ -26,7 +26,7 @@
       </div>
     </section>
     <!-- Projects  -->
-    <work :work="work"></work>
+    <work :work="work" transition="hfade"></work>
   </div>
 </template>
 

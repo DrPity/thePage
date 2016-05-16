@@ -83,9 +83,9 @@
     {
       "1": "/musicalcubes",
       "2": "/codedreality",
-      "3": "/thewall",
-      "4": "/mu:brace",
-      "5": "/humanandmachine",
+      "3": "/humanandmachine",
+      "4": "/thewall",
+      "5": "/lightminers",
       "6": "/lightminers",
       "7": "/cucumbis",
       "8": "/goldmann",
@@ -125,57 +125,225 @@
       "Music"
     ]
   },
-
-  "codedreality":
+  "musicalcubes":
   {
-    "title": "Coded Reality",
+    "title": "Musical Cubes",
+    "route": "musicalcubes",
+    "nextRoute": "codedreality",
+    "titlePicture": "../images/cubes/cubes_title.jpg",
     "sections":[
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
         "media": [
           {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_03.jpg"
+          },
+          {
             "type": "VIDEO",
             "src": "https://player.vimeo.com/video/157266155"
           },
           {
-            "type": "IMAGE",
-            "src": "../images/berlin.jpg"
-          },
-          {
-            "type": "IMAGE",
-            "src": "../images/goldmann_1.jpg"
-          },
-          {
             "type": "TEXT",
-            "src": "0"
+            "credits": "Gunnar Oledal & Michael Schade",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Chalmers University",
+                "src": "www.chalmers.se"
+              }
+            ]
           }
         ]
       }
     ]
   },
-  "musicalcubes":
+  "codedreality":
   {
+    "title": "Coded Reality",
+    "route": "codedreality",
+    "nextRoute": "humanandmachine",
+    "titlePicture": "../images/coded/coded_title.jpg",
     "sections":[
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
         "media": [
           {
-            "type": "VIDEO",
-            "src": "https://player.vimeo.com/video/157266155"
+            "type": "IMAGE",
+            "src": "../images/coded/coded_01.jpg"
           },
           {
             "type": "IMAGE",
-            "src": "../images/berlin.jpg"
-          },
-          {
-            "type": "IMAGE",
-            "src": "../images/goldmann_1.jpg"
+            "src": "../images/coded/coded_02.jpg"
           },
           {
             "type": "TEXT",
-            "src": "0"
+            "credits": "Robert Bolin, Michael Schade, Carl Heath, Olle Bjerkås",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Scenlaboratoriet",
+                "src": "www.scenlaboratoriet.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "humanandmachine":
+  {
+    "title": "Human and Machine",
+    "route": "humanandmachine",
+    "nextRoute": "thewall",
+    "titlePicture": "../images/human/human_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_03.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111928485"
+          },
+          {
+            "type": "TEXT",
+            "credits": "Robert Bolin, Michael Schade, Carl Heath",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Scenlaboratoriet",
+                "src": "www.scenlaboratoriet.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thewall":
+  {
+    "title": "The Wall",
+    "route": "thewall",
+    "nextRoute": "lightminers",
+    "titlePicture": "../images/wall/wall_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/wall/wall_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/wall/wall_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/wall/wall_03.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/166879605"
+          },
+          {
+            "type": "TEXT",
+            "credits": "Alessandro Suraci, Michael Schade, David Schneller, Andrea Amodeo, Gunnar Oledal",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Chalmers University",
+                "src": "www.chalmers.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "lightminers":
+  {
+    "title": "Lightminers",
+    "route": "lightminers",
+    "nextRoute": "home",
+    "titlePicture": "../images/light/light_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/light/light_01.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111941679"
+          },
+          {
+            "type": "TEXT",
+            "credits": "Robert Bolin, Michael Schade, Carl Heath",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Scenlaboratoriet",
+                "src": "www.scenlaboratoriet.se"
+              }
+            ]
           }
         ]
       }
