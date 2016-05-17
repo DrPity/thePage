@@ -20,6 +20,9 @@ var musicalcubes = require('./components/musicalcubes.vue');
 var humanandmachine = require('./components/humanandmachine.vue');
 var thewall = require('./components/thewall.vue');
 var lightminers = require('./components/lightminers.vue');
+var mubrace = require('./components/mubrace.vue');
+var cucumbis = require('./components/cucumbis.vue');
+var goldmann = require('./components/goldmann.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
 var VueTouch = require('vue-touch');
@@ -116,6 +119,18 @@ App.prototype.createRouterMap = function () {
     '/lightminers': {
       name: 'lightminers',
       component: lightminers,
+    },
+    '/mubrace': {
+      name: 'mubrace',
+      component: mubrace,
+    },
+    '/cucumbis': {
+      name: 'cucumbis',
+      component: cucumbis,
+    },
+    '/goldmann': {
+      name: 'goldmann',
+      component: goldmann,
     },
     '/about': {
       name: 'about',

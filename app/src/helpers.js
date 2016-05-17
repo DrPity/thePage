@@ -40,6 +40,8 @@ module.exports = {
     return value > 0 ? 1 : value < 0 ? -1 : 0;
   },
 
+  //------get a offset value---------------------------------------------
+
   getOffset: function (el) {
     var box = el.getBoundingClientRect();
 

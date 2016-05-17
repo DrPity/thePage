@@ -86,7 +86,7 @@
       "3": "/humanandmachine",
       "4": "/thewall",
       "5": "/lightminers",
-      "6": "/lightminers",
+      "6": "/mubrace",
       "7": "/cucumbis",
       "8": "/goldmann",
       "9": "/thepictures"
@@ -313,7 +313,7 @@
   {
     "title": "Lightminers",
     "route": "lightminers",
-    "nextRoute": "home",
+    "nextRoute": "mubrace",
     "titlePicture": "../images/light/light_title.jpg",
     "sections":[
       {
@@ -330,18 +330,144 @@
           },
           {
             "type": "TEXT",
-            "credits": "Robert Bolin, Michael Schade, Carl Heath",
+            "credits": "Carolin Poelk, Jacky Forzelius, David Schneller, Michael Schade",
             "thanks": [
               {
                 "name": "Interactive Institute",
                 "src": "www.tii.se"
               },
               {
-                "name": "and"
+                "name": "in collaboration with"
               },
               {
-                "name": "Scenlaboratoriet",
+                "name": "Experimedia",
                 "src": "www.scenlaboratoriet.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "mubrace":
+  {
+    "title": "Mu:brace",
+    "route": "mubrace",
+    "nextRoute": "cucumbis",
+    "titlePicture": "../images/mubrace/mubrace_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_03.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_04.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111922335"
+          },
+          {
+            "type": "TEXT",
+            "credits": "Gunnar Oledal, Michael Schade",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "www.tii.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "cucumbis":
+  {
+    "title": "Cucumbis",
+    "route": "cucumbis",
+    "nextRoute": "goldmann",
+    "titlePicture": "../images/cucumbis/cucumbis_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_02.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111922335"
+          },
+          {
+            "type": "TEXT",
+            "credits": "David Schneller, Michael Schade, Sebastian Ilves",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "www.tii.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "goldmann":
+  {
+    "title": "Goldmann",
+    "route": "goldmann",
+    "nextRoute": "home",
+    "titlePicture": "../images/goldmann/goldmann_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_03.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_04.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111922335"
+          },
+          {
+            "type": "TEXT",
+            "credits": "Thomas Kipke, Michael Schade",
+            "thanks": [
+              {
+                "name": "Duplex and Masters, Soju Bar, HardWaxx"
               }
             ]
           }
