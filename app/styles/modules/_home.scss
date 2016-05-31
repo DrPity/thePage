@@ -76,26 +76,25 @@
 .circle{
   // margin-top: 60rem;
   position: relative;
-  width: rem(12);
-  height: rem(12);
+  width: 12px;
+  height: 12px;
   margin: 0 auto;
-  margin-top: rem(6);
+  // margin-top: rem(6);
   background: #fff;
-  border-radius: 50%;
+  border-radius: 12px;
   overflow: hidden;
 
   svg{
-    width: rem(6);
-    height: rem(7);
+    width: 6px;
+    height: 6px;
     fill: #000;
     position: absolute;
     left: 50%;
     top: 50%;
+    transform: translateX(-50%) translateY(-50%);
     // background-image: url("/images/down_arrow.svg");
     // background-size: 100%;
     // background-repeat: no-repeat;
-    margin-left: rem(-3);
-    margin-top: rem(-3);
   }
 }
 

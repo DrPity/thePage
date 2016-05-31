@@ -23,6 +23,7 @@ var lightminers = require('./components/lightminers.vue');
 var mubrace = require('./components/mubrace.vue');
 var cucumbis = require('./components/cucumbis.vue');
 var goldmann = require('./components/goldmann.vue');
+var thepictures = require('./components/pictures.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
 var VueTouch = require('vue-touch');
@@ -131,6 +132,10 @@ App.prototype.createRouterMap = function () {
     '/goldmann': {
       name: 'goldmann',
       component: goldmann,
+    },
+    '/thepictures': {
+      name: 'thepictures',
+      component: thepictures,
     },
     '/about': {
       name: 'about',

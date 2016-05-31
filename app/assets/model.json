@@ -414,8 +414,12 @@
             "src": "../images/cucumbis/cucumbis_02.jpg"
           },
           {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_03.jpg"
+          },
+          {
             "type": "VIDEO",
-            "src": "https://player.vimeo.com/video/111922335"
+            "src": "https://player.vimeo.com/video/157275463"
           },
           {
             "type": "TEXT",
@@ -461,6 +465,50 @@
           {
             "type": "VIDEO",
             "src": "https://player.vimeo.com/video/111922335"
+          },
+          {
+            "type": "TEXT",
+            "credits": "Thomas Kipke, Michael Schade",
+            "thanks": [
+              {
+                "name": "Duplex and Masters, Soju Bar, HardWaxx"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thepictures":
+  {
+    "title": "rnd Pictures",
+    "route": "thepictures",
+    "nextRoute": "home",
+    "titlePicture": "../images/pictures/pictures_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_03.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_04.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_05.jpg"
           },
           {
             "type": "TEXT",
