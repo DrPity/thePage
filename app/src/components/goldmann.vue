@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'Some text'"
+    :description="'<strong>Parameter</strong> is the first comprehensive'"
     :projectdata="goldmann"
     ></project>
   </div>

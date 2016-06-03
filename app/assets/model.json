@@ -69,15 +69,15 @@
     },
     "description":
     {
-      "1": "Musical Cubes is a Interactive art installation for public spaces",
-      "2": "Musical Cubes is a Interactive art installation for public spaces",
-      "3": "Musical Cubes is a Interactive art installation for public spaces",
-      "4": "Musical Cubes is a Interactive art installation for public spaces",
-      "5": "Musical Cubes is a Interactive art installation for public spaces",
-      "6": "Musical Cubes is a Interactive art installation for public spaces",
-      "7": "Musical Cubes is a Interactive art installation for public spaces",
-      "8": "Musical Cubes is a Interactive art installation for public spaces",
-      "9": "Musical Cubes is a Interactive art installation for public spaces"
+      "1": "A Interactive art installation for public spaces",
+      "2": "A narrative that can be influenced through a neural interface",
+      "3": "A psycho-technological theater experiment",
+      "4": "Art Installation that mirrors your movements",
+      "5": "A pervasive gaming prototype",
+      "6": "Wearable expressive midi controller",
+      "7": "Protoype of a new tool for presentations",
+      "8": "Documentary & Design of the Artist Stefan Goldmann",
+      "9": "Conceptional experimental Photography"
     },
     "links":
     {
@@ -439,7 +439,7 @@
   {
     "title": "Goldmann",
     "route": "goldmann",
-    "nextRoute": "home",
+    "nextRoute": "thepictures",
     "titlePicture": "../images/goldmann/goldmann_title.jpg",
     "sections":[
       {
@@ -464,7 +464,7 @@
           },
           {
             "type": "VIDEO",
-            "src": "https://player.vimeo.com/video/111922335"
+            "src": "https://player.vimeo.com/video/169292345"
           },
           {
             "type": "TEXT",

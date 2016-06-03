@@ -135,7 +135,7 @@ module.exports = {
     var _this = this;
     setTimeout(function () {
       _this.show = false;
-    }, 500);
+    }, 200);
   },
 
 };

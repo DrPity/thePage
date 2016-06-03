@@ -276,30 +276,34 @@ article{
   font-size: modular-scale(5, 1em, 1.234)!important;
   float: left;
   clear: none;
-  width: 100%;
-  margin-left: 7%;
-  margin-right: 3%;
+  width: 45%;
+  // margin-left: 7%;
+  // margin-right: 3%;
   transition: all .3s cubic-bezier(.615,.19,.305,.91);
   transform: translate(0, -130%);
   line-height: 1;
 
   @include breakpoint(large down) {
+    width: 100%;
     margin-left: 0;
     text-align: center;
     font-size: modular-scale(4, 1rem, 1.234)!important;
   }
 
   @include breakpoint(74.9375em) {
-    margin-left: 10%!important;
+    // margin-left: 10%!important;
+    text-align: center;
     font-size: modular-scale(6, 1rem, 1.234)!important;
   }
 
   @include breakpoint(xlarge) {
-    margin-left: 3%;
+    // margin-left: 3%;
+    text-align: center;
     font-size: modular-scale(6, 1rem, 1.234)!important;
   }
 
   @include breakpoint(small down) {
+    width: 100%;
     margin-left: 0;
     text-align: center;
     font-size: modular-scale(2.5, 1rem, 1.234)!important;

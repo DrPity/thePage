@@ -3,6 +3,7 @@ var $ = require('jquery');
 var _ = require('./helpers');
 var app = require('./index.js');
 window.createjs = this.createjs || {};
+window.imgArray = [];
 require('PreloadJS');
 
 require('gsap');
@@ -16,7 +17,7 @@ preloader.init = function() {
   currentIndex = 0;
   formerIndex = 0;
   console.log("In preload");
-  queue        = new createjs.LoadQueue("image");
+  queue        = new createjs.LoadQueue(false);//
   $progress    = $('#progress');
   $progressbar = $('#progressbar .bar');
   // queue.loadFile({src:"../images/berlin.jpg", type:createjs.AbstractLoader.IMAGE});
@@ -28,7 +29,11 @@ preloader.init = function() {
 
   queue.loadManifest([
     {
-      id:   '1',
+      id: '0',
+      src: './images/down_arrow.svg'
+    },
+    {
+      id: '1',
       src:  '../images/load.gif'
     },
     {
@@ -37,7 +42,55 @@ preloader.init = function() {
     },
     {
       id: '3',
-      src: './images/berlin.jpg'
+      src: './images/bg_negative2.png'
+    },
+    {
+      id: '4',
+      src: './images/bg6.png'
+    },
+    {
+      id: '5',
+      src: './images/bg_small.png'
+    },
+    {
+      id: '6',
+      src: './images/test2.jpg'
+    },
+    {
+      id: '7',
+      src: './images/cubes/cubes_title.jpg'
+    },
+    {
+      id: '8',
+      src: './images/coded/coded_title.jpg'
+    },
+    {
+      id: '9',
+      src: './images/human/human_title.jpg'
+    },
+    {
+      id: '10',
+      src: './images/light/light_title.jpg'
+    },
+    {
+      id: '11',
+      src: './images/wall/wall_title.jpg'
+    },
+    {
+      id: '12',
+      src: './images/mubrace/mubrace_title.jpg'
+    },
+    {
+      id: '13',
+      src: './images/cucumbis/cucumbis_title.jpg'
+    },
+    {
+      id: '14',
+      src: './images/goldmann/goldmann_title.jpg'
+    },
+    {
+      id: '15',
+      src: './images/pictures/pictures_title.jpg'
     },
   ]);
 };
@@ -52,15 +105,15 @@ preloader.onError = function (event) {
 };
 
 preloader.onFileLoad = function (event) {
-  var item = event.item; // A reference to the item that was passed in to the LoadQueue
-  var type = item.type;
-
-  // Add any images to the page body.
-  if (type == createjs.LoadQueue.IMAGE) {
-      var img=new Image();
-      img.src=event.result.src;
-      console.log("IMAGE ITEM: ", event);
-  }
+  // var item = event.item;
+  // var type = item.type;
+  //
+  // if (type == createjs.LoadQueue.IMAGE) {
+  //     var img=new Image();
+  //     img = item;
+  //     imgArray.push(img);
+  //     console.log("IMAGE ITEM: ", imgArray);
+  // }
 };
 
 preloader.onFileProgress = function (event) {
