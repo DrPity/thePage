@@ -42,11 +42,11 @@ preloader.init = function() {
     },
     {
       id: '3',
-      src: './images/bg_negative2.png'
+      src: './images/bg_negative.png'
     },
     {
       id: '4',
-      src: './images/bg6.png'
+      src: './images/bg.png'
     },
     {
       id: '5',
@@ -54,7 +54,7 @@ preloader.init = function() {
     },
     {
       id: '6',
-      src: './images/test2.jpg'
+      src: './images/me.jpg'
     },
     {
       id: '7',
@@ -92,6 +92,10 @@ preloader.init = function() {
       id: '15',
       src: './images/pictures/pictures_title.jpg'
     },
+    {
+      id: '16',
+      src: './images/displacement.jpg'
+    },
   ]);
 };
 
@@ -102,6 +106,7 @@ preloader.onComplete = function(event) {
 };
 
 preloader.onError = function (event) {
+  console.log("--- Error ---");
 };
 
 preloader.onFileLoad = function (event) {

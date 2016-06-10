@@ -109,20 +109,39 @@
     "burn":
     [
       "Art",
-      "Creative Thinking",
-      "Music"
+      "Creativity",
+      "Technolgies",
+      "Design",
+      "Culture"
     ],
     "like":
     [
-      "Art",
-      "Creative Thinking",
-      "Music"
+      "Interactive Installations",
+      "Generative Design",
+      "Bauhaus",
+      "Performing Arts",
+      "Maker Culture"
     ],
     "offer":
     [
-      "Art",
       "Creative Thinking",
-      "Music"
+      "Interaction Desing",
+      "Webtechnolgies",
+      "Audio-Visual Design",
+      "Pyhsical Computing",
+      "C++,Java,Python",
+      "Processing",
+      "OpenFrameworks",
+      "Arduino",
+      "Html,Javascript,CSS",
+      "Vue/Angular/React",
+      "Photoshop",
+      "Illustrator",
+      "InDesign",
+      "AfterEffect",
+      "Cinema4D",
+      "AutoCAD",
+      "3D-Printing"
     ]
   },
   "musicalcubes":

@@ -86,7 +86,7 @@ window.handler = {
     console.log("BG " , PIXI.loader.resources.background);
 
     // Filter
-    var displacementTexture = PIXI.Sprite.fromImage("../images/displacement2.jpg");
+    var displacementTexture = PIXI.Sprite.fromImage("../images/displacement.jpg");
     scene.displacementFilter = new PIXI.filters.DisplacementFilter(displacementTexture);
 
     // Apply it

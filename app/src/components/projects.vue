@@ -84,6 +84,11 @@ module.exports = {
           var offset = window.pageYOffset,
               startValue = Math.floor(eloffset * 0.8),
               endValue = startValue + 450;//startValue + 850;
+
+              if(_.orientation() === 'portrait'){
+                endValue = startValue + 850;
+              }
+
               if(window.innerWidth >= 769){checkNav(startValue, offset, navEl);}
           if(offset >= startValue && offset <= endValue)
           {

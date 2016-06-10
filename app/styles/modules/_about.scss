@@ -9,119 +9,119 @@
   color: $white;
   @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
 
-}
-.text-stuff{
-  width: 60%;
-  max-width: 650px;
-  margin: auto auto 5.5rem;
-  color: #7C7C7C;
-  letter-spacing: 6px;
-  margin-top: 5rem;
-  // @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
-  font-size: modular-scale(7, 0.5rem, 1.234)!important;
-  @include breakpoint(small down) {
-    font-size: modular-scale(2, 0.5rem, 1.234)!important;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .aboutPic{
+    margin-top: calc(5% + 1rem);
+    position:relative;
+    background-image: url(../images/me.jpg);
+    background-repeat: no-repeat;
     width: 100%;
-    line-height: 1.5;
-    letter-spacing: 2px;
+    height: 0;
+    background-size: contain;
+    background-position:center;
+    padding-top: 60%;
+
   }
 
-  @include breakpoint(medium down) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    font-size: modular-scale(4, 0.5rem, 1.234)!important;
+  .aboutTxt{
+    text-align: center;
+
+    .text-stuff{
+      width: 60%;
+      max-width: 650px;
+      margin: auto auto 5.5rem;
+      color: #7C7C7C;
+      letter-spacing: 6px;
+      margin-top: 5rem;
+      // @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
+      font-size: modular-scale(7, 0.5rem, 1.234)!important;
+      @include breakpoint(small down) {
+        font-size: modular-scale(2, 0.5rem, 1.234)!important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+        line-height: 1.5;
+        letter-spacing: 2px;
+      }
+
+      @include breakpoint(medium down) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        font-size: modular-scale(4, 0.5rem, 1.234)!important;
+      }
+
+      .spanner{
+        position: relative;
+        width: 18rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        text-align: center;
+        color: #D2691E;
+        display: inline-block;
+        @include breakpoint(small down) {
+            width: 10rem;
+        }
+
+        @include breakpoint(medium) {
+            width: 18rem;
+        }
+
+        @include breakpoint(large) {
+            width: 19rem;
+        }
+
+        @include breakpoint(xlarge up) {
+            width: 22rem;
+        }
+
+        .words{
+          position: relative;
+          display: inherit;
+        }
+
+        .line-fix{
+          opacity: 0;
+        }
+      }
+
+      .list{
+        text-align: center;
+        margin-top: 6rem;
+        letter-spacing: 1px;
+        line-height: 1.5;
+
+        .about-year{
+          // text-decoration: underline;
+          font-size: modular-scale(0, 0.5rem, 1.234)!important;
+        }
+      }
+
+      .extra{
+        margin-top: 4rem;
+      }
+    }
   }
-}
 
-.about-year{
-  // text-decoration: underline;
-  font-size: modular-scale(0, 0.5rem, 1.234)!important;
-}
+  .about-footer {
+    p{
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #000;
+      letter-spacing: 2px;
+      padding-bottom: 1rem;
+    }
 
-.aboutPic{
-  margin-top: calc(5% + 1rem);
-  position:relative;
-  background-image: url(../images/test2.jpg);
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 0;
-  background-size: contain;
-  background-position:center;
-  padding-top: 60%;
-
-}
-
-.aboutTxt{
-  text-align: center;
-}
-
-.line-fix{
-  opacity: 0;
-}
-
-.extra{
-  margin-top: 4rem;
-}
-
-
-.spanner{
-  position: relative;
-  width: 18rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  text-align: center;
-  color: #D2691E;
-  display: inline-block;
-  @include breakpoint(small down) {
-      width: 10rem;
+    div{
+      text-align: center;
+      @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
+      text-decoration: underline;
+    }
   }
 
-  @include breakpoint(medium) {
-      width: 18rem;
-  }
-
-  @include breakpoint(large) {
-      width: 19rem;
-  }
-
-  @include breakpoint(xlarge up) {
-      width: 22rem;
-  }
 }
 
-.list{
-  text-align: center;
-  margin-top: 6rem;
-  letter-spacing: 1px;
-  line-height: 1.5;
-}
-
-
-.words{
-  position: relative;
-  display: inherit;
-}
 
 .words-one.active{
   position: relative;;
   display: inherit;;
   transform: translate(0,0);
-}
-
-.about-footer {
-  p{
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: #000;
-    letter-spacing: 2px;
-    padding-bottom: 1rem;
-  }
-
-  div{
-    text-align: center;
-    @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
-    text-decoration: underline;
-  }
 }

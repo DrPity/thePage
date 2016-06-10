@@ -123,6 +123,18 @@ module.exports = {
     }
   },
 
+  // check for portrait || landscape
+  orientation: function()
+  {
+    if(window.innerHeight > window.innerWidth)
+    {
+      return 'portrait';
+    }else
+    {
+      return 'lanscape';
+    }
+  },
+
   preloadImage: function(url)
   {
     console.log("laod image: ", url);

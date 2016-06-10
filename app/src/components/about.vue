@@ -27,7 +27,7 @@ transition="fade"
               <span>[</span>
               <div class="spanner">
                 <span class="line-fix">.</span>
-                <div class="words" transition="wfade" v-if="show[0]" keep-alive><strong>{{word[0]}}</strong></div>
+                <span class="words" transition="wfade" v-if="show[0]" keep-alive><strong>{{word[0]}}</strong></span>
                 <span class="line-fix">.</span>
               </div>
               <span>]</span>
@@ -39,7 +39,7 @@ transition="fade"
               <span>[</span>
               <div class="spanner">
                 <span class="line-fix">.</span>
-                <div class="words" transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></div>
+                <span class="words" transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></span>
                 <span class="line-fix">.</span>
               </div>
               <span>]</span>
@@ -51,7 +51,7 @@ transition="fade"
               <span>[</span>
               <div class="spanner"  >
                 <span class="line-fix">.</span>
-                <div class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></div>
+                <span class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></span>
                 <span class="line-fix">.</span>
               </div>
               <span>]</span>
