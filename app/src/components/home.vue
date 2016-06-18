@@ -35,7 +35,6 @@
 var app = require('../index.js');
 var _ = require('../helpers');
 var $ = require('jquery');
-var scale = require('../perfectScale.js');
 var scramble = require('../scramble');
 var scr = new scramble();
 var op = {

@@ -26,7 +26,7 @@ var goldmann = require('./components/goldmann.vue');
 var thepictures = require('./components/pictures.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
-var VueTouch = require('vue-touch');
+// var VueTouch = require('vue-touch');
 
 
 Vue.use(require('vue-image-loader'),{
@@ -35,12 +35,11 @@ Vue.use(require('vue-image-loader'),{
 });
 
 // window.p5 = require('p5');
-Vue.use(VueTouch);
+// Vue.use(VueTouch);
 Vue.use(Router);
 
 function App(url) {
   this.mainView = null;
-  this.ScrollTriggers = require('./scrollTrigger');
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
   this.router = new Router({

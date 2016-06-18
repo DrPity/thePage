@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="project-header">
+  <div class="project-header mediumWithHeadline">
     <div class="row align-center noMargin">
       <div class="small-12 large-1 columns">
       </div>
@@ -33,7 +33,7 @@
       <div class="small-12 large-1 columns">
       </div>
       <div class="small-12 large-5 columns">
-        <span><p>{{description}}</p></span>
+        <span><p>{{{description}}}</p></span>
       </div>
       <div class="small-12 large-6 columns">
       </div>
@@ -63,7 +63,7 @@
                 </div>
               </div>
             </template>
-            <template v-if="media.type === 'TEXT'">
+            <template v-if="media.type === 'FOOTER'">
               <div class="project-text row noMargin align-center small-collapse">
                 <div class="small-12 large-8 columns margin">
                   <div class="row noMargin align-center small-collapse">
@@ -80,6 +80,15 @@
                       </span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </template>
+            <template v-if="media.type === 'TEXT'">
+              <div class="project-text row noMargin align-center small-collapse">
+                <div class="small-12 large-8 columns margin mediumWithHeadline">
+                  <p class="text-content" v-if="media.content">
+                    {{media.content}}
+                  </p>
                 </div>
               </div>
             </template>
@@ -135,7 +144,7 @@ module.exports = {
     var _this = this;
     setTimeout(function () {
       _this.show = false;
-    }, 200);
+    }, 1000);
   },
 
 };

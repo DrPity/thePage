@@ -1,6 +1,5 @@
 var Vue = require('vue');
 var app = require('./index.js');
-var $ = require('jquery');
 
 function Transitions() {
 		console.log("Transitions Init");

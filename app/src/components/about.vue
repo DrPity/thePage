@@ -63,7 +63,7 @@ transition="fade"
       <div class="row align-center">
         <div class="small-12 columns">
           <div class="about-footer">
-            <div class="mediumFont">Feel free to drop me a line</div>
+            <div class="mediumFont">Feel free to contact me</div>
             <p class="mediumFont"><a v-bind:href=" 'mailto:' + contact.mail">Mail</a>- Vimeo - Github - LinkedIn</p>
           </div>
         </div>

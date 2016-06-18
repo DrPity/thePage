@@ -3,7 +3,7 @@
     <div class="right"></div>
     <!-- <div class="left"></div> -->
     <div class="headline">
-      <h3>The Projects</h3>
+      <h3><span>Projects</span></h3>
     </div>
     <div class="the-project-list">
       <template v-for="item in work.grid_items_title">

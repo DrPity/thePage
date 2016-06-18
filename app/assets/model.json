@@ -129,7 +129,8 @@
     [
       "Design",
       "Visual Aesthetics",
-      "Creativity"
+      "Creativity",
+      "Photograpy"
     ],
     "3":
     [
@@ -138,13 +139,12 @@
       "AutoCAD",
       "3D-Printing",
       "Arduino",
-      "Electronics",
       "Tangible Interfaces"
     ],
     "4":
     [
       "Creative Thinking",
-      "Interaction Desing",
+      "Interaction Design",
       "Interface Design",
       "Audio-Visual Design",
       "User Experience",
@@ -189,11 +189,31 @@
             "src": "../images/cubes/cubes_03.jpg"
           },
           {
+            "type": "TEXT",
+            "content": "Our installation works like a collaborative step sequencer as it consists of eight interactive translucent cubes (2x4 matrix) hanging from the ceiling at a certain height. Users are able to interact by standing underneath a cube. By their presence in that space, they initiate a sound and effect the shine of coloured light as soon as the sequencer passes the cube. They can broaden the range of their possible interactive space by for example stretching their arms and thus reaching the physical space of the adjacent cubes. Through such striding movements they get the chance of interacting with several cubes at the same time."
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_04.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "The user can change the pitch of the sound by changing the distance between the cubes and their own body. A shorter distance to a cube will result in a higher pitch while a longer distance will lower it. As the pitch corresponds to the colour of the cube, this change in body posture will also change the color. Furthermore, the user can create personalised sounds by recording his/her own voice. Shaking the cube will turn it red, and initiate the record mode (see Image 2). In the moment of recording, all other sounds will be muted in order to make the recording as clear as possible. When the recording is done, the sound will be unmuted and the cube switches back to normal mode."
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_05.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "If the user wants the sound to be copied to other cubes, he/she may transfer it from one cube to another by simply bringing the two cubes together (see Image 3). The newest sound of the two will then overwrite the older one.These different functions reflect the project*s underlying intention. As the handling of the MusicalCubes is somewhat restricted if used alone, it becomes clear that the installation is intended for bringing people together in a collaborative interaction. By standing under the cubes, recording sounds and perhaps alter their distance to the cubes they can create a beat or melody together."
+          },
+          {
             "type": "VIDEO",
             "src": "https://player.vimeo.com/video/157266155"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Gunnar Oledal & Michael Schade",
             "thanks": [
               {
@@ -233,7 +253,7 @@
             "src": "../images/coded/coded_02.jpg"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Robert Bolin, Michael Schade, Carl Heath, Olle Bjerkås",
             "thanks": [
               {
@@ -281,7 +301,7 @@
             "src": "https://player.vimeo.com/video/111928485"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Robert Bolin, Michael Schade, Carl Heath",
             "thanks": [
               {
@@ -329,7 +349,7 @@
             "src": "https://player.vimeo.com/video/166879605"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Alessandro Suraci, Michael Schade, David Schneller, Andrea Amodeo, Gunnar Oledal",
             "thanks": [
               {
@@ -369,7 +389,7 @@
             "src": "https://player.vimeo.com/video/111941679"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Carolin Poelk, Jacky Forzelius, David Schneller, Michael Schade",
             "thanks": [
               {
@@ -421,7 +441,7 @@
             "src": "https://player.vimeo.com/video/111922335"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Gunnar Oledal, Michael Schade",
             "thanks": [
               {
@@ -462,7 +482,7 @@
             "src": "https://player.vimeo.com/video/157275463"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "David Schneller, Michael Schade, Sebastian Ilves",
             "thanks": [
               {
@@ -507,7 +527,7 @@
             "src": "https://player.vimeo.com/video/169292345"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Thomas Kipke, Michael Schade",
             "thanks": [
               {
@@ -551,7 +571,7 @@
             "src": "../images/pictures/pictures_05.jpg"
           },
           {
-            "type": "TEXT",
+            "type": "FOOTER",
             "credits": "Thomas Kipke, Michael Schade",
             "thanks": [
               {

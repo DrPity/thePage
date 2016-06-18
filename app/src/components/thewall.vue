@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description=""
+    :description="'<i>The Wall</i> is an interactive art installation following the aim of bringing across the spirit of running. It was made for the annual Göteborg half marathon Göteborgs Varvet. The 5 meter long wall consists of 48 dc motors. Each of these motors can blow an airstream into a transparent pipe filled with a material which is similar to confetti. Each time a person passes the wall his/her movement will be mirrored and visualised by an airwave. This wave is illuminated by several RGB LEDs.'"
     :projectdata="thewall"
     ></project>
   </div>

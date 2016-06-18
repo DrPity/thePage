@@ -1,5 +1,4 @@
 var Scramble = require('./scramble');
-var $ = require('jquery');
 var _ = require('./helpers');
 var app = require('./index.js');
 window.createjs = this.createjs || {};
@@ -42,15 +41,15 @@ preloader.init = function() {
     },
     {
       id: '3',
-      src: './images/bg_negative.png'
+      src: './images/bg_negative.jpg'
     },
     {
       id: '4',
-      src: './images/bg.png'
+      src: './images/bg.jpg'
     },
     {
       id: '5',
-      src: './images/bg_small.png'
+      src: './images/bg_small.jpg'
     },
     {
       id: '6',

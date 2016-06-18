@@ -153,8 +153,13 @@ article{
             position: absolute;
             top: 25%;
             @include breakpoint(medium down) {
-              top: 35%;
+              top: 30%;
             }
+
+            @include breakpoint(small down) {
+              top: 45%;
+            }
+
             width: 100%;
 
 
@@ -244,9 +249,9 @@ article{
     color: #FFF;
   }
 
-  @include breakpoint(small down) {
-    margin-left: 20%!important;
-    width: 72.5%;
+  @include breakpoint(medium down) {
+    margin-left: calc(15% + 1.5rem) !important;
+    width: 70% !important;
     font-size: modular-scale(0, 0.8rem, 1.234)!important;
     h6{
       font-size: modular-scale(0, 0.8rem, 1.234)!important;
@@ -254,9 +259,10 @@ article{
     }
   }
 
-  @include breakpoint(medium down) {
-    margin-left: 25%;
-  }
+  // @include breakpoint(medium down) {
+  //   margin-left: 25%;
+  //   width: 55%
+  // }
 
     .mono-title {
         position: absolute;
@@ -293,13 +299,13 @@ article{
   @include breakpoint(74.9375em) {
     // margin-left: 10%!important;
     text-align: center;
-    font-size: modular-scale(6, 1rem, 1.234)!important;
+    font-size: modular-scale(5, 1rem, 1.234)!important;
   }
 
   @include breakpoint(xlarge) {
     // margin-left: 3%;
     text-align: center;
-    font-size: modular-scale(6, 1rem, 1.234)!important;
+    font-size: modular-scale(5, 1rem, 1.234)!important;
   }
 
   @include breakpoint(small down) {
@@ -401,15 +407,19 @@ article{
   margin-bottom: 4%;
   margin-top: 3rem;
   h3{
+    font-size: modular-scale(5, 1rem, 1.234)!important;
     color: #FFF;
+    margin-bottom: 1rem;
   }
   @include use-normal-font($extraBold, 400, 0, 20px, rgb(255, 255, 255));
-  border-bottom: 6px solid rgba(255, 255, 255, 0.8);
-  @include breakpoint(small down) {
+  border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+
+  @include breakpoint(medium down) {
     text-align: center;
+    margin-right: calc(15% - 1.5rem);
     letter-spacing: 8px;
-    margin-right: 2.5%;
-    border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+    // margin-right: 2.5%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     h3{
       font-size: modular-scale(3, 1rem, 1.234)!important;
     }
