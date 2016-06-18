@@ -43,7 +43,7 @@
 
 .project-text{
   color: $black;
-  font-size: modular-scale(2, 0.5rem, 1.234)!important;
+  font-size: modular-scale(1, 0.5rem, 1.234)!important;
   hyphens: auto;
 
   @include breakpoint(medium down) {
@@ -61,7 +61,7 @@
 
   h6{
     @include use-normal-font($extraBold, 400, 1rem, 0, #000);
-    font-size: modular-scale(2, 0.5rem, 1.234)!important;
+    font-size: modular-scale(1, 0.5rem, 1.234)!important;
   }
 
   a{
@@ -72,15 +72,15 @@
 
 
   @include breakpoint(large up) {
-    font-size: modular-scale(3, 0.5rem, 1.234)!important;
+    font-size: modular-scale(2, 0.5rem, 1.234)!important;
     h6 {
-      font-size: modular-scale(4, 0.5rem, 1.234)!important;
+      font-size: modular-scale(3, 0.5rem, 1.234)!important;
     }
     p{
-      font-size: modular-scale(3, 0.5rem, 1.234)!important;
+      font-size: modular-scale(2, 0.5rem, 1.234)!important;
     }
     a{
-      font-size: modular-scale(3, 0.5rem, 1.234)!important;
+      font-size: modular-scale(2, 0.5rem, 1.234)!important;
     }
   }
 }

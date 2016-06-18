@@ -1,10 +1,10 @@
 .about{
   position: relative;;
   width: 100%;
-  @include breakpoint(medium down) {
-    height: calc(100% - 1rem);
-  };
-  height: calc(100% - 2rem);
+  // @include breakpoint(medium down) {
+    // height: calc(100% - 0.5rem);
+  // };
+  // height: calc(100% - 1rem);
   background-color: $white;
   color: $white;
   @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
@@ -29,10 +29,9 @@
       width: 60%;
       max-width: 650px;
       margin: auto auto 5.5rem;
-      color: #7C7C7C;
+      color: #000;
       letter-spacing: 6px;
       margin-top: 5rem;
-      // @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
       font-size: modular-scale(7, 0.5rem, 1.234)!important;
       @include breakpoint(small down) {
         font-size: modular-scale(2, 0.5rem, 1.234)!important;
@@ -49,13 +48,19 @@
         font-size: modular-scale(4, 0.5rem, 1.234)!important;
       }
 
+      .description{
+        font-weight: 300;
+      }
+
       .spanner{
         position: relative;
         width: 18rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        background-color: #000;
+        padding: 0.3rem;
         text-align: center;
-        color: #D2691E;
+        color: #ffffff;
         display: inline-block;
+        line-height: 2rem;
         @include breakpoint(small down) {
             width: 10rem;
         }
@@ -84,9 +89,10 @@
 
       .list{
         text-align: center;
-        margin-top: 6rem;
+        // margin-top: 8rem!important;
         letter-spacing: 1px;
         line-height: 1.5;
+        font-weight: 100;
 
         .about-year{
           // text-decoration: underline;
@@ -95,7 +101,8 @@
       }
 
       .extra{
-        margin-top: 4rem;
+        margin-top: 8rem;
+        display: inline-table;
       }
     }
   }
@@ -108,12 +115,17 @@
       color: #000;
       letter-spacing: 2px;
       padding-bottom: 1rem;
+      font-family: "OpenSans-Semibold", sans-serif;
+      a{
+        color: #000;
+      }
     }
 
     div{
       text-align: center;
-      @include use-normal-font($light, 400, 0, 0, rgb(0, 0, 0));
-      text-decoration: underline;
+      @include use-normal-font($light, 100, 0, 0, rgb(0, 0, 0));
+      letter-spacing: 1px;
+      // text-decoration: underline;
     }
   }
 

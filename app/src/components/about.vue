@@ -1,10 +1,11 @@
 <template>
+<div class="root" transition="slide">
 <navigation
 :showhome="true"
 :showabout="false"
 transition="fade"
 ></navigation>
-<div class="about" transition="slide">
+<div class="about">
   <div class="row expanded align-middle">
     <div class="small-12 columns" style="margin-top: 5rem;">
       <div class="row align-center">
@@ -17,57 +18,40 @@ transition="fade"
       <div class="aboutTxt">
         <div>
           <h1 class="text-stuff">
-            <span>Hi my name is <strong>Michael Schade</strong>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
+            <span class="description">My name is <b style="font-weight: 900;">Michael Schade</b>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
             Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</span>
-            <br><br>
             <div class="extra mediumLargeFont">
-              <span>I burn for </span>
+              <span>I BURN FOR</span>
               <br>
               <br>
-              <span>[</span>
               <div class="spanner">
-                <span class="line-fix">.</span>
-                <span class="words" transition="wfade" v-if="show[0]" keep-alive><strong>{{word[0]}}</strong></span>
-                <span class="line-fix">.</span>
+                <span class="words" transition="wfade" v-if="show[0]"><strong>{{word[0]}}</strong></span><br>
+                <span class="words" transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></span><br>
+                <span class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></span><br>
               </div>
-              <span>]</span>
-              <br>
-              <br>
-              <span>, I like everthing related to</span>
-              <br>
-              <br>
-              <span>[</span>
+              <br><br><br><br>
+              <span>I CAN OFFER SKILLS IN</span>
+              <br><br>
               <div class="spanner">
-                <span class="line-fix">.</span>
-                <span class="words" transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></span>
-                <span class="line-fix">.</span>
+                <span class="words" transition="wfade" v-if="show[3]"><strong>{{word[3]}}</strong></span><br>
+                <span class="words" transition="wfade" v-if="show[4]"><strong>{{word[4]}}</strong></span><br>
+                <span class="words" transition="wfade" v-if="show[5]"><strong>{{word[5]}}</strong></span><br>
               </div>
-              <span>]</span>
-              <br>
-              <br>
-              <span> and I can offere skillz in </span>
-              <br>
-              <br>
-              <span>[</span>
-              <div class="spanner"  >
-                <span class="line-fix">.</span>
-                <span class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></span>
-                <span class="line-fix">.</span>
-              </div>
-              <span>]</span>
+
+              <!-- <span>]</span> -->
               <div class="list extra mediumFont">
                 <ul>
                   <li><strong style="color: #000">SEEN AT</strong> </li>
-                  <li>C-AWARDS - Norrköping <span class="about-year">[2016]</span></li>
-                  <li>LINDHOLM SCIENCE PARK - Göteborg <span class="about-year">[2016]</span></li>
-                  <li>GLASSELL GALLERY - Baton Rouge <span class="about-year">[2015]</span></li>
-                  <li>ALIBIS FOR INTERACTION - Landskrona <span class="about-year">[2014]</span></li>
-                  <li>AGERA DIGITAL - Göteborg <span class="about-year">[2014]</span></li>
-                  <li>INTER ARTS CENTER - Malmö <span class="about-year">[2014]</span></li>
-                  <li>MAKER FAIR - Stockholm <span class="about-year">[2014]</span></li>
-                  <li>SCIENCE FESTIVAL - Göteborg <span class="about-year">[2014]</span></li>
-                  <li>SIDeR - Stockholm <span class="about-year">[2014]</span></li>
-                  <li>NORDIC LARP TALKS - Göteborg <span class="about-year">[2014]</span></li>
+                  <li><span class="about-year">[2016]</span><br>C-Awards - Norrköping</li>
+                  <li>Lindholm Science Park - Göteborg</li>
+                  <li><span class="about-year">[2015]</span><br>Glassell Gallery - Baton Rouge</li>
+                  <li><span class="about-year">[2014]</span><br>Alibis for Interaction - Landskrona</li>
+                  <li>Agera Digital - Göteborg</li>
+                  <li>Inter Arts Center - Malmö</li>
+                  <li>Maker Fair - Stockholm</li>
+                  <li>Science Festival - Göteborg</li>
+                  <li>SIDeR - Stockholm</li>
+                  <li>Nordic Larp Talks - Göteborg</li>
                 </ul>
               </div>
             </div>
@@ -80,12 +64,13 @@ transition="fade"
         <div class="small-12 columns">
           <div class="about-footer">
             <div class="mediumFont">Feel free to drop me a line</div>
-            <p class="mediumFont">MAIL - GITHUB - VIMEO - LINKEDIN</p>
+            <p class="mediumFont"><a v-bind:href=" 'mailto:' + contact.mail">Mail</a>- Vimeo - Github - LinkedIn</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </template>
 
@@ -97,7 +82,7 @@ var $ = require('jquery');
 var scramble = require('../scramble');
 var scr = new scramble();
 
-var  secOne, secTwo, secThree;
+var  secOne, secTwo, secThree, secFour, secFive, secSix;
 
 module.exports = {
 
@@ -130,9 +115,9 @@ module.exports = {
 
   data: function() {
     return {
-      word: ['Creative Thinking', 'Creative Thinking', 'Creative Thinking'],
-      show: [false,false,false],
-      showNav: false
+      word: [],
+      show: [],
+      contact: app.getRouter().app.$data.contact
     };
   },
 
@@ -155,23 +140,34 @@ module.exports = {
 
   ready: function() {
     if (app.getRouter().app.$data.redirect === false){
+      var _this = this;
       document.getElementById('wrapper').style.height = 'auto';
       // document.body.style.overflowY = 'scroll';
       window.scrollTo(0,0);
-      // style="transform: skewX(4.37785deg) skewY(0.125deg) rotateX(6.254deg) translate3d(0px, -7.2px, 0px);"
 
-      var _this = this;
-      secOne = switchWords(_this, 'show[0]', 'word[0]', _this.about.burn)
+      //make this generic and non redundant when there is the time!!!
+      secOne = switchWords(_this, 'show[0]', 'word[0]', _this.about[0])
       setTimeout(function () {
-        secTwo = switchWords(_this, 'show[1]', 'word[1]', _this.about.like)
+        secTwo = switchWords(_this, 'show[1]', 'word[1]', _this.about[1])
       }, 1000);
       setTimeout(function () {
-        secThree = switchWords(_this, 'show[2]', 'word[2]', _this.about.offer)
+        secThree = switchWords(_this, 'show[2]', 'word[2]', _this.about[2])
+      }, 2000);
+
+      secFour = switchWords(_this, 'show[3]', 'word[3]', _this.about[3])
+      setTimeout(function () {
+        secFive = switchWords(_this, 'show[4]', 'word[4]', _this.about[4])
+      }, 1000);
+      setTimeout(function () {
+        secSix = switchWords(_this, 'show[5]', 'word[5]', _this.about[5])
       }, 2000);
 
       _this.$set('show[0]',true);
       _this.$set('show[1]',true);
       _this.$set('show[2]',true);
+      _this.$set('show[3]',true);
+      _this.$set('show[4]',true);
+      _this.$set('show[5]',true);
     }
   },
 
@@ -187,6 +183,9 @@ module.exports = {
     clearInterval(secOne);
     clearInterval(secTwo);
     clearInterval(secThree);
+    clearInterval(secFour);
+    clearInterval(secFive);
+    clearInterval(secSix);
     clearInterval(switchWords);
   },
 
@@ -220,7 +219,7 @@ function switchWords(_this, show, word, list){
   //   });
   //   counter++;
   // }, 5000);
-
+  word = word.trim();
   var counter = 0;
   var lenght = Object.keys(list).length;
   setInterval(function(){

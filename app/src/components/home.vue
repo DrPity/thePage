@@ -38,7 +38,6 @@ var $ = require('jquery');
 var scale = require('../perfectScale.js');
 var scramble = require('../scramble');
 var scr = new scramble();
-var Masonry = require ('masonry-layout');
 var op = {
     scale: 1.04,
     strength: 25,
@@ -105,25 +104,6 @@ module.exports = {
           index++;
         }
       }
-
-      //mansory grid
-      // var grid = document.querySelector('.grid');
-      // var msnry = new Masonry( grid, {
-      //     itemSelector: '.grid-item',
-      //     percentPosition: true,
-      //     columnWidth: '.grid-sizer',
-      //     gutter: 12
-      // });
-
-
-      // const section = document.querySelector('.root');
-      // const smooth = new Smooth({
-      //   native: false,
-      //   section: section,
-      //   ease: 0.1
-      // });
-      // smooth.off();
-      // smooth.init();
     }
   },
 
@@ -184,7 +164,6 @@ module.exports = {
       }
     }
   },
-
 };
 
 

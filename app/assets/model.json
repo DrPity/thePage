@@ -1,6 +1,11 @@
 {
   "redirect": true,
   "nextRoute": "home",
+  "contact":
+  {
+    "mail": "someTestMail@test.com",
+    "vimeo": "http://www.google.de"
+  },
   "preloader":
   {
     "id": "preloader",
@@ -106,42 +111,58 @@
   },
   "about":
   {
-    "burn":
+    "0":
     [
       "Art",
-      "Creativity",
       "Technolgies",
-      "Design",
+      "Musical Applications",
       "Culture"
     ],
-    "like":
+    "1":
     [
       "Interactive Installations",
       "Generative Design",
-      "Bauhaus",
       "Performing Arts",
       "Maker Culture"
     ],
-    "offer":
+    "2":
+    [
+      "Design",
+      "Visual Aesthetics",
+      "Creativity"
+    ],
+    "3":
+    [
+      "Pyhsical Computing",
+      "Cinema4D",
+      "AutoCAD",
+      "3D-Printing",
+      "Arduino",
+      "Electronics",
+      "Tangible Interfaces"
+    ],
+    "4":
     [
       "Creative Thinking",
       "Interaction Desing",
-      "Webtechnolgies",
+      "Interface Design",
       "Audio-Visual Design",
-      "Pyhsical Computing",
-      "C++,Java,Python",
-      "Processing",
-      "OpenFrameworks",
-      "Arduino",
-      "Html,Javascript,CSS",
-      "Vue/Angular/React",
+      "User Experience",
       "Photoshop",
       "Illustrator",
       "InDesign",
-      "AfterEffect",
-      "Cinema4D",
-      "AutoCAD",
-      "3D-Printing"
+      "AfterEffect"
+    ],
+    "5":
+    [
+      "Creative Coding",
+      "Processing",
+      "OpenFrameworks",
+      "Webtechnolgies",
+      "WebGl",
+      "Html,Javascript,CSS",
+      "Vue/Angular/React",
+      "C++,Java,Python"
     ]
   },
   "musicalcubes":
@@ -177,7 +198,7 @@
             "thanks": [
               {
                 "name": "Interactive Institute",
-                "src": "www.tii.se"
+                "src": "http://www.tii.se"
               },
               {
                 "name": "and"
@@ -217,7 +238,7 @@
             "thanks": [
               {
                 "name": "Interactive Institute",
-                "src": "www.tii.se"
+                "src": "http://www.tii.se"
               },
               {
                 "name": "and"
@@ -265,7 +286,7 @@
             "thanks": [
               {
                 "name": "Interactive Institute",
-                "src": "www.tii.se"
+                "src": "http://www.tii.se"
               },
               {
                 "name": "and"
@@ -313,7 +334,7 @@
             "thanks": [
               {
                 "name": "Interactive Institute",
-                "src": "www.tii.se"
+                "src": "http://www.tii.se"
               },
               {
                 "name": "and"
@@ -353,7 +374,7 @@
             "thanks": [
               {
                 "name": "Interactive Institute",
-                "src": "www.tii.se"
+                "src": "http://www.tii.se"
               },
               {
                 "name": "in collaboration with"
@@ -405,7 +426,7 @@
             "thanks": [
               {
                 "name": "Interactive Institute",
-                "src": "www.tii.se"
+                "src": "http://www.tii.se"
               }
             ]
           }
@@ -446,7 +467,7 @@
             "thanks": [
               {
                 "name": "Interactive Institute",
-                "src": "www.tii.se"
+                "src": "http://www.tii.se"
               }
             ]
           }
