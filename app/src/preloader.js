@@ -45,15 +45,15 @@ preloader.init = function() {
     },
     {
       id: '4',
-      src: './images/bg.jpg'
+      src: './images/bg.png'
     },
     {
       id: '5',
-      src: './images/bg_small.jpg'
+      src: './images/bg_small.png'
     },
     {
       id: '6',
-      src: './images/me.jpg'
+      src: './images/self.jpg'
     },
     {
       id: '7',
