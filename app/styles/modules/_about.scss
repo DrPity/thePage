@@ -62,11 +62,13 @@
         display: inline-block;
         line-height: 2rem;
         @include breakpoint(small down) {
-            width: 10rem;
+            width: 12rem;
+            line-height: 1rem;
         }
 
         @include breakpoint(medium) {
             width: 18rem;
+            line-height: 1.5rem;
         }
 
         @include breakpoint(large) {
@@ -102,6 +104,9 @@
 
       .extra{
         margin-top: 8rem;
+        @include breakpoint(medium down) {
+            margin-top: 4rem;
+        }
         display: inline-table;
       }
     }

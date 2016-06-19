@@ -34,7 +34,7 @@ article{
 .the-project-list {
     clear: both;
     padding-top: 5rem;
-    padding-bottom: 15rem;
+    padding-bottom: 10rem;
     position: relative;
     z-index: 1;
 
@@ -252,9 +252,9 @@ article{
   @include breakpoint(medium down) {
     margin-left: calc(15% + 1.5rem) !important;
     width: 70% !important;
-    font-size: modular-scale(0, 0.8rem, 1.234)!important;
+    font-size: modular-scale(0, 0.6rem, 1.234)!important;
     h6{
-      font-size: modular-scale(0, 0.8rem, 1.234)!important;
+      font-size: modular-scale(0, 0.6rem, 1.234)!important;
       letter-spacing: 2px;
     }
   }
@@ -312,7 +312,7 @@ article{
     width: 100%;
     margin-left: 0;
     text-align: center;
-    font-size: modular-scale(2.5, 1rem, 1.234)!important;
+    font-size: modular-scale(2, 1rem, 1.234)!important;
   }
 
 

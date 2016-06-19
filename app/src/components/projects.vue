@@ -32,6 +32,7 @@
             </div>
           </div>
         </article>
+        <div class="endTag"></div>
       </template>
     </div>
     <div class="footer">
@@ -76,23 +77,31 @@ module.exports = {
     if (app.getRouter().app.$data.redirect === false){
       setTimeout(function(){ $('.work').addClass('transform'); }, 500);
       var el = this.$el.getElementsByClassName('the-project-list');
+      var endEl = this.$el.getElementsByClassName('footer');
       var navEl = document.getElementsByClassName('nav-links');
       var _this = this;
+      var multiplier = 0.65;
       var eloffset = _.getOffset(el[0]).top;
+      var endValue = Math.ceil(_.getOffset(endEl[0]).top * multiplier);
+      var orientation = _.orientation();
       if(_.checkForMobile() && !this.transition){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
-              startValue = Math.floor(eloffset * 0.8),
-              endValue = startValue + 450;//startValue + 850;
+              startValue = Math.floor(eloffset * multiplier),
+              currentOrientation = _.orientation();
 
-              if(_.orientation() === 'portrait'){
-                endValue = startValue + 850;
-              }
+          if(currentOrientation !== orientation){
+            endValue = Math.ceil(_.getOffset(endEl[0]).top * multiplier);
+            orientation = currentOrientation;
+          }
 
-              if(window.innerWidth >= 769){checkNav(startValue, offset, navEl);}
+          // console.log("Offset: ", offset, " Start: ", startValue, " End: ", endValue, " Orientation: ", orientation);
+
+          if(window.innerWidth >= 769){checkNav(startValue, offset, navEl);}
           if(offset >= startValue && offset <= endValue)
           {
-            var pos = Math.floor(_.map(offset, startValue,endValue,0,9));
+            var pos = Math.floor(_.map(offset, startValue, endValue,0,9));
+            // console.log("Position: ", pos);
             if(pos != oldpos){
               if(oldpos != -1){
                 mouseLeaveHandler(_this.$el, oldpos);
@@ -108,7 +117,7 @@ module.exports = {
       }else if(!_.checkForMobile()){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
-              switchValue = Math.floor(eloffset * 0.8);
+          switchValue = Math.floor(eloffset * 0.8);
 
           if(window.innerWidth >= 769){checkNav(switchValue, offset, navEl);}
         }
@@ -140,12 +149,12 @@ module.exports = {
       mouseLeaveHandler(item,index);
     },
     link: function(index){
-      console.log("link: ", this.work.links[index]);
+      // console.log("link: ", this.work.links[index]);
       return this.work.links[index+1];
     },
 
     test: function(el, index){
-      console.log("test: ", el, index);
+      // console.log("test: ", el, index);
     }
   },
   // setValue: setValue
@@ -161,36 +170,36 @@ function outHandler(el,index){
 };
 
 function mouseEnterHandler(item, index){
-  // if(!active[index]){
-    var el = item.getElementsByClassName('wk'),
-        el_2 = item.getElementsByClassName('info-work-detail'),
-        el_3 = item.getElementsByClassName('link-project'),
-        el_4 = item.getElementsByClassName('thetitle');
-    // console.log("mouseenter: ", el, "index: ", index);
-    window.requestAnimationFrame(function() {
-      el[index].classList.add('active');
-      el_2[index].classList.add('active');
-      el_3[index].classList.add('active');
-      el_4[index].classList.add('active');
-      active[index] = true;
-    });
-  // }
+  if(!active[index]){
+  active[index] = true;
+  var el = item.getElementsByClassName('wk'),
+  el_2 = item.getElementsByClassName('info-work-detail'),
+  el_3 = item.getElementsByClassName('link-project'),
+  el_4 = item.getElementsByClassName('thetitle');
+  // console.log("mouseenter: ", el, "index: ", index);
+  window.requestAnimationFrame(function() {
+    el[index].classList.add('active');
+    el_2[index].classList.add('active');
+    el_3[index].classList.add('active');
+    el_4[index].classList.add('active');
+  });
+  }
 };
 
 function mouseLeaveHandler(item, index){
-  // if(active[index]){
-    var el = item.getElementsByClassName('wk'),
-        el_2 = item.getElementsByClassName('info-work-detail'),
-        el_3 = item.getElementsByClassName('link-project'),
-        el_4 = item.getElementsByClassName('thetitle');
-    window.requestAnimationFrame(function() {
-      el[index].classList.remove('active');
-      el_2[index].classList.remove('active');
-      el_3[index].classList.remove('active');
-      el_4[index].classList.remove('active');
-      // active[index] = false;
-    });
-  // }
+  if(active[index]){
+  var el = item.getElementsByClassName('wk'),
+  el_2 = item.getElementsByClassName('info-work-detail'),
+  el_3 = item.getElementsByClassName('link-project'),
+  el_4 = item.getElementsByClassName('thetitle');
+  window.requestAnimationFrame(function() {
+    el[index].classList.remove('active');
+    el_2[index].classList.remove('active');
+    el_3[index].classList.remove('active');
+    el_4[index].classList.remove('active');
+    active[index] = false;
+  });
+  }
 };
 
 function checkNav(eloffset, offset, el){

@@ -16,28 +16,31 @@ transition="fade"
     </div>
     <div class="small-12 columns align-self-middle">
       <div class="aboutTxt">
-        <div>
-          <h1 class="text-stuff">
-            <span class="description">My name is <b style="font-weight: 900;">Michael Schade</b>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology.
-            Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</span>
+        <div class="small-12 columns align-self-middle">
+          <div class="text-stuff">
+            <div class="description">My name is <b style="font-weight: 900;">Michael Schade</b>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology. Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</div>
             <div class="extra mediumLargeFont">
-              <span>I BURN FOR</span>
-              <br>
-              <br>
-              <div class="spanner">
-                <span class="words" transition="wfade" v-if="show[0]"><strong>{{word[0]}}</strong></span><br>
-                <span class="words" transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></span><br>
-                <span class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></span><br>
+              <div class="small-12 columns">
+                <span>I BURN FOR</span>
+                <br>
+                <br>
+                <div class="spanner">
+                  <span class="words" transition="wfade" v-if="show[0]"><strong>{{word[0]}}</strong></span><br>
+                  <span class="words" transition="wfade" v-if="show[1]"><strong>{{word[1]}}</strong></span><br>
+                  <span class="words" transition="wfade" v-if="show[2]"><strong>{{word[2]}}</strong></span><br>
+                </div>
+                <br><br>
               </div>
-              <br><br><br><br>
-              <span>I CAN OFFER SKILLS IN</span>
-              <br><br>
-              <div class="spanner">
-                <span class="words" transition="wfade" v-if="show[3]"><strong>{{word[3]}}</strong></span><br>
-                <span class="words" transition="wfade" v-if="show[4]"><strong>{{word[4]}}</strong></span><br>
-                <span class="words" transition="wfade" v-if="show[5]"><strong>{{word[5]}}</strong></span><br>
+              <div class="small-12 columns">
+                <br><br>
+                <span>I CAN OFFER SKILLS IN</span>
+                <br><br>
+                <div class="spanner">
+                  <span class="words" transition="wfade" v-if="show[3]"><strong>{{word[3]}}</strong></span><br>
+                  <span class="words" transition="wfade" v-if="show[4]"><strong>{{word[4]}}</strong></span><br>
+                  <span class="words" transition="wfade" v-if="show[5]"><strong>{{word[5]}}</strong></span><br>
+                </div>
               </div>
-
               <!-- <span>]</span> -->
               <div class="list extra mediumFont">
                 <ul>
@@ -55,7 +58,7 @@ transition="fade"
                 </ul>
               </div>
             </div>
-          </h1>
+          </div>
         </div>
       </div>
     </div>
