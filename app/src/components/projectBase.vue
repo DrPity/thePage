@@ -9,6 +9,7 @@
       <div class="absoluteCentering header" style="top: 45%">
         {{projectdata.title | uppercase}}
       </div>
+      <div class="touch-overlay"></div>
       <div class="project-overlay" v-if="show" transition="slideUp"></div>
     </div>
     <div class="project-coverup" style="transform: matrix(1, 0, 0, 1, 0, 0); transform: translateZ(0); -webkit-transform: translateZ(0);">
@@ -85,7 +86,7 @@
             </template>
             <template v-if="media.type === 'TEXT'">
               <div class="project-text row noMargin align-center small-collapse">
-                <div class="small-12 large-8 columns margin mediumWithHeadline">
+                <div class="small-12 large-10 columns margin mediumWithHeadline">
                   <p class="text-content" v-if="media.content">
                     {{media.content}}
                   </p>

@@ -95,9 +95,9 @@ module.exports = {
     i = setInterval(function() {
       var d = new Date();
       var systemTime = d.getTime();
-      console.log(systemTime - startTime);
+      // console.log(systemTime - startTime);
       if ((systemTime - startTime) <= waitTime) {
-        console.log(systemTime);
+        // console.log(systemTime);
       } else {
         stopInterval();
         callback();
@@ -138,7 +138,7 @@ orientation: function()
 //------Preload Images----------------------------------------------------------
 preloadImage: function(url)
 {
-  console.log("laod image: ", url);
+  // console.log("laod image: ", url);
   var img=new Image();
   img.src=url;
 },
@@ -171,7 +171,7 @@ filterOutliers: function(someArray) {
   values.sort( function(a, b) {
     return a - b;
   });
-  console.log(values);
+  // console.log(values);
 
   /* Then find a generous IQR. This is generous because if (values.length / 4)
   * is not an int, then really you should average the two elements on either
@@ -179,9 +179,9 @@ filterOutliers: function(someArray) {
   */
 
   var q1 = values[Math.floor((values.length / 4))];
-  console.log(q1);
+  // console.log(q1);
   var q3 = values[Math.ceil((values.length * (3 / 4)))];
-  console.log(q3);
+  // console.log(q3);
   var iqr = q3 - q1;
 
   // Then find min and max values

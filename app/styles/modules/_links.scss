@@ -4,6 +4,8 @@
   height: calc(100% - 180px);
   // height: -moz-calc((100%-180px));
   overflow: hidden;
+  // overflow-y: visible;
+  overflow-scrolling: touch;
   background-color: $color_2;
   z-index: 1;
 }
@@ -147,6 +149,19 @@ canvas{
   background: #242424;
   z-index: 2;
 }
+
+.touch-overlay{
+  // position: absolute;
+  // display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  z-index: 2;
+}
+
 
 .project-description{
   position: relative;

@@ -2,7 +2,7 @@ var Vue = require('vue');
 var app = require('./index.js');
 
 function Transitions() {
-		console.log("Transitions Init");
+		// console.log("Transitions Init");
     this.init();
 }
 
@@ -30,36 +30,36 @@ Transitions.prototype.init = function () {
     enter: function (el) {
 		},
     leave: function (el) {
-			console.log("In hfade: ", el);
+			// console.log("In hfade: ", el);
 		},
 		afterLeave: function(el){
-			console.log("After leave:",  el);
+			// console.log("After leave:",  el);
 		}
   });
 
 	Vue.transition('slide', {
 		type: 'transition',
 		enter: function (el) {
-			console.log("In enter slide-transition: ", el);
+			// console.log("In enter slide-transition: ", el);
 		},
 		leave: function (el) {
-			console.log("In leave slide-transition: ", el);
+			// console.log("In leave slide-transition: ", el);
 		},
 		afterLeave: function(el){
-			console.log("After slide-transition leave:",  el);
+			// console.log("After slide-transition leave:",  el);
 		}
 	});
 
 	Vue.transition('slideUp', {
 		type: 'transition',
 		enter: function (el) {
-			console.log("In enter slideUp-transition: ", el);
+			// console.log("In enter slideUp-transition: ", el);
 		},
 		leave: function (el) {
-			console.log("In leave slideUp-transition: ", el);
+			// console.log("In leave slideUp-transition: ", el);
 		},
 		afterLeave: function(el){
-			console.log("After slideUp-transition leave:",  el);
+			// console.log("After slideUp-transition leave:",  el);
 		}
 	});
 };

@@ -15,7 +15,7 @@ preloader.init = function() {
   message = "LOADING";
   currentIndex = 0;
   formerIndex = 0;
-  console.log("In preload");
+  // console.log("In preload");
   queue        = new createjs.LoadQueue(false);//
   $progress    = $('#progress');
   $progressbar = $('#progressbar .bar');
@@ -100,12 +100,12 @@ preloader.init = function() {
 
 preloader.onComplete = function(event) {
     var nextRoute = app.getRouter().app.$data.nextRoute;
-    console.log("NextRoute", nextRoute);
+    // console.log("NextRoute", nextRoute);
     var router = app.getRouter().go(nextRoute);
 };
 
 preloader.onError = function (event) {
-  console.log("--- Error ---");
+  console.log("Error when preloading pictures: ", event);
 };
 
 preloader.onFileLoad = function (event) {

@@ -1,0 +1,586 @@
+{
+  "redirect": true,
+  "nextRoute": "home",
+  "contact":
+  {
+    "mail": "someTestMail@test.com",
+    "vimeo": "http://www.google.de"
+  },
+  "preloader":
+  {
+    "id": "preloader",
+    "preloadBar": "---"
+  },
+  "home":
+  {
+    "id": "home",
+    "negative": false,
+    "description":
+    {
+      "name": "MICHAEL SCHADE",
+      "one": "INTERACTION",
+      "two": "DESIGN",
+      "scroll": "SCROLL"
+    },
+    "background":
+    {
+      "logo": "url(images/logo.png)",
+      "nlogo": "url(images/logoNegative.png)"
+    },
+    "links": [
+      {
+        "id": "0",
+        "linkName": "The Work",
+        "linkPath": "/work"
+      },
+      {
+        "id": "1",
+        "linkName": "The Pictures",
+        "linkPath": "/photography"
+      },
+      {
+        "id": "2",
+        "linkName": "The Person",
+        "linkPath": "/me"
+      }
+    ]
+  },
+  "work":
+  {
+    "id": "work",
+    "grid_items_bg":
+    {
+      "1": "url(images/01.jpg)",
+      "2": "url(images/05.jpg)",
+      "3": "url(images/01.jpg)",
+      "4": "url(images/02.jpg)",
+      "5": "url(images/01.jpg)",
+      "6": "url(images/02.jpg)",
+      "7": "url(images/01.jpg)",
+      "8": "url(images/02.jpg)",
+      "9": "url(images/01.jpg)"
+    },
+    "grid_items_title":
+    {
+      "1": "Musical Cubes",
+      "2": "Coded Reality",
+      "3": "Human&Machine",
+      "4": "The Wall",
+      "5": "Light Miners",
+      "6": "Mu:Brace",
+      "7": "Cucumbis",
+      "8": "Goldmann",
+      "9": "The Pictures"
+    },
+    "description":
+    {
+      "1": "A Interactive art installation for public spaces",
+      "2": "A narrative that can be influenced through a neural interface",
+      "3": "A psycho-technological theater experiment",
+      "4": "Art Installation that mirrors your movements",
+      "5": "A pervasive gaming prototype",
+      "6": "Wearable expressive midi controller",
+      "7": "Protoype of a new tool for presentations",
+      "8": "Documentary & Design of the Artist Stefan Goldmann",
+      "9": "Conceptional experimental Photography"
+    },
+    "links":
+    {
+      "1": "/musicalcubes",
+      "2": "/codedreality",
+      "3": "/humanandmachine",
+      "4": "/thewall",
+      "5": "/lightminers",
+      "6": "/mubrace",
+      "7": "/cucumbis",
+      "8": "/goldmann",
+      "9": "/thepictures"
+    },
+    "year":
+    {
+      "1": "2015",
+      "2": "2015",
+      "3": "2014",
+      "4": "2014",
+      "5": "2014",
+      "6": "2013",
+      "7": "2013",
+      "8": "2011",
+      "9": "2010"
+    }
+  },
+  "about":
+  {
+    "0":
+    [
+      "Art",
+      "Technolgies",
+      "Musical Applications",
+      "Culture"
+    ],
+    "1":
+    [
+      "Interactive Installations",
+      "Generative Design",
+      "Performing Arts",
+      "Maker Culture"
+    ],
+    "2":
+    [
+      "Design",
+      "Visual Aesthetics",
+      "Creativity",
+      "Photograpy"
+    ],
+    "3":
+    [
+      "Pyhsical Computing",
+      "Cinema4D",
+      "AutoCAD",
+      "3D-Printing",
+      "Arduino",
+      "Tangible Interfaces"
+    ],
+    "4":
+    [
+      "Creative Thinking",
+      "Interaction Design",
+      "Interface Design",
+      "Audio-Visual Design",
+      "User Experience",
+      "Photoshop",
+      "Illustrator",
+      "InDesign",
+      "AfterEffect"
+    ],
+    "5":
+    [
+      "Creative Coding",
+      "Processing",
+      "OpenFrameworks",
+      "Webtechnolgies",
+      "WebGl",
+      "Html,Javascript,CSS",
+      "Vue/Angular/React",
+      "C++,Java,Python"
+    ]
+  },
+  "musicalcubes":
+  {
+    "title": "Musical Cubes",
+    "route": "musicalcubes",
+    "nextRoute": "codedreality",
+    "titlePicture": "../images/cubes/cubes_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_03.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "Our installation works like a collaborative step sequencer as it consists of eight interactive translucent cubes (2x4 matrix) hanging from the ceiling at a certain height. Users are able to interact by standing underneath a cube. By their presence in that space, they initiate a sound and effect the shine of coloured light as soon as the sequencer passes the cube. They can broaden the range of their possible interactive space by for example stretching their arms and thus reaching the physical space of the adjacent cubes. Through such striding movements they get the chance of interacting with several cubes at the same time."
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_04.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "The user can change the pitch of the sound by changing the distance between the cubes and their own body. A shorter distance to a cube will result in a higher pitch while a longer distance will lower it. As the pitch corresponds to the colour of the cube, this change in body posture will also change the color. Furthermore, the user can create personalised sounds by recording his/her own voice. Shaking the cube will turn it red, and initiate the record mode (see Image 2). In the moment of recording, all other sounds will be muted in order to make the recording as clear as possible. When the recording is done, the sound will be unmuted and the cube switches back to normal mode."
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cubes/cubes_05.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "If the user wants the sound to be copied to other cubes, he/she may transfer it from one cube to another by simply bringing the two cubes together (see Image 3). The newest sound of the two will then overwrite the older one.These different functions reflect the project*s underlying intention. As the handling of the MusicalCubes is somewhat restricted if used alone, it becomes clear that the installation is intended for bringing people together in a collaborative interaction. By standing under the cubes, recording sounds and perhaps alter their distance to the cubes they can create a beat or melody together."
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/157266155"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Gunnar Oledal & Michael Schade",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "http://www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Chalmers University",
+                "src": "www.chalmers.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "codedreality":
+  {
+    "title": "Coded Reality",
+    "route": "codedreality",
+    "nextRoute": "humanandmachine",
+    "titlePicture": "../images/coded/coded_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/coded/coded_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/coded/coded_02.jpg"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Robert Bolin, Michael Schade, Carl Heath, Olle Bjerkås",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "http://www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Scenlaboratoriet",
+                "src": "www.scenlaboratoriet.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "humanandmachine":
+  {
+    "title": "Human and Machine",
+    "route": "humanandmachine",
+    "nextRoute": "thewall",
+    "titlePicture": "../images/human/human_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_03.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111928485"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Robert Bolin, Michael Schade, Carl Heath",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "http://www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Scenlaboratoriet",
+                "src": "www.scenlaboratoriet.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thewall":
+  {
+    "title": "The Wall",
+    "route": "thewall",
+    "nextRoute": "lightminers",
+    "titlePicture": "../images/wall/wall_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/wall/wall_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/wall/wall_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/wall/wall_03.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/166879605"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Alessandro Suraci, Michael Schade, David Schneller, Andrea Amodeo, Gunnar Oledal",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "http://www.tii.se"
+              },
+              {
+                "name": "and"
+              },
+              {
+                "name": "Chalmers University",
+                "src": "www.chalmers.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "lightminers":
+  {
+    "title": "Lightminers",
+    "route": "lightminers",
+    "nextRoute": "mubrace",
+    "titlePicture": "../images/light/light_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/light/light_01.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111941679"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Carolin Poelk, Jacky Forzelius, David Schneller, Michael Schade",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "http://www.tii.se"
+              },
+              {
+                "name": "in collaboration with"
+              },
+              {
+                "name": "Experimedia",
+                "src": "www.scenlaboratoriet.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "mubrace":
+  {
+    "title": "Mu:brace",
+    "route": "mubrace",
+    "nextRoute": "cucumbis",
+    "titlePicture": "../images/mubrace/mubrace_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_03.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/mubrace/mubrace_04.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/111922335"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Gunnar Oledal, Michael Schade",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "http://www.tii.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "cucumbis":
+  {
+    "title": "Cucumbis",
+    "route": "cucumbis",
+    "nextRoute": "goldmann",
+    "titlePicture": "../images/cucumbis/cucumbis_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_03.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/157275463"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "David Schneller, Michael Schade, Sebastian Ilves",
+            "thanks": [
+              {
+                "name": "Interactive Institute",
+                "src": "http://www.tii.se"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "goldmann":
+  {
+    "title": "Goldmann",
+    "route": "goldmann",
+    "nextRoute": "thepictures",
+    "titlePicture": "../images/goldmann/goldmann_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_03.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/goldmann/goldmann_04.jpg"
+          },
+          {
+            "type": "VIDEO",
+            "src": "https://player.vimeo.com/video/169292345"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Thomas Kipke, Michael Schade",
+            "thanks": [
+              {
+                "name": "Duplex and Masters, Soju Bar, HardWaxx"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thepictures":
+  {
+    "title": "rnd Pictures",
+    "route": "thepictures",
+    "nextRoute": "home",
+    "titlePicture": "../images/pictures/pictures_title.jpg",
+    "sections":[
+      {
+        "sectionColor": "#FFF",
+        "sectionBg": "",
+        "media": [
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_03.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_04.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/pictures/pictures_05.jpg"
+          },
+          {
+            "type": "FOOTER",
+            "credits": "Thomas Kipke, Michael Schade",
+            "thanks": [
+              {
+                "name": "Duplex and Masters, Soju Bar, HardWaxx"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

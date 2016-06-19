@@ -38,7 +38,7 @@ window.handler = {
   },
 
   createrenderer: function(){
-    console.log("Create Renderer");
+    // console.log("Create Renderer");
 
     var rendererOptions = {
       antialiasing: false,
@@ -56,7 +56,7 @@ window.handler = {
     // scene.height = screen.height/1.777777777;
     // scene.height = Math.floor(scene.elem.getBoundingClientRect().height);
     // }
-    console.log("scene scale ", scene.width + " | " + scene.height);
+    // console.log("scene scale ", scene.width + " | " + scene.height);
     // Renderer
     scene.renderer = PIXI.autoDetectRenderer(scene.elem.getBoundingClientRect().width, scene.elem.getBoundingClientRect().height, rendererOptions);
     // The stage is essentially a display list of all game objects
@@ -83,7 +83,7 @@ window.handler = {
     // }
 
     scene.container.addChild(scene.bg);
-    console.log("BG " , PIXI.loader.resources.background);
+    // console.log("BG " , PIXI.loader.resources.background);
 
     // Filter
     var displacementTexture = PIXI.Sprite.fromImage("../images/displacement.jpg");
@@ -143,7 +143,7 @@ window.handler = {
       scene.bg.position.y = 0;
 
       if(renderW >= scene.width){
-        console.log("In > then 1920");
+        // console.log("In > then 1920");
         r = Math.max(scene.elem.getBoundingClientRect().width/scene.width, scene.elem.getBoundingClientRect().height/scene.height);
         //uncomment to fixate scaling
         // if(r >= 1.3){
@@ -163,7 +163,7 @@ window.handler = {
 
         scene.bg.scale.x = scene.bg.scale.y = r;
       }else if (renderH < scene.height){
-        console.log("In < then 1080");
+        // console.log("In < then 1080");
         scene.bg.position.y = - ((scene.height - scene.elem.getBoundingClientRect().height)/2);
       }
 

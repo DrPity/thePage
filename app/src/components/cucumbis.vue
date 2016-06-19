@@ -58,6 +58,7 @@ module.exports = {
       if (app.getRouter().app.$data.redirect === false){
         graphics.deactivate();
         window.onscroll = null;
+        window.onresize = null;
       }
       this.show = true;
       transition.next();
@@ -72,33 +73,22 @@ module.exports = {
       graphics = new Graphics(_this, _this.cucumbis.titlePicture);
 
       var bLazy = new Blazy({
-                  breakpoints: [{
-                  width: 420 // Max-width
-                  , src: 'data-src-small'
-                  }]
+        breakpoints: [{
+          width: 420 // Max-width
+          , src: 'data-src-small'
+        }]
         , success: function(element){
           setTimeout(function(){
             var parent = element.parentNode;
             parent.className = parent.className.replace(/\bloading\b/,'');
-              }, 200);
-          }
-      });
-      var pixelRatio = window.devicePixelRatio;
-      if(window.innerWidth >= 769*pixelRatio){
-        var el = this.$el.getElementsByClassName('project-header');
-        var navEl = document.getElementsByClassName('nav-links');
-        var eloffset = _.getOffset(el[0]).top;
-        navEl[0].classList.add('active');
-        switchedColor = true;
-        window.onscroll = function (e) {
-          var offset = window.pageYOffset,
-              switchValue = Math.floor(eloffset * 0.8);
-              if(window.innerWidth >= 769*pixelRatio){
-                checkNav(switchValue, offset, navEl);
-              }
+          }, 200);
         }
-      }
+      });
 
+      window.onresize = function(){
+        switchNav(_this);
+      }
+      switchNav(_this);
     }
   },
 
@@ -126,6 +116,27 @@ function checkNav(eloffset, offset, el){
   }else if(eloffset < offset && switchedColor){
     el[0].classList.remove('active');
     switchedColor = false;
+  }
+}
+
+function switchNav(_this){
+  var pixelRatio = 1;
+  var el = _this.$el.getElementsByClassName('project-header');
+  var navEl = document.getElementsByClassName('nav-links');
+  var eloffset = _.getOffset(el[0]).top;
+
+  if(window.innerWidth >= 1024*pixelRatio){
+    navEl[0].classList.add('active');
+    switchedColor = true;
+    window.onscroll = function (e) {
+      var offset = window.pageYOffset,
+      switchValue = Math.floor(eloffset * 0.8);
+      if(window.innerWidth >= 1024*pixelRatio){
+        checkNav(switchValue, offset, navEl);
+      }
+    }
+  }else if (switchedColor){
+    navEl[0].classList.remove('active');
   }
 }
 

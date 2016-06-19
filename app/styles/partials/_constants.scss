@@ -37,6 +37,11 @@ html, body, p{
   // @include use-normal-font($regular, 400, 1rem, 2px, rgb(255, 255, 255));
 }
 
+canvas{
+  user-select: none;
+  cursor: pointer;
+}
+
 ul, li {
 	margin: 0;
   padding: 0;

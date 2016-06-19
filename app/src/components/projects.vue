@@ -97,7 +97,7 @@ module.exports = {
 
           // console.log("Offset: ", offset, " Start: ", startValue, " End: ", endValue, " Orientation: ", orientation);
 
-          if(window.innerWidth >= 769){checkNav(startValue, offset, navEl);}
+          if(window.innerWidth >= 1024){checkNav(startValue, offset, navEl);}
           if(offset >= startValue && offset <= endValue)
           {
             var pos = Math.floor(_.map(offset, startValue, endValue,0,9));
@@ -118,8 +118,18 @@ module.exports = {
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
           switchValue = Math.floor(eloffset * 0.8);
+          if(window.innerWidth >= 1024){checkNav(switchValue, offset, navEl);}
+        }
+      }
 
-          if(window.innerWidth >= 769){checkNav(switchValue, offset, navEl);}
+      window.onresize = function (){
+        if(window.innerWidth < 1024 && switchedColor){
+          navEl[0].classList.remove('active');
+          switchedColor = false;
+        }else{
+          var offset = window.pageYOffset,
+          switchValue = Math.floor(eloffset * 0.8);
+          if(window.innerWidth >= 1024){checkNav(switchValue, offset, navEl);}
         }
       }
     }
@@ -203,12 +213,12 @@ function mouseLeaveHandler(item, index){
 };
 
 function checkNav(eloffset, offset, el){
-  if(eloffset >= offset && !switchedColor){
+  if(eloffset >= offset && switchedColor){
     el[0].classList.remove('active');
-    switchedColor = true;
-  }else if(eloffset < offset && switchedColor){
-    el[0].classList.add('active');
     switchedColor = false;
+  }else if(eloffset < offset && !switchedColor){
+    el[0].classList.add('active');
+    switchedColor = true;
   }
 }
 

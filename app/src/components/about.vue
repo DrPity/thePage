@@ -210,18 +210,6 @@ module.exports = {
 
 
 function switchWords(_this, show, word, list){
-  // var counter = 0;
-  // console.log(list[counter]);
-  // setInterval(function(){
-  //   if(counter%2 == 0){
-  //     counter=0;
-  //   }
-  //   $("#" + index).decrypt_effect({
-  //     speed: 200,
-  //     decrypted_text: list[counter],
-  //   });
-  //   counter++;
-  // }, 5000);
   word = word.trim();
   var counter = 0;
   var lenght = Object.keys(list).length;

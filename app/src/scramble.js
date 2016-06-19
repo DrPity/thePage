@@ -5,7 +5,7 @@ var _ = require('./helpers');
 
 function Scr() {
 		this.orig = [];
-		console.log("SCR Init");
+		// console.log("SCR Init");
 }
 
 
@@ -19,7 +19,7 @@ Scr.prototype.scramble = function(elements, currentObject) {
 		if (currentObject.hasOwnProperty(key)) {
 			var orig = currentObject[key];
 			$('#' + index).empty();
-			console.log("orig index", orig[index].length);
+			// console.log("orig index", orig[index].length);
 			for (var i = 0; i < orig.length; i++) {
 				if (orig[i] != ' ') {
 					$('#' + index).append('<span>' + this.randomLetter() + '</span>').fadeIn("slow");
