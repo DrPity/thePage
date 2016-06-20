@@ -1,29 +1,24 @@
 {
   "redirect": true,
   "nextRoute": "home",
-  "contact":
-  {
+  "contact": {
     "mail": "someTestMail@test.com",
     "vimeo": "http://www.google.de"
   },
-  "preloader":
-  {
+  "preloader": {
     "id": "preloader",
     "preloadBar": "---"
   },
-  "home":
-  {
+  "home": {
     "id": "home",
     "negative": false,
-    "description":
-    {
+    "description": {
       "name": "MICHAEL SCHADE",
       "one": "INTERACTION",
       "two": "DESIGN",
       "scroll": "SCROLL"
     },
-    "background":
-    {
+    "background": {
       "logo": "url(images/logo.png)",
       "nlogo": "url(images/logoNegative.png)"
     },
@@ -35,21 +30,19 @@
       },
       {
         "id": "1",
-        "linkName": "The Pictures",
-        "linkPath": "/photography"
+        "linkName": "The Person",
+        "linkPath": "/me"
       },
       {
         "id": "2",
-        "linkName": "The Person",
-        "linkPath": "/me"
+        "linkName": "The Pictures",
+        "linkPath": "/photography"
       }
     ]
   },
-  "work":
-  {
+  "work": {
     "id": "work",
-    "grid_items_bg":
-    {
+    "grid_items_bg": {
       "1": "url(images/01.jpg)",
       "2": "url(images/05.jpg)",
       "3": "url(images/01.jpg)",
@@ -60,8 +53,7 @@
       "8": "url(images/02.jpg)",
       "9": "url(images/01.jpg)"
     },
-    "grid_items_title":
-    {
+    "grid_items_title": {
       "1": "Musical Cubes",
       "2": "Coded Reality",
       "3": "Human&Machine",
@@ -72,20 +64,18 @@
       "8": "Goldmann",
       "9": "The Pictures"
     },
-    "description":
-    {
+    "description": {
       "1": "A Interactive art installation for public spaces",
-      "2": "A narrative that can be influenced through a neural interface",
-      "3": "A psycho-technological theater experiment",
-      "4": "Art Installation that mirrors your movements",
+      "2": "A real-time narrative that can be influenced through a neural interface",
+      "3": "A psycho-technological theatre experiment",
+      "4": "An interactive art installation mirroring the users’ movements",
       "5": "A pervasive gaming prototype",
-      "6": "Wearable expressive midi controller",
-      "7": "Protoype of a new tool for presentations",
-      "8": "Documentary & Design of the Artist Stefan Goldmann",
+      "6": "A wearable MIDI controller for musical expression",
+      "7": "A new prototype to control visual presentations",
+      "8": "Documentary of the electronic music artist Stefan Goldmann",
       "9": "Conceptional experimental Photography"
     },
-    "links":
-    {
+    "links": {
       "1": "/musicalcubes",
       "2": "/codedreality",
       "3": "/humanandmachine",
@@ -96,8 +86,7 @@
       "8": "/goldmann",
       "9": "/thepictures"
     },
-    "year":
-    {
+    "year": {
       "1": "2015",
       "2": "2015",
       "3": "2014",
@@ -109,31 +98,26 @@
       "9": "2010"
     }
   },
-  "about":
-  {
-    "0":
-    [
+  "about": {
+    "0": [
       "Art",
       "Technolgies",
       "Musical Applications",
       "Culture"
     ],
-    "1":
-    [
+    "1": [
       "Interactive Installations",
       "Generative Design",
       "Performing Arts",
       "Maker Culture"
     ],
-    "2":
-    [
+    "2": [
       "Design",
       "Visual Aesthetics",
       "Creativity",
       "Photograpy"
     ],
-    "3":
-    [
+    "3": [
       "Pyhsical Computing",
       "Cinema4D",
       "AutoCAD",
@@ -141,8 +125,7 @@
       "Arduino",
       "Tangible Interfaces"
     ],
-    "4":
-    [
+    "4": [
       "Creative Thinking",
       "Interaction Design",
       "Interface Design",
@@ -153,8 +136,7 @@
       "InDesign",
       "AfterEffect"
     ],
-    "5":
-    [
+    "5": [
       "Creative Coding",
       "Processing",
       "OpenFrameworks",
@@ -165,13 +147,12 @@
       "C++,Java,Python"
     ]
   },
-  "musicalcubes":
-  {
+  "musicalcubes": {
     "title": "Musical Cubes",
     "route": "musicalcubes",
     "nextRoute": "codedreality",
     "titlePicture": "../images/cubes/cubes_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -198,7 +179,7 @@
           },
           {
             "type": "TEXT",
-            "content": "The user can change the pitch of the sound by changing the distance between the cubes and their own body. A shorter distance to a cube will result in a higher pitch while a longer distance will lower it. As the pitch corresponds to the colour of the cube, this change in body posture will also change the color. Furthermore, the user can create personalised sounds by recording his/her own voice. Shaking the cube will turn it red, and initiate the record mode (see Image 2). In the moment of recording, all other sounds will be muted in order to make the recording as clear as possible. When the recording is done, the sound will be unmuted and the cube switches back to normal mode."
+            "content": "The user can change the pitch of the sound by changing the distance between the cubes and their own body. A shorter distance to a cube will result in a higher pitch while a longer distance will lower it. As the pitch corresponds to the colour of the cube, this change in body posture will also change the color. Furthermore, the user can create personalised sounds by recording his/her own voice. Shaking the cube will turn it red, and initiate the record mode. In the moment of recording, all other sounds will be muted in order to make the recording as clear as possible. When the recording is done, the sound will be unmuted and the cube switches back to normal mode."
           },
           {
             "type": "IMAGE",
@@ -233,13 +214,12 @@
       }
     ]
   },
-  "codedreality":
-  {
+  "codedreality": {
     "title": "Coded Reality",
     "route": "codedreality",
     "nextRoute": "humanandmachine",
     "titlePicture": "../images/coded/coded_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -251,6 +231,31 @@
           {
             "type": "IMAGE",
             "src": "../images/coded/coded_02.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "Limitations:<br>The influence the participants may have by putting themselves consciously in a desired mental state are different from person to person and largely depends on the BCI devices they are wearing. In our case we are using several hacked toys from Neurosky, so-called Necominis. Those devices are not fulfilling scientific requirements to read the brain activity as their technology is very simple compared to other more expensive devices on the market. Consequently, they are not delivering a 100% representation of a specific mental state or emotion. In fact, a participant might be able to change the measures of the BCIs remarkably – with a bit of training and practise."
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/coded/coded_03.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/coded/coded_04.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "Detail technology description: <br> Like described above we are using the hacked Necomini BCI toy to receive certain mental states. Inside the headset there is a small Arduino nano computer that is directly connected to Neurosky’s TGMA module’s serial port inside the Necomini. Additionally the Arduino is connected to two RGB LED strips that visualise the mental state on the headset. The colour on the headset changes only when a significant change in the brainwave pattern is recognised (a threshold helps to filter additional noise), i.e. when another mental state is reached. Whenever this happens the current state is sent via UART to a computer that collects the states of all participants. Every state and the associate colour is then stored in a computer program in which a rated average of the mental state of all participants is calculated. The pyramid, which displays the decisions of all participants, is separated into three sections: bottom, middle and top. Whenever the computer program detects a new change in the mental state of the group this colour will be displayed at the bottom of the pyramid shifting the colours of the other two levels. Whenever the colour of the top section changes to another colour this has an actual influence on the story line. The change results in a little “neuron firework” running through the pyramid to the top section.",
+            "marginsTop": "0"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/coded/coded_05.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/coded/coded_06.gif"
           },
           {
             "type": "FOOTER",
@@ -273,13 +278,12 @@
       }
     ]
   },
-  "humanandmachine":
-  {
+  "humanandmachine": {
     "title": "Human and Machine",
     "route": "humanandmachine",
     "nextRoute": "thewall",
     "titlePicture": "../images/human/human_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -321,13 +325,12 @@
       }
     ]
   },
-  "thewall":
-  {
+  "thewall": {
     "title": "The Wall",
     "route": "thewall",
     "nextRoute": "lightminers",
     "titlePicture": "../images/wall/wall_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -369,13 +372,12 @@
       }
     ]
   },
-  "lightminers":
-  {
+  "lightminers": {
     "title": "Lightminers",
     "route": "lightminers",
     "nextRoute": "mubrace",
     "titlePicture": "../images/light/light_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -401,7 +403,7 @@
               },
               {
                 "name": "Experimedia",
-                "src": "www.scenlaboratoriet.se"
+                "src": "http://www.experimedia.eu/"
               }
             ]
           }
@@ -409,13 +411,12 @@
       }
     ]
   },
-  "mubrace":
-  {
+  "mubrace": {
     "title": "Mu:brace",
     "route": "mubrace",
     "nextRoute": "cucumbis",
     "titlePicture": "../images/mubrace/mubrace_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -454,13 +455,12 @@
       }
     ]
   },
-  "cucumbis":
-  {
+  "cucumbis": {
     "title": "Cucumbis",
     "route": "cucumbis",
     "nextRoute": "goldmann",
     "titlePicture": "../images/cucumbis/cucumbis_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -486,8 +486,8 @@
             "credits": "David Schneller, Michael Schade, Sebastian Ilves",
             "thanks": [
               {
-                "name": "Interactive Institute",
-                "src": "http://www.tii.se"
+                "name": "Chalmers University",
+                "src": "http://www.chalmers.se"
               }
             ]
           }
@@ -495,13 +495,12 @@
       }
     ]
   },
-  "goldmann":
-  {
+  "goldmann": {
     "title": "Goldmann",
     "route": "goldmann",
     "nextRoute": "thepictures",
     "titlePicture": "../images/goldmann/goldmann_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -539,13 +538,12 @@
       }
     ]
   },
-  "thepictures":
-  {
+  "thepictures": {
     "title": "rnd Pictures",
     "route": "thepictures",
     "nextRoute": "home",
     "titlePicture": "../images/pictures/pictures_title.jpg",
-    "sections":[
+    "sections": [
       {
         "sectionColor": "#FFF",
         "sectionBg": "",
@@ -572,10 +570,10 @@
           },
           {
             "type": "FOOTER",
-            "credits": "Thomas Kipke, Michael Schade",
+            "credits": "Michael Schade",
             "thanks": [
               {
-                "name": "Duplex and Masters, Soju Bar, HardWaxx"
+                "name": "To all the models!"
               }
             ]
           }

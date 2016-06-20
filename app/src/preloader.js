@@ -8,7 +8,6 @@ require('PreloadJS');
 require('gsap');
 require('./descramble.js');
 
-
 preloader = {};
 
 preloader.init = function() {
@@ -28,12 +27,8 @@ preloader.init = function() {
 
   queue.loadManifest([
     {
-      id: '0',
-      src: './images/down_arrow.svg'
-    },
-    {
       id: '1',
-      src:  '../images/load.gif'
+      src: './images/down_arrow.svg'
     },
     {
       id: '2',
@@ -41,7 +36,7 @@ preloader.init = function() {
     },
     {
       id: '3',
-      src: './images/bg_negative.jpg'
+      src: './images/bg_negative.png'
     },
     {
       id: '4',

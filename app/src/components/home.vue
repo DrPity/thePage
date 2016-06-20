@@ -133,7 +133,10 @@ module.exports = {
       if(!_.checkForMobile() && screen.width >= 699){
         op.isAnimating = true;
         var el = item.getElementsByClassName('bg');
+        console.log("EL: ", el[0].style['-webkit-transform']);
         window.requestAnimationFrame(function() {
+          // el[0].style.MozTransform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
+          // el[0].style['-webkit-transform'] = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
           el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
           el[0].addEventListener("transitionend", inHandler(el));
         });
@@ -144,6 +147,8 @@ module.exports = {
         op.isAnimating = true;
         var el = item.getElementsByClassName('bg');
         window.requestAnimationFrame(function() {
+          // el[0].style.MozTransform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
+          // el[0].style['-webkit-transform'] = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
           el[0].style.transform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
           el[0].addEventListener("transitionend", outHandler(el));
         });
@@ -152,11 +157,14 @@ module.exports = {
     mousemove: function(item,event){
       if(!_.checkForMobile() && screen.width >= 699){
         if (!op.isAnimating){
+          var el = item.getElementsByClassName('bg');
+          var offsetY = (window.outerHeight - window.innerHeight) /6;
+          var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
+              y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
+          // console.log("x: ", x, "y: ", y)
           window.requestAnimationFrame(function() {
-            var el = item.getElementsByClassName('bg');
-            var offsetY = (window.outerHeight - window.innerHeight) /6;
-            var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
-                y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
+            // el[0].style.MozTransform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
+            // el[0].style['-webkit-transform'] = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
             el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
           });
         }

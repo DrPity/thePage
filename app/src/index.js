@@ -3,7 +3,11 @@ module.exports = {
     return startApp.model;
   },
 
-  getRouter: function () {
+  getMainView: function () {
+    return startApp.mainView;
+  },
+
+  getRouter: function(){
     return startApp.router;
   },
 };
@@ -27,12 +31,6 @@ var thepictures = require('./components/pictures.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
 // var VueTouch = require('vue-touch');
-
-
-Vue.use(require('vue-image-loader'),{
-  loadInfo: 'Loading',
-  timeout:100
-});
 
 // window.p5 = require('p5');
 // Vue.use(VueTouch);

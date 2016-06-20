@@ -76,7 +76,10 @@
   "browserify": {
     "transform": [
       "browserify-shim"
-    ]
+    ],
+    "three": "*",
+    "vue": "~1.0.10",
+    "vue-router": "*"
   },
   "eslintConfig": {
     "env": {
