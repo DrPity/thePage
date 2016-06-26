@@ -47,7 +47,7 @@
           <template v-for="media in section.media">
             <template v-if="media.type === 'VIDEO'">
               <div class="row noMargin align-center small-collapse">
-                <div class="small-12 large-7 columns margin-iframe">
+                <div class="small-12 large-9 xlarge-7 columns margin-iframe">
                   <div class="flex-video widescreen vimeo">
                     <iframe class="b-lazy" data-src="{{media.src}}" width="640" height="320" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                   </div>
@@ -56,11 +56,20 @@
             </template>
             <template v-if="media.type === 'IMAGE'">
               <div class="row noMargin align-center small-collapse">
-                <div class="small-12 large-7 columns small-centered margin">
+                <div class="small-12 large-9 xlarge-7 columns small-centered margin">
                   <img class="b-lazy"
-                	 src="../images/load.gif"
+                	 src="/images/load.gif"
                 	 data-src="{{media.src}}"
                 	 alt="Image description" />
+                </div>
+              </div>
+            </template>
+            <template v-if="media.type === 'TEXT'">
+              <div class="project-text row noMargin align-center small-collapse">
+                <div class="small-12 medium-11 large-10 columns margin mediumWithHeadline">
+                  <p class="text-content" v-if="media.content">
+                    {{{media.content}}}
+                  </p>
                 </div>
               </div>
             </template>
@@ -70,7 +79,7 @@
                   <div class="row noMargin align-center small-collapse">
                     <div class="small-12 large-12 columns margin">
                       <h6>Credits</h6><p>{{media.credits}}</p>
-                      <h6>Special thanks to</h6>
+                      <h6 v-if="media.thanks">Special thanks to</h6>
                       <span v-for="items in media.thanks">
                         <span v-if="items.src">
                           <a href="{{items.src}}">{{items.name}}</a>
@@ -84,17 +93,8 @@
                 </div>
               </div>
             </template>
-            <template v-if="media.type === 'TEXT'">
-              <div class="project-text row noMargin align-center small-collapse">
-                <div class="small-12 large-10 columns margin mediumWithHeadline">
-                  <p class="text-content" v-if="media.content">
-                    {{media.content}}
-                  </p>
-                </div>
-              </div>
-            </template>
           </template>
-          <navfooter style="position: relative!important;"
+          <navfooter style="position: relative!important; width: 100%"
             :project="projectdata.nextRoute">
           </navfooter>
         </div>

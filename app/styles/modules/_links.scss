@@ -89,11 +89,24 @@
   .text-content{
     max-width: 50%;
     margin-left: 25%;
+    margin: 0;
 
     @include breakpoint(medium down) {
       max-width: 100%;
       margin-left: 0%;
     }
+
+    @include breakpoint(large) {
+      max-width: 75%;
+      margin-left: 12.5%;
+    }
+
+    @include breakpoint(xlarge) {
+      max-width: 50%;
+      margin-left: 25%;
+    }
+
+
   }
 }
 
@@ -192,6 +205,16 @@ canvas{
   height: auto;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.xlarge-7 {
+  @include breakpoint(xlarge) {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 58.3333333333%;
+    -ms-flex: 0 0 58.3333333333%;
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+  }
 }
 
 

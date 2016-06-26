@@ -42,7 +42,7 @@
         opacity: 0!important;
       }
     }
-    
+
     @include use-normal-font($extraBold, 400, 0.8rem, 4px, rgb(0, 0, 0));
     color: #000;
     a{
@@ -111,6 +111,7 @@
     @include use-normal-font($extraBold, 400, 0.8rem, 4px, rgb(0, 0, 0));
     a{
       // background-color: #000;
+      width: 100%;
       pointer-events: auto;
       text-decoration: none;
       display: inline-block;
@@ -120,6 +121,11 @@
       @include breakpoint(xlarge up) {
         font-size: modular-scale(1, 0.7rem, 1.234)!important;
       }
+
+      span{
+        padding: 0;
+      }
+
       &:before {
         content: "";
         position: absolute;

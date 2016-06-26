@@ -8,7 +8,7 @@
   height: 100vh;
   background-position:50% 50%;
   background-size: cover;
-  transition: transform 160ms linear;
+  // transition: transform 160ms linear;
   // transform: matrix(1, 0, 0, 1, 0, 0);
   // background-color: $primary;
   // transition: all 500ms ease;
@@ -63,11 +63,11 @@
 
 .scroll_hint{
   position: absolute;
-  bottom: 9vh;
+  bottom: 11vh;
   left: 50%;
   @include breakpoint(medium down) {
     bottom: 4vh;
-    font-size: modular-scale(1, 0.2rem, 1.234)!important;
+    font-size: modular-scale(0, 0.2rem, 1.234)!important;
   }
   transform: translateX(-50%) translateY(-50%);
 }

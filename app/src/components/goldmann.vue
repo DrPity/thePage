@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'<strong>Parameter</strong> is the first comprehensive'"
+    :description="'<i>Parameter</i> is the first comprehensive documentary film portrait of Stefan Goldmann. It traces the way his music takes from his studio to the club. Following this path, the film also gives rare insights into the premises of Berlin electronic music institutions such as Hard Wax record store and the Dubplates & Mastering studio. Furthermore, the viewer gains insights into the artist’s principles of work through in-depth interviews.'"
     :projectdata="goldmann"
     ></project>
   </div>

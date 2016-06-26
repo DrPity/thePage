@@ -171,7 +171,8 @@
           },
           {
             "type": "TEXT",
-            "content": "Our installation works like a collaborative step sequencer as it consists of eight interactive translucent cubes (2x4 matrix) hanging from the ceiling at a certain height. Users are able to interact by standing underneath a cube. By their presence in that space, they initiate a sound and effect the shine of coloured light as soon as the sequencer passes the cube. They can broaden the range of their possible interactive space by for example stretching their arms and thus reaching the physical space of the adjacent cubes. Through such striding movements they get the chance of interacting with several cubes at the same time."
+            "content": "Our installation works like a collaborative step sequencer as it consists of eight interactive translucent cubes (2x4 matrix) hanging from the ceiling at a certain height. Users are able to interact by standing underneath a cube. By their presence in that space, they initiate a sound and effect the shine of coloured light as soon as the sequencer passes the cube. They can broaden the range of their possible interactive space by for example stretching their arms and thus reaching the physical space of the adjacent cubes. Through such striding movements they get the chance of interacting with several cubes at the same time.",
+            "marginb": "0"
           },
           {
             "type": "IMAGE",
@@ -179,7 +180,8 @@
           },
           {
             "type": "TEXT",
-            "content": "The user can change the pitch of the sound by changing the distance between the cubes and their own body. A shorter distance to a cube will result in a higher pitch while a longer distance will lower it. As the pitch corresponds to the colour of the cube, this change in body posture will also change the color. Furthermore, the user can create personalised sounds by recording his/her own voice. Shaking the cube will turn it red, and initiate the record mode. In the moment of recording, all other sounds will be muted in order to make the recording as clear as possible. When the recording is done, the sound will be unmuted and the cube switches back to normal mode."
+            "content": "The user can change the pitch of the sound by changing the distance between the cubes and their own body. A shorter distance to a cube will result in a higher pitch while a longer distance will lower it. As the pitch corresponds to the colour of the cube, this change in body posture will also change the color. Furthermore, the user can create personalised sounds by recording his/her own voice. Shaking the cube will turn it red, and initiate the record mode. In the moment of recording, all other sounds will be muted in order to make the recording as clear as possible. When the recording is done, the sound will be unmuted and the cube switches back to normal mode.",
+            "marginb": "0"
           },
           {
             "type": "IMAGE",
@@ -187,7 +189,8 @@
           },
           {
             "type": "TEXT",
-            "content": "If the user wants the sound to be copied to other cubes, he/she may transfer it from one cube to another by simply bringing the two cubes together (see Image 3). The newest sound of the two will then overwrite the older one.These different functions reflect the project*s underlying intention. As the handling of the MusicalCubes is somewhat restricted if used alone, it becomes clear that the installation is intended for bringing people together in a collaborative interaction. By standing under the cubes, recording sounds and perhaps alter their distance to the cubes they can create a beat or melody together."
+            "content": "If the user wants the sound to be copied to other cubes, he/she may transfer it from one cube to another by simply bringing the two cubes together (see Image 3). The newest sound of the two will then overwrite the older one.These different functions reflect the project*s underlying intention. As the handling of the MusicalCubes is somewhat restricted if used alone, it becomes clear that the installation is intended for bringing people together in a collaborative interaction. By standing under the cubes, recording sounds and perhaps alter their distance to the cubes they can create a beat or melody together.",
+            "marginb": "0"
           },
           {
             "type": "VIDEO",
@@ -247,15 +250,11 @@
           {
             "type": "TEXT",
             "content": "Detail technology description: <br> Like described above we are using the hacked Necomini BCI toy to receive certain mental states. Inside the headset there is a small Arduino nano computer that is directly connected to Neurosky’s TGMA module’s serial port inside the Necomini. Additionally the Arduino is connected to two RGB LED strips that visualise the mental state on the headset. The colour on the headset changes only when a significant change in the brainwave pattern is recognised (a threshold helps to filter additional noise), i.e. when another mental state is reached. Whenever this happens the current state is sent via UART to a computer that collects the states of all participants. Every state and the associate colour is then stored in a computer program in which a rated average of the mental state of all participants is calculated. The pyramid, which displays the decisions of all participants, is separated into three sections: bottom, middle and top. Whenever the computer program detects a new change in the mental state of the group this colour will be displayed at the bottom of the pyramid shifting the colours of the other two levels. Whenever the colour of the top section changes to another colour this has an actual influence on the story line. The change results in a little “neuron firework” running through the pyramid to the top section.",
-            "marginsTop": "0"
+            "marginb": "0"
           },
           {
             "type": "IMAGE",
             "src": "../images/coded/coded_05.jpg"
-          },
-          {
-            "type": "IMAGE",
-            "src": "../images/coded/coded_06.gif"
           },
           {
             "type": "FOOTER",
@@ -299,6 +298,19 @@
           {
             "type": "IMAGE",
             "src": "../images/human/human_03.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "In the final concept of the <i>Human and Machine</i> system the actor controls the robot, which is divided in two parts, robot arm and truss, by using different sensors measuring the actor’s position, heart-rate and brain activity. During the entire theatre performance the system will be controlled by a technician with the exception of individual parts in which the robot reacts and speaks only according to the sensor data. This independent action is based on different interaction strategies. The controls for the technician as well as the sensor data are visualized during the entire performance to give the technician and the actor a visual response but also to enrich the experience for the audience as they get a better impression of what happens on stage. Additionally, an illumination system is installed at the robot arm and truss to dynamically integrate the stage environment into the performance. The final implementation of the <i>Human and Machine</i> system contains several different parts of software and hardware. These parts are responsible for controlling the robot, the sensors, the stage environment and the cue system.",
+            "marginb": "0"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_04.png"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/human/human_05.jpg"
           },
           {
             "type": "VIDEO",
@@ -385,6 +397,14 @@
           {
             "type": "IMAGE",
             "src": "../images/light/light_01.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/light/light_02.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/light/light_03.jpg"
           },
           {
             "type": "VIDEO",
@@ -478,6 +498,14 @@
             "src": "../images/cucumbis/cucumbis_03.jpg"
           },
           {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_04.jpg"
+          },
+          {
+            "type": "IMAGE",
+            "src": "../images/cucumbis/cucumbis_05.jpg"
+          },
+          {
             "type": "VIDEO",
             "src": "https://player.vimeo.com/video/157275463"
           },
@@ -539,7 +567,7 @@
     ]
   },
   "thepictures": {
-    "title": "rnd Pictures",
+    "title": "The Pictures",
     "route": "thepictures",
     "nextRoute": "home",
     "titlePicture": "../images/pictures/pictures_title.jpg",
@@ -570,12 +598,7 @@
           },
           {
             "type": "FOOTER",
-            "credits": "Michael Schade",
-            "thanks": [
-              {
-                "name": "To all the models!"
-              }
-            ]
+            "credits": "Michael Schade"
           }
         ]
       }

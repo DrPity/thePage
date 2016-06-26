@@ -20,7 +20,7 @@ transition="fade"
           <div class="text-stuff">
             <div class="description">My name is <b style="font-weight: 900;">Michael Schade</b>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology. Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</div>
             <div class="extra mediumLargeFont">
-              <div class="small-12 columns">
+              <div class="abox">
                 <span>I BURN FOR</span>
                 <br>
                 <br>
@@ -31,7 +31,7 @@ transition="fade"
                 </div>
                 <br><br>
               </div>
-              <div class="small-12 columns">
+              <div class="abox">
                 <br><br>
                 <span>I CAN OFFER SKILLS IN</span>
                 <br><br>

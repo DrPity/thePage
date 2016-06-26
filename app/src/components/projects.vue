@@ -36,7 +36,7 @@
       </template>
     </div>
     <div class="footer">
-      <p>// 2016 \\</p>
+      <p>2016</p>
     </div>
   </section>
 </template>

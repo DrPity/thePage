@@ -6,10 +6,10 @@
     :showabout="true"
     ></navigation>
     <div class="topbar"></div>
-    <div class="bg-overlay" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)"></div>
+    <div class="bg-overlay" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)" v-on:transitionend="trans()"></div>
     <!-- First section and Background Image -->
     <section class="row noMargin color_0">
-      <div class="bg">
+      <div class="bg" style="transition: 100ms; transform: matrix(1, 0, 0, 1, 0, 0);">
         <div class="tag">
           <h6 id="0" class="name">{{home.description.name | uppercase}}</h6>
           <h6 id="1" class="description_one">{{home.description.one | uppercase}}</h6>
@@ -37,6 +37,7 @@ var _ = require('../helpers');
 var $ = require('jquery');
 var scramble = require('../scramble');
 var scr = new scramble();
+var transitionEnd = _.transitions();
 var op = {
     scale: 1.04,
     strength: 25,
@@ -129,16 +130,19 @@ module.exports = {
 
       return "background-image:" + "url(" + url +  ");";
     },
+    trans: function(){
+      console.log("transition done");
+    },
     mouseenter: function(item){
       if(!_.checkForMobile() && screen.width >= 699){
         op.isAnimating = true;
         var el = item.getElementsByClassName('bg');
-        console.log("EL: ", el[0].style['-webkit-transform']);
+        el[0].addEventListener("click", function(){ alert("Hello World!"); });
         window.requestAnimationFrame(function() {
-          // el[0].style.MozTransform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
-          // el[0].style['-webkit-transform'] = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
+          el[0].style.transition  ='100ms';
           el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
-          el[0].addEventListener("transitionend", inHandler(el));
+          // el[0].addEventListener(transitionEvent, inHandler(el), false);
+          el[0].addEventListener(transitionEnd, handler);
         });
       }
     },
@@ -147,10 +151,10 @@ module.exports = {
         op.isAnimating = true;
         var el = item.getElementsByClassName('bg');
         window.requestAnimationFrame(function() {
-          // el[0].style.MozTransform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
-          // el[0].style['-webkit-transform'] = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
+          el[0].style.transition  ='100ms';
           el[0].style.transform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
-          el[0].addEventListener("transitionend", outHandler(el));
+          // $('.bg').on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
+          //   })
         });
       }
     },
@@ -161,9 +165,11 @@ module.exports = {
           var offsetY = (window.outerHeight - window.innerHeight) /6;
           var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
               y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
-          // console.log("x: ", x, "y: ", y)
+
           window.requestAnimationFrame(function() {
-            // el[0].style.MozTransform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
+            // el[0].style['-webkit-transition']  ='none';
+            el[0].removeEventListener("transitionend", handler);
+            el[0].style.transition  ='none';
             // el[0].style['-webkit-transform'] = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
             el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';
           });
@@ -174,13 +180,17 @@ module.exports = {
 };
 
 
-function inHandler(el){
+function handler(event){
+  console.log("END", event);
   op.isAnimating = false;
-  el[0].removeEventListener("transitionend", inHandler);
+  // console.log("Enter finished", el[0]);
+  // console.log("Enter finished", $('.bg'));
+  // elem[0].removeEventListener(transitionEnd, inHandler);
 };
 
 function outHandler(el){
   op.isAnimating = false;
+  console.log("Leave finished");
   el[0].removeEventListener("transitionend", outHandler);
 };
 

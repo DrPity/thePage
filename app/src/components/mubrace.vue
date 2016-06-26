@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'Some text'"
+    :description="'In electronic music, mixing and production, there is a trend towards a more electronically based platform for sound generation and expression. In the context of live performance this trend includes the use of computers, hardware synthesizers, and midi controllers. The wearable device Mu:Brace: tries to combine all these functions while additionally keeping the natural freedom of movement of the user as it can be strapped to arm and wrist. The <i>Mu:Brace</i> consists of a 3D printed casing that contains several sensors, buttons and faders. It can be used as a standard MIDI device but also allows the modification of MIDI values by different gestures and/or movements in a 3D space.'"
     :projectdata="mubrace"
     ></project>
   </div>
