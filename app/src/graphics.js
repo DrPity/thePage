@@ -1,7 +1,6 @@
 require('gsap');
 var _ = require('./helpers');
-window.PIXI = require('pixi.js');
-window.scene = {
+var scene = {
     elem: null,
     width: 1920,
     height: 1080,
@@ -16,7 +15,7 @@ window.scene = {
 
 // console.log("The screen height: ", (screen.height));
 
-window.handler = {
+var handler = {
 
   preload: function(image){
     handler.createrenderer(); // Create renderer to test which kind in loading,

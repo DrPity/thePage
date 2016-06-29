@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'A series of arranged “portrait” pictures aiming to give a deeper glance at the inner mind of the portrayed persons.'"
+    :description="'A series of arranged “portrait” pictures.'"
     :projectdata="thepictures"
     ></project>
   </div>

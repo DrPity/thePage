@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'The prototype aims at simplifying presentations and thus avoiding time-consuming hassle with badly functioning systems. <i>Cucumbis</i> allows the user to display PDF presentations from an android device (presenter) on another device (renderer) and remotely flip through the slides. The renderer can be any device that has a browser, e.g. a laptop that is connected with a projector. This makes it possible to use a single laptop to display presentations while several presenters can provide, control and join the presentations from their phones.'"
+    :description="'The prototype aims at simplifying presentations and thus avoiding time-consuming hassle with badly functioning systems. <i>Cucumbis</i> allows the user to display PDF presentations from an android device (presenter) on another device (renderer) and to remotely flip through the slides. The renderer can be any device that has a browser, e.g. a laptop that is connected with a projector. This makes it possible to use a single laptop to display presentations while several presenters can provide, control and join the presentations from their phones.'"
     :projectdata="cucumbis"
     ></project>
   </div>

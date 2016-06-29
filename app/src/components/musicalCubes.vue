@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'<i>MusicalCubes</i> is a collaborative interactive art installation for open spaces. It consists of eight illuminated semi transparent cubes, hanging from the ceiling in a 2x4 pattern. The users can interact with the installation in various ways. They can record their own sounds and transfer them between cubes in order to make a beat or melody in their desired way. '"
+    :description="'<i>MusicalCubes</i> is a collaborative interactive art installation for open spaces. It consists of eight illuminated semi-transparent cubes, hanging from the ceiling in a 2x4 pattern. The users can interact with the installation in various ways. They can record their own sounds and transfer them between cubes in order to make a beat or melody in their desired way. '"
     :projectdata="musicalcubes"
     ></project>
   </div>

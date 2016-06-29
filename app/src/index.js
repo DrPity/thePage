@@ -26,6 +26,7 @@ var goldmann = require('./components/goldmann.vue');
 var thepictures = require('./components/pictures.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
+window.PIXI = require('pixi.js');
 // var VueTouch = require('vue-touch');
 
 
@@ -43,8 +44,8 @@ function App(url) {
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
   this.router = new Router({
-    hashbang: true,
-    history: false,
+    hashbang: false,
+    history: true,
     abstract: false,
     transitionOnLoad: true,
     saveScrollPosition: false,

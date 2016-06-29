@@ -403,23 +403,23 @@ article{
   position: relative;
   float: right;
   z-index: 2;
-  margin-right: 10%;
+  margin-right: 9%;
   margin-bottom: 4%;
-  margin-top: 3rem;
+  margin-top: 5rem;
   h3{
     font-size: modular-scale(5, 1rem, 1.234)!important;
     color: #FFF;
     margin-bottom: 1rem;
   }
   @include use-normal-font($extraBold, 400, 0, 20px, rgb(255, 255, 255));
-  border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+  // border-bottom: 4px solid rgba(255, 255, 255, 0.8);
 
   @include breakpoint(medium down) {
     text-align: center;
     margin-right: calc(15% - 1.5rem);
     letter-spacing: 8px;
     // margin-right: 2.5%;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    // border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     h3{
       font-size: modular-scale(3, 1rem, 1.234)!important;
     }

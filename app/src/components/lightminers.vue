@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'<i>Light Miners</i> is a pervasive game that is played by two teams marked by a specific colour. Team members use a smartphone app to locate game lamps in the landscape. When a player is close to a lamp, it can be conquered for the team. The lamp will then switch its colour to the discovery team’s colour. At the end of the round the team with the most lamp shining in their colour wins. The game was developed during a one day design challenge with the European Experimedia project in Austria.'"
+    :description="'<i>Light Miners</i> is a pervasive game that is played by two teams marked by a specific colour. Team members use a smartphone app to locate game lamps in the landscape. When a player is close to a lamp, it can be conquered for the team. The lamp will then switch its colour to the discovery team’s colour. At the end of the round the team with the most lamps shining in their colour wins. The game was developed during a one day design challenge in the course of the European Experimedia project in Austria.'"
     :projectdata="lightminers"
     ></project>
   </div>

@@ -2,7 +2,7 @@
   <div class="root" transition="fade">
     <project
     :work="work"
-    :description="'<i>Human and Machine</i> is a psycho-technological theatre experiment at the crossroads between man and machine. It is the aim of the project to explore the encounter between a human being and a machine which is realized as an interaction between both sides on a theatrical, technological and narrative level. Using open source, technologies in visualization, neurofeedback and robot real-time control, the project intends to build a theatrical performance in which an actor controls, through thought and action, a robot on stage, while interacting with it, making it each time a truly unique performance.'"
+    :description="'<i>Human and Machine</i> is a psycho-technological theatre experiment at the crossroads between man and machine. It is the aim of the project to explore the encounter between a human being and a machine which is realized as an interaction between both sides on a theatrical, technological and narrative level. Using open source, technologies in visualization, neurofeedback and robot real-time control, the project intends to build a theatrical performance in which an actor, through thought and action, controls a robot on stage while interacting with it. By this, each time a truly unique performance is created.'"
     :projectdata="humanandmachine"
     ></project>
   </div>

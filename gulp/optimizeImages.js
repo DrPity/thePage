@@ -10,7 +10,7 @@ gulp.task('optimizeImages', function () {
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
-            use: [jpegtran(), gifsicle()]
+            // use: [jpegtran(), gifsicle()]
             // use: [pngquant(), jpegtran(), gifsicle()]
         }))
         .pipe(gulp.dest('dist/images/'));

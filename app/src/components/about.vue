@@ -18,7 +18,7 @@ transition="fade"
       <div class="aboutTxt">
         <div class="small-12 columns align-self-middle">
           <div class="text-stuff">
-            <div class="description">My name is <b style="font-weight: 900;">Michael Schade</b>, I'm a interaction designer and creative technologist and I'm working at the cross boarders of Art, Design and Technology. Currently I'm a researcher and interaction designer at the CITEC institute in Bielefeld - Germany</div>
+            <div class="description">My name is <b style="font-weight: 900;">Michael Schade</b>.<br>I am an interaction designer and creative technologist and I work at the borders of art, design and technology. Currently I am a researcher and interaction designer at the CITEC Institute in Bielefeld, Germany.</div>
             <div class="extra mediumLargeFont">
               <div class="abox">
                 <span>I BURN FOR</span>
@@ -67,7 +67,12 @@ transition="fade"
         <div class="small-12 columns">
           <div class="about-footer">
             <div class="mediumFont">Feel free to contact me</div>
-            <p class="mediumFont"><a v-bind:href=" 'mailto:' + contact.mail">Mail</a>- Vimeo - Github - LinkedIn</p>
+            <p class="mediumFont">
+              <a v-bind:href=" 'mailto:' + contact.mail">Mail</a> -
+              <a v-bind:href="'https://vimeo.com/user34465232'">Vimeo</a> -
+              <a v-bind:href="'https://vimeo.com/user34465232'">Github</a> -
+              <a v-bind:href="'https://vimeo.com/user34465232'">LinkedIn</a>
+            </p>
           </div>
         </div>
       </div>

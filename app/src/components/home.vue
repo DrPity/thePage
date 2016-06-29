@@ -39,7 +39,7 @@ var scramble = require('../scramble');
 var scr = new scramble();
 var transitionEnd = _.transitions();
 var op = {
-    scale: 1.04,
+    scale: 1.08,
     strength: 25,
     animationSpeed: "100ms",
     isAnimating: false
@@ -137,10 +137,12 @@ module.exports = {
       if(!_.checkForMobile() && screen.width >= 699){
         op.isAnimating = true;
         var el = item.getElementsByClassName('bg');
-        el[0].addEventListener("click", function(){ alert("Hello World!"); });
+        var offsetY = (window.outerHeight - window.innerHeight) /6;
+        var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
+            y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
         window.requestAnimationFrame(function() {
-          el[0].style.transition  ='100ms';
-          el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale + ',0,0)';
+          el[0].style.transition  ='300ms';
+          el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale  + ',' + x + ',' + y + ')';
           // el[0].addEventListener(transitionEvent, inHandler(el), false);
           el[0].addEventListener(transitionEnd, handler);
         });
@@ -151,7 +153,7 @@ module.exports = {
         op.isAnimating = true;
         var el = item.getElementsByClassName('bg');
         window.requestAnimationFrame(function() {
-          el[0].style.transition  ='100ms';
+          el[0].style.transition  ='300ms';
           el[0].style.transform = 'matrix(' + 1 + ',0,0,' + 1 + ',0,0)';
           // $('.bg').on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
           //   })
@@ -181,7 +183,7 @@ module.exports = {
 
 
 function handler(event){
-  console.log("END", event);
+  // console.log("END", event);
   op.isAnimating = false;
   // console.log("Enter finished", el[0]);
   // console.log("Enter finished", $('.bg'));

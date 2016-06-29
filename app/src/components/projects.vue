@@ -32,8 +32,8 @@
             </div>
           </div>
         </article>
-        <div class="endTag"></div>
       </template>
+      <div class="endTag"></div>
     </div>
     <div class="footer">
       <p>2016</p>
@@ -80,7 +80,7 @@ module.exports = {
       var endEl = this.$el.getElementsByClassName('footer');
       var navEl = document.getElementsByClassName('nav-links');
       var _this = this;
-      var multiplier = 0.65;
+      var multiplier = 0.58;
       var eloffset = _.getOffset(el[0]).top;
       var endValue = Math.ceil(_.getOffset(endEl[0]).top * multiplier);
       var orientation = _.orientation();
@@ -116,6 +116,7 @@ module.exports = {
         };
       }else if(!_.checkForMobile()){
         window.onscroll = function (e) {
+          console.log("in second function");
           var offset = window.pageYOffset,
           switchValue = Math.floor(eloffset * 0.8);
           if(window.innerWidth >= 1024){checkNav(switchValue, offset, navEl);}
