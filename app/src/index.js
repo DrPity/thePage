@@ -44,7 +44,7 @@ function App(url) {
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
   this.router = new Router({
-    hashbang: false,
+    hashbang: true,
     history: true,
     abstract: false,
     transitionOnLoad: true,
@@ -83,7 +83,7 @@ App.prototype.init = function (url) {
 App.prototype.readJson = function (url) {
   console.log('In read Json');
   return $.getJSON(url).then(function (data) {
-    console.log(JSON.stringify(data, null, 2));
+    // console.log(JSON.stringify(data, null, 2));
     return data;
   });
 };
@@ -91,9 +91,13 @@ App.prototype.readJson = function (url) {
 App.prototype.createRouterMap = function () {
   this.router.map({
     '*':{
-      component: loader,
+      component: home,
     },
     '/': {
+      name: 'home',
+      component: home,
+    },
+    '/loader': {
       name: 'loader',
       component: loader,
     },
@@ -165,4 +169,7 @@ App.prototype.newVue = function (element, dataAtrributes) {
 
 //remove global Variable after finsihed debugging
 attachFastClick(document.body);
+window.onpopstate = function(event) {
+    console.log("state: " , event.state);
+};
 window.startApp = new App('./assets/model.json');

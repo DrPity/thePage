@@ -116,7 +116,7 @@ module.exports = {
         };
       }else if(!_.checkForMobile()){
         window.onscroll = function (e) {
-          console.log("in second function");
+          // console.log("in second function");
           var offset = window.pageYOffset,
           switchValue = Math.floor(eloffset * 0.8);
           if(window.innerWidth >= 1024){checkNav(switchValue, offset, navEl);}

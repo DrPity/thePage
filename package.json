@@ -41,7 +41,7 @@
     "jquery": "*",
     "jshint": "*",
     "jshint-stylish": "*",
-    "lodash": "4.0.0",
+    "lodash": "*",
     "main-bower-files": "^2.5.0",
     "remapify": "*",
     "stringify": "^3.2.1",

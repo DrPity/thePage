@@ -70,8 +70,8 @@ transition="fade"
             <p class="mediumFont">
               <a v-bind:href=" 'mailto:' + contact.mail">Mail</a> -
               <a v-bind:href="'https://vimeo.com/user34465232'">Vimeo</a> -
-              <a v-bind:href="'https://vimeo.com/user34465232'">Github</a> -
-              <a v-bind:href="'https://vimeo.com/user34465232'">LinkedIn</a>
+              <a v-bind:href="'https://github.com/DrPity'">Github</a> -
+              <a v-bind:href="'https://www.linkedin.com/in/michael-schade-b44b6077'">LinkedIn</a>
             </p>
           </div>
         </div>

@@ -16,7 +16,7 @@
           <h6 id="2" class="description_two">{{home.description.two | uppercase}}</h6>
         </div>
         <div class="scroll_hint">
-          <h6 id="3" class="scroll">{{home.description.scroll | uppercase}}</h6>
+          <h6 id="3" class="scroll" v-show="false">{{home.description.scroll | uppercase}}</h6>
           <div class="circle">
             <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
@@ -64,7 +64,8 @@ module.exports = {
   route: {
     activate: function () {
       if (app.getRouter().app.$data.redirect === true){
-        app.getRouter().go('/');
+        app.getRouter().go('loader');
+        // history.replaceState({page: -1}, "title", "home");
       }
     },
     canDeactivate: function (transition) {
@@ -75,7 +76,8 @@ module.exports = {
 
   data: function() {
     return {
-      negative: false
+      negative: false,
+      scroll: false
     };
 
   },
@@ -87,8 +89,11 @@ module.exports = {
 
 
   ready: function() {
+    var _this = this;
     if (app.getRouter().app.$data.redirect === false){
-
+      if(screen.width >= 699){
+        _this.scroll = true;
+      }
       document.getElementById('wrapper').style.height = 'auto';
       //scrambling
       var index = 0;

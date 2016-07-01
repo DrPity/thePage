@@ -94,9 +94,11 @@ preloader.init = function() {
 };
 
 preloader.onComplete = function(event) {
+
     var nextRoute = app.getRouter().app.$data.nextRoute;
+    // history.pushState({foo: 'bar'}, "page 2", nextRoute);
     // console.log("NextRoute", nextRoute);
-    var router = app.getRouter().go(nextRoute);
+    var router = app.getRouter().replace(nextRoute);
 };
 
 preloader.onError = function (event) {

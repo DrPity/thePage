@@ -240,7 +240,7 @@
           },
           {
             "type": "TEXT",
-            "content": "Limitations:<br>The influence the participants may have by putting themselves consciously in a desired mental state are different from person to person and largely depends on the BCI devices they are wearing. In our case we use several hacked toys from Neurosky, so-called Necominis. Those devices are not fulfilling scientific requirements regarding the reading of brain activity. Their technology is very simple compared to other more expensive devices on the market. Consequently, they are not delivering a 100% representation of a specific mental state or emotion. In fact, a participant might be able to change the measures of the BCIs remarkably – with a bit of training and practise."
+            "content": "The influence the participants may have by putting themselves consciously in a desired mental state are different from person to person and largely depends on the BCI devices they are wearing. In our case we use several hacked toys from Neurosky, so-called Necominis. Those devices are not fulfilling scientific requirements regarding the reading of brain activity. Their technology is very simple compared to other more expensive devices on the market. Consequently, they are not delivering a 100% representation of a specific mental state or emotion. In fact, a participant might be able to change the measures of the BCIs remarkably – with a bit of training and practise."
           },
           {
             "type": "IMAGE",
@@ -251,13 +251,17 @@
             "src": "../images/coded/coded_04.jpg"
           },
           {
+            "type": "IMAGE",
+            "src": "../images/coded/coded_05.jpg"
+          },
+          {
             "type": "TEXT",
-            "content": "Detailed technology description: <br> As described above we are using the hacked Necomini BCI toy to receive certain mental states. Inside the headset there is a small Arduino nano computer that is directly connected to Neurosky’s TGMA module’s serial port inside the Necomini. Additionally, the Arduino is connected to two RGB LED strips that visualise the mental state on the headset. The colour on the headset changes only when a significant change in the brainwave pattern is recognised (a threshold helps to filter additional noise), i.e. when another mental state is reached. Whenever this happens the current state is sent via UART to a computer that collects the states of all participants. Every state and the associate colour is then stored in a computer program in which a rated average of the mental state of all participants is calculated. The pyramid, which displays the decisions of all participants, is separated into three sections: bottom, middle and top. Whenever the computer program detects a new change in the mental state of the group this colour will be displayed at the bottom of the pyramid shifting the colours of the other two levels. Whenever the colour of the top section changes to another colour this has an actual influence on the story line. The change results in a little “neuron firework” running through the pyramid to the top section.",
+            "content": "As described above we are using the hacked Necomini BCI toy to receive certain mental states. Inside the headset there is a small Arduino nano computer that is directly connected to Neurosky’s TGMA module’s serial port inside the Necomini. Additionally, the Arduino is connected to two RGB LED strips that visualise the mental state on the headset. The colour on the headset changes only when a significant change in the brainwave pattern is recognised (a threshold helps to filter additional noise), i.e. when another mental state is reached. Whenever this happens the current state is sent via UART to a computer that collects the states of all participants. Every state and the associate colour is then stored in a computer program in which a rated average of the mental state of all participants is calculated. The pyramid, which displays the decisions of all participants, is separated into three sections: bottom, middle and top. Whenever the computer program detects a new change in the mental state of the group this colour will be displayed at the bottom of the pyramid shifting the colours of the other two levels. Whenever the colour of the top section changes to another colour this has an actual influence on the story line. The change results in a little “neuron firework” running through the pyramid to the top section.",
             "marginb": "0"
           },
           {
             "type": "IMAGE",
-            "src": "../images/coded/coded_05.jpg"
+            "src": "../images/coded/coded_06.jpg"
           },
           {
             "type": "FOOTER",
@@ -309,7 +313,7 @@
           },
           {
             "type": "IMAGE",
-            "src": "../images/human/human_04.png"
+            "src": "../images/human/human_04.jpg"
           },
           {
             "type": "IMAGE",
@@ -449,16 +453,36 @@
             "src": "../images/mubrace/mubrace_01.jpg"
           },
           {
+            "type": "TEXT",
+            "content": "The heart of the <i>Mu:Brace</i> prototype is a Teensy 3.0 microcontroller which has a small physical size and the advantage of native support for USBMIDI. By this, it allows for an easy communication with different music programs. All the hardware is fitted into a custom 3D printed casing made from ABS plastic. Some of the contained Mu:Brace hardware and technical features are described in the following:",
+            "marginb": "0"
+          },
+          {
             "type": "IMAGE",
             "src": "../images/mubrace/mubrace_02.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "<b>Rotary Encoders and Buttons:</b> The rotary knobs of the Mu:Brace are encoders which can rotate endlessly. This property has the disadvantage that the user does not get tactile feedback when a minimum or maximum value is reached. On the other hand this allows for realtime remapping of the encoder input to different parameters without value jumps. By using visual feedback such as a LED graph, the problem with feedback of minimum and maximum limits can be reduced.<br><br><b>Visualizing the Input Given by the User:</b> To give the user visual feedback when using the different interaction techniques, a LED bar can be used to show changes of parameter values. This is especiallz useful for animated values or parameters that are controlled by sensors that don’t give tactile feedback (as described above).",
+            "marginb": "0"
           },
           {
             "type": "IMAGE",
             "src": "../images/mubrace/mubrace_03.jpg"
           },
           {
+            "type": "TEXT",
+            "content": "<b>Swipe guesture:</b> With the use of two IRproximity sensors it is possible to implement a hand swipe interaction. By measuring the time between coverage of the IRsensors it is possible to initiate a parameter “animation” that is affected by the direction and speed of the hand’s movements. The parameter controlled by the swipe can be animated in many ways. One way is to let the parameter value travel depending on the speed and direction of the swipe and then let it slow down to settle on a value. With this method the user can smoothly increase or decrease the value by repeatedly swiping his hand. Another possibility for the swipe is to let the animation travel from a predetermined value in a direction and distance dependent on the swipe. Then the value smoothly returns to its default value. The advantage of this animation is that the user doesn’t have to worry about the current parameter value, since it will always return to the same default.<br><br><b>Distance Sensing:</b> In addition to the swipe feature described above we can use an IRsensor to create an interaction similar to that of a theremin, where the distance from the hand to the sensor controls the output parameter.",
+            "marginb": "0"
+          },
+          {
             "type": "IMAGE",
             "src": "../images/mubrace/mubrace_04.jpg"
+          },
+          {
+            "type": "TEXT",
+            "content": "<b>Orientation in Three-Dimensional Space:</b> An IMU (Inertial Measurement Unit) can be used to measure orientation in three dimensions. This allows for an interaction where three parameters are controlled at the same time, by turning the IMU in different directions (roll, pitch, yaw).<br><br><b>Accelerometer Threshold Triggering:</b> By only using the accelerometer of IMU the proper acceleration can be measured. By setting a threshold it is possible to trigger certain parameter changes by rapidly moving the accelerometer. For example, this could be used to trigger drum sounds by creating beats with the hand in the air.",
+            "marginb": "0"
           },
           {
             "type": "VIDEO",
@@ -594,10 +618,6 @@
           {
             "type": "IMAGE",
             "src": "../images/pictures/pictures_04.jpg"
-          },
-          {
-            "type": "IMAGE",
-            "src": "../images/pictures/pictures_05.jpg"
           },
           {
             "type": "FOOTER",
