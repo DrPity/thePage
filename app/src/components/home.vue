@@ -6,7 +6,7 @@
     :showabout="true"
     ></navigation>
     <div class="topbar"></div>
-    <div class="bg-overlay" v-on:mouseenter="mouseenter($el)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)" v-on:transitionend="trans()"></div>
+    <div class="bg-overlay" v-on:mouseenter="mouseenter($el,$event)" v-on:mouseleave="mouseleave($el)" v-on:mousemove="mousemove($el,$event)" v-on:transitionend="trans()"></div>
     <!-- First section and Background Image -->
     <section class="row noMargin color_0">
       <div class="bg" style="transition: 100ms; transform: matrix(1, 0, 0, 1, 0, 0);">
@@ -16,7 +16,7 @@
           <h6 id="2" class="description_two">{{home.description.two | uppercase}}</h6>
         </div>
         <div class="scroll_hint">
-          <h6 id="3" class="scroll" v-show="false">{{home.description.scroll | uppercase}}</h6>
+          <!-- <h6 id="3" class="scroll" v-show="false">{{home.description.scroll | uppercase}}</h6> -->
           <div class="circle">
             <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <image xlink:href="images/down_arrow.svg" x="0" y="0" height="100" width="100" />
@@ -97,7 +97,7 @@ module.exports = {
       document.getElementById('wrapper').style.height = 'auto';
       //scrambling
       var index = 0;
-      var scrambleItems = ["0", "1", "2", "3"];
+      var scrambleItems = ["0", "1", "2"];
       scr.scramble(scrambleItems, this.home.description);
       for (var key in this.home.description) {
         if (this.home.description.hasOwnProperty(key)) {
@@ -138,7 +138,7 @@ module.exports = {
     trans: function(){
       console.log("transition done");
     },
-    mouseenter: function(item){
+    mouseenter: function(item, event){
       if(!_.checkForMobile() && screen.width >= 699){
         op.isAnimating = true;
         var el = item.getElementsByClassName('bg');
@@ -146,6 +146,7 @@ module.exports = {
         var x = Math.abs( _.floor((event.clientX / window.innerWidth) * op.strength)),
             y = Math.abs(_.floor((event.clientY / window.innerHeight) * op.strength - offsetY));
         window.requestAnimationFrame(function() {
+          // console.log("Enter x: ", x, "y: ", y);
           el[0].style.transition  ='300ms';
           el[0].style.transform = 'matrix(' + op.scale + ',0,0,' + op.scale  + ',' + x + ',' + y + ')';
           // el[0].addEventListener(transitionEvent, inHandler(el), false);
@@ -175,6 +176,7 @@ module.exports = {
 
           window.requestAnimationFrame(function() {
             // el[0].style['-webkit-transition']  ='none';
+            // console.log("Move x: ", x, "y: ", y);
             el[0].removeEventListener("transitionend", handler);
             el[0].style.transition  ='none';
             // el[0].style['-webkit-transform'] = 'matrix(' + op.scale + ',0,0,' + op.scale + ',' + x + ',' + y + ')';

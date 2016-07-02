@@ -198,8 +198,18 @@ article{
                     display: none;
                   }
 
-                  @include breakpoint(large down) {
+                  @include breakpoint(medium) {
                     margin-top: 2rem;
+                    font-size: modular-scale(1.5, 0.5rem, 1.234)!important;
+                  }
+
+                  @include breakpoint(large) {
+                    margin-top: 2rem;
+                    font-size: modular-scale(1.5, 0.5rem, 1.234)!important;
+                  }
+
+                  @include breakpoint(xlarge) {
+                    margin-top: 0rem;
                     font-size: modular-scale(3, 0.5rem, 1.234)!important;
                   }
 
@@ -245,19 +255,40 @@ article{
   margin-top: 1rem;
 
   h6{
-    letter-spacing: 5px;
     color: #FFF;
   }
 
-  @include breakpoint(medium down) {
-    margin-left: calc(15% + 1.5rem) !important;
-    width: 70% !important;
-    font-size: modular-scale(0, 0.6rem, 1.234)!important;
+  @include breakpoint(small down) {
+    margin-left: calc(15% + 1.5rem);
+    width: 70%;
+    font-size: modular-scale(0, 0.6rem, 1.234);
     h6{
-      font-size: modular-scale(0, 0.6rem, 1.234)!important;
+      font-size: modular-scale(0, 0.6rem, 1.234);
       letter-spacing: 2px;
     }
   }
+
+  @include breakpoint(medium) {
+    margin-left: calc(15% + 1.5rem) ;
+    width: 70%;
+    font-size: modular-scale(1, 0.6rem, 1.234);
+    h6{
+      font-size: modular-scale(1, 0.6rem, 1.234);
+      letter-spacing: 2px;
+    }
+  }
+
+  @include breakpoint(large) {
+    width: 45%;
+    margin-left: 45%;
+    font-size: modular-scale(2, 0.6rem, 1.234);
+    h6{
+      font-size: modular-scale(2, 0.6rem, 1.234);
+      letter-spacing: 5px;
+    }
+  }
+
+
 
   // @include breakpoint(medium down) {
   //   margin-left: 25%;
@@ -403,25 +434,41 @@ article{
   position: relative;
   float: right;
   z-index: 2;
-  margin-right: 9%;
   margin-bottom: 4%;
   margin-top: 5rem;
+  @include use-normal-font($extraBold, 400, 0, 0px, rgb(255, 255, 255));
   h3{
-    font-size: modular-scale(5, 1rem, 1.234)!important;
     color: #FFF;
-    margin-bottom: 1rem;
   }
-  @include use-normal-font($extraBold, 400, 0, 20px, rgb(255, 255, 255));
   // border-bottom: 4px solid rgba(255, 255, 255, 0.8);
-
-  @include breakpoint(medium down) {
+  @include breakpoint(small down) {
     text-align: center;
     margin-right: calc(15% - 1.5rem);
     letter-spacing: 8px;
     // margin-right: 2.5%;
     // border-bottom: 2px solid rgba(255, 255, 255, 0.8);
     h3{
-      font-size: modular-scale(3, 1rem, 1.234)!important;
+      font-size: modular-scale(2, 1rem, 1.234);
+    }
+  }
+  @include breakpoint(medium) {
+    text-align: center;
+    margin-right: calc(15% - 1.5rem);
+    letter-spacing: 8px;
+    // margin-right: 2.5%;
+    // border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    h3{
+      font-size: modular-scale(3, 1rem, 1.234);
+    }
+  }
+  @include breakpoint(large) {
+    margin-right: 9%;
+    letter-spacing: 20px;
+    // margin-right: 2.5%;
+    // border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    h3{
+      font-size: modular-scale(5, 1rem, 1.234);
+      margin-bottom: 1rem;
     }
   }
 }

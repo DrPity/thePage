@@ -2,7 +2,7 @@
   "redirect": true,
   "nextRoute": "home",
   "contact": {
-    "mail": "someTestMail@test.com",
+    "mail": "hello@heterogondesign.com",
     "vimeo": "http://www.google.de"
   },
   "preloader": {
@@ -15,8 +15,7 @@
     "description": {
       "name": "MICHAEL SCHADE",
       "one": "INTERACTION",
-      "two": "DESIGN",
-      "scroll": "SCROLL"
+      "two": "DESIGN"
     },
     "background": {
       "logo": "url(images/logo.png)",
@@ -146,7 +145,7 @@
       "WebGl",
       "Html, Javascript, CSS",
       "Vue, Angular, React",
-      "SASS, Gulp, Grunt",
+      "SASS, Gulp, Ionic",
       "C++, Java, Python"
     ]
   },

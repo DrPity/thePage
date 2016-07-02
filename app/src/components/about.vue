@@ -1,10 +1,10 @@
 <template>
-<div class="root" transition="slide">
 <navigation
 :showhome="true"
 :showabout="false"
 transition="fade"
 ></navigation>
+<div class="root" transition="slide">
 <div class="about">
   <div class="row expanded align-middle">
     <div class="small-12 columns" style="margin-top: 5rem;">
@@ -116,6 +116,34 @@ module.exports = {
       required: true
     },
     musicalcubes:{
+      type: Object,
+      required: true
+    },
+    humanandmachine:{
+      type: Object,
+      required: true
+    },
+    thewall:{
+      type: Object,
+      required: true
+    },
+    lightminers:{
+      type: Object,
+      required: true
+    },
+    mubrace:{
+      type: Object,
+      required: true
+    },
+    cucumbis:{
+      type: Object,
+      required: true
+    },
+    goldmann:{
+      type: Object,
+      required: true
+    },
+    thepictures:{
       type: Object,
       required: true
     },

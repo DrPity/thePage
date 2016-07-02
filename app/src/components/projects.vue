@@ -77,25 +77,26 @@ module.exports = {
     if (app.getRouter().app.$data.redirect === false){
       setTimeout(function(){ $('.work').addClass('transform'); }, 500);
       var el = this.$el.getElementsByClassName('the-project-list');
+      var endTag = this.$el.getElementsByClassName('endTag');
       var endEl = this.$el.getElementsByClassName('footer');
       var navEl = document.getElementsByClassName('nav-links');
       var _this = this;
-      var multiplier = 0.58;
+      var multiplier = 0.78;
       var eloffset = _.getOffset(el[0]).top;
-      var endValue = Math.ceil(_.getOffset(endEl[0]).top * multiplier);
       var orientation = _.orientation();
       if(_.checkForMobile() && !this.transition){
         window.onscroll = function (e) {
           var offset = window.pageYOffset,
               startValue = Math.floor(eloffset * multiplier),
+              endValue = Math.ceil(_.getOffset(endEl[0]).top - startValue),
               currentOrientation = _.orientation();
 
           if(currentOrientation !== orientation){
-            endValue = Math.ceil(_.getOffset(endEl[0]).top * multiplier);
+            eloffset = _.getOffset(el[0]).top;
             orientation = currentOrientation;
           }
 
-          // console.log("Offset: ", offset, " Start: ", startValue, " End: ", endValue, " Orientation: ", orientation);
+          // console.log("Offset: ", offset, " Start: ", startValue, " End: ", endValue, " Orientation: ", orientation, "endTag: ", Math.ceil(_.getOffset(endTag[0]).top) , "Footer: ", Math.ceil(_.getOffset(endEl[0]).top));
 
           if(window.innerWidth >= 1024){checkNav(startValue, offset, navEl);}
           if(offset >= startValue && offset <= endValue)

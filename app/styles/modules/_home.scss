@@ -63,10 +63,10 @@
 
 .scroll_hint{
   position: absolute;
-  bottom: 11vh;
+  bottom: 14vh;
   left: 50%;
   @include breakpoint(medium down) {
-    bottom: 4vh;
+    bottom: 5vh;
     font-size: modular-scale(0, 0.2rem, 1.234)!important;
   }
   transform: translateX(-50%) translateY(-50%);

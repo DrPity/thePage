@@ -46,21 +46,21 @@ module.exports = {
   },
 
   ready: function() {
-    console.log("preloader init");
+    // console.log("preloader init");
     Preloader.init();
     app.getRouter().app.$data.redirect = false;
     // document.cookie="cached";
   },
 
   beforeDestroy: function(e) {
-    console.log("Redirect test", this);
+    // console.log("Redirect test", this);
   },
 
   methods: {
 
     remove: function(){
-      console.log("Remove this element: ", this);
-      this.$remove(0,false);
+      // console.log("Remove this element: ", this);
+      // this.$remove(0,false);
     }
 
   },

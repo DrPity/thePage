@@ -45,7 +45,7 @@ function App(url) {
   this.trans = new this.Transitions();
   this.router = new Router({
     hashbang: true,
-    history: true,
+    history: false,
     abstract: false,
     transitionOnLoad: true,
     saveScrollPosition: false,
@@ -81,7 +81,7 @@ App.prototype.init = function (url) {
 };
 
 App.prototype.readJson = function (url) {
-  console.log('In read Json');
+  // console.log('In read Json');
   return $.getJSON(url).then(function (data) {
     // console.log(JSON.stringify(data, null, 2));
     return data;
@@ -169,7 +169,4 @@ App.prototype.newVue = function (element, dataAtrributes) {
 
 //remove global Variable after finsihed debugging
 attachFastClick(document.body);
-window.onpopstate = function(event) {
-    console.log("state: " , event.state);
-};
 window.startApp = new App('./assets/model.json');
