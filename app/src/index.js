@@ -27,25 +27,19 @@ var thepictures = require('./components/pictures.vue');
 var about = require('./components/about.vue');
 var attachFastClick = require('fastclick');
 window.PIXI = require('pixi.js');
-// var VueTouch = require('vue-touch');
-
-
-Vue.use(require('vue-image-loader'),{
-  loadInfo: 'Loading',
-  timeout:100
-});
 
 // window.p5 = require('p5');
 // Vue.use(VueTouch);
 Vue.use(Router);
+Vue.config.devtools = false;
 
 function App(url) {
   this.mainView = null;
   this.Transitions = require('./transitions');
   this.trans = new this.Transitions();
   this.router = new Router({
-    hashbang: true,
-    history: false,
+    hashbang: false,
+    history: true,
     abstract: false,
     transitionOnLoad: true,
     saveScrollPosition: false,
@@ -151,7 +145,7 @@ App.prototype.createRouterMap = function () {
 App.prototype.redirectionMap = function () {
 
   this.router.redirect({
-    '*': '/',
+    '/': '/home',
   });
 
 };

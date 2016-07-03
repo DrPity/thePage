@@ -58,7 +58,7 @@
               <div class="row noMargin align-center small-collapse">
                 <div class="small-12 large-9 xlarge-7 columns small-centered margin">
                   <img class="b-lazy"
-                	 src="/images/load.gif"
+                	 src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
                 	 data-src="{{media.src}}"
                 	 alt="Image description" />
                 </div>

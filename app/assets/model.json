@@ -453,7 +453,7 @@
           },
           {
             "type": "TEXT",
-            "content": "The heart of the <i>Mu:Brace</i> prototype is a Teensy 3.0 microcontroller which has a small physical size and the advantage of native support for USBMIDI. By this, it allows for an easy communication with different music programs. All the hardware is fitted into a custom 3D printed casing made from ABS plastic. Some of the contained Mu:Brace hardware and technical features are described in the following:",
+            "content": "The heart of the <i>Mu:Brace</i> prototype is a Teensy 3.0 microcontroller which has a small physical size and the advantage of native support for USBMIDI. This allows an easy communication with different music programs. All the hardware is fitted into a custom 3D printed casing made from ABS plastic. Some of the contained <i>Mu:Brace</i> hardware and technical features are described in the following:",
             "marginb": "0"
           },
           {
@@ -462,7 +462,7 @@
           },
           {
             "type": "TEXT",
-            "content": "<b>Rotary Encoders and Buttons:</b> The rotary knobs of the Mu:Brace are encoders which can rotate endlessly. This property has the disadvantage that the user does not get tactile feedback when a minimum or maximum value is reached. On the other hand this allows for realtime remapping of the encoder input to different parameters without value jumps. By using visual feedback such as a LED graph, the problem with feedback of minimum and maximum limits can be reduced.<br><br><b>Visualizing the Input Given by the User:</b> To give the user visual feedback when using the different interaction techniques, a LED bar can be used to show changes of parameter values. This is especiallz useful for animated values or parameters that are controlled by sensors that don’t give tactile feedback (as described above).",
+            "content": "<b>Rotary Encoders and Buttons:</b> The rotary knobs of the <i>Mu:Brace</i> are encoders which can rotate endlessly. This property has the disadvantage that the user does not get tactile feedback when a minimum or maximum value is reached. On the other hand this allows for realtime remapping of the encoder input to different parameters without value jumps. By using visual feedback such as a LED graph, the problem with feedback of minimum and maximum limits can be reduced.<br><br><b>Visualizing the Input Given by the User:</b> To give the user visual feedback when using the different interaction techniques, a LED bar can be used to show changes of parameter values. This is especially useful for animated values or parameters that are controlled by sensors that don’t give tactile feedback (as described above).",
             "marginb": "0"
           },
           {
