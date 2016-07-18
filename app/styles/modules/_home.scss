@@ -44,8 +44,12 @@
 
 .bg-overlay{
   position: absolute;
-  width: 100%;
+  width: calc(100% - 2rem);
   height: 100vh;
+
+  @include breakpoint(medium up) {
+    width: calc(100% - 1rem);
+  }
 }
 
 .contact{
